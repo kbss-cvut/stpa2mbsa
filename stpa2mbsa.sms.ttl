@@ -72,8 +72,8 @@
   sm:next :extract-term-occurrences ;
   km-text-analysis:language "en";
   km-text-analysis:service-url "https://kbss.felk.cvut.cz/czech-text-analysis/annotate";
-  km-text-analysis:vocabulary-iri "http://onto.fel.cvut.cz/ontologies/slovnik/slovník-komponent-a-zádavd---markéta-dp-lower-case";
-  km-text-analysis:vocabulary-repository "https://graphdb.onto.fel.cvut.cz/repositories/termit-csat";
+  km-text-analysis:vocabulary-iri "http://onto.fel.cvut.cz/ontologies/slovnik/reliablity";
+  km-text-analysis:vocabulary-repository "https://graphdb.onto.fel.cvut.cz/repositories/termit-dev";
   km-text-analysis:literals-per-request 10000;
   sml:selectQuery [
       a sp:Select ;
