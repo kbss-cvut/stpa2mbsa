@@ -61,7 +61,7 @@
       a sp:str ;
       sp:arg1 : ;
     ] ;
-  km-tabular:delimiter "\u0009" ;
+  km-tabular:delimiter "\t" ;
   km-tabular:quote-character "\"" ;
   rdfs:label "rdfize-input-data" ;
 .
