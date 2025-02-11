@@ -54,6 +54,7 @@
 
 :rdfize-input-data
   a kbss-module:tabular ;
+  sm:next :annotate-scenarios ;
   km-tabular:source-resource-uri [
       sp:varName "datasetResource" ;
     ] ;
