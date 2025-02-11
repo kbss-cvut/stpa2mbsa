@@ -83,7 +83,7 @@
         ?s :scenario ?literal .
       }""" ;
   ] ;
-  sml:replace false;
+  sml:replace true ;
 .
 
 :extract-term-occurrences
