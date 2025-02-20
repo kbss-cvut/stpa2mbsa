@@ -14,6 +14,7 @@ function getOrCreateLossScenariosTtlFile() {
     "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
     "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
     "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .",
+    "@base <http://www.fd.cvut.cz/ontologies/stpa-mbsa#> .",
     "",
   ].join("\n");
   return DriveApp.createFile(LOSS_SCENARIOS_TTL_FILE, prefixes);
@@ -37,16 +38,17 @@ function appendToLossScenariosTtlFile(text) {
   file.setContent(oldContent + "\n" + text);
 }
 
-function generateLossScenarioTtlSnippet(type, scenarioId, controller, controlAction, controlledProcess, context) {
+function generateLossScenarioTtlSnippet(scenarioId, controller, controlAction, controlledProcess, context) {
   const ontoScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
   const ontoController = controller?.replace(/\s+/g, "_");
   const ontoControlAction = controlAction?.replace(/\s+/g, "_");
   const ontoControlledProcess = controlledProcess?.replace(/\s+/g, "_");
-  const mappedType = "LossScenarioType" + type;
+  const typeMatch = ontoScenarioId.match(/LS-\d+_(\d+)/);
+  const type = typeMatch ? typeMatch[1] : "UnknownType";
 
   const ttlSnippet = `
 :${ontoScenarioId} a :LossScenario ;
-    :has_type :${mappedType} ;
+    :has_type :${type} ;
     :has_controller :${ontoController} ;
     :has_control_action :${ontoControlAction} ;
     :has_controlled_process :${ontoControlledProcess} ;

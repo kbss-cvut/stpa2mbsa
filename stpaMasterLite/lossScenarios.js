@@ -510,11 +510,7 @@ function exportAllMetadataToLossScenariosTtl() {
 
   for (const scenarioId in allMetadata) {
     const meta = allMetadata[scenarioId];
-    // Here, meta might not include a “type” property, so you may need to extract it
-    // (for example, by inferring it from the column where the loss scenario was generated)
-    // For this example, assume you have a valid type stored in meta.type
     const ttlSnippet = generateLossScenarioTtlSnippet(
-      meta.type || "UnknownType",
       scenarioId,
       meta.controller,
       meta.controlAction,
@@ -526,4 +522,3 @@ function exportAllMetadataToLossScenariosTtl() {
 
   SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!");
 }
-
