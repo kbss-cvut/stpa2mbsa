@@ -89,7 +89,7 @@ function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 6) 
+  setLossScenarioMetaData(csInfo, context, row, 6)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_ONE_COLUMN}, row);
 }
@@ -108,7 +108,7 @@ function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 6) 
+  setLossScenarioMetaData(csInfo, context, row, 6)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_ONE_COLUMN}, row);
 }
@@ -137,7 +137,7 @@ function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
   if (!scenario) {
     scenario = `${csInfo.controller} ${context.stops ? "stops" : "continues"} providing the ${csInfo.controlAction} action ${context.measure}\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} on time`;
   }
-  
+
   setLossScenarioMetaData(csInfo, context, row, 6)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_ONE_COLUMN}, row);
@@ -170,7 +170,6 @@ function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   }
   setLossScenarioMetaData(csInfo, context, row, 7)
 
-
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_TWO_COLUMN}, row);
 }
 
@@ -185,7 +184,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
     scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text}\n- ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 8) 
+  setLossScenarioMetaData(csInfo, context, row, 8)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_THREE_COLUMN}, row);
 }
@@ -200,7 +199,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text}\n- ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 8)  
+  setLossScenarioMetaData(csInfo, context, row, 8)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_THREE_COLUMN}, row);
 }
@@ -214,8 +213,8 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
   if (!scenario) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text}\n- ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   }
-  
-  setLossScenarioMetaData(csInfo, context, row, 8) 
+
+  setLossScenarioMetaData(csInfo, context, row, 8)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_THREE_COLUMN}, row);
 }
@@ -229,7 +228,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration\n- ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
   }
 
-  setLossScenarioMetaData(csInfo, null, row, 8) 
+  setLossScenarioMetaData(csInfo, null, row, 8)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_THREE_COLUMN}, row);
 }
@@ -245,8 +244,7 @@ function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text}\n- ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 9)  
-  
+  setLossScenarioMetaData(csInfo, context, row, 9)
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_FOUR_COLUMN}, row);
 }
 
@@ -260,7 +258,7 @@ function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text}\n- ${csInfo.controlledProcess} responds (by <...>)`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 9)  
+  setLossScenarioMetaData(csInfo, context, row, 9)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_FOUR_COLUMN}, row);
 }
@@ -289,11 +287,10 @@ function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration\n- ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
   }
 
-  setLossScenarioMetaData(csInfo, null, row, 9)   
+  setLossScenarioMetaData(csInfo, null, row, 9)
 
   setLossScenario({scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`, type: LOSS_SCENARIO_TYPE_FOUR_COLUMN}, row);
 }
-
 
 function extractContextFromUnsafeControlAction(uca, ucaType, controller, controlAction) {
   let context;
@@ -336,7 +333,6 @@ function startWith(start, context) {
   }
   return `${start} ${context}`;
 }
-
 
 function extractContextFromTemporalUnsafeControlAction(uca, controller, controlAction) {
   // Pattern: `${controller} provides the ${controlAction} action too early/late/out of order `
@@ -394,10 +390,10 @@ function setLossScenario(scenario, row) {
   lsCell.setValue(scenario.scenario);
   lsCell.setWrap(true);
   lsCell.setVerticalAlignment("middle");
-  
+
   const idMatch = scenario.scenario.match(/\((LS-[\w.-]+)\)/);
   if (!idMatch) {
-    return; 
+    return;
   }
   const scenarioId = idMatch[1];
 
@@ -439,14 +435,14 @@ function setLossScenario(scenario, row) {
   const controlledProcess = metadata.controlledProcess;
   const context = metadata.context;
 
-  // addLossScenarioToOntology(
-  //   scenario.type - 1,
-  //   scenarioId,
-  //   controller,
-  //   controlAction,
-  //   controlledProcess,
-  //   context
-  // );
+  addLossScenarioToOntology(
+    scenario.type - 1,
+    scenarioId,
+    controller,
+    controlAction,
+    controlledProcess,
+    context
+  );
 }
 
 function getLossScenarios() {
@@ -458,41 +454,20 @@ function getLossScenarios() {
   const scenarioMap = {};
   lossScenarios.forEach(ls => {
     const idMatch = ls.match(/\((LS-\w+\.\w+)\)/);
-        if (idMatch === null || idMatch.length !== 2) {
-          return;
-        }
-        const id = idMatch[1];
-        scenarioMap[id] = ls;
+    if (idMatch === null || idMatch.length !== 2) {
+      return;
+    }
+    const id = idMatch[1];
+    scenarioMap[id] = ls;
   });
   return scenarioMap;
-}
-
-function addLossScenarioToOntology(type, scenarioId, controller, controlAction, controlledProcess, context) {
-  const ontoScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
-  const ontoController = controller?.replace(/\s+/g, "_");
-  const ontoControlAction = controlAction?.replace(/\s+/g, "_");
-  const ontoControlledProcess = controlledProcess?.replace(/\s+/g, "_");
-
-  let ttlSnippet = `
-:${ontoScenarioId} a :LossScenario ;
-    :hasType :${type}
-    :hasController :${ontoController} ;
-    :hasControlAction :${ontoControlAction} ;
-    :hasControlledProcess :${ontoControlledProcess} ;
-    ${context != null ? `:hasContext :"${context}"` : `:hasContext :false`} .
-`;
-
-  // If you also want to map to MBSA variables, you can add lines like:
-  // ttlSnippet += `    :mapsToMBSA :SomeAltaRicaVariable ;\n`;
-
-  appendToTtlFile(ttlSnippet);
 }
 
 function getAllMetadata() {
   const sheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
   const ucas = sheet.getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`).getValues();
   const nonEmptyRows = ucas.filter(rowValue => rowValue[0]).length;
-  const lastRow = (UCA_SHEET_HEADER_ROW_COUNT || 0) + nonEmptyRows; 
+  const lastRow = (UCA_SHEET_HEADER_ROW_COUNT || 0) + nonEmptyRows;
   const metadataMap = {};
 
   for (let row = LOSS_SCENARIOS_HEADER_ROWS + 1; row <= lastRow; row++) {
@@ -530,29 +505,25 @@ function getAllMetadata() {
   return metadataMap;
 }
 
-function exportAllMetadataToTtl() {
+function exportAllMetadataToLossScenariosTtl() {
   const allMetadata = getAllMetadata();
-  
+
   for (const scenarioId in allMetadata) {
     const meta = allMetadata[scenarioId];
-    const ontoScenarioId = scenarioId.replace(/[^\w-]/g, "_");
-    const typeMatch = ontoScenarioId.match(/LS-\d+_(\d+)/);
-    const type = typeMatch ? typeMatch[1] : "UnknownType";
-    const ontoController = (meta.controller || "UnknownController").replace(/\s+/g, "_");
-    const ontoAction = (meta.controlAction || "UnknownAction").replace(/\s+/g, "_");
-    const ontoProcess = (meta.controlledProcess || "UnknownProcess").replace(/\s+/g, "_");
-    const contextStr = meta.context || "";
-
-    const ttlSnippet = `
-:${ontoScenarioId} a :LossScenario ;
-    :hasType :${type} ;
-    :hasController :${ontoController} ;
-    :hasControlAction :${ontoAction} ;
-    :hasControlledProcess :${ontoProcess} ;
-    :hasContext :"${contextStr}" .
-`;
-    appendToTtlFile(ttlSnippet);
+    // Here, meta might not include a “type” property, so you may need to extract it
+    // (for example, by inferring it from the column where the loss scenario was generated)
+    // For this example, assume you have a valid type stored in meta.type
+    const ttlSnippet = generateLossScenarioTtlSnippet(
+      meta.type || "UnknownType",
+      scenarioId,
+      meta.controller,
+      meta.controlAction,
+      meta.controlledProcess,
+      meta.context
+    );
+    appendToLossScenariosTtlFile(ttlSnippet);
   }
 
-  SpreadsheetApp.getUi().alert("Exported all metadata to TTL!");
+  SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!");
 }
+
