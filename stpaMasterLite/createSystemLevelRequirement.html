@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form id="create-slr">
+      <div style="margin-bottom: 1rem">
+        System-level requirement<br/>
+        <textarea rows="3" cols="73" name="description" style="width: 99%"><?= existing.description || "" ?></textarea>
+      </div>
+      <div style="margin-bottom: 1rem">
+        Reference
+        <br/>
+        <select name="scenarios" multiple="true" size="10" style="width: 100%; height: <?= lossScenariosHeight?>px">
+          <? let keys = Object.keys(lossScenarios);
+             for (let i = 0; i < keys.length; i++) {
+             const scenario = lossScenarios[keys[i]]; ?>
+          <option value="<?=keys[i] ?>" title="<?=scenario ?>" <?=existing.references.indexOf(keys[i]) !== -1 ? "selected" : ""?>> <?=scenario ?></option>
+          <? } ?>
+        </select>
+      </div>
+      <div style="margin-bottom: 1rem">
+        Rationale/assumption<br/>
+        <textarea rows="3" cols="73" name="rationale" style="width: 99%"><?= existing.rationale || "" ?></textarea>
+      </div>
+      <div style="float: right">
+        <input id="create-slr-save" type="button" value="Save" onclick="onSubmit()" style="width: 7rem"/>
+        &nbsp;
+        <input id="create-slr-save-add" type="button" value="Save and add another" onclick="onSubmitAndAdd()"/>
+      </div>
+      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem;">
+        <i>Please wait...</i>
+      </div>
+
+      <input type="hidden" name="existing" value="<?=existing.isExisting ?>"/>
+      <input type="hidden" name="row" value="<?=existing.row ?>"/>
+    </form>
+    <script>
+      function onSuccess() {google.script.host.close();}
+
+      function onSubmit() {
+        document.getElementById("please-wait").style.visibility = "visible";
+        document.getElementById("create-slr-save").disabled = true;
+        document.getElementById("create-slr-save-add").disabled = true;
+        google.script.run.withSuccessHandler(onSuccess).onSystemLevelRequirementSubmit(extractFormData());
+      }
+
+      function extractFormData() {
+        const form = document.getElementById("create-slr");
+        const elements = form.elements;
+        const result = {};
+        for(let i = 0 ; i < elements.length ; i++){
+          const item = elements.item(i);
+          if (item.name === "scenarios") {
+            result[item.name] = Array.from(item.options).filter(o => o.selected === true).map(o => o.value);
+          } else {
+            result[item.name] = item.value;
+          }
+        }
+        return result;
+      }
+
+      function onSubmitAndAdd() {
+        document.getElementById("please-wait").style.visibility = "visible";
+        document.getElementById("create-slr-save").disabled = true;
+        document.getElementById("create-slr-save-add").disabled = true;
+        const data = extractFormData();
+        data.addAnother = true;
+        google.script.run.withSuccessHandler(onSuccess).onSystemLevelRequirementSubmit(data);
+      }
+
+      window.onload = function() {
+        document.getElementsByName("description")[0].focus();
+      }
+    </script>
+  </body>
+</html>

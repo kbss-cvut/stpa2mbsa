@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+      <? if (violations.length == 0) {?>
+        <p>No issues detected.</p>
+      <? } else {?>
+      <ul>
+        <? for (let i = 0; i < violations.length; i++) { ?>
+          <li><?=violations[i] ?></li>
+        <? }?>
+      </ul>
+      <? } ?>
+      <div style="float: right">
+        <input id="validation-result-step" type="hidden" value="<?=step ?>" />
+        <input id="validation-rerun" type="button" value="Rerun" style="width: 7rem" onclick="rerunValidation()"/>
+      </div>
+      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem;">
+        <i>Please wait...</i>
+      </div>
+
+      <script>
+        function rerunValidation() {
+          document.getElementById("please-wait").style.visibility = "visible";
+          document.getElementById("validation-rerun").disabled = true;
+          google.script.run.rerunValidation(document.getElementById("validation-result-step").value);
+        }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <form id="create-loss" name="create-loss">
+      <div style="margin-bottom: 1rem">
+        Description<br/>
+        <textarea rows="3" cols="60" name="description"></textarea>
+      </div>
+      <div style="float: right">
+        <input id="create-loss-save" type="button" value="Save" onclick="onSubmit()" style="width: 7rem"/>
+        &nbsp;
+        <input id="create-loss-save-add" type="button" value="Save and add another" onclick="onSubmitAndAdd()"/>
+      </div>
+      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem;">
+        <i>Please wait...</i>
+      </div>
+    </form>
+    <script>
+      function onSuccess() {google.script.host.close();}
+
+      function onSubmit() {
+        document.getElementById("please-wait").style.visibility = "visible";
+        document.getElementById("create-loss-save").disabled = true;
+        document.getElementById("create-loss-save-add").disabled = true;
+        google.script.run.withSuccessHandler(onSuccess).onLossSubmit(extractFormData());
+      }
+
+      function extractFormData() {
+        const form = document.getElementById("create-loss");
+        const elements = form.elements;
+        const result = {
+          type: form.name
+        };
+        for(let i = 0 ; i < elements.length ; i++){
+          const item = elements.item(i);
+          result[item.name] = item.value;
+        }
+        return result;
+      }
+
+      function onSubmitAndAdd() {
+        document.getElementById("please-wait").style.visibility = "visible";
+        document.getElementById("create-loss-save").disabled = true;
+        document.getElementById("create-loss-save-add").disabled = true;
+        const data = extractFormData();
+        data.addAnother = true;
+        google.script.run.withSuccessHandler(onSuccess).onLossSubmit(data);
+      }
+
+      window.onload = function() {
+        document.getElementsByName("description")[0].focus();
+      }
+    </script>
+  </body>
+</html>
