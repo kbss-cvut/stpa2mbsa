@@ -1,77 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <base target="_top">
+    <base target="_top" />
   </head>
   <body>
     <form id="create-uca" name="create-uca">
       <div style="margin-bottom: 1rem">
-        Description (add context, revise and edit the entire UCA)<br/>
-        <textarea rows="5" cols="64" name="ucaDefinition"><?= ucaTextStub ?></textarea>
+        Description (add context, revise and edit the entire UCA)<br />
+        <textarea rows="5" cols="64" name="ucaDefinition">
+<?= ucaTextStub ?></textarea
+        >
       </div>
-    <div style="margin-bottom: 1rem">
+      <div style="margin-bottom: 1rem">
         Reference
-        <br/>
-        <select name="references" multiple="true" style="width: 100%; height: <?= referencesSelectHeight?>px">
-          <? for (let i = 0; i < references.length; i++) {
-             const r = references[i];
-             const val = r.substring(0, r.indexOf(' ')); ?>
-          <option value="<?=val ?>" title="<?=r ?>"> <?=r ?></option>
+        <br />
+        <select
+          name="references"
+          multiple="true"
+          style="width: 100%; height: <?= referencesSelectHeight?>px"
+        >
+          <? for (let i = 0; i < references.length; i++) { const r =
+          references[i]; const val = r.substring(0, r.indexOf(' ')); ?>
+          <option value="<?=val ?>" title="<?=r ?>"><?=r ?></option>
           <? } ?>
         </select>
       </div>
       <? if (existing.length > 0) { ?>
       <div style="margin-bottom: 1rem">
         Overwrite
-        <select name="overwrite" style="width: 100%;">
-          <? for (let i = 0; i < existing.length; i++) {
-            const val = existing[i]; ?>
-          <option value="<?=val ?>" title="<?=val ?>"> <?=val ?></option>
+        <select name="overwrite" style="width: 100%">
+          <? for (let i = 0; i < existing.length; i++) { const val =
+          existing[i]; ?>
+          <option value="<?=val ?>" title="<?=val ?>"><?=val ?></option>
           <? } ?>
         </select>
       </div>
       <? } ?>
       <div style="float: right">
-        <input type="hidden" value="<?= row ?>" name="row"/>
-        <input type="hidden" value="<?= column ?>" name="column"/>
+        <input type="hidden" value="<?= row ?>" name="row" />
+        <input type="hidden" value="<?= column ?>" name="column" />
         <? if (existing.length > 0) { ?>
-          <input id="create-uca-overwrite-one" type="button" value="Save and overwrite selected" onclick="onSubmit('one')"/>
-          &nbsp;
-          <input id="create-uca-add" type="button" value="Add" onclick="onSubmit('none')" style="width: 7rem"/>
+        <input
+          id="create-uca-overwrite-one"
+          type="button"
+          value="Save and overwrite selected"
+          onclick="onSubmit('one')"
+        />
+        &nbsp;
+        <input
+          id="create-uca-add"
+          type="button"
+          value="Add"
+          onclick="onSubmit('none')"
+          style="width: 7rem"
+        />
         <? } else { ?>
-          <input id="create-uca-save" type="button" value="Save" onclick="onSubmit('none')" style="width: 7rem"/>
-          <? if (canAddNext) { ?>
-            &nbsp;
-            <input id="create-uca-save-add" type="button" value="Save and add another" onclick="onSubmitAndAdd()"/>
-          <? } ?>
-        <? } ?>
+        <input
+          id="create-uca-save"
+          type="button"
+          value="Save"
+          onclick="onSubmit('none')"
+          style="width: 7rem"
+        />
+        <? if (canAddNext) { ?> &nbsp;
+        <input
+          id="create-uca-save-add"
+          type="button"
+          value="Save and add another"
+          onclick="onSubmitAndAdd()"
+        />
+        <? } ?> <? } ?>
       </div>
-      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem;">
+      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem">
         <i>Please wait...</i>
       </div>
     </form>
     <script>
-      function onSuccess() {google.script.host.close();}
+      function onSuccess() {
+        google.script.host.close();
+      }
 
       function onSubmit(overwriteType) {
         document.getElementById("please-wait").style.visibility = "visible";
-        (document.getElementById("create-uca-overwrite-one") || {}).disabled = true;
+        (document.getElementById("create-uca-overwrite-one") || {}).disabled =
+          true;
         (document.getElementById("create-uca-add") || {}).disabled = true;
         (document.getElementById("create-uca-save") || {}).disabled = true;
         (document.getElementById("create-uca-save-add") || {}).disabled = true;
         const data = extractFormData();
         data.overwriteType = overwriteType;
-        google.script.run.withSuccessHandler(onSuccess).onCreateUnsafeControlActionSubmit(data);
+        google.script.run
+          .withSuccessHandler(onSuccess)
+          .onCreateUnsafeControlActionSubmit(data);
       }
 
       function extractFormData() {
         const form = document.getElementById("create-uca");
         const elements = form.elements;
         const result = {};
-        for(let i = 0 ; i < elements.length ; i++){
+        for (let i = 0; i < elements.length; i++) {
           const item = elements.item(i);
           if (item.name === "references" || item.name === "overwrite") {
-            result[item.name] = Array.from(item.options).filter(o => o.selected === true).map(o => o.value);
+            result[item.name] = Array.from(item.options)
+              .filter((o) => o.selected === true)
+              .map((o) => o.value);
           } else {
             result[item.name] = item.value;
           }
@@ -81,21 +113,24 @@
 
       function onSubmitAndAdd() {
         document.getElementById("please-wait").style.visibility = "visible";
-        (document.getElementById("create-uca-overwrite-one") || {}).disabled = true;
+        (document.getElementById("create-uca-overwrite-one") || {}).disabled =
+          true;
         (document.getElementById("create-uca-add") || {}).disabled = true;
         (document.getElementById("create-uca-save") || {}).disabled = true;
         (document.getElementById("create-uca-save-add") || {}).disabled = true;
         const data = extractFormData();
-        data.overwriteType = 'none';
+        data.overwriteType = "none";
         data.addAnother = true;
-        google.script.run.withSuccessHandler(onSuccess).onCreateUnsafeControlActionSubmit(data);
+        google.script.run
+          .withSuccessHandler(onSuccess)
+          .onCreateUnsafeControlActionSubmit(data);
       }
 
-      window.onload = function() {
+      window.onload = function () {
         const elem = document.getElementsByName("ucaDefinition")[0];
         elem.focus();
         elem.selectionStart = elem.value.length;
-      }
+      };
     </script>
   </body>
 </html>

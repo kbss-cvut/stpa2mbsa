@@ -2,7 +2,10 @@ const BASE_URL = "https://api.openai.com/v1/chat/completions";
 let API_KEY;
 
 function loadApiKey() {
-  API_KEY = SpreadsheetApp.getActive().getSheetByName("How to use").getRange(17, 1).getValue();
+  API_KEY = SpreadsheetApp.getActive()
+    .getSheetByName("How to use")
+    .getRange(17, 1)
+    .getValue();
 }
 
 function isChatGptAvailable() {
@@ -17,7 +20,7 @@ function retrieveChatGptResponse(userContent) {
   try {
     const headers = {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${API_KEY}`
+      Authorization: `Bearer ${API_KEY}`,
     };
 
     const options = {
@@ -25,18 +28,19 @@ function retrieveChatGptResponse(userContent) {
       method: "POST",
       muteHttpExceptions: true,
       payload: JSON.stringify({
-        "model": "gpt-3.5-turbo",
-        "messages": [{
-          "role": "system",
-          "content": "You are a safety analyst using the STPA methodology.",
-        },
-        {
-          "role": "user",
-          "content": userContent
-        },
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "You are a safety analyst using the STPA methodology.",
+          },
+          {
+            role: "user",
+            content: userContent,
+          },
         ],
-        "temperature": 0.5
-      })
+        temperature: 0.5,
+      }),
     };
 
     const response = JSON.parse(UrlFetchApp.fetch(BASE_URL, options));
@@ -44,8 +48,10 @@ function retrieveChatGptResponse(userContent) {
     console.log(response.choices[0].message.content);
     return response.choices[0].message.content;
   } catch (e) {
-    console.log(e)
-    SpreadsheetApp.getActiveSpreadsheet().toast("Failed to retrieve response from ChatGPT. Using an internally generated value.");
+    console.log(e);
+    SpreadsheetApp.getActiveSpreadsheet().toast(
+      "Failed to retrieve response from ChatGPT. Using an internally generated value.",
+    );
     return undefined;
   }
 }

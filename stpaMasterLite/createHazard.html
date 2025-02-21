@@ -1,66 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <base target="_top">
+    <base target="_top" />
   </head>
   <body>
     <form id="create-item">
       <div style="margin-bottom: 1rem">
-        Description<br/>
+        Description<br />
         <textarea rows="3" cols="60" name="description"></textarea>
       </div>
       <div style="margin-bottom: 1rem">
         Reference
-        <br/>
+        <br />
         <select name="losses" multiple="true" style="width: 100%">
-          <? for (let i = 0; i < losses.length; i++) {
-             const r = losses[i];
-             const val = r.substring(0, r.indexOf(' ')); ?>
-          <option value="<?=val ?>" title="<?=r ?>"> <?=r ?></option>
+          <? for (let i = 0; i < losses.length; i++) { const r = losses[i];
+          const val = r.substring(0, r.indexOf(' ')); ?>
+          <option value="<?=val ?>" title="<?=r ?>"><?=r ?></option>
           <? } ?>
         </select>
       </div>
       <? if (parents.length > 0) { ?>
       <div style="margin-bottom: 1rem">
         Parent
-        <br/>
+        <br />
         <select name="parent" style="width: 100%">
           <option value="none">--- Select ---</option>
-          <? for (let i = 0; i < parents.length; i++) {
-             const p = parents[i];
-             const val = p.substring(0, p.indexOf(' ')); ?>
-          <option value="<?=val ?>" title="<?=p ?>"> <?=p ?></option>
+          <? for (let i = 0; i < parents.length; i++) { const p = parents[i];
+          const val = p.substring(0, p.indexOf(' ')); ?>
+          <option value="<?=val ?>" title="<?=p ?>"><?=p ?></option>
           <? } ?>
         </select>
       </div>
       <? } ?>
       <div style="float: right">
-        <input id="create-hazard-save" type="button" value="Save" onclick="onSubmit()" style="width: 7rem"/>
+        <input
+          id="create-hazard-save"
+          type="button"
+          value="Save"
+          onclick="onSubmit()"
+          style="width: 7rem"
+        />
         &nbsp;
-        <input id="create-hazard-save-add" type="button" value="Save and add another" onclick="onSubmitAndAdd()"/>
+        <input
+          id="create-hazard-save-add"
+          type="button"
+          value="Save and add another"
+          onclick="onSubmitAndAdd()"
+        />
       </div>
-      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem;">
+      <div id="please-wait" style="visibility: hidden; padding-top: 0.125rem">
         <i>Please wait...</i>
       </div>
     </form>
     <script>
-      function onSuccess() {google.script.host.close();}
+      function onSuccess() {
+        google.script.host.close();
+      }
 
       function onSubmit() {
         document.getElementById("please-wait").style.visibility = "visible";
         document.getElementById("create-hazard-save").disabled = true;
         document.getElementById("create-hazard-save-add").disabled = true;
-        google.script.run.withSuccessHandler(onSuccess).onSystemLevelHazardSubmit(extractFormData());
+        google.script.run
+          .withSuccessHandler(onSuccess)
+          .onSystemLevelHazardSubmit(extractFormData());
       }
 
       function extractFormData() {
         const form = document.getElementById("create-item");
         const elements = form.elements;
         const result = {};
-        for(let i = 0 ; i < elements.length ; i++){
+        for (let i = 0; i < elements.length; i++) {
           const item = elements.item(i);
           if (item.name === "losses") {
-            result[item.name] = Array.from(item.options).filter(o => o.selected === true).map(o => o.value);
+            result[item.name] = Array.from(item.options)
+              .filter((o) => o.selected === true)
+              .map((o) => o.value);
           } else {
             result[item.name] = item.value;
           }
@@ -74,12 +89,14 @@
         document.getElementById("create-hazard-save-add").disabled = true;
         const data = extractFormData();
         data.addAnother = true;
-        google.script.run.withSuccessHandler(onSuccess).onSystemLevelHazardSubmit(data);
+        google.script.run
+          .withSuccessHandler(onSuccess)
+          .onSystemLevelHazardSubmit(data);
       }
 
-      window.onload = function() {
+      window.onload = function () {
         document.getElementsByName("description")[0].focus();
-      }
+      };
     </script>
   </body>
 </html>

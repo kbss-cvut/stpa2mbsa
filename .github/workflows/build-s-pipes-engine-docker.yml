@@ -1,7 +1,7 @@
 name: Build SPipes engine docker
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 env:
   IMAGE_NAME: s-pipes-engine

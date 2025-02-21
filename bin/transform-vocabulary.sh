@@ -10,7 +10,7 @@ fi
 
 FUNCTION_ID=transform-vocabulary
 
-SPIPES_SERVICE=http://localhost:8080/s-pipes
+SPIPES_SERVICE=http://172.25.48.1:8080/s-pipes
 
 DIR="$(dirname $(realpath -s $0))"
 

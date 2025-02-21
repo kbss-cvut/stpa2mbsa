@@ -24,6 +24,11 @@ rit:v-11521000  rdf:type  owl:Class ;
         rdfs:subClassOf  rel:Component ;
         rit:ataCode      "5210" .
 
+rel-av:Desk_Control  rdf:type  owl:Class ;
+                     rdfs:label       "Desk Control" ;
+                     rdfs:subClassOf  rel:Component ;
+                     rit:ataCode      "9999" .
+
 rit:v-11237000  rdf:type  owl:Class ;
         rdfs:label       "Audio/video monitoring" ;
         rdfs:subClassOf  rel:Component ;

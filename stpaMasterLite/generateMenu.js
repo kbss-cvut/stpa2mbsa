@@ -1,26 +1,54 @@
 function onOpen(e) {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu("STPAmaster")
-    .addSubMenu(ui.createMenu("1. Analysis purpose")
-      .addItem("Add loss (Ctrl+Alt+Shift+1)", "addLoss")
-      .addItem("Add system-level hazard (Ctrl+Alt+Shift+2)", "addSystemLevelHazard")
-      .addItem("Add system-level constraint (Ctrl+Alt+Shift+3)", "addSystemLevelConstraint")
-      .addItem("Validate", "validateStepOne")
+    .addSubMenu(
+      ui
+        .createMenu("1. Analysis purpose")
+        .addItem("Add loss (Ctrl+Alt+Shift+1)", "addLoss")
+        .addItem(
+          "Add system-level hazard (Ctrl+Alt+Shift+2)",
+          "addSystemLevelHazard",
+        )
+        .addItem(
+          "Add system-level constraint (Ctrl+Alt+Shift+3)",
+          "addSystemLevelConstraint",
+        )
+        .addItem("Validate", "validateStepOne"),
     )
-    .addSubMenu(ui.createMenu("2. Control structure")
-      .addItem("Import control structure", "showImportControlStructureDialog")
+    .addSubMenu(
+      ui
+        .createMenu("2. Control structure")
+        .addItem(
+          "Import control structure",
+          "showImportControlStructureDialog",
+        ),
     )
-    .addSubMenu(ui.createMenu("3. Unsafe control actions")
-      .addItem("Define unsafe control action (Ctrl+Alt+Shift+4)", "createUnsafeControlAction")
-      .addItem("Validate", "validateStepThree")
+    .addSubMenu(
+      ui
+        .createMenu("3. Unsafe control actions")
+        .addItem(
+          "Define unsafe control action (Ctrl+Alt+Shift+4)",
+          "createUnsafeControlAction",
+        )
+        .addItem("Validate", "validateStepThree"),
     )
-    .addSubMenu(ui.createMenu("4. Loss scenarios")
-      .addItem("Generate loss scenarios (Ctrl+Alt+Shift+5)", "generateLossScenariosForUca")
-      .addItem("Export to .ttl", "exportAllMetadataToTtl")
+    .addSubMenu(
+      ui
+        .createMenu("4. Loss scenarios")
+        .addItem(
+          "Generate loss scenarios (Ctrl+Alt+Shift+5)",
+          "generateLossScenariosForUca",
+        )
+        .addItem("Export to .ttl", "exportAllMetadataToTtl"),
     )
-    .addSubMenu(ui.createMenu("System-level requirements")
-      .addItem("Add system-level requirement (Ctrl+Alt+Shift+6)", "addSystemLevelRequirement")
-      .addItem("Validate", "validateSystemLevelRequirements")
+    .addSubMenu(
+      ui
+        .createMenu("System-level requirements")
+        .addItem(
+          "Add system-level requirement (Ctrl+Alt+Shift+6)",
+          "addSystemLevelRequirement",
+        )
+        .addItem("Validate", "validateSystemLevelRequirements"),
     )
-  .addToUi();
+    .addToUi();
 }
