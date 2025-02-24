@@ -6,13 +6,10 @@ const LOSS_SCENARIO_TYPE_TWO_COLUMN = 3;
 const LOSS_SCENARIO_TYPE_THREE_COLUMN = 4;
 const LOSS_SCENARIO_TYPE_FOUR_COLUMN = 5;
 
+
 function setUcaForLossScenarios(uca) {
-  const row =
-    Number(uca.id.substring(uca.id.indexOf("-") + 1)) +
-    LOSS_SCENARIOS_HEADER_ROWS;
-  const lsSheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
+  const row = Number(uca.id.substring(uca.id.indexOf("-") + 1)) + LOSS_SCENARIOS_HEADER_ROWS;
+  const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
   const ucaCell = lsSheet.getRange(row, 1);
   ucaCell.setValue(uca.fullText);
   ucaCell.setWrap(true);
@@ -23,52 +20,33 @@ function setUcaForLossScenarios(uca) {
 function generateLossScenariosForUca() {
   const currentCell = SpreadsheetApp.getActive().getCurrentCell();
   const uca = currentCell.getValue();
-  if (
-    SpreadsheetApp.getActive().getActiveSheet().getName() !==
-      LOSS_SCENARIOS_SHEET_NAME ||
-    currentCell.getColumn() !== 1 ||
-    uca.trim() === ""
-  ) {
-    SpreadsheetApp.getUi().alert(
-      "Select a non-empty unsafe control action cell in sheet " +
-        LOSS_SCENARIOS_SHEET_NAME,
-    );
+  if (SpreadsheetApp.getActive().getActiveSheet().getName() !== LOSS_SCENARIOS_SHEET_NAME || currentCell.getColumn() !== 1 || uca.trim() === "") {
+    SpreadsheetApp.getUi().alert("Select a non-empty unsafe control action cell in sheet " + LOSS_SCENARIOS_SHEET_NAME);
     return;
   }
   const id = extractId(uca, "UCA");
   if (!id) {
     return;
   }
-  const ucaCells = SpreadsheetApp.getActive()
-    .getSheetByName(UCA_SHEET_NAME)
-    .getRange(
-      UCA_SHEET_HEADER_ROW_COUNT + 1,
-      NOT_PROVIDING_UCA_COLUMN,
-      getLastActionRow() - UCA_SHEET_HEADER_ROW_COUNT,
-      DURATION_UCA_COLUMN + 1 - NOT_PROVIDING_UCA_COLUMN,
-    );
+  const ucaCells = SpreadsheetApp.getActive().getSheetByName(UCA_SHEET_NAME).getRange(UCA_SHEET_HEADER_ROW_COUNT + 1, NOT_PROVIDING_UCA_COLUMN, getLastActionRow() - UCA_SHEET_HEADER_ROW_COUNT, DURATION_UCA_COLUMN + 1 - NOT_PROVIDING_UCA_COLUMN);
   for (let r = 1; r <= ucaCells.getNumRows(); r++) {
     for (let c = 1; c <= ucaCells.getNumColumns(); c++) {
       const ucaCell = ucaCells.getCell(r, c);
       const ucaCellValue = ucaCell.getValue();
       if (ucaCellValue.indexOf(`(${id})`) !== -1) {
-        const definition = uca
-          .substring(uca.indexOf(")") + 1, uca.indexOf("["))
-          .trim();
+        const definition = uca.substring(uca.indexOf(")") + 1, uca.indexOf("[")).trim();
         const csInfo = getControlStructureInfo(ucaCell);
-        generateLossScenarios(
-          { id, definition, fullText: uca, type: ucaCell.getColumn() },
-          csInfo,
-          currentCell.getRow(),
-        );
+        generateLossScenarios({
+          id,
+          definition,
+          fullText: uca,
+          type: ucaCell.getColumn()
+        }, csInfo, currentCell.getRow());
         return;
       }
     }
   }
-  SpreadsheetApp.getUi().alert(
-    "Select a non-empty unsafe control action cell in sheet " +
-      LOSS_SCENARIOS_SHEET_NAME,
-  );
+  SpreadsheetApp.getUi().alert("Select a non-empty unsafe control action cell in sheet " + LOSS_SCENARIOS_SHEET_NAME);
 }
 
 // uca: id, definition, type, fullText; csInfo: controller, controlAction, controlledProcess
@@ -108,515 +86,333 @@ function generateLossScenarios(uca, csInfo, row) {
 
 // 1. Unsafe controller behavior
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `$controller does not provide $action- $controller received feedback (or other inputs) that indicated $context.`,
-      {
-        controller: csInfo.controller,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`$controller does not provide $action- $controller received feedback (or other inputs) that indicated $context.`, {
+      controller: csInfo.controller,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
+    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 6);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_ONE_COLUMN
+  }, row);
 }
 
 function retrieveScenarioForPattern(pattern, values) {
-  return retrieveChatGptResponse(
-    `Write a loss scenario using the following pattern (variables are prefixed with a $): ${pattern}. Use the following values for the variables in the pattern: ${Object.keys(
-      values,
-    )
-      .map((k) => "$" + k + "=" + values[k])
-      .join(
-        ", ",
-      )}. Return only the text of the scenario, stick to the provided pattern as much as possible.`,
-  );
+  return retrieveChatGptResponse(`Write a loss scenario using the following pattern (variables are prefixed with a $): ${pattern}. Use the following values for the variables in the pattern: ${Object.keys(values).map(k => "$" + k + "=" + values[k]).join(", ")}. Return only the text of the scenario, stick to the provided pattern as much as possible.`);
 }
 
 function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$controller provides $action - $controller received feedback (or other input) that indicated $context",
-      {
-        controller: csInfo.controller,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$controller provides $action - $controller received feedback (or other input) that indicated $context", {
+      controller: csInfo.controller,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
+    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 6);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_ONE_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `$controller provides $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context ${context.measureInverse}`,
-      {
-        controller: csInfo.controller,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`$controller provides $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context ${context.measureInverse}`, {
+      controller: csInfo.controller,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure}\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} ${context.measureInverse}`;
+    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} ${context.measureInverse}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 6);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_ONE_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `$controller ${context.stops ? "stops" : "continues"} providing $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context on time`,
-      {
-        controller: csInfo.controller,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`$controller ${context.stops ? "stops" : "continues"} providing $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context on time`, {
+      controller: csInfo.controller,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} ${context.stops ? "stops" : "continues"} providing the ${csInfo.controlAction} action ${context.measure}\n- ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} on time`;
+    scenario = `${csInfo.controller} ${context.stops ? "stops" : "continues"} providing the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} on time`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 6);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_ONE_COLUMN
+  }, row);
 }
 
 // 2. Unsafe feedback path
-function generateLossScenarioOfTypeTwoForUcaTypeOne(
-  uca,
-  csInfo,
-  row,
-  inappropriateDuration,
-) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropriateDuration) {
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "Feedback (or other inputs) received by $controller does not adequately indicate $context - it is true that $context",
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("Feedback (or other inputs) received by $controller does not adequately indicate $context - it is true that $context", {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not adequately indicate ${startWith("that", context.text)}${inappropriateDuration ? " (inappropriate duration)" : ""}\n- it is true that ${context.text}`;
+    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not adequately indicate ${startWith("that", context.text)}${inappropriateDuration ? " (inappropriate duration)" : ""} - it is true that ${context.text}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 7);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_TWO_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_TWO_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `Feedback received (or other inputs) by $controller does not indicated $context ${context.measureInverse} - it is true that $context`,
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`Feedback received (or other inputs) by $controller does not indicated $context ${context.measureInverse} - it is true that $context`, {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse}\n- it is true that ${context.text}`;
+    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
   }
   setLossScenarioMetaData(csInfo, context, row, 7);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_TWO_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_TWO_COLUMN
+  }, row);
 }
 
 // 3. Unsafe control path
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$controller does provide $action when $context - $action is not received by $controlledProcess",
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$controller does provide $action when $context - $action is not received by $controlledProcess", {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text}\n- ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
+    scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 8);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_THREE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_THREE_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$controller does not provide $action when $context - $controlledProcess receives $action when $context",
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$controller does not provide $action when $context - $controlledProcess receives $action when $context", {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text}\n- ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
+    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 8);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_THREE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_THREE_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `$controller provides $action ${context.measureInverse} when $context - $action is received by $controlledProcess ${context.measure}`,
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`$controller provides $action ${context.measureInverse} when $context - $action is received by $controlledProcess ${context.measure}`, {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text}\n- ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
+    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 8);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_THREE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_THREE_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$controller provides $action with appropriate duration - $action is received by $controlledProcess with inappropriate duration",
-      {
-        controller: csInfo.controller,
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$controller provides $action with appropriate duration - $action is received by $controlledProcess with inappropriate duration", {
+      controller: csInfo.controller,
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction
+    });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration\n- ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
+    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
   }
 
   setLossScenarioMetaData(csInfo, null, row, 8);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_THREE_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_THREE_COLUMN
+  }, row);
 }
 
 // 4. Unsafe controlled process behavior
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$action is received by $controlledProcess when $context - $controlledProcess does not respond adequately",
-      {
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$action is received by $controlledProcess when $context - $controlledProcess does not respond adequately", {
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text}\n- ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
+    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 9);
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_FOUR_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$action is not received by $controlledProcess when $context - $controlledProcess responds to the command",
-      {
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$action is not received by $controlledProcess when $context - $controlledProcess responds to the command", {
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text
+    });
   }
   if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text}\n- ${csInfo.controlledProcess} responds (by <...>)`;
+    scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds (by <...>)`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 9);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_FOUR_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
-  const context = extractContextFromUnsafeControlAction(
-    uca.definition,
-    uca.type,
-    csInfo.controller,
-    csInfo.controlAction,
-  );
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      `$action is received by $controlledProcess ${context.measureInverse} when $context - $controlledProcess does not respond adequately $measure`,
-      {
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-        context: context.text,
-        measure: context.measure,
-      },
-    );
+    scenario = retrieveScenarioForPattern(`$action is received by $controlledProcess ${context.measureInverse} when $context - $controlledProcess does not respond adequately $measure`, {
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction,
+      context: context.text,
+      measure: context.measure
+    });
   }
   if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} ${context.measureInverse} when ${context.text}\n- ${csInfo.controlledProcess} does not respond adequately (by <...>)(${context.measure})`;
+    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} ${context.measureInverse} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)(${context.measure})`;
   }
 
   setLossScenarioMetaData(csInfo, context, row, 9);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_FOUR_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
+  }, row);
 }
 
 function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(
-      "$action is received by $controlledProcess with appropriate duration - $controlledProcess does not respond adequately (inappropriate duration)",
-      {
-        controlledProcess: csInfo.controlledProcess,
-        action: csInfo.controlAction,
-      },
-    );
+    scenario = retrieveScenarioForPattern("$action is received by $controlledProcess with appropriate duration - $controlledProcess does not respond adequately (inappropriate duration)", {
+      controlledProcess: csInfo.controlledProcess,
+      action: csInfo.controlAction
+    });
   }
   if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration\n- ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
+    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration - ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
   }
 
   setLossScenarioMetaData(csInfo, null, row, 9);
 
-  setLossScenario(
-    {
-      scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)})\n${scenario}`,
-      type: LOSS_SCENARIO_TYPE_FOUR_COLUMN,
-    },
-    row,
-  );
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
+  }, row);
 }
 
-function extractContextFromUnsafeControlAction(
-  uca,
-  ucaType,
-  controller,
-  controlAction,
-) {
+function extractContextFromUnsafeControlAction(uca, ucaType, controller, controlAction) {
   let context;
   switch (ucaType) {
     case NOT_PROVIDING_UCA_COLUMN:
-      context = {
-        text: uca
-          .substring(
-            `${controller} does not provide the ${controlAction} action`.length,
-          )
-          .trim(),
-      };
+      context = { text: uca.substring(`${controller} does not provide the ${controlAction} action`.length).trim() };
       break;
     case PROVIDING_UCA_COLUMN:
-      context = {
-        text: uca
-          .substring(
-            `${controller} provides the ${controlAction} action`.length,
-          )
-          .trim(),
-      };
+      context = { text: uca.substring(`${controller} provides the ${controlAction} action`.length).trim() };
       break;
     case TEMPORAL_UCA_COLUMN:
-      context = extractContextFromTemporalUnsafeControlAction(
-        uca,
-        controller,
-        controlAction,
-      );
+      context = extractContextFromTemporalUnsafeControlAction(uca, controller, controlAction);
       break;
     case DURATION_UCA_COLUMN:
-      context = extractContextFromDurationUnsafeControlAction(
-        uca,
-        controller,
-        controlAction,
-      );
+      context = extractContextFromDurationUnsafeControlAction(uca, controller, controlAction);
       break;
     default:
       context = { text: "..." };
@@ -645,80 +441,38 @@ function startWith(start, context) {
   return `${start} ${context}`;
 }
 
-function extractContextFromTemporalUnsafeControlAction(
-  uca,
-  controller,
-  controlAction,
-) {
+function extractContextFromTemporalUnsafeControlAction(uca, controller, controlAction) {
   // Pattern: `${controller} provides the ${controlAction} action too early/late/out of order `
-  if (
-    uca.indexOf(
-      `${controller} provides the ${controlAction} action too early/late/out of order`,
-    ) !== -1
-  ) {
+  if (uca.indexOf(`${controller} provides the ${controlAction} action too early/late/out of order`) !== -1) {
     return {
-      text: uca
-        .substring(
-          `${controller} provides the ${controlAction} action too early/late/out of order`
-            .length,
-        )
-        .trim(),
+      text: uca.substring(`${controller} provides the ${controlAction} action too early/late/out of order`.length).trim(),
       measure: "too early/late/out of order",
-      measureInverse: "on time/in order",
+      measureInverse: "on time/in order"
     };
-  } else if (
-    uca.indexOf(
-      `${controller} provides the ${controlAction} action too early`,
-    ) !== -1
-  ) {
+  } else if (uca.indexOf(`${controller} provides the ${controlAction} action too early`) !== -1) {
     return {
-      text: uca
-        .substring(
-          `${controller} provides the ${controlAction} action too early`.length,
-        )
-        .trim(),
+      text: uca.substring(`${controller} provides the ${controlAction} action too early`.length).trim(),
       measure: "too early",
-      measureInverse: "on time",
+      measureInverse: "on time"
     };
-  } else if (
-    uca.indexOf(
-      `${controller} provides the ${controlAction} action too late`,
-    ) !== -1
-  ) {
+  } else if (uca.indexOf(`${controller} provides the ${controlAction} action too late`) !== -1) {
     return {
-      text: uca
-        .substring(
-          `${controller} provides the ${controlAction} action too late`.length,
-        )
-        .trim(),
+      text: uca.substring(`${controller} provides the ${controlAction} action too late`.length).trim(),
       measure: "too late",
-      measureInverse: "on time",
+      measureInverse: "on time"
     };
-  } else if (
-    uca.indexOf(
-      `${controller} provides the ${controlAction} action out of order`,
-    ) !== -1
-  ) {
+  } else if (uca.indexOf(`${controller} provides the ${controlAction} action out of order`) !== -1) {
     return {
-      text: uca
-        .substring(
-          `${controller} provides the ${controlAction} action out of order`
-            .length,
-        )
-        .trim(),
+      text: uca.substring(`${controller} provides the ${controlAction} action out of order`.length).trim(),
       measure: "out of order",
-      measureInverse: "in order",
+      measureInverse: "in order"
     };
   } else {
     return { text: "..." };
   }
 }
 
-function extractContextFromDurationUnsafeControlAction(
-  uca,
-  controller,
-  controlAction,
-) {
+function extractContextFromDurationUnsafeControlAction(uca, controller, controlAction) {
   // Pattern: `${controller} stops providing/applies the ${controlAction} action too soon/late/long`
   const actions = ["stops providing", "applies"];
   const measures = ["too soon", "too late", "too long", "too soon/late/long"];
@@ -726,11 +480,7 @@ function extractContextFromDurationUnsafeControlAction(
     for (m of measures) {
       const pattern = `${controller} ${a} the ${controlAction} action ${m}`;
       if (uca.indexOf(pattern) !== -1) {
-        return {
-          text: uca.substring(pattern.length).trim(),
-          measure: m,
-          stops: a === "stops providing",
-        };
+        return { text: uca.substring(pattern.length).trim(), measure: m, stops: a === "stops providing" };
       }
     }
   }
@@ -747,12 +497,10 @@ function setLossScenarioMetaData(csInfo, context, row, column) {
     controller: csInfo.controller,
     controlAction: csInfo.controlAction,
     controlledProcess: csInfo.controlledProcess,
-    context: context?.text,
+    context: context?.text
   };
   const metadataJson = JSON.stringify(metadataObj);
-  const lsSheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
+  const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
   const metadataCell = lsSheet.getRange(row, column);
   metadataCell.setValue(metadataJson);
   metadataCell.setWrap(true);
@@ -760,9 +508,7 @@ function setLossScenarioMetaData(csInfo, context, row, column) {
 }
 
 function setLossScenario(scenario, row) {
-  const lsSheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
+  const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
   const lsCell = lsSheet.getRange(row, scenario.type);
   lsCell.setValue(scenario.scenario);
   lsCell.setWrap(true);
@@ -770,24 +516,13 @@ function setLossScenario(scenario, row) {
 }
 
 function getLossScenarios() {
-  const sheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
-  const ucas = sheet
-    .getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`)
-    .getValues();
+  const sheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
+  const ucas = sheet.getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`).getValues();
   const lastRow = ucas.filter(String).length + UCA_SHEET_HEADER_ROW_COUNT;
-  const range = sheet.getRange(
-    LOSS_SCENARIOS_HEADER_ROWS + 1,
-    LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    lastRow,
-    4,
-  );
-  const lossScenarios = range
-    .getValues()
-    .flatMap((row) => row.filter((cell) => cell.length > 0));
+  const range = sheet.getRange(LOSS_SCENARIOS_HEADER_ROWS + 1, LOSS_SCENARIO_TYPE_ONE_COLUMN, lastRow, 4);
+  const lossScenarios = range.getValues().flatMap(row => row.filter(cell => cell.length > 0));
   const scenarioMap = {};
-  lossScenarios.forEach((ls) => {
+  lossScenarios.forEach(ls => {
     const idMatch = ls.match(/\((LS-\w+\.\w+)\)/);
     if (idMatch === null || idMatch.length !== 2) {
       return;
@@ -799,24 +534,16 @@ function getLossScenarios() {
 }
 
 function getAllMetadata() {
-  const sheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
-  const ucas = sheet
-    .getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`)
-    .getValues();
-  const nonEmptyRows = ucas.filter((rowValue) => rowValue[0]).length;
+  const sheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
+  const ucas = sheet.getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`).getValues();
+  const nonEmptyRows = ucas.filter(rowValue => rowValue[0]).length;
   const lastRow = (UCA_SHEET_HEADER_ROW_COUNT || 0) + nonEmptyRows;
   const metadataMap = {};
 
   for (let row = LOSS_SCENARIOS_HEADER_ROWS + 1; row <= lastRow; row++) {
     for (let scenarioCol = 2; scenarioCol <= 5; scenarioCol++) {
       const scenarioText = sheet.getRange(row, scenarioCol).getValue();
-      if (
-        !scenarioText ||
-        typeof scenarioText !== "string" ||
-        scenarioText.trim() === ""
-      ) {
+      if (!scenarioText || typeof scenarioText !== "string" || scenarioText.trim() === "") {
         continue;
       }
       const idMatch = scenarioText.match(/\((LS-[\w.-]+)\)/);
@@ -841,9 +568,13 @@ function getAllMetadata() {
         controller: metadataObj.controller,
         controlAction: metadataObj.controlAction,
         controlledProcess: metadataObj.controlledProcess,
-        context: metadataObj.context,
+        context: metadataObj.context
       };
     }
   }
   return metadataMap;
 }
+
+
+
+

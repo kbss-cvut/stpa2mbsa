@@ -18,46 +18,49 @@ function exportAllMetadataToLossScenariosTtl() {
       meta.controller,
       meta.controlAction,
       meta.controlledProcess,
-      meta.context,
+      meta.context
     );
     appendToLossScenariosTtlFile(ttlSnippet);
   }
 
-  SpreadsheetApp.getUi().alert(
-    "Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!",
-  );
+  SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!");
+}
+
+function exportAllMetadataToLossScenariosTtlFlat() {
+  const allMetadata = getAllMetadata();
+
+  for (const scenarioId in allMetadata) {
+    const meta = allMetadata[scenarioId];
+    const ttlSnippet = generateLossScenarioTtlSnippetFlat(
+      scenarioId,
+      meta.controller,
+      meta.controlAction,
+      meta.controlledProcess,
+      meta.context
+    );
+    appendToLossScenariosTtlFile(ttlSnippet);
+  }
+
+  SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!");
 }
 
 function exportLossScenariosToTsv() {
-  const sheet = SpreadsheetApp.getActive().getSheetByName(
-    LOSS_SCENARIOS_SHEET_NAME,
-  );
-  const ucas = sheet
-    .getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`)
-    .getValues();
+  const sheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
+  const ucas = sheet.getRange(`A${LOSS_SCENARIOS_HEADER_ROWS + 1}:A`).getValues();
   const lastRow = ucas.filter(String).length + LOSS_SCENARIOS_HEADER_ROWS;
-  const range = sheet.getRange(
-    LOSS_SCENARIOS_HEADER_ROWS + 1,
-    LOSS_SCENARIO_TYPE_ONE_COLUMN,
-    lastRow - LOSS_SCENARIOS_HEADER_ROWS,
-    4,
-  );
-  const lossScenarios = range
-    .getValues()
-    .flatMap((row) => row.filter((cell) => cell.length > 0));
+  const range = sheet.getRange(LOSS_SCENARIOS_HEADER_ROWS + 1, LOSS_SCENARIO_TYPE_ONE_COLUMN, lastRow - LOSS_SCENARIOS_HEADER_ROWS, 4);
+  const lossScenarios = range.getValues().flatMap(row => row.filter(cell => cell.length > 0));
 
-  let tsvContent = "ScenarioText\n";
+  let tsvContent = "scenario\n";
 
-  lossScenarios.forEach((scenario) => {
+  lossScenarios.forEach(scenario => {
     tsvContent += `${scenario}\n`;
   });
 
   const tsvFile = getOrCreateTsvFile();
   tsvFile.setContent(tsvContent);
 
-  SpreadsheetApp.getUi().alert(
-    "Exported all loss scenarios to " + LOSS_SCENARIOS_TSV_FILE + "!",
-  );
+  SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TSV_FILE + "!");
 }
 
 function getOrCreateTsvFile() {
@@ -106,13 +109,7 @@ function appendToLossScenariosTtlFile(text) {
   file.setContent(oldContent + "\n" + text);
 }
 
-function generateLossScenarioTtlSnippet(
-  scenarioId,
-  controller,
-  controlAction,
-  controlledProcess,
-  context,
-) {
+function generateLossScenarioTtlSnippet(scenarioId, controller, controlAction, controlledProcess, context) {
   const ontoScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
   const ontoController = controller?.replace(/\s+/g, "_");
   const ontoControlAction = controlAction?.replace(/\s+/g, "_");
@@ -126,7 +123,29 @@ function generateLossScenarioTtlSnippet(
     :has_controller :${ontoController} ;
     :has_control_action :${ontoControlAction} ;
     :has_controlled_process :${ontoControlledProcess} ;
-    :has_context "${context || ""}" .
+    :has_context "${context || ''}" .
 `;
   return ttlSnippet;
 }
+
+function generateLossScenarioTtlSnippetFlat(scenarioId, controller, controlAction, controlledProcess, context) {
+  const base = "http://www.fd.cvut.cz/ontologies/stpa-mbsa";
+
+  const ontoScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
+  const ontoController = controller?.replace(/\s+/g, "_");
+  const ontoControlAction = controlAction?.replace(/\s+/g, "_");
+  const ontoControlledProcess = controlledProcess?.replace(/\s+/g, "_");
+  const typeMatch = ontoScenarioId.match(/LS-\d+_(\d+)/);
+  const type = typeMatch ? typeMatch[1] : "UnknownType";
+
+  const ttlSnippet = `
+<${base}#${ontoScenarioId}> a <${base}#LossScenario> ;
+    <${base}#has_type> <${base}#${type}> ;
+    <${base}#has_controller> <${base}#${ontoController}> ;
+    <${base}#has_control_action> <${base}#${ontoControlAction}> ;
+    <${base}#has_controlled_process> <${base}#${ontoControlledProcess}> ;
+    <${base}#has_context> "${context || ''}" .
+`;
+  return ttlSnippet;
+}
+
