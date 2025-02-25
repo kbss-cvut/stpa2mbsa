@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INPUT_FILE_NAME=input.tsv
+INPUT_FILE_NAME=loss-scenarios.tsv
 INPUT_FILE=./target/$INPUT_FILE_NAME
 
 if [ ! "$#" -eq 0 ]; then
@@ -18,7 +18,7 @@ SPIPES_SERVICE=http://172.25.48.1:8080/s-pipes
 
 DIR="$(dirname $(realpath -s $0))"
 
-OUTPUT_FILE=./target/output.ttl.txt
+OUTPUT_FILE=./target/annotated-scenarios.ttl
 
 echo "==================================="
 echo "INFO: s-pipes service url $SPIPES_SERVICE"
