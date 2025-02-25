@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INPUT_FILE_NAME=loss-scenarios.tsv
-INPUT_FILE=./target/$INPUT_FILE_NAME
+INPUT_FILE=./data/$INPUT_FILE_NAME
 
 if [ ! "$#" -eq 0 ]; then
 	echo Transforms STPA from $INPUT_FILE to ttl

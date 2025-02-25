@@ -1,4 +1,0 @@
-scenario
-(LS-1.4)The Querry Mission Data action is received by Airline Maintenance Database when before the mission starts\n- Airline Maintenance Database does not respond adequately (by <...>)
-(LS-1.3)Control Desk does provide the Querry Mission Data action when before the mission starts- Querry Mission Data is not received by Airline Maintenance Database
-(LS-1.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that before the mission starts - it is true that before the mission starts
