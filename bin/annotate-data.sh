@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INPUT_FILE_NAME=loss-scenarios.tsv
-INPUT_FILE=./data/$INPUT_FILE_NAME
+INPUT_FILE=./data/AIDA/$INPUT_FILE_NAME
 
 if [ ! "$#" -eq 0 ]; then
 	echo Transforms STPA from $INPUT_FILE to ttl
@@ -18,7 +18,7 @@ SPIPES_SERVICE=http://172.25.48.1:8080/s-pipes
 
 DIR="$(dirname $(realpath -s $0))"
 
-OUTPUT_FILE=./target/annotated-scenarios.ttl
+OUTPUT_FILE=./target/AIDA/annotated-scenarios.ttl
 
 echo "==================================="
 echo "INFO: s-pipes service url $SPIPES_SERVICE"
