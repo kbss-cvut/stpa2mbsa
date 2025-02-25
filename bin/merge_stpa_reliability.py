@@ -39,7 +39,7 @@ def add_original_text_id(graph, original_text_predicates, id_property, file_labe
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: python mergeStpaReliability.py reliability.ttl stpa.ttl output.ttl")
+        print("Usage: python merge_stpa_reliability.py reliability.ttl stpa.ttl output.ttl")
         sys.exit(1)
 
     reliability_file = sys.argv[1]
