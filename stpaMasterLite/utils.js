@@ -71,7 +71,7 @@ function getOrCreateLossScenariosTtlFile() {
     "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
     "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .",
     "@base <http://www.fd.cvut.cz/ontologies/stpa-mbsa#> .",
-    "",
+    ""
   ].join("\n");
   return DriveApp.createFile(LOSS_SCENARIOS_TTL_FILE, prefixes);
 }
@@ -115,9 +115,9 @@ function generateLossScenarioTtlSnippet(
     :has-controller "${controller}" ;
     :has-control-action "${controlAction}" ;
     :has-controlled-process "${controlledProcess}" ;
-    :has-context "${context || ''}" ;
-    :provided-status "${providedStatus || ''}" ;
-    :feedback-status "${feedbackStatus || ''}" .
+    :has-context "${context || ""}" ;
+    :provided-status "${providedStatus || ""}" ;
+    :feedback-status "${feedbackStatus || ""}" .
 `;
   return ttlSnippet;
 }

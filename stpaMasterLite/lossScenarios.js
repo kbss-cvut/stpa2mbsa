@@ -99,7 +99,7 @@ function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 6,"notProvided", "accurate");
+  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate");
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
@@ -125,7 +125,7 @@ function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 6,"provided", "accurate");
+  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate");
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
