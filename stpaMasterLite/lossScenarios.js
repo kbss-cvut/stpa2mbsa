@@ -49,6 +49,54 @@ function generateLossScenariosForUca() {
   SpreadsheetApp.getUi().alert("Select a non-empty unsafe control action cell in sheet " + LOSS_SCENARIOS_SHEET_NAME);
 }
 
+function generateAllLossScenarios() {
+  const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
+  const startRow = LOSS_SCENARIOS_HEADER_ROWS + 1;
+  const lastRow = lsSheet.getLastRow();
+  const ucaRange = lsSheet.getRange(startRow, 1, lastRow - LOSS_SCENARIOS_HEADER_ROWS, 1);
+  const ucaValues = ucaRange.getValues();
+
+  for (let i = 0; i < ucaValues.length; i++) {
+    const uca = ucaValues[i][0];
+    if (!uca || uca.trim() === "") continue; // Skip empty cells
+    generateLossScenariosForRow(i + startRow, uca);
+  }
+
+  SpreadsheetApp.getUi().alert("Generated all loss scenarios!");
+}
+
+function generateLossScenariosForRow(row, uca) {
+  const id = extractId(uca, "UCA");
+  if (!id) return;
+
+  const ucaSheet = SpreadsheetApp.getActive().getSheetByName(UCA_SHEET_NAME);
+  const ucaCells = ucaSheet.getRange(
+    UCA_SHEET_HEADER_ROW_COUNT + 1,
+    NOT_PROVIDING_UCA_COLUMN,
+    getLastActionRow() - UCA_SHEET_HEADER_ROW_COUNT,
+    DURATION_UCA_COLUMN + 1 - NOT_PROVIDING_UCA_COLUMN
+  );
+
+  for (let r = 1; r <= ucaCells.getNumRows(); r++) {
+    for (let c = 1; c <= ucaCells.getNumColumns(); c++) {
+      const ucaCell = ucaCells.getCell(r, c);
+      const ucaCellValue = ucaCell.getValue();
+      if (ucaCellValue.indexOf(`(${id})`) !== -1) {
+        const definition = uca.substring(uca.indexOf(")") + 1, uca.indexOf("[")).trim();
+        const csInfo = getControlStructureInfo(ucaCell);
+        generateLossScenarios({
+          id,
+          definition,
+          fullText: uca,
+          type: ucaCell.getColumn()
+        }, csInfo, row);
+        return;
+      }
+    }
+  }
+}
+
+
 // uca: id, definition, type, fullText; csInfo: controller, controlAction, controlledProcess
 function generateLossScenarios(uca, csInfo, row) {
   loadApiKey();
