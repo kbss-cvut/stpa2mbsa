@@ -1,5 +1,5 @@
 const ontologyHeader = `
-@prefix : <http://www.fd.cvut.cz/ontologies/stpa-mbsa#> .
+@prefix : <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
