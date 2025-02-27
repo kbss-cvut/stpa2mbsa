@@ -15,16 +15,14 @@ const LOSS_SCENARIOS_TTL_FILE = "loss-scenarios.ttl";
 
 function exportAllScenariosToTtl() {
   const allMetadata = getAllMetadata();
-
+  definedControllers.clear();
+  definedControlActions.clear();
+  definedProcesses.clear();
   let controllersBuffer = "";
   let actionsBuffer = "";
   let processesBuffer = "";
-  let scenariosBuffer = "";
+  let scenarioSnippets = [];
   let ttlContent = ontologyHeader + "\n";
-
-  definedControlActions.clear();
-  definedProcesses.clear();
-  scenarioSnippets = [];
 
   for (const scenarioId in allMetadata) {
     const meta = allMetadata[scenarioId];
@@ -36,7 +34,9 @@ function exportAllScenariosToTtl() {
       meta.controlledProcess,
       meta.context,
       meta.providedStatus,
-      meta.feedbackStatus
+      meta.feedbackStatus,
+      meta.processReceptionStatus,
+      meta.processExecutionStatus
     );
 
     if (!definedControllers.has(parts.controllerId)) {
@@ -55,7 +55,9 @@ function exportAllScenariosToTtl() {
     }
 
     scenarioSnippets.push(
-      parts.scenarioSnippet + "\n" + parts.associationSnippet + "\n"
+      parts.scenarioSnippet + "\n" +
+      parts.scenarioControllerAssocSnippet + "\n" +
+      parts.scenarioProcessAssocSnippet + "\n"
     );
   }
 
@@ -64,7 +66,7 @@ function exportAllScenariosToTtl() {
   ttlContent += "\n# === Controlled Processes ===\n" + processesBuffer;
   ttlContent += "\n# === Loss Scenarios ===\n";
   for (const snippet of scenarioSnippets) {
-    ttlContent += snippet;
+    ttlContent += snippet + "\n";
   }
 
   getOrCreateLossScenariosTtlFile().setContent(ttlContent);
@@ -212,7 +214,9 @@ function buildLossScenarioParts(
   controlledProcess,
   context,
   providedStatus,
-  feedbackStatus
+  feedbackStatus,
+  processReceptionStatus,
+  processExecutionStatus
 ) {
   const sanitizedScenarioId = scenarioId.replace(/[^\w-]/g, "_");
   const sanitizedControllerId = controller.replace(/[^\w-]/g, "_");
@@ -222,14 +226,18 @@ function buildLossScenarioParts(
   const typeMatch = sanitizedScenarioId.match(/LS-\d+_(\d+)/);
   const scenarioClass = typeMatch ? typeMatch[1] : "UnknownType";
 
-  const associationId = `${sanitizedScenarioId}--${sanitizedControllerId}-association`;
+  const controllerAssociationId =
+    `${sanitizedScenarioId}--${sanitizedControllerId}-association`;
+
+  const processAssociationId =
+    `${sanitizedScenarioId}--${sanitizedProcessId}-association`;
 
   const controllerSnippet = `
 stpa:${sanitizedControllerId} a stpa:Controller ;
     stpa:name "${controller}" .
 `;
 
-  const controlActionSnippet = `
+  const actionSnippet = `
 stpa:${sanitizedActionId} a stpa:ControlAction ;
     rdfs:label "${controlAction}" .
 `;
@@ -245,25 +253,35 @@ stpa:${sanitizedScenarioId} a stpa:LossScenario ;
     stpa:original-text "${scenarioText}" ;
     stpa:has-control-action stpa:${sanitizedActionId} ;
     stpa:has-controlled-process stpa:${sanitizedProcessId} ;
-    stpa:context "${context || ''}" .
+    stpa:context "${context || ""}" .
 `;
 
-  const associationSnippet = `
-stpa:${associationId} a stpa:ScenarioControllerAssociation ;
+  const scenarioControllerAssocSnippet = `
+stpa:${controllerAssociationId} a stpa:ScenarioControllerAssociation ;
     stpa:belongs-to-scenario stpa:${sanitizedScenarioId} ;
     stpa:has-controller stpa:${sanitizedControllerId} ;
-    stpa:provided-status "${providedStatus || ''}" ;
-    stpa:feedback-status "${feedbackStatus || ''}" .
+    stpa:provided-status "${providedStatus || ""}" ;
+    stpa:feedback-status "${feedbackStatus || ""}" .
+`;
+
+  const scenarioProcessAssocSnippet = `
+stpa:${processAssociationId} a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:${sanitizedScenarioId} ;
+    stpa:has-process stpa:${sanitizedProcessId} ;
+    stpa:process-reception-status "${processReceptionStatus || ""}" ;
+    stpa:process-execution-status "${processExecutionStatus || ""}" .
 `;
 
   return {
     controllerId: sanitizedControllerId,
     controllerSnippet,
     actionId: sanitizedActionId,
-    actionSnippet: controlActionSnippet,
+    actionSnippet,
     processId: sanitizedProcessId,
     processSnippet,
     scenarioSnippet,
-    associationSnippet
+    scenarioControllerAssocSnippet,
+    scenarioProcessAssocSnippet
   };
 }
+

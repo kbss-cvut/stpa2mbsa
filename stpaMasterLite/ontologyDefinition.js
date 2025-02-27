@@ -10,6 +10,7 @@ const ontologyHeader = `
 
 stpa:LossScenario a owl:Class .
 stpa:ScenarioControllerAssociation a owl:Class .
+stpa:ScenarioProcessAssociation a owl:Class .
 stpa:Controller a owl:Class .
 stpa:ControlAction a owl:Class .
 stpa:ControlledProcess a owl:Class .
@@ -19,7 +20,7 @@ stpa:ControlledProcess a owl:Class .
 ################################################
 
 stpa:belongs-to-scenario a owl:ObjectProperty ;
-    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:domain stpa:ScenarioControllerAssociation, stpa:ScenarioProcessAssociation ;
     rdfs:range stpa:LossScenario ;
     rdfs:label "belongs-to-scenario" .
 
@@ -37,6 +38,11 @@ stpa:has-controlled-process a owl:ObjectProperty ;
     rdfs:domain stpa:LossScenario ;
     rdfs:range stpa:ControlledProcess ;
     rdfs:label "has-controlled-process" .
+
+stpa:has-process a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range stpa:ControlledProcess ;
+    rdfs:label "has-process" .
 
 ################################################
 ##  Data Properties
@@ -71,4 +77,14 @@ stpa:name a owl:DatatypeProperty ;
     rdfs:domain stpa:Controller ;
     rdfs:range xsd:string ;
     rdfs:label "name" .
+
+stpa:process-reception-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "process-reception-status" .
+
+stpa:process-execution-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "process-execution-status" .
 `;

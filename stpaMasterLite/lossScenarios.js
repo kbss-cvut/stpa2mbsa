@@ -288,7 +288,9 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
     scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate");
+  const processReceptionStatus = "notReceived";
+  const processExecutionStatus = "n/a"; // Not applicable for control-path issues
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", processReceptionStatus, processExecutionStatus);
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
@@ -296,6 +298,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   }, row);
 }
 
+// Controller does not provide action, but the process receives it.
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
@@ -311,7 +314,9 @@ function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate");
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "n/a";
+  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", processReceptionStatus, processExecutionStatus);
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
@@ -335,7 +340,10 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
   }
 
   const provStatus = "provided" + (context.measure ? context.measure.replace(/\s+/g, "") : "");
-  setLossScenarioMetaData(csInfo, context, row, 8, provStatus, "accurate");
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "inappropriateTiming";
+
+  setLossScenarioMetaData(csInfo, context, row, 8, provStatus, "accurate", processReceptionStatus, processExecutionStatus);
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
@@ -343,20 +351,27 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
   }, row);
 }
 
+
+// Controller provides action with appropriate duration, but the process receives it with inappropriate duration.
 function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
   if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$controller provides $action with appropriate duration - $action is received by $controlledProcess with inappropriate duration", {
+    scenario = retrieveScenarioForPattern("$controller provides $action ${context.measureInverse} when $context - $action is received by $controlledProcess ${context.measure}", {
       controller: csInfo.controller,
       controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction
+      action: csInfo.controlAction,
+      context: context.text
     });
   }
   if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
+    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   }
 
-  setLossScenarioMetaData(csInfo, null, row, 8, "provided", "inaccurate");
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "inappropriateDuration";
+  const provStatus = "provided" + (context.measure ? context.measure.replace(/\s+/g, "") : "");
+  setLossScenarioMetaData(csInfo, context, row, 8, provStatus, "accurate", processReceptionStatus, processExecutionStatus);
 
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
@@ -364,7 +379,8 @@ function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
   }, row);
 }
 
-// 4. Unsafe controlled process behavior
+
+// Action is received but process does not respond adequately.
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
@@ -379,13 +395,17 @@ function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate");
+  // Process is received but execution is unsafe.
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "notResponding";
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
+// Action is not received, but the process still responds.
 function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
@@ -400,14 +420,16 @@ function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds (by <...>)`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate");
-
+  const processReceptionStatus = "notReceived";
+  const processExecutionStatus = "erroneousResponse";
+  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
+// Action is received but with timing issues, leading to inadequate response.
 function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
@@ -420,17 +442,19 @@ function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
     });
   }
   if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} ${context.measureInverse} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)(${context.measure})`;
+    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} ${context.measureInverse} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)${context.measure}`;
   }
 
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "inaccurate");
-
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "inadequate";
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "inaccurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
+// Action is received with appropriate duration, but process response is inadequate.
 function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
   let scenario;
   if (isChatGptAvailable()) {
@@ -443,8 +467,9 @@ function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration - ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
   }
 
-  setLossScenarioMetaData(csInfo, null, row, 9, "provided", "inaccurate");
-
+  const processReceptionStatus = "received";
+  const processExecutionStatus = "inappropriateResponse";
+  setLossScenarioMetaData(csInfo, null, row, 9, "provided", "inaccurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
@@ -544,14 +569,16 @@ function generateLossScenarioId(uca, type) {
   return `LS-${ucaNo}.${type - 1}`;
 }
 
-function setLossScenarioMetaData(csInfo, context, row, column, providedStatus, feedbackStatus) {
+function setLossScenarioMetaData(csInfo, context, row, column, providedStatus, feedbackStatus, processReceptionStatus, processExecutionStatus) {
   const metadataObj = {
     controller: csInfo.controller,
     controlAction: csInfo.controlAction,
     controlledProcess: csInfo.controlledProcess,
     context: context?.text,
-    providedStatus: providedStatus || "unknown",  // new field
-    feedbackStatus: feedbackStatus || "unknown"    // new field
+    providedStatus: providedStatus || "unknown",
+    feedbackStatus: feedbackStatus || "unknown",
+    processReceptionStatus: processReceptionStatus || "",
+    processExecutionStatus: processExecutionStatus || ""
   };
   const metadataJson = JSON.stringify(metadataObj);
   const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
@@ -560,6 +587,7 @@ function setLossScenarioMetaData(csInfo, context, row, column, providedStatus, f
   metadataCell.setWrap(true);
   metadataCell.setVerticalAlignment("middle");
 }
+
 
 function setLossScenario(scenario, row) {
   const lsSheet = SpreadsheetApp.getActive().getSheetByName(LOSS_SCENARIOS_SHEET_NAME);
@@ -624,7 +652,9 @@ function getAllMetadata() {
         controlledProcess: metadataObj.controlledProcess,
         context: metadataObj.context,
         providedStatus: metadataObj.providedStatus || "unknown",
-        feedbackStatus: metadataObj.feedbackStatus || "unknown"
+        feedbackStatus: metadataObj.feedbackStatus || "unknown",
+        processReceptionStatus: metadataObj.processReceptionStatus || "",
+        processExecutionStatus: metadataObj.processExecutionStatus || ""
       };
     }
   }
