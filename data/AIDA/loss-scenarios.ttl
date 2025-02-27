@@ -1,5 +1,5 @@
 
-@prefix : <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
+@prefix stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,695 +8,695 @@
 ##  Classes
 ################################################
 
-:LossScenario a owl:Class .
-:ScenarioControllerAssociation a owl:Class .
-:Controller a owl:Class .
-:ControlAction a owl:Class .
-:ControlledProcess a owl:Class .
+stpa:LossScenario a owl:Class .
+stpa:ScenarioControllerAssociation a owl:Class .
+stpa:Controller a owl:Class .
+stpa:ControlAction a owl:Class .
+stpa:ControlledProcess a owl:Class .
 
 ################################################
 ##  Object Properties
 ################################################
 
-:belongs-to-scenario a owl:ObjectProperty ;
-                     rdfs:domain :ScenarioControllerAssociation ;
-                     rdfs:range :LossScenario ;
-                     rdfs:label "belongs-to-scenario" .
+stpa:belongs-to-scenario a owl:ObjectProperty ;
+                         rdfs:domain stpa:ScenarioControllerAssociation ;
+                         rdfs:range stpa:LossScenario ;
+                         rdfs:label "belongs-to-scenario" .
 
-:has-controller a owl:ObjectProperty ;
-                rdfs:domain :ScenarioControllerAssociation ;
-                rdfs:range :Controller ;
-                rdfs:label "has-controller" .
+stpa:has-controller a owl:ObjectProperty ;
+                    rdfs:domain stpa:ScenarioControllerAssociation ;
+                    rdfs:range stpa:Controller ;
+                    rdfs:label "has-controller" .
 
-:has-control-action a owl:ObjectProperty ;
-                    rdfs:domain :LossScenario ;
-                    rdfs:range :ControlAction ;
-                    rdfs:label "has-control-action" .
+stpa:has-control-action a owl:ObjectProperty ;
+                        rdfs:domain stpa:LossScenario ;
+                        rdfs:range stpa:ControlAction ;
+                        rdfs:label "has-control-action" .
 
-:has-controlled-process a owl:ObjectProperty ;
-                        rdfs:domain :LossScenario ;
-                        rdfs:range :ControlledProcess ;
-                        rdfs:label "has-controlled-process" .
+stpa:has-controlled-process a owl:ObjectProperty ;
+                            rdfs:domain stpa:LossScenario ;
+                            rdfs:range stpa:ControlledProcess ;
+                            rdfs:label "has-controlled-process" .
 
 ################################################
 ##  Data Properties
 ################################################
 
-:provided-status a owl:DatatypeProperty ;
-                 rdfs:domain :ScenarioControllerAssociation ;
-                 rdfs:range xsd:string ;
-                 rdfs:label "provided-status" .
+stpa:provided-status a owl:DatatypeProperty ;
+                     rdfs:domain stpa:ScenarioControllerAssociation ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "provided-status" .
 
-:feedback-status a owl:DatatypeProperty ;
-                 rdfs:domain :ScenarioControllerAssociation ;
-                 rdfs:range xsd:string ;
-                 rdfs:label "feedback-status" .
+stpa:feedback-status a owl:DatatypeProperty ;
+                     rdfs:domain stpa:ScenarioControllerAssociation ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "feedback-status" .
 
-:scenario-class a owl:DatatypeProperty ;
-                rdfs:domain :LossScenario ;
-                rdfs:range xsd:string ;
-                rdfs:label "scenario-class" .
+stpa:scenario-class a owl:DatatypeProperty ;
+                    rdfs:domain stpa:LossScenario ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "scenario-class" .
 
-:original-text a owl:DatatypeProperty ;
-               rdfs:domain :LossScenario ;
-               rdfs:range xsd:string ;
-               rdfs:label "original-text" .
+stpa:original-text a owl:DatatypeProperty ;
+                   rdfs:domain stpa:LossScenario ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "original-text" .
 
-:context a owl:DatatypeProperty ;
-         rdfs:domain :LossScenario ;
-         rdfs:range xsd:string ;
-         rdfs:label "context" .
+stpa:context a owl:DatatypeProperty ;
+             rdfs:domain stpa:LossScenario ;
+             rdfs:range xsd:string ;
+             rdfs:label "context" .
 
-:name a owl:DatatypeProperty ;
-      rdfs:domain :Controller ;
-      rdfs:range xsd:string ;
-      rdfs:label "name" .
+stpa:name a owl:DatatypeProperty ;
+          rdfs:domain stpa:Controller ;
+          rdfs:range xsd:string ;
+          rdfs:label "name" .
 
 
 # === Controllers ===
 
-:Control_Desk a :Controller ;
-              :name "Control Desk" .
+stpa:Control_Desk a stpa:Controller ;
+                  stpa:name "Control Desk" .
 
 
 # === Control Actions ===
 
-:Querry_Mission_Data a :ControlAction ;
-                     rdfs:label "Querry Mission Data" .
+stpa:Querry_Mission_Data a stpa:ControlAction ;
+                         rdfs:label "Querry Mission Data" .
 
 
-:Mission_Commands a :ControlAction ;
-                  rdfs:label "Mission Commands" .
+stpa:Mission_Commands a stpa:ControlAction ;
+                      rdfs:label "Mission Commands" .
 
 
 # === Controlled Processes ===
 
-:Airline_Maintenance_Database a :ControlledProcess ;
-                              rdfs:label "Airline Maintenance Database" .
+stpa:Airline_Maintenance_Database a stpa:ControlledProcess ;
+                                  rdfs:label "Airline Maintenance Database" .
 
 
-:Flight_Control___Monitoring_System a :ControlledProcess ;
-                                    rdfs:label "Flight Control & Monitoring System" .
+stpa:Flight_Control___Monitoring_System a stpa:ControlledProcess ;
+                                        rdfs:label "Flight Control & Monitoring System" .
 
 
 # === Loss Scenarios ===
 
-:LS-1_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-1.1) Control Desk does not provide the Querry Mission Data action - Control Desk received feedback (or other inputs) that indicated that before the mission starts" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before the mission starts" .
+stpa:LS-1_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-1.1) Control Desk does not provide the Querry Mission Data action - Control Desk received feedback (or other inputs) that indicated that before the mission starts" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before the mission starts" .
 
 
-:LS-1_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-1_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-1_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-1_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-1_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-1.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that before the mission starts - it is true that before the mission starts" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before the mission starts" .
+stpa:LS-1_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-1.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that before the mission starts - it is true that before the mission starts" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before the mission starts" .
 
 
-:LS-1_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-1_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-1_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-1_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-1_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-1.3) Control Desk does provide the Querry Mission Data action when before the mission starts - Querry Mission Data is not received by Airline Maintenance Database" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before the mission starts" .
+stpa:LS-1_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-1.3) Control Desk does provide the Querry Mission Data action when before the mission starts - Querry Mission Data is not received by Airline Maintenance Database" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before the mission starts" .
 
 
-:LS-1_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-1_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-1_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-1_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-1_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-1.4) The Querry Mission Data action is received by Airline Maintenance Database when before the mission starts - Airline Maintenance Database does not respond adequately (by <...>)" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before the mission starts" .
+stpa:LS-1_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-1.4) The Querry Mission Data action is received by Airline Maintenance Database when before the mission starts - Airline Maintenance Database does not respond adequately (by <...>)" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before the mission starts" .
 
 
-:LS-1_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-1_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-1_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-1_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-2_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-2.1) Control Desk provides the Querry Mission Data action - Control Desk received feedback (or other inputs) that indicated with erroneous data" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "with erroneous data" .
+stpa:LS-2_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-2.1) Control Desk provides the Querry Mission Data action - Control Desk received feedback (or other inputs) that indicated with erroneous data" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "with erroneous data" .
 
 
-:LS-2_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-2_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-2_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-2_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-2_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-2.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that with erroneous data - it is true that with erroneous data" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "with erroneous data" .
+stpa:LS-2_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-2.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that with erroneous data - it is true that with erroneous data" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "with erroneous data" .
 
 
-:LS-2_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-2_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-2_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-2_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-2_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-2.3) Control Desk does not provide the Querry Mission Data action when with erroneous data - Airline Maintenance Database receives Querry Mission Data action when with erroneous data" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "with erroneous data" .
+stpa:LS-2_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-2.3) Control Desk does not provide the Querry Mission Data action when with erroneous data - Airline Maintenance Database receives Querry Mission Data action when with erroneous data" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "with erroneous data" .
 
 
-:LS-2_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-2_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-2_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-2_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-2_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-2.4) The Querry Mission Data action is not received by Airline Maintenance Database when with erroneous data - Airline Maintenance Database responds (by <...>)" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "with erroneous data" .
+stpa:LS-2_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-2.4) The Querry Mission Data action is not received by Airline Maintenance Database when with erroneous data - Airline Maintenance Database responds (by <...>)" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "with erroneous data" .
 
 
-:LS-2_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-2_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-2_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-2_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-3_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-3.1) Control Desk provides the Querry Mission Data action too late - Control Desk received feedback (or other inputs) that indicated too late when the mission has already started on time" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "too late when the mission has already started" .
+stpa:LS-3_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-3.1) Control Desk provides the Querry Mission Data action too late - Control Desk received feedback (or other inputs) that indicated too late when the mission has already started on time" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "too late when the mission has already started" .
 
 
-:LS-3_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-3_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtoolate" ;
-                                  :feedback-status "accurate" .
+stpa:LS-3_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-3_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtoolate" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-3_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-3.2) Feedback (or other inputs) received by Control Desk does not indicate too late when the mission has already started on time - it is true that too late when the mission has already started" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "too late when the mission has already started" .
+stpa:LS-3_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-3.2) Feedback (or other inputs) received by Control Desk does not indicate too late when the mission has already started on time - it is true that too late when the mission has already started" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "too late when the mission has already started" .
 
 
-:LS-3_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-3_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-3_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-3_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-3_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-3.3) Control Desk provides the Querry Mission Data action on time when too late when the mission has already started - Querry Mission Data is received by Airline Maintenance Database too late" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "too late when the mission has already started" .
+stpa:LS-3_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-3.3) Control Desk provides the Querry Mission Data action on time when too late when the mission has already started - Querry Mission Data is received by Airline Maintenance Database too late" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "too late when the mission has already started" .
 
 
-:LS-3_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-3_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtoolate" ;
-                                  :feedback-status "accurate" .
+stpa:LS-3_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-3_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtoolate" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-3_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-3.4) The Querry Mission Data action is received by Airline Maintenance Database on time when too late when the mission has already started - Airline Maintenance Database does not respond adequately (by <...>)(too late)" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "too late when the mission has already started" .
+stpa:LS-3_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-3.4) The Querry Mission Data action is received by Airline Maintenance Database on time when too late when the mission has already started - Airline Maintenance Database does not respond adequately (by <...>)(too late)" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "too late when the mission has already started" .
 
 
-:LS-3_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-3_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-3_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-3_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-4_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-4.1) Control Desk stops providing the Querry Mission Data action too soon - Control Desk received feedback (or other inputs) that indicated before all the data was updated on time" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before all the data was updated" .
+stpa:LS-4_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-4.1) Control Desk stops providing the Querry Mission Data action too soon - Control Desk received feedback (or other inputs) that indicated before all the data was updated on time" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before all the data was updated" .
 
 
-:LS-4_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-4_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-4_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-4_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-4_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-4.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that before all the data was updated (inappropriate duration) - it is true that before all the data was updated" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "before all the data was updated" .
+stpa:LS-4_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-4.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that before all the data was updated (inappropriate duration) - it is true that before all the data was updated" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "before all the data was updated" .
 
 
-:LS-4_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-4_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-4_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-4_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-4_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-4.3) Control Desk provides the Querry Mission Data action with appropriate duration - Querry Mission Data is received by Airline Maintenance Database with inappropriate duration" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "" .
+stpa:LS-4_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-4.3) Control Desk provides the Querry Mission Data action with appropriate duration - Querry Mission Data is received by Airline Maintenance Database with inappropriate duration" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "" .
 
 
-:LS-4_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-4_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-4_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-4_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-4_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-4.4) The Querry Mission Data action is received by Airline Maintenance Database with appropriate duration - Airline Maintenance Database does not respond adequately (by <...>)(inappropriate duration)" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "" .
+stpa:LS-4_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-4.4) The Querry Mission Data action is received by Airline Maintenance Database with appropriate duration - Airline Maintenance Database does not respond adequately (by <...>)(inappropriate duration)" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "" .
 
 
-:LS-4_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-4_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-4_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-4_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-5_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-5.1) Control Desk provides the Querry Mission Data action too early - Control Desk received feedback (or other inputs) that indicated the previous mission is still in progress on time" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "the previous mission is still in progress" .
+stpa:LS-5_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-5.1) Control Desk provides the Querry Mission Data action too early - Control Desk received feedback (or other inputs) that indicated the previous mission is still in progress on time" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "the previous mission is still in progress" .
 
 
-:LS-5_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-5_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtooearly" ;
-                                  :feedback-status "accurate" .
+stpa:LS-5_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-5_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtooearly" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-5_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-5.2) Feedback (or other inputs) received by Control Desk does not indicate the previous mission is still in progress on time - it is true that the previous mission is still in progress" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "the previous mission is still in progress" .
+stpa:LS-5_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-5.2) Feedback (or other inputs) received by Control Desk does not indicate the previous mission is still in progress on time - it is true that the previous mission is still in progress" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "the previous mission is still in progress" .
 
 
-:LS-5_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-5_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-5_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-5_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-5_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-5.3) Control Desk provides the Querry Mission Data action on time when the previous mission is still in progress - Querry Mission Data is received by Airline Maintenance Database too early" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "the previous mission is still in progress" .
+stpa:LS-5_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-5.3) Control Desk provides the Querry Mission Data action on time when the previous mission is still in progress - Querry Mission Data is received by Airline Maintenance Database too early" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "the previous mission is still in progress" .
 
 
-:LS-5_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-5_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtooearly" ;
-                                  :feedback-status "accurate" .
+stpa:LS-5_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-5_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtooearly" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-5_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-5.4) The Querry Mission Data action is received by Airline Maintenance Database on time when the previous mission is still in progress - Airline Maintenance Database does not respond adequately (by <...>)(too early)" ;
-        :has-control-action :Querry_Mission_Data ;
-        :has-controlled-process :Airline_Maintenance_Database ;
-        :context "the previous mission is still in progress" .
+stpa:LS-5_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-5.4) The Querry Mission Data action is received by Airline Maintenance Database on time when the previous mission is still in progress - Airline Maintenance Database does not respond adequately (by <...>)(too early)" ;
+            stpa:has-control-action stpa:Querry_Mission_Data ;
+            stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
+            stpa:context "the previous mission is still in progress" .
 
 
-:LS-5_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-5_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-5_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-5_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-6_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-6.1) Control Desk does not provide the Mission Commands action - Control Desk received feedback (or other inputs) that indicated that the mission is set to automatic inspection" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission is set to automatic inspection" .
+stpa:LS-6_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-6.1) Control Desk does not provide the Mission Commands action - Control Desk received feedback (or other inputs) that indicated that the mission is set to automatic inspection" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission is set to automatic inspection" .
 
 
-:LS-6_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-6_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-6_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-6_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-6_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-6.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that the mission is set to automatic inspection - it is true that the mission is set to automatic inspection" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission is set to automatic inspection" .
+stpa:LS-6_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-6.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that the mission is set to automatic inspection - it is true that the mission is set to automatic inspection" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission is set to automatic inspection" .
 
 
-:LS-6_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-6_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-6_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-6_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-6_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-6.3) Control Desk does provide the Mission Commands action when the mission is set to automatic inspection - Mission Commands is not received by Flight Control & Monitoring System" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission is set to automatic inspection" .
+stpa:LS-6_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-6.3) Control Desk does provide the Mission Commands action when the mission is set to automatic inspection - Mission Commands is not received by Flight Control & Monitoring System" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission is set to automatic inspection" .
 
 
-:LS-6_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-6_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-6_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-6_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-6_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-6.4) The Mission Commands action is received by Flight Control & Monitoring System when the mission is set to automatic inspection - Flight Control & Monitoring System does not respond adequately (by <...>)" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission is set to automatic inspection" .
+stpa:LS-6_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-6.4) The Mission Commands action is received by Flight Control & Monitoring System when the mission is set to automatic inspection - Flight Control & Monitoring System does not respond adequately (by <...>)" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission is set to automatic inspection" .
 
 
-:LS-6_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-6_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-6_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-6_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-7_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-7.1) Control Desk provides the Mission Commands action - Control Desk received feedback (or other inputs) that indicated data is erroneous" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "data is erroneous" .
+stpa:LS-7_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-7.1) Control Desk provides the Mission Commands action - Control Desk received feedback (or other inputs) that indicated data is erroneous" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "data is erroneous" .
 
 
-:LS-7_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-7_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-7_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-7_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-7_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-7.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that data is erroneous - it is true that data is erroneous" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "data is erroneous" .
+stpa:LS-7_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-7.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that data is erroneous - it is true that data is erroneous" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "data is erroneous" .
 
 
-:LS-7_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-7_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-7_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-7_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-7_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-7.3) Control Desk does not provide the Mission Commands action when data is erroneous - Flight Control & Monitoring System receives Mission Commands action when data is erroneous" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "data is erroneous" .
+stpa:LS-7_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-7.3) Control Desk does not provide the Mission Commands action when data is erroneous - Flight Control & Monitoring System receives Mission Commands action when data is erroneous" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "data is erroneous" .
 
 
-:LS-7_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-7_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-7_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-7_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-7_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-7.4) The Mission Commands action is not received by Flight Control & Monitoring System when data is erroneous - Flight Control & Monitoring System responds (by <...>)" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "data is erroneous" .
+stpa:LS-7_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-7.4) The Mission Commands action is not received by Flight Control & Monitoring System when data is erroneous - Flight Control & Monitoring System responds (by <...>)" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "data is erroneous" .
 
 
-:LS-7_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-7_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "notProvided" ;
-                                  :feedback-status "accurate" .
+stpa:LS-7_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-7_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "notProvided" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-8_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-8.1) Control Desk provides the Mission Commands action too late - Control Desk received feedback (or other inputs) that indicated the mission has already started on time" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission has already started" .
+stpa:LS-8_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-8.1) Control Desk provides the Mission Commands action too late - Control Desk received feedback (or other inputs) that indicated the mission has already started on time" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission has already started" .
 
 
-:LS-8_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-8_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtoolate" ;
-                                  :feedback-status "accurate" .
+stpa:LS-8_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-8_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtoolate" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-8_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-8.2) Feedback (or other inputs) received by Control Desk does not indicate the mission has already started on time - it is true that the mission has already started" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission has already started" .
+stpa:LS-8_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-8.2) Feedback (or other inputs) received by Control Desk does not indicate the mission has already started on time - it is true that the mission has already started" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission has already started" .
 
 
-:LS-8_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-8_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-8_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-8_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-8_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-8.3) Control Desk provides the Mission Commands action on time when the mission has already started - Mission Commands is received by Flight Control & Monitoring System too late" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission has already started" .
+stpa:LS-8_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-8.3) Control Desk provides the Mission Commands action on time when the mission has already started - Mission Commands is received by Flight Control & Monitoring System too late" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission has already started" .
 
 
-:LS-8_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-8_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtoolate" ;
-                                  :feedback-status "accurate" .
+stpa:LS-8_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-8_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtoolate" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-8_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-8.4) The Mission Commands action is received by Flight Control & Monitoring System on time when the mission has already started - Flight Control & Monitoring System does not respond adequately (by <...>)(too late)" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "the mission has already started" .
+stpa:LS-8_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-8.4) The Mission Commands action is received by Flight Control & Monitoring System on time when the mission has already started - Flight Control & Monitoring System does not respond adequately (by <...>)(too late)" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "the mission has already started" .
 
 
-:LS-8_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-8_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-8_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-8_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-9_1 a :LossScenario ;
-        :scenario-class "1" ;
-        :original-text "(LS-9.1) Control Desk provides the Mission Commands action too early - Control Desk received feedback (or other inputs) that indicated another mission is still being processed on time" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "another mission is still being processed" .
+stpa:LS-9_1 a stpa:LossScenario ;
+            stpa:scenario-class "1" ;
+            stpa:original-text "(LS-9.1) Control Desk provides the Mission Commands action too early - Control Desk received feedback (or other inputs) that indicated another mission is still being processed on time" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "another mission is still being processed" .
 
 
-:LS-9_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-9_1 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtooearly" ;
-                                  :feedback-status "accurate" .
+stpa:LS-9_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-9_1 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtooearly" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-9_2 a :LossScenario ;
-        :scenario-class "2" ;
-        :original-text "(LS-9.2) Feedback (or other inputs) received by Control Desk does not indicate another mission is still being processed on time - it is true that another mission is still being processed" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "another mission is still being processed" .
+stpa:LS-9_2 a stpa:LossScenario ;
+            stpa:scenario-class "2" ;
+            stpa:original-text "(LS-9.2) Feedback (or other inputs) received by Control Desk does not indicate another mission is still being processed on time - it is true that another mission is still being processed" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "another mission is still being processed" .
 
 
-:LS-9_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-9_2 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-9_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-9_2 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-9_3 a :LossScenario ;
-        :scenario-class "3" ;
-        :original-text "(LS-9.3) Control Desk provides the Mission Commands action on time when another mission is still being processed - Mission Commands is received by Flight Control & Monitoring System too early" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "another mission is still being processed" .
+stpa:LS-9_3 a stpa:LossScenario ;
+            stpa:scenario-class "3" ;
+            stpa:original-text "(LS-9.3) Control Desk provides the Mission Commands action on time when another mission is still being processed - Mission Commands is received by Flight Control & Monitoring System too early" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "another mission is still being processed" .
 
 
-:LS-9_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-9_3 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "providedtooearly" ;
-                                  :feedback-status "accurate" .
+stpa:LS-9_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-9_3 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "providedtooearly" ;
+                                      stpa:feedback-status "accurate" .
 
 
-:LS-9_4 a :LossScenario ;
-        :scenario-class "4" ;
-        :original-text "(LS-9.4) The Mission Commands action is received by Flight Control & Monitoring System on time when another mission is still being processed - Flight Control & Monitoring System does not respond adequately (by <...>)(too early)" ;
-        :has-control-action :Mission_Commands ;
-        :has-controlled-process :Flight_Control___Monitoring_System ;
-        :context "another mission is still being processed" .
+stpa:LS-9_4 a stpa:LossScenario ;
+            stpa:scenario-class "4" ;
+            stpa:original-text "(LS-9.4) The Mission Commands action is received by Flight Control & Monitoring System on time when another mission is still being processed - Flight Control & Monitoring System does not respond adequately (by <...>)(too early)" ;
+            stpa:has-control-action stpa:Mission_Commands ;
+            stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+            stpa:context "another mission is still being processed" .
 
 
-:LS-9_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                  :belongs-to-scenario :LS-9_4 ;
-                                  :has-controller :Control_Desk ;
-                                  :provided-status "provided" ;
-                                  :feedback-status "inaccurate" .
+stpa:LS-9_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                      stpa:belongs-to-scenario stpa:LS-9_4 ;
+                                      stpa:has-controller stpa:Control_Desk ;
+                                      stpa:provided-status "provided" ;
+                                      stpa:feedback-status "inaccurate" .
 
 
-:LS-10_1 a :LossScenario ;
-         :scenario-class "1" ;
-         :original-text "(LS-10.1) Control Desk does not provide the Mission Commands action - Control Desk received feedback (or other inputs) that indicated that the commands from the last mission are still uploaded when the new mission starts" ;
-         :has-control-action :Mission_Commands ;
-         :has-controlled-process :Flight_Control___Monitoring_System ;
-         :context "the commands from the last mission are still uploaded when the new mission starts" .
+stpa:LS-10_1 a stpa:LossScenario ;
+             stpa:scenario-class "1" ;
+             stpa:original-text "(LS-10.1) Control Desk does not provide the Mission Commands action - Control Desk received feedback (or other inputs) that indicated that the commands from the last mission are still uploaded when the new mission starts" ;
+             stpa:has-control-action stpa:Mission_Commands ;
+             stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+             stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
 
 
-:LS-10_1--Control_Desk-association a :ScenarioControllerAssociation ;
-                                   :belongs-to-scenario :LS-10_1 ;
-                                   :has-controller :Control_Desk ;
-                                   :provided-status "notProvided" ;
-                                   :feedback-status "accurate" .
+stpa:LS-10_1--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                       stpa:belongs-to-scenario stpa:LS-10_1 ;
+                                       stpa:has-controller stpa:Control_Desk ;
+                                       stpa:provided-status "notProvided" ;
+                                       stpa:feedback-status "accurate" .
 
 
-:LS-10_2 a :LossScenario ;
-         :scenario-class "2" ;
-         :original-text "(LS-10.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that the commands from the last mission are still uploaded when the new mission starts - it is true that the commands from the last mission are still uploaded when the new mission starts" ;
-         :has-control-action :Mission_Commands ;
-         :has-controlled-process :Flight_Control___Monitoring_System ;
-         :context "the commands from the last mission are still uploaded when the new mission starts" .
+stpa:LS-10_2 a stpa:LossScenario ;
+             stpa:scenario-class "2" ;
+             stpa:original-text "(LS-10.2) Feedback (or other inputs) received by Control Desk does not adequately indicate that the commands from the last mission are still uploaded when the new mission starts - it is true that the commands from the last mission are still uploaded when the new mission starts" ;
+             stpa:has-control-action stpa:Mission_Commands ;
+             stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+             stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
 
 
-:LS-10_2--Control_Desk-association a :ScenarioControllerAssociation ;
-                                   :belongs-to-scenario :LS-10_2 ;
-                                   :has-controller :Control_Desk ;
-                                   :provided-status "provided" ;
-                                   :feedback-status "inaccurate" .
+stpa:LS-10_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                       stpa:belongs-to-scenario stpa:LS-10_2 ;
+                                       stpa:has-controller stpa:Control_Desk ;
+                                       stpa:provided-status "provided" ;
+                                       stpa:feedback-status "inaccurate" .
 
 
-:LS-10_3 a :LossScenario ;
-         :scenario-class "3" ;
-         :original-text "(LS-10.3) Control Desk does provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts - Mission Commands is not received by Flight Control & Monitoring System" ;
-         :has-control-action :Mission_Commands ;
-         :has-controlled-process :Flight_Control___Monitoring_System ;
-         :context "the commands from the last mission are still uploaded when the new mission starts" .
+stpa:LS-10_3 a stpa:LossScenario ;
+             stpa:scenario-class "3" ;
+             stpa:original-text "(LS-10.3) Control Desk does provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts - Mission Commands is not received by Flight Control & Monitoring System" ;
+             stpa:has-control-action stpa:Mission_Commands ;
+             stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+             stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
 
 
-:LS-10_3--Control_Desk-association a :ScenarioControllerAssociation ;
-                                   :belongs-to-scenario :LS-10_3 ;
-                                   :has-controller :Control_Desk ;
-                                   :provided-status "provided" ;
-                                   :feedback-status "accurate" .
+stpa:LS-10_3--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                       stpa:belongs-to-scenario stpa:LS-10_3 ;
+                                       stpa:has-controller stpa:Control_Desk ;
+                                       stpa:provided-status "provided" ;
+                                       stpa:feedback-status "accurate" .
 
 
-:LS-10_4 a :LossScenario ;
-         :scenario-class "4" ;
-         :original-text "(LS-10.4) The Mission Commands action is received by Flight Control & Monitoring System when the commands from the last mission are still uploaded when the new mission starts - Flight Control & Monitoring System does not respond adequately (by <...>)" ;
-         :has-control-action :Mission_Commands ;
-         :has-controlled-process :Flight_Control___Monitoring_System ;
-         :context "the commands from the last mission are still uploaded when the new mission starts" .
+stpa:LS-10_4 a stpa:LossScenario ;
+             stpa:scenario-class "4" ;
+             stpa:original-text "(LS-10.4) The Mission Commands action is received by Flight Control & Monitoring System when the commands from the last mission are still uploaded when the new mission starts - Flight Control & Monitoring System does not respond adequately (by <...>)" ;
+             stpa:has-control-action stpa:Mission_Commands ;
+             stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
+             stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
 
 
-:LS-10_4--Control_Desk-association a :ScenarioControllerAssociation ;
-                                   :belongs-to-scenario :LS-10_4 ;
-                                   :has-controller :Control_Desk ;
-                                   :provided-status "provided" ;
-                                   :feedback-status "accurate" .
+stpa:LS-10_4--Control_Desk-association a stpa:ScenarioControllerAssociation ;
+                                       stpa:belongs-to-scenario stpa:LS-10_4 ;
+                                       stpa:has-controller stpa:Control_Desk ;
+                                       stpa:provided-status "provided" ;
+                                       stpa:feedback-status "accurate" .
 

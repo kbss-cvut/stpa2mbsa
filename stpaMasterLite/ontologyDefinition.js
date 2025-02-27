@@ -1,5 +1,5 @@
 const ontologyHeader = `
-@prefix : <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
+@prefix stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,67 +8,67 @@ const ontologyHeader = `
 ##  Classes
 ################################################
 
-:LossScenario a owl:Class .
-:ScenarioControllerAssociation a owl:Class .
-:Controller a owl:Class .
-:ControlAction a owl:Class .
-:ControlledProcess a owl:Class .
+stpa:LossScenario a owl:Class .
+stpa:ScenarioControllerAssociation a owl:Class .
+stpa:Controller a owl:Class .
+stpa:ControlAction a owl:Class .
+stpa:ControlledProcess a owl:Class .
 
 ################################################
 ##  Object Properties
 ################################################
 
-:belongs-to-scenario a owl:ObjectProperty ;
-    rdfs:domain :ScenarioControllerAssociation ;
-    rdfs:range :LossScenario ;
+stpa:belongs-to-scenario a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:range stpa:LossScenario ;
     rdfs:label "belongs-to-scenario" .
 
-:has-controller a owl:ObjectProperty ;
-    rdfs:domain :ScenarioControllerAssociation ;
-    rdfs:range :Controller ;
+stpa:has-controller a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:range stpa:Controller ;
     rdfs:label "has-controller" .
 
-:has-control-action a owl:ObjectProperty ;
-    rdfs:domain :LossScenario ;
-    rdfs:range :ControlAction ;
+stpa:has-control-action a owl:ObjectProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range stpa:ControlAction ;
     rdfs:label "has-control-action" .
 
-:has-controlled-process a owl:ObjectProperty ;
-    rdfs:domain :LossScenario ;
-    rdfs:range :ControlledProcess ;
+stpa:has-controlled-process a owl:ObjectProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range stpa:ControlledProcess ;
     rdfs:label "has-controlled-process" .
 
 ################################################
 ##  Data Properties
 ################################################
 
-:provided-status a owl:DatatypeProperty ;
-    rdfs:domain :ScenarioControllerAssociation ;
+stpa:provided-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
     rdfs:range xsd:string ;
     rdfs:label "provided-status" .
 
-:feedback-status a owl:DatatypeProperty ;
-    rdfs:domain :ScenarioControllerAssociation ;
+stpa:feedback-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
     rdfs:range xsd:string ;
     rdfs:label "feedback-status" .
 
-:scenario-class a owl:DatatypeProperty ;
-    rdfs:domain :LossScenario ;
+stpa:scenario-class a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
     rdfs:range xsd:string ;
     rdfs:label "scenario-class" .
 
-:original-text a owl:DatatypeProperty ;
-    rdfs:domain :LossScenario ;
+stpa:original-text a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
     rdfs:range xsd:string ;
     rdfs:label "original-text" .
 
-:context a owl:DatatypeProperty ;
-    rdfs:domain :LossScenario ;
+stpa:context a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
     rdfs:range xsd:string ;
     rdfs:label "context" .
 
-:name a owl:DatatypeProperty ;
-    rdfs:domain :Controller ;
+stpa:name a owl:DatatypeProperty ;
+    rdfs:domain stpa:Controller ;
     rdfs:range xsd:string ;
     rdfs:label "name" .
 `;

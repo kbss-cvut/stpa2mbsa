@@ -225,35 +225,35 @@ function buildLossScenarioParts(
   const associationId = `${sanitizedScenarioId}--${sanitizedControllerId}-association`;
 
   const controllerSnippet = `
-:${sanitizedControllerId} a :Controller ;
-    :name "${controller}" .
+stpa:${sanitizedControllerId} a stpa:Controller ;
+    stpa:name "${controller}" .
 `;
 
   const controlActionSnippet = `
-:${sanitizedActionId} a :ControlAction ;
+stpa:${sanitizedActionId} a stpa:ControlAction ;
     rdfs:label "${controlAction}" .
 `;
 
   const processSnippet = `
-:${sanitizedProcessId} a :ControlledProcess ;
+stpa:${sanitizedProcessId} a stpa:ControlledProcess ;
     rdfs:label "${controlledProcess}" .
 `;
 
   const scenarioSnippet = `
-:${sanitizedScenarioId} a :LossScenario ;
-    :scenario-class "${scenarioClass}" ;
-    :original-text "${scenarioText}" ;
-    :has-control-action :${sanitizedActionId} ;
-    :has-controlled-process :${sanitizedProcessId} ;
-    :context "${context || ""}" .
+stpa:${sanitizedScenarioId} a stpa:LossScenario ;
+    stpa:scenario-class "${scenarioClass}" ;
+    stpa:original-text "${scenarioText}" ;
+    stpa:has-control-action stpa:${sanitizedActionId} ;
+    stpa:has-controlled-process stpa:${sanitizedProcessId} ;
+    stpa:context "${context || ''}" .
 `;
 
   const associationSnippet = `
-:${associationId} a :ScenarioControllerAssociation ;
-    :belongs-to-scenario :${sanitizedScenarioId} ;
-    :has-controller :${sanitizedControllerId} ;
-    :provided-status "${providedStatus || ""}" ;
-    :feedback-status "${feedbackStatus || ""}" .
+stpa:${associationId} a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:${sanitizedScenarioId} ;
+    stpa:has-controller stpa:${sanitizedControllerId} ;
+    stpa:provided-status "${providedStatus || ''}" ;
+    stpa:feedback-status "${feedbackStatus || ''}" .
 `;
 
   return {
