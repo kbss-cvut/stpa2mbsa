@@ -10,6 +10,7 @@ const LOSS_SCENARIOS_TTL_FILE = "loss-scenarios.ttl";
 
 function exportAllMetadataToLossScenariosTtl() {
   const allMetadata = getAllMetadata();
+  let ttlContent = getOrCreateLossScenariosTtlFile().getBlob().getDataAsString();
 
   for (const scenarioId in allMetadata) {
     const meta = allMetadata[scenarioId];
@@ -23,9 +24,10 @@ function exportAllMetadataToLossScenariosTtl() {
       meta.providedStatus,
       meta.feedbackStatus
     );
-    appendToLossScenariosTtlFile(ttlSnippet);
+    ttlContent += "\n" + ttlSnippet;
   }
 
+  getOrCreateLossScenariosTtlFile().setContent(ttlContent);
   SpreadsheetApp.getUi().alert("Exported all loss scenarios to " + LOSS_SCENARIOS_TTL_FILE + "!");
 }
 
