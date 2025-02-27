@@ -1,0 +1,49 @@
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX rel: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT
+  ?lossScenario
+  ?class
+  ?stpaText
+  ?controller
+  ?controlAction
+  ?controlledProcess
+  ?context
+  ?providedStatus
+  ?feedbackStatus
+WHERE {
+  GRAPH <http://onto.fd.cvut.cz/graphs/stpa/AIDA> {
+    ?lossScenario a stpa:LossScenario ;
+                  stpa:original-text ?stpaText ;
+                  stpa:scenario-class ?class ;
+                  stpa:has-control-action ?controlAction ;
+                  stpa:has-controlled-process ?controlledProcess ;
+                  stpa:context ?context .
+
+    ?sca a stpa:ScenarioControllerAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:has-controller ?controller ;
+         stpa:provided-status ?providedStatus ;
+         stpa:feedback-status ?feedbackStatus .
+
+    BIND(REPLACE(LCASE(STR(?stpaText)), "<[^>]*>", "") AS ?stpaNoHtml)
+    BIND(REPLACE(?stpaNoHtml, "\\s+", " ") AS ?stpaNormalized)
+    BIND(REPLACE(?stpaNormalized, "\\(\\s+", "(") AS ?stpaNormalized2)
+    BIND(REPLACE(?stpaNormalized2, "\\s+\\)", ")") AS ?stpaFinal)
+
+    FILTER EXISTS {
+      ?termOccurrence a rel:výskyt-termu ;
+                      rel:odkazuje-na-anotovaný-text ?annotatedText ;
+                      rel:má-skóre ?score .
+      FILTER(xsd:float(?score) >= 0.8)
+
+      BIND(REPLACE(LCASE(STR(?annotatedText)), "<[^>]*>", "") AS ?relNoHtml)
+      BIND(REPLACE(?relNoHtml, "\\s+", " ") AS ?relNormalized)
+      BIND(REPLACE(?relNormalized, "\\(\\s+", "(") AS ?relNormalized2)
+      BIND(REPLACE(?relNormalized2, "\\s+\\)", ")") AS ?relFinal)
+
+      FILTER(STR(?stpaFinal) = STR(?relFinal))
+    }
+  }
+}
