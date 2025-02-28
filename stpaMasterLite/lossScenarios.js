@@ -136,13 +136,6 @@ function generateLossScenarios(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`$controller does not provide $action- $controller received feedback (or other inputs) that indicated $context.`, {
-      controller: csInfo.controller,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
   }
@@ -162,13 +155,6 @@ function retrieveScenarioForPattern(pattern, values) {
 function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$controller provides $action - $controller received feedback (or other input) that indicated $context", {
-      controller: csInfo.controller,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
   }
@@ -184,13 +170,6 @@ function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`$controller provides $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context ${context.measureInverse}`, {
-      controller: csInfo.controller,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} ${context.measureInverse}`;
   }
@@ -208,13 +187,6 @@ function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`$controller ${context.stops ? "stops" : "continues"} providing $action ${context.measure} - $controller received feedback (or other inputs) that indicated $context on time`, {
-      controller: csInfo.controller,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} ${context.stops ? "stops" : "continues"} providing the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} on time`;
   }
@@ -232,13 +204,6 @@ function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
 function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropriateDuration) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("Feedback (or other inputs) received by $controller does not adequately indicate $context - it is true that $context", {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not adequately indicate ${startWith("that", context.text)}${inappropriateDuration ? " (inappropriate duration)" : ""} - it is true that ${context.text}`;
   }
@@ -254,13 +219,6 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
 function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`Feedback received (or other inputs) by $controller does not indicated $context ${context.measureInverse} - it is true that $context`, {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
   }
@@ -276,14 +234,6 @@ function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$controller does provide $action when $context - $action is not received by $controlledProcess", {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
   }
@@ -302,14 +252,6 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$controller does not provide $action when $context - $controlledProcess receives $action when $context", {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
   }
@@ -327,14 +269,6 @@ function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`$controller provides $action ${context.measureInverse} when $context - $action is received by $controlledProcess ${context.measure}`, {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   }
@@ -356,14 +290,6 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$controller provides $action ${context.measureInverse} when $context - $action is received by $controlledProcess ${context.measure}", {
-      controller: csInfo.controller,
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   }
@@ -384,13 +310,6 @@ function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$action is received by $controlledProcess when $context - $controlledProcess does not respond adequately", {
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
   }
@@ -409,19 +328,12 @@ function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$action is not received by $controlledProcess when $context - $controlledProcess responds to the command", {
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text
-    });
-  }
   if (!scenario) {
     scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds (by <...>)`;
   }
 
   const processReceptionStatus = "notReceived";
-  const processExecutionStatus = "erroneousResponse";
+  const processExecutionStatus = "inadequate";
   setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
@@ -457,18 +369,12 @@ function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
 // Action is received with appropriate duration, but process response is inadequate.
 function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
   let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern("$action is received by $controlledProcess with appropriate duration - $controlledProcess does not respond adequately (inappropriate duration)", {
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction
-    });
-  }
   if (!scenario) {
     scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration - ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
   }
 
   const processReceptionStatus = "received";
-  const processExecutionStatus = "inappropriateResponse";
+  const processExecutionStatus = "inadequate";
   setLossScenarioMetaData(csInfo, null, row, 9, "provided", "inaccurate", processReceptionStatus, processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
