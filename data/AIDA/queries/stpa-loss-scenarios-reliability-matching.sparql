@@ -12,6 +12,8 @@ SELECT DISTINCT
   ?context
   ?providedStatus
   ?feedbackStatus
+  ?processExecutionStatus
+  ?processReceptionStatus
 WHERE {
   GRAPH <http://onto.fd.cvut.cz/graphs/stpa/AIDA> {
     ?lossScenario a stpa:LossScenario ;
@@ -26,6 +28,11 @@ WHERE {
          stpa:has-controller ?controller ;
          stpa:provided-status ?providedStatus ;
          stpa:feedback-status ?feedbackStatus .
+
+    ?spa a stpa:ScenarioProcessAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:process-execution-status ?processExecutionStatus ;
+         stpa:process-reception-status ?processReceptionStatus .
 
     BIND(REPLACE(LCASE(STR(?stpaText)), "<[^>]*>", "") AS ?stpaNoHtml)
     BIND(REPLACE(?stpaNoHtml, "\\s+", " ") AS ?stpaNormalized)
