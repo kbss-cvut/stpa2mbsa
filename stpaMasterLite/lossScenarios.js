@@ -132,250 +132,190 @@ function generateLossScenarios(uca, csInfo, row) {
   return row;
 }
 
-// 1. Unsafe controller behavior
+// ----- Class 1: Unsafe Controller Behavior -----
+// UCA Types for Class 1 affect only the controller’s action and feedback.
+
+// UCA Type One: Controller does NOT provide the control action.
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${startWith("that", context.text)}`;
-  }
-
-  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate");
-
+  const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
   }, row);
 }
 
-function retrieveScenarioForPattern(pattern, values) {
-  return retrieveChatGptResponse(`Write a loss scenario using the following pattern (variables are prefixed with a $): ${pattern}. Use the following values for the variables in the pattern: ${Object.keys(values).map(k => "$" + k + "=" + values[k]).join(", ")}. Return only the text of the scenario, stick to the provided pattern as much as possible.`);
-}
-
+// UCA Type Two: Controller provides the control action.
 function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text}`;
-  }
-
-  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate");
-
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action when ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
   }, row);
 }
 
+// UCA Type Three (Temporal): Controller provides the control action too early or too late.
 function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} ${context.measureInverse}`;
+  let providedStatus = "provided";
+  if (context.measure === "too early") {
+    providedStatus = "providedTooEarly";
+  } else if (context.measure === "too late") {
+    providedStatus = "providedTooLate";
   }
-
-  // Set provided status based on the measure (e.g., "providedTooEarly" or "providedTooLate")
-  const provStatus = "provided" + (context.measure ? context.measure.replace(/\s+/g, "") : "");
-  setLossScenarioMetaData(csInfo, context, row, 6, provStatus, "accurate");
-
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
   }, row);
 }
 
+// UCA Type Four (Duration): Controller stops or continues providing the control action with a duration issue.
 function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} ${context.stops ? "stops" : "continues"} providing the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback (or other inputs) that indicated ${context.text} on time`;
-  }
-
-  const provStatus = context.stops ? "notProvided" : "provided";
-  setLossScenarioMetaData(csInfo, context, row, 6, provStatus, "accurate");
-
+  let actionPhrase = context.stops ? "stops providing" : "continues providing";
+  const scenario = `${csInfo.controller} ${actionPhrase} the ${csInfo.controlAction} action ${context.measure} when ${context.text}`;
+  let providedStatus = context.stops ? "notProvided" : "provided";
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
   }, row);
 }
 
-// 2. Unsafe feedback path
+// ----- Class 2: Unsafe Feedback Path -----
+// UCA Types for Class 2 affect the feedback/information provided.
+
+// UCA Type One: Feedback does not adequately indicate the context.
 function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropriateDuration) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not adequately indicate ${startWith("that", context.text)}${inappropriateDuration ? " (inappropriate duration)" : ""} - it is true that ${context.text}`;
-  }
-
-  setLossScenarioMetaData(csInfo, context, row, 7, "provided", "inaccurate");
-
+  let durationNote = inappropriateDuration ? " (inappropriate duration)" : "";
+  const scenario = `Feedback received by ${csInfo.controller} does not adequately indicate ${context.text}${durationNote} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
   }, row);
 }
 
+// UCA Type Three (Temporal): Feedback with a temporal issue.
 function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `Feedback (or other inputs) received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
-  }
-  setLossScenarioMetaData(csInfo, context, row, 7, "provided", "inaccurate");
-
+  const scenario = `Feedback received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
   }, row);
 }
 
-// 3. Unsafe control path
+// ----- Class 3: Unsafe Control Path -----
+// UCA Types for Class 3 involve the control path between the controller and the controlled process.
+
+// UCA Type One: Controller provides the action, but the controlled process does not receive it.
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
-  }
-
-  const processReceptionStatus = "notReceived";
-  const processExecutionStatus = "n/a"; // Not applicable for control-path issues
-  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", processReceptionStatus, processExecutionStatus);
-
+  const scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "notReceived", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
   }, row);
 }
 
-// Controller does not provide action, but the process receives it.
+// UCA Type Two: Controller does not provide the action, but the controlled process receives it.
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives ${csInfo.controlAction} action when ${context.text}`;
-  }
-
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "n/a";
-  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", processReceptionStatus, processExecutionStatus);
-
+  const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives the ${csInfo.controlAction} action when ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", "received", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
   }, row);
 }
 
+// UCA Type Three (Temporal): Controller provides the action with a timing modifier and the process receives it with corresponding temporal deviation.
 function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
+  let providedStatus = "provided";
+  let processExecutionStatus = "executed";
+  if (context.measure === "too early") {
+    providedStatus = "providedTooEarly";
+    processExecutionStatus = "executedTooEarly";
+  } else if (context.measure === "too late") {
+    providedStatus = "providedTooLate";
+    processExecutionStatus = "executedTooLate";
   }
-
-  const provStatus = "provided" + (context.measure ? context.measure.replace(/\s+/g, "") : "");
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "inappropriateTiming";
-
-  setLossScenarioMetaData(csInfo, context, row, 8, provStatus, "accurate", processReceptionStatus, processExecutionStatus);
-
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
+  setLossScenarioMetaData(csInfo, context, row, 8, providedStatus, "accurate", "received", processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
   }, row);
 }
 
-
-// Controller provides action with appropriate duration, but the process receives it with inappropriate duration.
+// UCA Type Four (Duration): Controller provides the action for an appropriate duration, but the controlled process receives it with an inappropriate duration.
 function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
-  }
-
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "inappropriateDuration";
-  const provStatus = "provided" + (context.measure ? context.measure.replace(/\s+/g, "") : "");
-  setLossScenarioMetaData(csInfo, context, row, 8, provStatus, "accurate", processReceptionStatus, processExecutionStatus);
-
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "received", "inappropriateDuration");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
   }, row);
 }
 
+// ----- Class 4: Unsafe Controlled Process Behavior -----
+// UCA Types for Class 4 affect the behavior of the controlled process itself.
 
-// Action is received but process does not respond adequately.
+// UCA Type One: Process receives the action but does not respond adequately.
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)`;
-  }
-
-  // Process is received but execution is unsafe.
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "notResponding";
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", processReceptionStatus, processExecutionStatus);
+  const scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately`;
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", "executed");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
-// Action is not received, but the process still responds.
+// UCA Type Two: Controller does not provide the action, process does not receive it, yet process responds erroneously.
 function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds (by <...>)`;
-  }
-
-  const processReceptionStatus = "notReceived";
-  const processExecutionStatus = "inadequate";
-  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", processReceptionStatus, processExecutionStatus);
+  const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds erroneously`;
+  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", "notReceived", "erroneousResponse");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
-// Action is received but with timing issues, leading to inadequate response.
+// UCA Type Three (Temporal): Process does not receive the action but erroneously executes it with a timing deviation.
 function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  let scenario;
-  if (isChatGptAvailable()) {
-    scenario = retrieveScenarioForPattern(`$action is received by $controlledProcess ${context.measureInverse} when $context - $controlledProcess does not respond adequately $measure`, {
-      controlledProcess: csInfo.controlledProcess,
-      action: csInfo.controlAction,
-      context: context.text,
-      measure: context.measure
-    });
+  let processExecutionStatus = "executed";
+  if (context.measure === "too early") {
+    processExecutionStatus = "executedTooEarly";
+  } else if (context.measure === "too late") {
+    processExecutionStatus = "executedTooLate";
   }
-  if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} ${context.measureInverse} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately (by <...>)${context.measure}`;
-  }
-
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "inadequate";
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "inaccurate", processReceptionStatus, processExecutionStatus);
+  const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} executes the action ${context.measure}`;
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
   }, row);
 }
 
-// Action is received with appropriate duration, but process response is inadequate.
+// UCA Type Four (Duration): Process does not receive the action and responds with an inappropriate duration.
 function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
-  let scenario;
-  if (!scenario) {
-    scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} with appropriate duration - ${csInfo.controlledProcess} does not respond adequately (by <...>)(inappropriate duration)`;
-  }
-
-  const processReceptionStatus = "received";
-  const processExecutionStatus = "inadequate";
-  setLossScenarioMetaData(csInfo, null, row, 9, "provided", "inaccurate", processReceptionStatus, processExecutionStatus);
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
+  const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds inadequately (inappropriate duration)`;
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", "inappropriateDuration");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
