@@ -133,8 +133,6 @@ function generateLossScenarios(uca, csInfo, row) {
 }
 
 // ----- Class 1: Unsafe Controller Behavior -----
-// UCA Types for Class 1 affect only the controller’s action and feedback.
-
 // UCA Type One: Controller does NOT provide the control action.
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
@@ -188,13 +186,22 @@ function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
 }
 
 // ----- Class 2: Unsafe Feedback Path -----
-// UCA Types for Class 2 affect the feedback/information provided.
-
 // UCA Type One: Feedback does not adequately indicate the context.
 function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropriateDuration) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let durationNote = inappropriateDuration ? " (inappropriate duration)" : "";
   const scenario = `Feedback received by ${csInfo.controller} does not adequately indicate ${context.text}${durationNote} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_TWO_COLUMN
+  }, row);
+}
+
+// UCA Type Two: Feedback is provided but incorrectly indicates the context (i.e. indicates false when context is true).
+function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
+  const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
+  const scenario = `Feedback received by ${csInfo.controller} incorrectly indicates that ${context.text} is false, even though it is true`;
   setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
@@ -213,9 +220,18 @@ function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   }, row);
 }
 
-// ----- Class 3: Unsafe Control Path -----
-// UCA Types for Class 3 involve the control path between the controller and the controlled process.
+// UCA Type Four (Duration): Feedback is provided for an inappropriate duration.
+function generateLossScenarioOfTypeTwoForUcaTypeFour(uca, csInfo, row) {
+  const context = extractContextFromDurationUnsafeControlAction(uca.definition, csInfo.controller, csInfo.controlAction);
+  const scenario = `Feedback received by ${csInfo.controller} indicates ${context.text} for an inappropriate duration, failing to accurately reflect the true state`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenario({
+    scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
+    type: LOSS_SCENARIO_TYPE_TWO_COLUMN
+  }, row);
+}
 
+// ----- Class 3: Unsafe Control Path -----.
 // UCA Type One: Controller provides the action, but the controlled process does not receive it.
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
@@ -270,8 +286,6 @@ function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
 }
 
 // ----- Class 4: Unsafe Controlled Process Behavior -----
-// UCA Types for Class 4 affect the behavior of the controlled process itself.
-
 // UCA Type One: Process receives the action but does not respond adequately.
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
