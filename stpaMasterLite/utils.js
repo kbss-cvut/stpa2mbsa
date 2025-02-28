@@ -3,9 +3,6 @@ const definedControlActions = new Set();
 const definedProcesses = new Set();
 let scenarioSnippets = [];
 
-const NON_EDITABLE_BACKGROUND = "#efefef";
-const WHITE_BACKGROUND = "#ffffff";
-
 const STEP_ONE_MAX_EXPECTED_ROWS = 50;
 const STEP_THREE_MAX_EXPECTED_ROWS = 150;
 const SLR_MAX_EXPECTED_ROWS = 100;
