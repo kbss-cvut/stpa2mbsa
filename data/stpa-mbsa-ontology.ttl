@@ -1,770 +1,88 @@
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-
-<http://www.fd.cvut.cz/ontologies/stpa-mbsa> rdf:type owl:Ontology ;
-                                              owl:versionIRI <http://www.fd.cvut.cz/ontologies/stpa-mbsa/v1.0> .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment
-<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment> rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string
-<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string> rdf:type rdfs:Datatype .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  http://a.ontology/myonto#_analyzes
-:_analyzes rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#analyzes
-:analyzes rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_action
-:has_action rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_actuator
-:has_actuator rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_assertion
-:has_assertion rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_block
-:has_block rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_constraints
-:has_constraints rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_context
-:has_context rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_control_action
-:has_control_action rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_controlled_process
-:has_controlled_process rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_controller
-:has_controller rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_domain
-:has_domain rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_event
-:has_event rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_failure_condition
-:has_failure_condition rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_flow_variable
-:has_flow_variable rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_guard
-:has_guard rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_hazards
-:has_hazards rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_initial_value
-:has_initial_value rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_loses
-:has_loses rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_part
-:has_part rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_possible_value
-:has_possible_value rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_probability_law
-:has_probability_law rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_process_model
-:has_process_model rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_requirements
-:has_requirements rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_safety_control_structure
-:has_safety_control_structure rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_sensor
-:has_sensor rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_state
-:has_state rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_state_variable
-:has_state_variable rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_type
-:has_type rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#has_value
-:has_value rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_aggregated_by
-:is_aggregated_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_compared_to
-:is_compared_to rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_composed_by
-:is_composed_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_defined_by
-:is_defined_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_evaluated_from
-:is_evaluated_from rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_mesure_of
-:is_mesure_of rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_performed_by
-:is_performed_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_prevented_by
-:is_prevented_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_snapshot_of
-:is_snapshot_of rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#is_triggered_by
-:is_triggered_by rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#leads_to
-:leads_to rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#provides_control_action
-:provides_control_action rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#provides_feedback
-:provides_feedback rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#receives_control_action
-:receives_control_action rdf:type owl:ObjectProperty .
-
-
-###  http://a.ontology/myonto#receives_feedback
-:receives_feedback rdf:type owl:ObjectProperty .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  http://a.ontology/myonto#Action__P___Effet_
-:Action__P___Effet_ rdf:type owl:Class ;
-                    rdfs:subClassOf :MBSA ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_type ;
-                                      owl:allValuesFrom :Instruction_Type
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :is_performed_by ;
-                                      owl:allValuesFrom :State_Variable__V_
-                                    ] .
-
-
-###  http://a.ontology/myonto#Actuator
-:Actuator rdf:type owl:Class ;
-          rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#Assertion__A_
-:Assertion__A_ rdf:type owl:Class ;
-               rdfs:subClassOf :MBSA ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :is_composed_by ;
-                                 owl:allValuesFrom :Flow_Variable__E_
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :is_composed_by ;
-                                 owl:allValuesFrom :State_Variable__V_
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :is_defined_by ;
-                                 owl:allValuesFrom :Expression
-                               ] .
-
-
-###  http://a.ontology/myonto#Block
-:Block rdf:type owl:Class ;
-       rdfs:subClassOf :MBSA ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :is_defined_by ;
-                         owl:allValuesFrom :GTS
-                       ] .
-
-
-###  http://a.ontology/myonto#Bucket
-:Bucket rdf:type owl:Class ;
-        rdfs:subClassOf :MBSA ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :is_defined_by ;
-                          owl:allValuesFrom :basic_event__e_
-                        ] .
-
-
-###  http://a.ontology/myonto#Connector
-:Connector rdf:type owl:Class ;
-           rdfs:subClassOf :MBSA ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :has_assertion ;
-                             owl:allValuesFrom :Assertion__A_
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :is_defined_by ;
-                             owl:allValuesFrom :Connector_In
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :is_defined_by ;
-                             owl:allValuesFrom :Connector_Out
-                           ] .
-
-
-###  http://a.ontology/myonto#Connector_In
-:Connector_In rdf:type owl:Class ;
-              rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Connector_Out
-:Connector_Out rdf:type owl:Class ;
-               rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Constraint
-:Constraint rdf:type owl:Class ;
-            rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#Context
-:Context rdf:type owl:Class ;
-         rdfs:subClassOf :STPA ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :has_possible_value ;
-                           owl:allValuesFrom :Value
-                         ] .
-
-
-###  http://a.ontology/myonto#ControlAction
-:ControlAction rdf:type owl:Class ;
-               rdfs:subClassOf :STPA ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :has_actuator ;
-                                 owl:allValuesFrom :Actuator
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :has_flow_variable ;
-                                 owl:allValuesFrom :Flow_Variable__E_
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :has_possible_value ;
-                                 owl:allValuesFrom :Value
-                               ] .
-
-
-###  http://a.ontology/myonto#ControlStructureComponent
-:ControlStructureComponent rdf:type owl:Class ;
-                           rdfs:subClassOf :STPA ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :has_controlled_process ;
-                                             owl:allValuesFrom :Controlled_Process
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :has_controller ;
-                                             owl:allValuesFrom :Controller
-                                           ] .
-
-
-###  http://a.ontology/myonto#Controlled_Process
-:Controlled_Process rdf:type owl:Class ;
-                    rdfs:subClassOf :STPA ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :provides_feedback ;
-                                      owl:allValuesFrom :Feedback
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :receives_control_action ;
-                                      owl:allValuesFrom :ControlAction
-                                    ] .
-
-
-###  http://a.ontology/myonto#Controller
-:Controller rdf:type owl:Class ;
-            rdfs:subClassOf :STPA ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :has_process_model ;
-                              owl:allValuesFrom :Process_Model
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :has_state_variable ;
-                              owl:allValuesFrom :State_Variable__V_
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :provides_control_action ;
-                              owl:allValuesFrom :ControlAction
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :receives_feedback ;
-                              owl:allValuesFrom :Feedback
-                            ] .
-
-
-###  http://a.ontology/myonto#ControllerConstraint
-:ControllerConstraint rdf:type owl:Class ;
-                      rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#Domain
-:Domain rdf:type owl:Class ;
-        rdfs:subClassOf :MBSA ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_type ;
-                          owl:allValuesFrom :Domain_Type
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_value ;
-                          owl:allValuesFrom :Domain_Value
-                        ] .
-
-
-###  http://a.ontology/myonto#Domain_Type
-:Domain_Type rdf:type owl:Class ;
-             rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Domain_Value
-:Domain_Value rdf:type owl:Class ;
-              rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Event__E_
-:Event__E_ rdf:type owl:Class ;
-           rdfs:subClassOf :MBSA ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :is_defined_by ;
-                             owl:allValuesFrom :basic_event__e_
-                           ] .
-
-
-###  http://a.ontology/myonto#Expression
-:Expression rdf:type owl:Class ;
-            rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Failure_Condition
-:Failure_Condition rdf:type owl:Class ;
-                   rdfs:subClassOf :MBSA ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :is_compared_to ;
-                                     owl:allValuesFrom :Observer
-                                   ] .
-
-
-###  http://a.ontology/myonto#Feedback
-:Feedback rdf:type owl:Class ;
-          rdfs:subClassOf :STPA ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_flow_variable ;
-                            owl:allValuesFrom :Flow_Variable__E_
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_possible_value ;
-                            owl:allValuesFrom :Value
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_sensor ;
-                            owl:allValuesFrom :Sensor
-                          ] .
-
-
-###  http://a.ontology/myonto#Flow_Variable__E_
-:Flow_Variable__E_ rdf:type owl:Class ;
-                   rdfs:subClassOf :MBSA ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_domain ;
-                                     owl:allValuesFrom :Domain
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_initial_value ;
-                                     owl:allValuesFrom :Initial_values__l_
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :has_possible_value ;
-                                     owl:allValuesFrom :Value
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :is_defined_by ;
-                                     owl:allValuesFrom :Connector
-                                   ] .
-
-
-###  http://a.ontology/myonto#GTS
-:GTS rdf:type owl:Class ;
-     rdfs:subClassOf :MBSA ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :is_defined_by ;
-                       owl:allValuesFrom :Assertion__A_
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :is_defined_by ;
-                       owl:allValuesFrom :Event__E_
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :is_defined_by ;
-                       owl:allValuesFrom :Flow_Variable__E_
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :is_defined_by ;
-                       owl:allValuesFrom :State_Variable__V_
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :is_defined_by ;
-                       owl:allValuesFrom :Transition__T___e__G__P_
-                     ] .
-
-
-###  http://a.ontology/myonto#Global_State
-:Global_State rdf:type owl:Class ;
-              rdfs:subClassOf :MBSA ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :is_aggregated_by ;
-                                owl:allValuesFrom :Value
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :is_snapshot_of ;
-                                owl:allValuesFrom :GTS
-                              ] .
-
-
-###  http://a.ontology/myonto#Guard__G_
-:Guard__G_ rdf:type owl:Class ;
-           rdfs:subClassOf :MBSA ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :is_defined_by ;
-                             owl:allValuesFrom :Assertion__A_
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :is_defined_by ;
-                             owl:allValuesFrom :Expression
-                           ] .
-
-
-###  http://a.ontology/myonto#Initial_values__l_
-:Initial_values__l_ rdf:type owl:Class ;
-                    rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Instruction_Type
-:Instruction_Type rdf:type owl:Class ;
-                  rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Loss
-:Loss rdf:type owl:Class ;
-      rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#LossScenario
-:LossScenario rdf:type owl:Class ;
-              rdfs:subClassOf :STPA ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :has_context ;
-                                owl:allValuesFrom :Context
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :has_type ;
-                                owl:allValuesFrom :LossScenarioType
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :leads_to ;
-                                owl:allValuesFrom :UnsafeControlAction
-                              ] .
-
-
-###  http://a.ontology/myonto#LossScenarioType
-:LossScenarioType rdf:type owl:Class ;
-                  rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#MBSA
-:MBSA rdf:type owl:Class ;
-      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty :_analyzes ;
-                        owl:allValuesFrom :System
-                      ] .
-
-
-###  http://a.ontology/myonto#Observer
-:Observer rdf:type owl:Class ;
-          rdfs:subClassOf :MBSA ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :is_defined_by ;
-                            owl:allValuesFrom :Assertion__A_
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :is_mesure_of ;
-                            owl:allValuesFrom :Global_State
-                          ] .
-
-
-###  http://a.ontology/myonto#Probability_Law
-:Probability_Law rdf:type owl:Class ;
-                 rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#Process_Model
-:Process_Model rdf:type owl:Class ;
-               rdfs:subClassOf :MBSA .
-
-
-###  http://a.ontology/myonto#STPA
-:STPA rdf:type owl:Class ;
-      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                        owl:onProperty :analyzes ;
-                        owl:allValuesFrom :System
-                      ] .
-
-
-###  http://a.ontology/myonto#SafetyControlStructure
-:SafetyControlStructure rdf:type owl:Class ;
-                        rdfs:subClassOf :STPA ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :has_part ;
-                                          owl:allValuesFrom :ControlStructureComponent
-                                        ] .
-
-
-###  http://a.ontology/myonto#Safety_Requirements
-:Safety_Requirements rdf:type owl:Class ;
-                     rdfs:subClassOf :MBSA ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :has_failure_condition ;
-                                       owl:allValuesFrom :Failure_Condition
-                                     ] .
-
-
-###  http://a.ontology/myonto#Sensor
-:Sensor rdf:type owl:Class ;
-        rdfs:subClassOf :STPA .
-
-
-###  http://a.ontology/myonto#Sequence
-:Sequence rdf:type owl:Class ;
-          rdfs:subClassOf :MBSA ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_event ;
-                            owl:allValuesFrom :Event__E_
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :has_state ;
-                            owl:allValuesFrom :Global_State
-                          ] .
-
-
-###  http://a.ontology/myonto#State_Variable__V_
-:State_Variable__V_ rdf:type owl:Class ;
-                    rdfs:subClassOf :MBSA ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_domain ;
-                                      owl:allValuesFrom :Domain
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_initial_value ;
-                                      owl:allValuesFrom :Initial_values__l_
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :has_possible_value ;
-                                      owl:allValuesFrom :Value
-                                    ] .
-
-
-###  http://a.ontology/myonto#Synchronisation
-:Synchronisation rdf:type owl:Class ;
-                 rdfs:subClassOf :MBSA ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :has_probability_law ;
-                                   owl:allValuesFrom :Probability_Law
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :is_defined_by ;
-                                   owl:allValuesFrom :basic_event__e_
-                                 ] .
-
-
-###  http://a.ontology/myonto#System
-:System rdf:type owl:Class ;
-        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_block ;
-                          owl:allValuesFrom :Block
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_constraints ;
-                          owl:allValuesFrom :SystemLevelConstraint
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_hazards ;
-                          owl:allValuesFrom :SystemLevelHazard
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_loses ;
-                          owl:allValuesFrom :Loss
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_requirements ;
-                          owl:allValuesFrom :Safety_Requirements
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty :has_safety_control_structure ;
-                          owl:allValuesFrom :SafetyControlStructure
-                        ] .
-
-
-###  http://a.ontology/myonto#SystemLevelConstraint
-:SystemLevelConstraint rdf:type owl:Class ;
-                       rdfs:subClassOf :STPA ;
-                       <http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment> """attribute 1
-attribute 2
-attribute 3"""^^<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string> .
-
-
-###  http://a.ontology/myonto#SystemLevelHazard
-:SystemLevelHazard rdf:type owl:Class ;
-                   rdfs:subClassOf :STPA ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :leads_to ;
-                                     owl:allValuesFrom :Loss
-                                   ] ;
-                   <http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment> """attribute 1
-attribute 2
-attribute 3"""^^<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string> .
-
-
-###  http://a.ontology/myonto#Transition__T___e__G__P_
-:Transition__T___e__G__P_ rdf:type owl:Class ;
-                          rdfs:subClassOf :MBSA ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :has_action ;
-                                            owl:allValuesFrom :Action__P___Effet_
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :has_guard ;
-                                            owl:allValuesFrom :Guard__G_
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :is_triggered_by ;
-                                            owl:allValuesFrom :basic_event__e_
-                                          ] .
-
-
-###  http://a.ontology/myonto#UnsafeControlAction
-:UnsafeControlAction rdf:type owl:Class ;
-                     rdfs:subClassOf :STPA ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :has_control_action ;
-                                       owl:allValuesFrom :ControlAction
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :has_type ;
-                                       owl:allValuesFrom :UnsafeControlActionType
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :is_prevented_by ;
-                                       owl:allValuesFrom :ControllerConstraint
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :leads_to ;
-                                       owl:allValuesFrom :SystemLevelHazard
-                                     ] ;
-                     <http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment> """attribute 1
-attribute 2
-attribute 3"""^^<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string> .
-
-
-###  http://a.ontology/myonto#UnsafeControlActionType
-:UnsafeControlActionType rdf:type owl:Class ;
-                         rdfs:subClassOf :STPA ;
-                         <http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2000/01/rdf-schema#comment> """attribute 1
-attribute 2
-attribute 3"""^^<http://www.fd.cvut.cz/ontologies/stpa-mbsaw3.org/2001/XMLSchema#string> .
-
-
-###  http://a.ontology/myonto#Value
-:Value rdf:type owl:Class ;
-       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                         owl:onProperty :is_evaluated_from ;
-                         owl:allValuesFrom :Expression
-                       ] .
-
-
-###  http://a.ontology/myonto#basic_event__e_
-:basic_event__e_ rdf:type owl:Class ;
-                 rdfs:subClassOf :MBSA ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :has_probability_law ;
-                                   owl:allValuesFrom :Probability_Law
-                                 ] .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+################################################
+##  Classes
+################################################
+
+stpa:LossScenario a owl:Class .
+stpa:ScenarioControllerAssociation a owl:Class .
+stpa:ScenarioProcessAssociation a owl:Class .
+stpa:Controller a owl:Class .
+stpa:ControlAction a owl:Class .
+stpa:ControlledProcess a owl:Class .
+
+################################################
+##  Object Properties
+################################################
+
+stpa:belongs-to-scenario a owl:ObjectProperty ;
+                         rdfs:domain stpa:ScenarioControllerAssociation, stpa:ScenarioProcessAssociation ;
+                         rdfs:range stpa:LossScenario ;
+                         rdfs:label "belongs-to-scenario" .
+
+stpa:has-controller a owl:ObjectProperty ;
+                    rdfs:domain stpa:ScenarioControllerAssociation ;
+                    rdfs:range stpa:Controller ;
+                    rdfs:label "has-controller" .
+
+stpa:has-control-action a owl:ObjectProperty ;
+                        rdfs:domain stpa:LossScenario ;
+                        rdfs:range stpa:ControlAction ;
+                        rdfs:label "has-control-action" .
+
+stpa:has-controlled-process a owl:ObjectProperty ;
+                            rdfs:domain stpa:LossScenario ;
+                            rdfs:range stpa:ControlledProcess ;
+                            rdfs:label "has-controlled-process" .
+
+stpa:has-process a owl:ObjectProperty ;
+                 rdfs:domain stpa:ScenarioProcessAssociation ;
+                 rdfs:range stpa:ControlledProcess ;
+                 rdfs:label "has-process" .
+
+################################################
+##  Data Properties
+################################################
+
+stpa:provided-status a owl:DatatypeProperty ;
+                     rdfs:domain stpa:ScenarioControllerAssociation ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "provided-status" .
+
+stpa:feedback-status a owl:DatatypeProperty ;
+                     rdfs:domain stpa:ScenarioControllerAssociation ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "feedback-status" .
+
+stpa:scenario-class a owl:DatatypeProperty ;
+                    rdfs:domain stpa:LossScenario ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "scenario-class" .
+
+stpa:original-text a owl:DatatypeProperty ;
+                   rdfs:domain stpa:LossScenario ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "original-text" .
+
+stpa:context a owl:DatatypeProperty ;
+             rdfs:domain stpa:LossScenario ;
+             rdfs:range xsd:string ;
+             rdfs:label "context" .
+
+stpa:name a owl:DatatypeProperty ;
+          rdfs:domain stpa:Controller ;
+          rdfs:range xsd:string ;
+          rdfs:label "name" .
+
+stpa:process-reception-status a owl:DatatypeProperty ;
+                              rdfs:domain stpa:ScenarioProcessAssociation ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "process-reception-status" .
+
+stpa:process-execution-status a owl:DatatypeProperty ;
+                              rdfs:domain stpa:ScenarioProcessAssociation ;
+                              rdfs:range xsd:string ;
+                              rdfs:label "process-execution-status" .
