@@ -137,7 +137,7 @@ function generateLossScenarios(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -148,7 +148,7 @@ function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -165,7 +165,7 @@ function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
     providedStatus = "providedTooLate";
   }
   const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measureInverse} when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -178,7 +178,7 @@ function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
   let actionPhrase = context.stops ? "stops providing" : "continues providing";
   const scenario = `${csInfo.controller} ${actionPhrase} the ${csInfo.controlAction} action ${context.measure} when ${context.text}`;
   let providedStatus = context.stops ? "notProvided" : "provided";
-  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -191,18 +191,18 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   let durationNote = inappropriateDuration ? " (inappropriate duration)" : "";
   const scenario = `Feedback received by ${csInfo.controller} does not adequately indicate ${context.text}${durationNote} - it is true that ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
   }, row);
 }
 
-// UCA Type Two: Feedback is provided but incorrectly indicates the context (i.e. indicates false when context is true).
+// UCA Type Two: Feedback is provided but incorrectly indicates the context.
 function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `Feedback received by ${csInfo.controller} incorrectly indicates that ${context.text} is false, even though it is true`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -213,7 +213,7 @@ function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
 function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `Feedback received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -224,19 +224,19 @@ function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeTwoForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromDurationUnsafeControlAction(uca.definition, csInfo.controller, csInfo.controlAction);
   const scenario = `Feedback received by ${csInfo.controller} indicates ${context.text} for an inappropriate duration, failing to accurately reflect the true state`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "", "inaccurate", "", "");
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
   }, row);
 }
 
-// ----- Class 3: Unsafe Control Path -----.
+// ----- Class 3: Unsafe Control Path -----
 // UCA Type One: Controller provides the action, but the controlled process does not receive it.
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess}`;
-  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "notReceived", "");
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "notReceived", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
@@ -247,7 +247,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives the ${csInfo.controlAction} action when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", "received", "");
+  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", "received", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
