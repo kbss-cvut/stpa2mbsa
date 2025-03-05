@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+  </head>
+<body>
+<table border="1" style="border-collapse:collapse">
+<tr>
+  <th>C1</th>
+  <th>C2</th>
+  <th>C3</th>
+</tr>
+<tr>
+  <td>Nature</td>
+  <td>Parent</td>
+  <td>Name</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td></td>
+  <td>Drone</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td></td>
+  <td>Remote_control</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td></td>
+  <td>Control_desk</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Drone_pilot</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Environnement</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Positionning_system</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Data_base</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Wifi_transmission</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Power_supply</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td></td>
+  <td>Radio_transmission</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td></td>
+  <td>FC_observers</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk</td>
+  <td>iModeSelection</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk</td>
+  <td>iPilotControlConsigns</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk</td>
+  <td>iFlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk</td>
+  <td>iWifiTransmissionDownlink</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk</td>
+  <td>iControlDeskPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk</td>
+  <td>oFlightPlanProgress</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk</td>
+  <td>oIndicatedMode</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk</td>
+  <td>oWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>SF6_4_Display_drone_follow_up_data</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>Control_desk_common</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>Wifi_mux</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Control_desk</td>
+  <td>Wifi_demux</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.Control_desk_common</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.Control_desk_common</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Control_desk_common</td>
+  <td>iControlDeskPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Control_desk_common</td>
+  <td>oControlDeskCommon</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Control_desk.Control_desk_common</td>
+  <td>Control_desk_common_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.Control_desk_common_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.Control_desk_common_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.Control_desk_common_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.iControlDeskPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.iControlDeskPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.iControlDeskPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.oControlDeskCommon</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.oControlDeskCommon</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Control_desk_common.oControlDeskCommon</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iControlDeskPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iControlDeskPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iControlDeskPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iFlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iFlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iFlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iPilotControlConsigns</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iPilotControlConsigns</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iPilotControlConsigns</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.iWifiTransmissionDownlink</td>
+  <td>IndicatedMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.iWifiTransmissionDownlink</td>
+  <td>FlightPlanProgress</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oFlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oFlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oFlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oIndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.oWifiTransmissionUplink</td>
+  <td>ModeSelection</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.oWifiTransmissionUplink</td>
+  <td>PilotControlConsigns</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.oWifiTransmissionUplink</td>
+  <td>FlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>iModeSelection</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>iPilotControlConsigns</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>oModeSelection</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>oPilotControlConsign</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>iControlDeskCommon</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode</td>
+  <td>SF4_4_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iControlDeskCommon</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iControlDeskCommon</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iControlDeskCommon</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iPilotControlConsigns</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iPilotControlConsigns</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.iPilotControlConsigns</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oPilotControlConsign</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oPilotControlConsign</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.oPilotControlConsign</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.SF4_4_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.SF4_4_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF4_4_Acquire_pilot_control_consigns_and_mode.SF4_4_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>iFlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>oFlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>iControlDeskCommon</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan</td>
+  <td>SF6_1_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iControlDeskCommon</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iControlDeskCommon</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iControlDeskCommon</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iFlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iFlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.iFlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.oFlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.oFlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.oFlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.SF6_1_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.SF6_1_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_1_Compute_Flight_Zone_and_Flight_Plan.SF6_1_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>oFlightPlanProgress</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>oIndicatedMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>iFlightPlanProgress</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>iIndicatedMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>iControlDeskCommon</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data</td>
+  <td>SF6_4_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iControlDeskCommon</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iControlDeskCommon</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iControlDeskCommon</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iFlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iFlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iFlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.iIndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oFlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oFlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oFlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.oIndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.SF6_4_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.SF6_4_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.SF6_4_Display_drone_follow_up_data.SF6_4_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_demux</td>
+  <td>iWifiTransmissionDownlink</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_demux</td>
+  <td>oFlightPlanProgress</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_demux</td>
+  <td>oIndicatedMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink</td>
+  <td>IndicatedMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink</td>
+  <td>FlightPlanProgress</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤FlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.iWifiTransmissionDownlink¤IndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oFlightPlanProgress</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oFlightPlanProgress</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oFlightPlanProgress</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_demux.oIndicatedMode</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_mux</td>
+  <td>iModeSelection</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_mux</td>
+  <td>iPilotControlConsign</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Control_desk.Wifi_mux</td>
+  <td>iFlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_mux</td>
+  <td>oWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iFlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iFlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iFlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iPilotControlConsign</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iPilotControlConsign</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.iPilotControlConsign</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink</td>
+  <td>ModeSelection</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink</td>
+  <td>PilotControlConsigns</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink</td>
+  <td>FlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Control_desk.Wifi_mux.oWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Data_base</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Data_base</td>
+  <td>oFlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Data_base</td>
+  <td>Data_base_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Data_base.Data_base_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Data_base.Data_base_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Data_base.oFlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Data_base.oFlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Data_base.oFlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone</td>
+  <td>iPositionningSignal</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone</td>
+  <td>iWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone</td>
+  <td>oWifiTransmissionDownlink</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone</td>
+  <td>iRemoteCommunication</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone</td>
+  <td>oDroneThrustAndTorque</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone</td>
+  <td>oRealControlMode</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone</td>
+  <td>oPilotOrders</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Flight_Control_System</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone</td>
+  <td>Structure</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Power_supply</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Propulsion_unit_1</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Propulsion_unit_2</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Propulsion_unit_3</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone</td>
+  <td>Propulsion_unit_4</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>iRemoteCommunication</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>iWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oWifiTransmissionDownLink</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oPWM1</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oPWM2</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oPWM3</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oPWM4</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>iFlightControlPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oMotorsDisabled</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>iPositionningSignal</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>iMotorsRateMeasured</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oRealControlMode</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>oPilotOrders</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>RC_receiver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>Wifi_controller</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>LIDAR_altimeter</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>GPS_CAN_bus_driver</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>Flight_controller</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>Optical_flow_sensor</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>GPS_receiver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>Optical_Flow_CAN_bus_driver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System</td>
+  <td>LIDAR_CAN_bus_driver</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>iSensorsSignals</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oSensorsPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oPWM1</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oPWM2</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oPWM3</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oPWM4</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>iMotorsRateMeasured</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oMotorsDisabled</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>iRemoteCommunication</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>iWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>iFlightControlPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oWifiTransmissionDownLink</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oRealControlMode</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>oPilotOrders</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Inertial_reference_sensor</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Main_flight_control_board</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Monitoring_flight_control_board</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Flight_controller_power_supply</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Mux_wifi_downlink</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Inertial_reference_sensor_MON</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Pressure_sensor</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Pressure_sensor_MON</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Magnetometer</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>Magnetometer_MON</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller</td>
+  <td>ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication</td>
+  <td>iSensorsSignals</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication</td>
+  <td>oSensorsSignals</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals</td>
+  <td>PilotOrders</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals</td>
+  <td>ManualOverride</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤ManualOverride</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤PilotOrders</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤PilotOrders</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤PilotOrders</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.iSensorsSignals¤PilotOrders</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals</td>
+  <td>PilotOrders</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals</td>
+  <td>ManualOverride</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤ManualOverride</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤PilotOrders</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤PilotOrders</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤PilotOrders</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_remote_communication.oSensorsSignals¤PilotOrders</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals</td>
+  <td>iSensorsSignals</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals</td>
+  <td>oSensorsSignals</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals</td>
+  <td>DronePositionAndTime</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals</td>
+  <td>GroundDistance</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals</td>
+  <td>VideoFlow</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤DronePositionAndTime</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤DronePositionAndTime</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤GroundDistance</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤GroundDistance</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤VideoFlow</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤VideoFlow</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.iSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals</td>
+  <td>DronePositionAndTime</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals</td>
+  <td>GroundDistance</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals</td>
+  <td>VideoFlow</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤DronePositionAndTime</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤DronePositionAndTime</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤GroundDistance</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤GroundDistance</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤VideoFlow</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤VideoFlow</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.ERRONEOUS_to_ERRONEOUS_COMMON_sensors_signals.oSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply</td>
+  <td>iFlightControlPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply</td>
+  <td>oSensorsPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply</td>
+  <td>oInternalPowerSupply</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply</td>
+  <td>Flight_controller_power_supply_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.Flight_controller_power_supply_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.Flight_controller_power_supply_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.iFlightControlPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.iFlightControlPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.iFlightControlPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oInternalPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oInternalPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oInternalPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oSensorsPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oSensorsPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Flight_controller_power_supply.oSensorsPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iFlightControlPowerSupply</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iFlightControlPowerSupply</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iFlightControlPowerSupply</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured</td>
+  <td>Motor1RateMeasured</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured</td>
+  <td>Motor2RateMeasured</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured</td>
+  <td>Motor3RateMeasured</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured</td>
+  <td>Motor4RateMeasured</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor1RateMeasured</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor1RateMeasured</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor1RateMeasured</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor1RateMeasured</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor2RateMeasured</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor2RateMeasured</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor2RateMeasured</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor2RateMeasured</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor3RateMeasured</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor3RateMeasured</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor3RateMeasured</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor3RateMeasured</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor4RateMeasured</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor4RateMeasured</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor4RateMeasured</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iMotorsRateMeasured¤Motor4RateMeasured</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor</td>
+  <td>o1</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor</td>
+  <td>Failure_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.Failure_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.Failure_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.Failure_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.o1</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.o1</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor.o1</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON</td>
+  <td>o1</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON</td>
+  <td>Failure_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.Failure_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.Failure_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.Failure_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.o1</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.o1</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Inertial_reference_sensor_MON.o1</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication</td>
+  <td>PilotOrders</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication</td>
+  <td>ManualOverride</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤ManualOverride</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤PilotOrders</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤PilotOrders</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤PilotOrders</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iRemoteCommunication¤PilotOrders</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals</td>
+  <td>DronePositionAndTime</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals</td>
+  <td>GroundDistance</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals</td>
+  <td>VideoFlow</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤DronePositionAndTime</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤DronePositionAndTime</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤DronePositionAndTime</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤GroundDistance</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤GroundDistance</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤GroundDistance</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤VideoFlow</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤VideoFlow</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iSensorsSignals¤VideoFlow</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink</td>
+  <td>ModeSelection</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink</td>
+  <td>PilotControlConsigns</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink</td>
+  <td>FlightPlanAndZone</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤FlightPlanAndZone</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>AUTO</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>MANUAL</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>OSCILLATING</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤ModeSelection</td>
+  <td>ERRONEOUS_COMMON</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.iWifiTransmissionUplink¤PilotControlConsigns</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer</td>
+  <td>o1</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer</td>
+  <td>Failure_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.Failure_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.Failure_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.Failure_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.o1</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.o1</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer.o1</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Event</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON</td>
+  <td>Erroneous</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON</td>
+  <td>o1</td>
+</tr>
+<tr>
+  <td>StateVariable</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON</td>
+  <td>Failure_state</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.Failure_state</td>
+  <td>Nominal</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.Failure_state</td>
+  <td>Loss</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.Failure_state</td>
+  <td>Misleading</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.o1</td>
+  <td>OK</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.o1</td>
+  <td>LOST</td>
+</tr>
+<tr>
+  <td>Value</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Magnetometer_MON.o1</td>
+  <td>ERRONEOUS</td>
+</tr>
+<tr>
+  <td>Synchronization</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Main_flight_control_board_loss</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iDroneRateAndAccelerationMeasure</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iPressureMeasure</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iNorthDirection</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oPWM1</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oPWM2</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oPWM3</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oPWM4</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iRemoteCommunication</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iWifiTransmissionUplink</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iSensorsSignals</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oCCDL</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iCCDL</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oFlightPlanProgress</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oRealControlMode</td>
+</tr>
+<tr>
+  <td>InConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>iFlightControlPowerSupply</td>
+</tr>
+<tr>
+  <td>OutConnector</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>oPilotOrders</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>PWM1_driver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>COM_CCDL_driver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Remote_Communication_Acquisition</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Wifi_Acquisition</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Sensors_CAN_bus_Acquisition</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Wifi_downlink_driver</td>
+</tr>
+<tr>
+  <td>AtomicBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Compute_navigation_data</td>
+</tr>
+<tr>
+  <td>CompositeBrickInstance</td>
+  <td>Drone.Flight_Control_System.Flight_controller.Main_flight_control_board</td>
+  <td>Run_automatic_control</td>
+</tr>
+</table>
+</body>
+</html>
