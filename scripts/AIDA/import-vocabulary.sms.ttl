@@ -40,6 +40,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix termit-pojem: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
 @prefix rit:  <http://onto.fel.cvut.cz/ontology/ECCAIRS5_dataBridge.xsd#> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/aida> .
 
 <http://onto.fel.cvut.cz/ontologies/ava/import-vocabulary-0.1>
   a owl:Ontology ;
@@ -48,7 +49,7 @@
 
 :import-input-ontology
   a sml:ImportRDFFromWorkspace ;
-  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/aida/" ;
+  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/aida" ;
   sm:next :construct-vocabulary ;
   sml:ignoreImports true ;
 .
@@ -57,7 +58,7 @@
   a sml:BindWithConstant ;
   sm:next :construct-vocabulary ;
   sm:outputVariable "outputVocabularyIri" ;
-  sml:value <http://onto.fel.cvut.cz/ontologies/slovnik/reliablity> ;
+  sml:value <http://fd.cvut.cz/chopamax/mbsa/aida> ;
 .
 
 :construct-vocabulary
@@ -80,8 +81,8 @@ CONSTRUCT {
     a-popis-dat-pojem:má-glosář ?glosarIri ;
     a-popis-dat-pojem:popisuje-dokument ?documentIri ;
     a-popis-dat-pojem:má-model ?modelIri ;
-    dcterms:description "Max vocabulary."@cs;
-    dcterms:title "Reliablity"@cs;
+    dcterms:description "Max vocabulary for AIDA."@cs;
+    dcterms:title "MBSA"@cs;
   .
 
   # ?outputVocabularyIri termit-pojem:má-seznam-řízení-přístupu <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/seznam-řízení-přístupu/instance1529313839> .
@@ -95,7 +96,6 @@ CONSTRUCT {
   sml:constructQuery [
       a sp:Construct ;
       sp:text """# 1 - construct terms
-PREFIX mbsa: <http://fd.cvut.cz/chopamax/mbsa/aida/>
 CONSTRUCT {
   ?glosarIri skos:hasTopConcept ?term .
 
