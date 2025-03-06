@@ -1,0 +1,30 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX ddo: <http://fd.cvut.cz/chopamax/mbsa/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?originalText ?term ?exactText ?score
+FROM <http://fd.cvut.cz/chopamax/stpa/aida>
+WHERE {
+  ?annotation a termit:annotation ;
+              termit:has-original-text ?originalText .
+
+  ?termOccurrence a termit:výskyt-termu ;
+                  termit:je-přiřazením-termu ?term ;
+                  termit:má-skóre ?score ;
+                  termit:má-cíl ?target .
+
+  ?target termit:má-selektor ?selectorPosition, ?selectorQuote .
+
+  ?selectorPosition a termit:selektor-pozici-v-textu ;
+                    termit:má-startovní-pozici ?startPos ;
+                    termit:má-koncovou-pozici ?endPos .
+
+  ?selectorQuote a termit:selektor-text-quote ;
+                 termit:má-přesný-text-quote ?exactText .
+
+  # Ensure the exact text is actually in the original text at the specified positions
+  FILTER(STRLEN(?originalText) >= xsd:integer(?endPos))
+  FILTER(SUBSTR(?originalText, xsd:integer(?startPos) + 1, xsd:integer(?endPos) - xsd:integer(?startPos)) = ?exactText)
+}
+ORDER BY ?originalText

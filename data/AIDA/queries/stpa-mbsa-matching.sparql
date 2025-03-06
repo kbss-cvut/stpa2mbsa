@@ -1,0 +1,71 @@
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX rel: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX ddo: <http://fd.cvut.cz/chopamax/mbsa/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT
+  ?lossScenario
+  ?class
+  ?stpaText
+  ?controller
+  ?controlAction
+  ?controlledProcess
+  ?context
+  ?providedStatus
+  ?feedbackStatus
+  ?processExecutionStatus
+  ?processReceptionStatus
+  (GROUP_CONCAT(DISTINCT REPLACE(STR(?term), "^.*[/#]", ""); separator=", ") AS ?terms)
+  (GROUP_CONCAT(DISTINCT ?exactText; separator=", ") AS ?exactTexts)
+  (GROUP_CONCAT(DISTINCT STR(?score); separator=", ") AS ?scores)
+FROM <http://fd.cvut.cz/chopamax/stpa/aida>
+WHERE {
+    # Core loss scenario information
+    ?lossScenario a stpa:LossScenario ;
+                  stpa:original-text ?stpaText ;
+                  stpa:scenario-class ?class ;
+                  stpa:has-control-action ?controlAction ;
+                  stpa:has-controlled-process ?controlledProcess ;
+                  stpa:context ?context .
+
+    ?sca a stpa:ScenarioControllerAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:has-controller ?controller ;
+         stpa:provided-status ?providedStatus ;
+         stpa:feedback-status ?feedbackStatus .
+
+    ?spa a stpa:ScenarioProcessAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:process-execution-status ?processExecutionStatus ;
+         stpa:process-reception-status ?processReceptionStatus .
+
+    # Optional block for term annotations linked directly to the scenario
+    OPTIONAL {
+        ?termOccurrence a rel:výskyt-termu ;
+                        rel:je-přiřazením-termu ?term ;
+                        rel:má-skóre ?score ;
+                        rel:má-cíl ?target .
+
+        # Ensure the term occurrence is part of the same scenario
+        ?annotation a rel:annotation ;
+                    rel:has-original-text ?stpaText .
+
+        ?target rel:má-selektor ?selectorPosition, ?selectorQuote .
+
+        ?selectorPosition a rel:selektor-pozici-v-textu ;
+                          rel:má-startovní-pozici ?startPos ;
+                          rel:má-koncovou-pozici ?endPos .
+
+        ?selectorQuote a rel:selektor-text-quote ;
+                       rel:má-přesný-text-quote ?exactText .
+
+        # Ensure the exact text is actually in the original text at the specified positions
+        FILTER(
+            BOUND(?stpaText) &&
+            STRLEN(?stpaText) >= xsd:integer(?endPos) &&
+            SUBSTR(?stpaText, xsd:integer(?startPos) + 1, xsd:integer(?endPos) - xsd:integer(?startPos)) = ?exactText
+        )
+    }
+}
+GROUP BY ?lossScenario ?class ?stpaText ?controller ?controlAction ?controlledProcess ?context ?providedStatus ?feedbackStatus ?processExecutionStatus ?processReceptionStatus
+ORDER BY ?lossScenario
