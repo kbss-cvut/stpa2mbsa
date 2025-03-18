@@ -1,0 +1,1093 @@
+@prefix :      <http://onto.fel.cvut.cz/ontologies/ava/import-vocabulary-0.1/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix tops:  <http://www.topbraid.org/tops#> .
+@prefix dl:    <http://onto.fel.cvut.cz/ontologies/ava/data-lib/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix spif:  <http://spinrdf.org/spif#> .
+@prefix ata:   <http://onto.fel.cvut.cz/voc/ata-100/> .
+@prefix mbsa:  <http://fd.cvut.cz/chopamax/mbsa/electrical_system> .
+@prefix apf:   <http://jena.apache.org/ARQ/property#> .
+@prefix rel:   <http://onto.fel.cvut.cz/ontologies/reliability/> .
+@prefix km-text-analysis: <http://onto.fel.cvut.cz/ontologies/lib/module/text-analysis/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix termit-pojem: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
+@prefix km-rdf4j: <http://onto.fel.cvut.cz/ontologies/lib/module/rdf4j/> .
+@prefix rit:   <http://onto.fel.cvut.cz/ontology/ECCAIRS5_dataBridge.xsd#> .
+@prefix csvw:  <http://www.w3.org/ns/csvw#> .
+@prefix ffa:   <http://onto.fel.cvut.cz/ontologies/fta-fmea-application/> .
+@prefix termit: <http://onto.fel.cvut.cz/ontologies/application/termit/> .
+@prefix turtle: <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix km-param: <http://onto.fel.cvut.cz/ontologies/lib/module-param/> .
+@prefix ms:    <http://onto.fel.cvut.cz/ontologies/maintenance-schema/> .
+@prefix km-form: <http://onto.fel.cvut.cz/ontologies/lib/module/form/> .
+@prefix spl:   <http://spinrdf.org/spl#> .
+@prefix jfn:   <java:org.apache.jena.sparql.function.library.> .
+@prefix av:    <http://onto.fel.cvut.cz/ontologies/ava/> .
+@prefix doc:   <http://onto.fel.cvut.cz/ontologies/documentation/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn:    <http://www.w3.org/2005/xpath-functions#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix smf:   <http://topbraid.org/sparqlmotionfunctions#> .
+@prefix avd:   <http://onto.fel.cvut.cz/ontologies/ava-data/> .
+@prefix sml:   <http://topbraid.org/sparqlmotionlib#> .
+@prefix km-rdf2csv: <http://onto.fel.cvut.cz/ontologies/lib/module/RDF2CSV/> .
+@prefix arg:   <http://spinrdf.org/arg#> .
+@prefix sm:    <http://topbraid.org/sparqlmotion#> .
+@prefix sp:    <http://spinrdf.org/sp#> .
+@prefix km-terms: <http://onto.fel.cvut.cz/ontologies/lib/module/extract-term-occurrences/> .
+@prefix kbss-module: <http://onto.fel.cvut.cz/ontologies/lib/module/> .
+@prefix kbss-csvw: <https://onto.fel.cvut.cz/ontologies/extension/csvw/> .
+@prefix afn:   <http://jena.hpl.hp.com/ARQ/function#> .
+@prefix vs-m:  <http://vfn.cz/ontologies/ava-study/model/> .
+@prefix km-tabular: <http://onto.fel.cvut.cz/ontologies/lib/module/tabular/> .
+@prefix a-popis-dat: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/> .
+@prefix form:  <http://onto.fel.cvut.cz/ontologies/form/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix pf:    <http://jena.hpl.hp.com/ARQ/property#> .
+@prefix km-sesame: <http://onto.fel.cvut.cz/ontologies/lib/module/sesame/> .
+@prefix spin:  <http://spinrdf.org/spin#> .
+@prefix kbss-spif: <http://onto.fel.cvut.cz/ontologies/lib/spin-function/> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/> .
+@prefix config: <http://onto.fel.cvut.cz/ontologies/ava/config/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix ufo:   <http://onto.fel.cvut.cz/ontologies/ufo/> .
+
+mbsa:L_AVN_SSR  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_AVN_SSR"@cs , "L_AVN_SSR"@en .
+
+mbsa:STANDBY_BATTERY_PACK
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "STANDBY_BATTERY_PACK"@cs , "STANDBY_BATTERY_PACK"@en .
+
+mbsa:L_SSR_1_BUS_BAR  a  skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_SSR_1_BUS_BAR"@cs , "L_SSR_1_BUS_BAR"@en .
+
+mbsa:i50_AMP_HYD_PUMP
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i50_AMP_HYD_PUMP"@cs , "i50_AMP_HYD_PUMP"@en .
+
+mbsa:i_100_AMP_AC_COMP
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i_100_AMP_AC_COMP"@cs , "i_100_AMP_AC_COMP"@en .
+
+mbsa:i3  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i3"@cs , "i3"@en .
+
+mbsa:EXT_PWR_Connector
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "EXT_PWR_Connector"@cs , "EXT_PWR_Connector"@en .
+
+mbsa:BATT_POWER_RELAY
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_POWER_RELAY"@cs , "BATT_POWER_RELAY"@en .
+
+mbsa:feedbackState  a   skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "feedbackState"@cs , "feedbackState"@en .
+
+mbsa:EXT_PWR_RELAY  a   skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "EXT_PWR_RELAY"@cs , "EXT_PWR_RELAY"@en .
+
+mbsa:avionics_state  a  skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "avionics_state"@cs , "avionics_state"@en .
+
+mbsa:L_START_1  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_START_1"@cs , "L_START_1"@en .
+
+mbsa:o11  a             skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o11"@cs , "o11"@en .
+
+mbsa:CROSS_state  a     skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "CROSS_state"@cs , "CROSS_state"@en .
+
+mbsa:INTERIOR_BUS  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "INTERIOR_BUS"@cs , "INTERIOR_BUS"@en .
+
+mbsa:L_GEN_VOLTS  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_GEN_VOLTS"@cs , "L_GEN_VOLTS"@en .
+
+mbsa:SHUNT_repair  a    skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SHUNT_repair"@cs , "SHUNT_repair"@en .
+
+mbsa:avn_repair  a      skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "avn_repair"@cs , "avn_repair"@en .
+
+mbsa:o4  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o4"@cs , "o4"@en .
+
+mbsa:R_GEN_RELAY  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_GEN_RELAY"@cs , "R_GEN_RELAY"@en .
+
+mbsa:R_BOOST_SSR  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_BOOST_SSR"@cs , "R_BOOST_SSR"@en .
+
+mbsa:L_SHUNT_BUS  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_SHUNT_BUS"@cs , "L_SHUNT_BUS"@en .
+
+mbsa:EMER_BUS_RELAY  a  skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "EMER_BUS_RELAY"@cs , "EMER_BUS_RELAY"@en .
+
+mbsa:i8  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i8"@cs , "i8"@en .
+
+mbsa:CROSS_repair  a    skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "CROSS_repair"@cs , "CROSS_repair"@en .
+
+mbsa:i2State  a         skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i2State"@cs , "i2State"@en .
+
+mbsa:i3Repair  a        skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i3Repair"@cs , "i3Repair"@en .
+
+mbsa:EMERG_PWR_CB_BUSB1
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "EMERG_PWR_CB_BUSB1"@cs , "EMERG_PWR_CB_BUSB1"@en .
+
+mbsa:BATTERY_BUS  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATTERY_BUS"@cs , "BATTERY_BUS"@en .
+
+mbsa:i2  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i2"@cs , "i2"@en .
+
+mbsa:   a                            a-popis-dat-pojem:dokumentový-slovník , a-popis-dat-pojem:slovník ;
+        a-popis-dat-pojem:má-glosář  <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        a-popis-dat-pojem:má-model   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/model> ;
+        a-popis-dat-pojem:popisuje-dokument
+                <http://fd.cvut.cz/chopamax/mbsa/electrical_system/document> ;
+        dcterms:description          "Max vocabulary for Electrical System."@cs ;
+        dcterms:title                "MBSA CESNA"@cs .
+
+mbsa:i1State  a         skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i1State"@cs , "i1State"@en .
+
+mbsa:FEED_State  a      skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "FEED_State"@cs , "FEED_State"@en .
+
+mbsa:R_START_RELAY  a   skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_START_RELAY"@cs , "R_START_RELAY"@en .
+
+mbsa:o10  a             skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o10"@cs , "o10"@en .
+
+mbsa:failed  a          skos:Concept ;
+        mbsa:nature     "Value" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "failed"@cs , "failed"@en .
+
+mbsa:o9  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o9"@cs , "o9"@en .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "STANDBY_INS_T_OFF_BATT_TEST"@cs , "STANDBY_INS_T_OFF_BATT_TEST"@en .
+
+mbsa:R_LIMITER  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_LIMITER"@cs , "R_LIMITER"@en .
+
+mbsa:L_FEED_BUS_2  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_FEED_BUS_2"@cs , "L_FEED_BUS_2"@en .
+
+mbsa:R_ELE_EMERG  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_ELE_EMERG"@cs , "R_ELE_EMERG"@en .
+
+mbsa:i_starter  a       skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i_starter"@cs , "i_starter"@en .
+
+mbsa:o3  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o3"@cs , "o3"@en .
+
+mbsa:Flight_Crew  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "Flight_Crew"@cs , "Flight_Crew"@en .
+
+mbsa:I_100_AMP_DEICE  a  skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "I_100_AMP_DEICE"@cs , "I_100_AMP_DEICE"@en .
+
+mbsa:i4State  a         skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i4State"@cs , "i4State"@en .
+
+mbsa:i7  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i7"@cs , "i7"@en .
+
+mbsa:R_STARTER_GENERATOR
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_STARTER_GENERATOR"@cs , "R_STARTER_GENERATOR"@en .
+
+mbsa:avionics_failure
+        a               skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "avionics_failure"@cs , "avionics_failure"@en .
+
+mbsa:i3State  a         skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i3State"@cs , "i3State"@en .
+
+mbsa:R_AVIONICS_2  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_AVIONICS_2"@cs , "R_AVIONICS_2"@en .
+
+mbsa:i1  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i1"@cs , "i1"@en .
+
+mbsa:L_ELE_2  a         skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_ELE_2"@cs , "L_ELE_2"@en .
+
+mbsa:INTERIOR_state  a  skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "INTERIOR_state"@cs , "INTERIOR_state"@en .
+
+mbsa:BATT_TEMP_SENSOR
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_TEMP_SENSOR"@cs , "BATT_TEMP_SENSOR"@en .
+
+mbsa:i2Failure  a       skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i2Failure"@cs , "i2Failure"@en .
+
+<http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar>
+        a                   a-popis-dat-pojem:glosář ;
+        skos:hasTopConcept  mbsa:i10 , mbsa:nominal , mbsa:R_START_2 , mbsa:I_100_AMP_DEICE , mbsa:SSR_state , mbsa:L_FEED_BUS_1 , mbsa:o8 , mbsa:i1Failure , mbsa:R_ELE_2 , mbsa:INTERIOR_state , mbsa:BUS_state , mbsa:feedback_failure , mbsa:BATT_repair , mbsa:i2State , mbsa:MASTER_INTERIOR_SSR , mbsa:i1 , mbsa:R_GCU , mbsa:R_FEED_BUS_1 , mbsa:i1State , mbsa:avn_failure , mbsa:BATT_state , mbsa:BATTERY_BUS , mbsa:EMERG_PWR_CB_BUSB1 , mbsa:BATT_DISC_RELAY , mbsa:L_DC_AMPS , mbsa:CROSS_state , mbsa:o2 , mbsa:SHUNT_failure , mbsa:i8 , mbsa:o6 , mbsa:i_100_AMP_AC_COMP , mbsa:L_START_1 , mbsa:o4 , mbsa:i3Failure , mbsa:o11 , mbsa:i7 , mbsa:R_START_1 , mbsa:i4State , mbsa:R_GEN_VOLTS , mbsa:i2Repair , mbsa:SSR_repair , mbsa:i50_AMP_HYD_PUMP , mbsa:o1 , mbsa:R_DC_AMPS , mbsa:R_AVIONICS_2 , mbsa:BUS_failure , mbsa:R_BOOST_SSR , mbsa:i3State , mbsa:o10 , mbsa:L_FEED_BUS_2 , mbsa:o9 , mbsa:Flight_Crew , mbsa:failed , mbsa:i2Failure , mbsa:L_GEN_VOLTS , mbsa:i4 , mbsa:FEED_failure , mbsa:L_ELE_1 , mbsa:feedbackState , mbsa:state1 , mbsa:R_START_RELAY , mbsa:i_100_AMP_W_S_DEICE , mbsa:L_GCU , mbsa:SSR_failure , mbsa:i2 , mbsa:avionics_state , mbsa:repair , mbsa:L_SHUNT_BUS , mbsa:R_AVN_1_SSR , mbsa:R_AVN_EMERG , mbsa:i3Repair , mbsa:R_GEN_RELAY , mbsa:FEED_State , mbsa:SHUNT_repair , mbsa:EXT_PWR_Connector , mbsa:i9 , mbsa:BATT_POWER_RELAY , mbsa:o3 , mbsa:o7 , mbsa:EMER_BUS_RELAY , mbsa:L_START_2 , mbsa:BATT_TEMP_SENSOR , mbsa:o5 , mbsa:L_GEN_RELAY , mbsa:o12 , mbsa:R_ELE_EMERG , mbsa:L_AVIONICS , mbsa:R_SSR_1_BUS_BAR , mbsa:FEED_Repair , mbsa:avionics_failure , mbsa:i_starter , mbsa:INTERIOR_BUS , mbsa:i1Repair , mbsa:i_FlightCrew , mbsa:i5 , mbsa:INTERIOR_failure , mbsa:o_GCU , mbsa:BATTERY , mbsa:L_ELE_2 , mbsa:Name , mbsa:i3 , mbsa:L_START_RELAY , mbsa:L_SSR_1_BUS_BAR , mbsa:AVN_state , mbsa:R_ELE_1 , mbsa:R_STARTER_GENERATOR , mbsa:BATT_failure , mbsa:i_flight_crew , mbsa:BATT_AMPS , mbsa:STANDBY_BATTERY_PACK , mbsa:L_AVN_SSR , mbsa:L_ELE_EMERG , mbsa:SHUNT_state , mbsa:avionics_repair , mbsa:BUS_repair , mbsa:R_FEED_BUS_2 , mbsa:i4Failure , mbsa:L_START_CNTRL_PCB , mbsa:INTERIOR_repair , mbsa:CROSS_failure , mbsa:STANDBY_INS_T_OFF_BATT_TEST , mbsa:R_AVIONICS_1 , mbsa:BATT_VOLTS , mbsa:CROSS_repair , mbsa:i4Repair , mbsa:i50_AMP_FLAPS , mbsa:R_SHUNT_BUS , mbsa:L_LIMITER , mbsa:R_START_CNTRL_PCB , mbsa:L_STARTER_GENERATOR , mbsa:o13 , mbsa:AVN_EMER_SSR_LEFT , mbsa:NORM_or_INT_DISC , mbsa:avn_repair , mbsa:R_LIMITER , mbsa:L_BOOST_SSR , mbsa:R_AVN_2_SSR , mbsa:STANDBY_INST_SWITCH , mbsa:failure , mbsa:EXT_PWR_RELAY , mbsa:L_AVN_EMERG , mbsa:CROSSFEED_BUS , mbsa:i6 .
+
+<http://fd.cvut.cz/chopamax/mbsa/electrical_system/model>
+        a       a-popis-dat-pojem:model .
+
+mbsa:R_AVN_EMERG  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_AVN_EMERG"@cs , "R_AVN_EMERG"@en .
+
+mbsa:avionics_repair  a  skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "avionics_repair"@cs , "avionics_repair"@en .
+
+mbsa:o8  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o8"@cs , "o8"@en .
+
+mbsa:R_FEED_BUS_2  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_FEED_BUS_2"@cs , "R_FEED_BUS_2"@en .
+
+mbsa:AVN_EMER_SSR_LEFT
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "AVN_EMER_SSR_LEFT"@cs , "AVN_EMER_SSR_LEFT"@en .
+
+<http://fd.cvut.cz/chopamax/mbsa/electrical_system/document>
+        a              a-popis-dat-pojem:dokument ;
+        dcterms:title  "Dokument pro Reliablity"@cs .
+
+mbsa:SHUNT_state  a     skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SHUNT_state"@cs , "SHUNT_state"@en .
+
+mbsa:i10  a             skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i10"@cs , "i10"@en .
+
+mbsa:L_FEED_BUS_1  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_FEED_BUS_1"@cs , "L_FEED_BUS_1"@en .
+
+mbsa:BUS_repair  a      skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BUS_repair"@cs , "BUS_repair"@en .
+
+mbsa:i1Repair  a        skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i1Repair"@cs , "i1Repair"@en .
+
+mbsa:i_flight_crew  a   skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i_flight_crew"@cs , "i_flight_crew"@en .
+
+mbsa:o2  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o2"@cs , "o2"@en .
+
+mbsa:BATT_AMPS  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_AMPS"@cs , "BATT_AMPS"@en .
+
+mbsa:i6  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i6"@cs , "i6"@en .
+
+mbsa:AVN_state  a       skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "AVN_state"@cs , "AVN_state"@en .
+
+mbsa:avn_failure  a     skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "avn_failure"@cs , "avn_failure"@en .
+
+mbsa:BATT_DISC_RELAY  a  skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_DISC_RELAY"@cs , "BATT_DISC_RELAY"@en .
+
+mbsa:INTERIOR_repair  a  skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "INTERIOR_repair"@cs , "INTERIOR_repair"@en .
+
+mbsa:R_GEN_VOLTS  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_GEN_VOLTS"@cs , "R_GEN_VOLTS"@en .
+
+mbsa:STANDBY_INST_SWITCH
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "STANDBY_INST_SWITCH"@cs , "STANDBY_INST_SWITCH"@en .
+
+mbsa:L_LIMITER  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_LIMITER"@cs , "L_LIMITER"@en .
+
+mbsa:R_AVIONICS_1  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_AVIONICS_1"@cs , "R_AVIONICS_1"@en .
+
+mbsa:L_ELE_1  a         skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_ELE_1"@cs , "L_ELE_1"@en .
+
+mbsa:NORM_or_INT_DISC
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "NORM_or_INT_DISC"@cs , "NORM_or_INT_DISC"@en .
+
+mbsa:feedback_failure
+        a               skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "feedback_failure"@cs , "feedback_failure"@en .
+
+mbsa:INTERIOR_failure
+        a               skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "INTERIOR_failure"@cs , "INTERIOR_failure"@en .
+
+mbsa:Name  a            skos:Concept ;
+        mbsa:nature     "Nature" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "Name"@cs , "Name"@en .
+
+mbsa:R_GCU  a           skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_GCU"@cs , "R_GCU"@en .
+
+mbsa:L_START_RELAY  a   skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_START_RELAY"@cs , "L_START_RELAY"@en .
+
+mbsa:R_START_2  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_START_2"@cs , "R_START_2"@en .
+
+mbsa:SHUNT_failure  a   skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SHUNT_failure"@cs , "SHUNT_failure"@en .
+
+mbsa:L_GCU  a           skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_GCU"@cs , "L_GCU"@en .
+
+mbsa:R_FEED_BUS_1  a    skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_FEED_BUS_1"@cs , "R_FEED_BUS_1"@en .
+
+mbsa:o7  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o7"@cs , "o7"@en .
+
+mbsa:BATT_VOLTS  a      skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_VOLTS"@cs , "BATT_VOLTS"@en .
+
+mbsa:R_SHUNT_BUS  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_SHUNT_BUS"@cs , "R_SHUNT_BUS"@en .
+
+mbsa:repair  a          skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "repair"@cs , "repair"@en .
+
+mbsa:i3Failure  a       skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i3Failure"@cs , "i3Failure"@en .
+
+mbsa:SSR_repair  a      skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SSR_repair"@cs , "SSR_repair"@en .
+
+mbsa:o_GCU  a           skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o_GCU"@cs , "o_GCU"@en .
+
+mbsa:L_STARTER_GENERATOR
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_STARTER_GENERATOR"@cs , "L_STARTER_GENERATOR"@en .
+
+mbsa:BATT_failure  a    skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_failure"@cs , "BATT_failure"@en .
+
+mbsa:L_BOOST_SSR  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_BOOST_SSR"@cs , "L_BOOST_SSR"@en .
+
+mbsa:L_GEN_RELAY  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_GEN_RELAY"@cs , "L_GEN_RELAY"@en .
+
+mbsa:o1  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o1"@cs , "o1"@en .
+
+mbsa:BATT_state  a      skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_state"@cs , "BATT_state"@en .
+
+mbsa:MASTER_INTERIOR_SSR
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "MASTER_INTERIOR_SSR"@cs , "MASTER_INTERIOR_SSR"@en .
+
+mbsa:L_AVIONICS  a      skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_AVIONICS"@cs , "L_AVIONICS"@en .
+
+mbsa:i5  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i5"@cs , "i5"@en .
+
+mbsa:CROSS_failure  a   skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "CROSS_failure"@cs , "CROSS_failure"@en .
+
+mbsa:BATT_repair  a     skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATT_repair"@cs , "BATT_repair"@en .
+
+mbsa:L_START_CNTRL_PCB
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_START_CNTRL_PCB"@cs , "L_START_CNTRL_PCB"@en .
+
+mbsa:CROSSFEED_BUS  a   skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "CROSSFEED_BUS"@cs , "CROSSFEED_BUS"@en .
+
+mbsa:BUS_failure  a     skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BUS_failure"@cs , "BUS_failure"@en .
+
+mbsa:R_SSR_1_BUS_BAR  a  skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_SSR_1_BUS_BAR"@cs , "R_SSR_1_BUS_BAR"@en .
+
+mbsa:SSR_state  a       skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SSR_state"@cs , "SSR_state"@en .
+
+mbsa:R_ELE_2  a         skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_ELE_2"@cs , "R_ELE_2"@en .
+
+mbsa:o13  a             skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o13"@cs , "o13"@en .
+
+mbsa:FEED_failure  a    skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "FEED_failure"@cs , "FEED_failure"@en .
+
+mbsa:R_AVN_1_SSR  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_AVN_1_SSR"@cs , "R_AVN_1_SSR"@en .
+
+mbsa:state1  a          skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "state1"@cs , "state1"@en .
+
+mbsa:i4Repair  a        skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i4Repair"@cs , "i4Repair"@en .
+
+mbsa:o6  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o6"@cs , "o6"@en .
+
+mbsa:failure  a         skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "failure"@cs , "failure"@en .
+
+mbsa:R_START_1  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_START_1"@cs , "R_START_1"@en .
+
+mbsa:BUS_state  a       skos:Concept ;
+        mbsa:nature     "StateVariable" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BUS_state"@cs , "BUS_state"@en .
+
+mbsa:R_AVN_2_SSR  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_AVN_2_SSR"@cs , "R_AVN_2_SSR"@en .
+
+mbsa:nominal  a         skos:Concept ;
+        mbsa:nature     "Value" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "nominal"@cs , "nominal"@en .
+
+mbsa:L_ELE_EMERG  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_ELE_EMERG"@cs , "L_ELE_EMERG"@en .
+
+mbsa:i2Repair  a        skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i2Repair"@cs , "i2Repair"@en .
+
+mbsa:i4Failure  a       skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i4Failure"@cs , "i4Failure"@en .
+
+mbsa:R_START_CNTRL_PCB
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_START_CNTRL_PCB"@cs , "R_START_CNTRL_PCB"@en .
+
+mbsa:i_FlightCrew  a    skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i_FlightCrew"@cs , "i_FlightCrew"@en .
+
+mbsa:i4  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i4"@cs , "i4"@en .
+
+mbsa:BATTERY  a         skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "BATTERY"@cs , "BATTERY"@en .
+
+mbsa:L_START_2  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_START_2"@cs , "L_START_2"@en .
+
+mbsa:R_ELE_1  a         skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_ELE_1"@cs , "R_ELE_1"@en .
+
+mbsa:o12  a             skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o12"@cs , "o12"@en .
+
+mbsa:i50_AMP_FLAPS  a   skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i50_AMP_FLAPS"@cs , "i50_AMP_FLAPS"@en .
+
+mbsa:i_100_AMP_W_S_DEICE
+        a               skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i_100_AMP_W_S_DEICE"@cs , "i_100_AMP_W_S_DEICE"@en .
+
+mbsa:FEED_Repair  a     skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "FEED_Repair"@cs , "FEED_Repair"@en .
+
+mbsa:i1Failure  a       skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i1Failure"@cs , "i1Failure"@en .
+
+mbsa:SSR_failure  a     skos:Concept ;
+        mbsa:nature     "Event" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "SSR_failure"@cs , "SSR_failure"@en .
+
+mbsa:L_DC_AMPS  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_DC_AMPS"@cs , "L_DC_AMPS"@en .
+
+mbsa:R_DC_AMPS  a       skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "R_DC_AMPS"@cs , "R_DC_AMPS"@en .
+
+mbsa:L_AVN_EMERG  a     skos:Concept ;
+        mbsa:nature     "AtomicBrickInstance" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "L_AVN_EMERG"@cs , "L_AVN_EMERG"@en .
+
+mbsa:o5  a              skos:Concept ;
+        mbsa:nature     "OutConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "o5"@cs , "o5"@en .
+
+mbsa:i9  a              skos:Concept ;
+        mbsa:nature     "InConnector" ;
+        a-popis-dat-pojem:má-stav-pojmu
+                termit-pojem:navrhovaný-pojem ;
+        skos:inScheme   <http://fd.cvut.cz/chopamax/mbsa/electrical_system/glosar> ;
+        skos:prefLabel  "i9"@cs , "i9"@en .

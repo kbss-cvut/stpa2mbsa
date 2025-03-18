@@ -1,56 +1,68 @@
 PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
 PREFIX rel: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX ddo: <http://fd.cvut.cz/chopamax/mbsa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 SELECT DISTINCT
-  ?lossScenario
-  ?class
-  ?stpaText
-  ?controller
-  ?controlAction
-  ?controlledProcess
-  ?context
-  ?providedStatus
-  ?feedbackStatus
-  ?processExecutionStatus
-  ?processReceptionStatus
+  ?ScenarioID
+#  ?ScenarioClass
+  ?ScenarioDescription
+  ?Controller
+  ?ControlAction
+  ?ControlledProcess
+  ?ScenarioContext
+  ?ControlActionStatus
+  ?FeedbackStatus
+  ?ProcessExecutionStatus
+  ?ProcessReceptionStatus
+  ?MBSA_Term
+  ?STPA_Text
+FROM <http://fd.cvut.cz/chopamax/stpa/aida>
 WHERE {
-  GRAPH <http://onto.fd.cvut.cz/graphs/stpa/AIDA> {
-    ?lossScenario a stpa:LossScenario ;
-                  stpa:original-text ?stpaText ;
-                  stpa:scenario-class ?class ;
-                  stpa:has-control-action ?controlAction ;
-                  stpa:has-controlled-process ?controlledProcess ;
-                  stpa:context ?context .
+    # Core loss scenario information
+    ?ScenarioID a stpa:LossScenario ;
+                stpa:original-text ?ScenarioDescription ;
+                stpa:scenario-class ?ScenarioClass ;
+                stpa:has-control-action ?ControlAction ;
+                stpa:has-controlled-process ?ControlledProcess ;
+                stpa:context ?ScenarioContext .
 
     ?sca a stpa:ScenarioControllerAssociation ;
-         stpa:belongs-to-scenario ?lossScenario ;
-         stpa:has-controller ?controller ;
-         stpa:provided-status ?providedStatus ;
-         stpa:feedback-status ?feedbackStatus .
+         stpa:belongs-to-scenario ?ScenarioID ;
+         stpa:has-controller ?Controller ;
+         stpa:provided-status ?ControlActionStatus ;
+         stpa:feedback-status ?FeedbackStatus .
 
     ?spa a stpa:ScenarioProcessAssociation ;
-         stpa:belongs-to-scenario ?lossScenario ;
-         stpa:process-execution-status ?processExecutionStatus ;
-         stpa:process-reception-status ?processReceptionStatus .
+         stpa:belongs-to-scenario ?ScenarioID ;
+         stpa:process-execution-status ?ProcessExecutionStatus ;
+         stpa:process-reception-status ?ProcessReceptionStatus .
 
-    BIND(REPLACE(LCASE(STR(?stpaText)), "<[^>]*>", "") AS ?stpaNoHtml)
-    BIND(REPLACE(?stpaNoHtml, "\\s+", " ") AS ?stpaNormalized)
-    BIND(REPLACE(?stpaNormalized, "\\(\\s+", "(") AS ?stpaNormalized2)
-    BIND(REPLACE(?stpaNormalized2, "\\s+\\)", ")") AS ?stpaFinal)
+    # Optional block for term annotations linked directly to the scenario
+    OPTIONAL {
+        ?termOccurrence a rel:výskyt-termu ;
+                        rel:je-přiřazením-termu ?MBSA_Term ;
+                        rel:má-cíl ?target .
 
-    FILTER EXISTS {
-      ?termOccurrence a rel:výskyt-termu ;
-                      rel:odkazuje-na-anotovaný-text ?annotatedText ;
-                      rel:má-skóre ?score .
-      FILTER(xsd:float(?score) >= 0.8)
+        # Ensure the term occurrence is part of the same scenario
+        ?annotation a rel:annotation ;
+                    rel:has-original-text ?ScenarioDescription .
 
-      BIND(REPLACE(LCASE(STR(?annotatedText)), "<[^>]*>", "") AS ?relNoHtml)
-      BIND(REPLACE(?relNoHtml, "\\s+", " ") AS ?relNormalized)
-      BIND(REPLACE(?relNormalized, "\\(\\s+", "(") AS ?relNormalized2)
-      BIND(REPLACE(?relNormalized2, "\\s+\\)", ")") AS ?relFinal)
+        ?target rel:má-selektor ?selectorPosition, ?selectorQuote .
 
-      FILTER(STR(?stpaFinal) = STR(?relFinal))
+        ?selectorPosition a rel:selektor-pozici-v-textu ;
+                          rel:má-startovní-pozici ?startPos ;
+                          rel:má-koncovou-pozici ?endPos .
+
+        ?selectorQuote a rel:selektor-text-quote ;
+                       rel:má-přesný-text-quote ?STPA_Text .
+
+        # Ensure the exact text is actually in the original text at the specified positions
+        FILTER(
+            BOUND(?ScenarioDescription) &&
+            STRLEN(?ScenarioDescription) >= xsd:integer(?endPos) &&
+            SUBSTR(?ScenarioDescription, xsd:integer(?startPos) + 1, xsd:integer(?endPos) - xsd:integer(?startPos)) = ?STPA_Text
+        )
     }
-  }
 }
+ORDER BY ?ScenarioID ?MBSA_Term

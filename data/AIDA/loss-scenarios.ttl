@@ -131,7 +131,7 @@ stpa:Airline_Maintenance_Database a stpa:ControlledProcess ;
 
 stpa:LS-1_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-1.1) Control Desk does not provide the Flying Commands action when the drone is not manually controlled by the operator and is flying near (TBD) obstacles" ;
+    stpa:original-text "(LS-1.1) Control Desk does not provide the Flying Commands action when the drone is not manually controlled by the operator and is flying near (TBD) obstacles - Control Desk received feedback (or other input) that indicated the drone is not manually controlled by the operator and is flying near (TBD) obstacles" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is not manually controlled by the operator and is flying near (TBD) obstacles" .
@@ -177,7 +177,7 @@ stpa:LS-1_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-1_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-1.3) Control Desk does provide the Flying Commands action when the drone is not manually controlled by the operator and is flying near (TBD) obstacles - Flying Commands is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-1.3) Control Desk does provide the Flying Commands action when the drone is not manually controlled by the operator and is flying near (TBD) obstacles - Flying Commands is not received by Flight Control & Monitoring System when the drone is not manually controlled by the operator and is flying near (TBD) obstacles" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is not manually controlled by the operator and is flying near (TBD) obstacles" .
@@ -223,7 +223,7 @@ stpa:LS-1_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-2_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-2.1) Control Desk does not provide the Flying Commands action when the drone is flying towards the limits of its operating limits" ;
+    stpa:original-text "(LS-2.1) Control Desk does not provide the Flying Commands action when the drone is flying towards the limits of its operating limits - Control Desk received feedback (or other input) that indicated the drone is flying towards the limits of its operating limits" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is flying towards the limits of its operating limits" .
@@ -269,7 +269,7 @@ stpa:LS-2_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-2_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-2.3) Control Desk does provide the Flying Commands action when the drone is flying towards the limits of its operating limits - Flying Commands is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-2.3) Control Desk does provide the Flying Commands action when the drone is flying towards the limits of its operating limits - Flying Commands is not received by Flight Control & Monitoring System when the drone is flying towards the limits of its operating limits" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is flying towards the limits of its operating limits" .
@@ -315,7 +315,7 @@ stpa:LS-2_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-3_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-3.1) Control Desk does not provide the Flying Commands action when the drone operator is not manually piloting the drone" ;
+    stpa:original-text "(LS-3.1) Control Desk does not provide the Flying Commands action when the drone operator is not manually piloting the drone - Control Desk received feedback (or other input) that indicated the drone operator is not manually piloting the drone" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone operator is not manually piloting the drone" .
@@ -361,7 +361,7 @@ stpa:LS-3_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-3_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-3.3) Control Desk does provide the Flying Commands action when the drone operator is not manually piloting the drone - Flying Commands is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-3.3) Control Desk does provide the Flying Commands action when the drone operator is not manually piloting the drone - Flying Commands is not received by Flight Control & Monitoring System when the drone operator is not manually piloting the drone" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone operator is not manually piloting the drone" .
@@ -407,7 +407,7 @@ stpa:LS-3_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-4_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-4.1) Control Desk provides the Flying Commands action when the operator is already manually controlling the drone" ;
+    stpa:original-text "(LS-4.1) Control Desk provides the Flying Commands action when the operator is already manually controlling the drone - Control Desk received feedback (or other input) that indicated the operator is already manually controlling the drone" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the operator is already manually controlling the drone" .
@@ -430,7 +430,7 @@ stpa:LS-4_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-4_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-4.2) Feedback received by Control Desk does not adequately indicate the operator is already manually controlling the drone - it is true that the operator is already manually controlling the drone" ;
+    stpa:original-text "(LS-4.2) Feedback received by Control Desk incorrectly indicates that the operator is already manually controlling the drone is false, even though it is true" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the operator is already manually controlling the drone" .
@@ -499,7 +499,7 @@ stpa:LS-4_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-5_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-5.1) Control Desk provides the Flying Commands action on time when the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits" ;
+    stpa:original-text "(LS-5.1) Control Desk provides the Flying Commands action too late - Control Desk received feedback (or other input) that indicated the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits on time/in order" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits" .
@@ -545,7 +545,7 @@ stpa:LS-5_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-5_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-5.3) Control Desk provides the Flying Commands action on time when the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits - Flying Commands is received by Flight Control & Monitoring System too late" ;
+    stpa:original-text "(LS-5.3) Control Desk does not provide the Flying Commands action when the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits - Flying Commands is received by Flight Control & Monitoring System too late" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the drone is too close (TBD: e.g., performance of the drone does not allow to recover) to an obstacle or outside its geo-limits" .
@@ -591,7 +591,7 @@ stpa:LS-5_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-6_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-6.1) Control Desk continues providing the Flying Commands action too long when after the manoeuvre is already completed" ;
+    stpa:original-text "(LS-6.1) Control Desk continues providing the Flying Commands action too long - Control Desk received feedback (or other input) that indicated after the manoeuvre is already completed on time" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "after the manoeuvre is already completed" .
@@ -614,7 +614,7 @@ stpa:LS-6_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-6_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-6.2) Feedback received by Control Desk does not adequately indicate after the manoeuvre is already completed (inappropriate duration) - it is true that after the manoeuvre is already completed" ;
+    stpa:original-text "(LS-6.2) Feedback received by Control Desk indicates after the manoeuvre is already completed for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "after the manoeuvre is already completed" .
@@ -637,7 +637,7 @@ stpa:LS-6_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-6_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-6.3) Control Desk provides the Flying Commands action with appropriate duration when after the manoeuvre is already completed - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
+    stpa:original-text "(LS-6.3) Control Desk provides the Flying Commands action with appropriate duration - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "after the manoeuvre is already completed" .
@@ -683,7 +683,7 @@ stpa:LS-6_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-7_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-7.1) Control Desk continues providing the Flying Commands action too soon when the manoeuvre is not required anymore" ;
+    stpa:original-text "(LS-7.1) Control Desk continues providing the Flying Commands action too soon - Control Desk received feedback (or other input) that indicated the manoeuvre is not required anymore on time" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the manoeuvre is not required anymore" .
@@ -706,10 +706,10 @@ stpa:LS-7_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-7_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-7.2) Feedback received by Control Desk does not adequately indicate the manoeuvre is not required anymore (inappropriate duration) - it is true that the manoeuvre is not required anymore" ;
+    stpa:original-text "(LS-7.2) Feedback received by Control Desk indicates when the manoeuvre is not required anymore for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
-    stpa:context "the manoeuvre is not required anymore" .
+    stpa:context "when the manoeuvre is not required anymore" .
 
 
 stpa:LS-7_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
@@ -729,7 +729,7 @@ stpa:LS-7_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-7_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-7.3) Control Desk provides the Flying Commands action with appropriate duration when the manoeuvre is not required anymore - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
+    stpa:original-text "(LS-7.3) Control Desk provides the Flying Commands action with appropriate duration - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the manoeuvre is not required anymore" .
@@ -775,7 +775,7 @@ stpa:LS-7_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-8_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-8.1) Control Desk stops providing the Flying Commands action too soon when the maneuver is not completed yet" ;
+    stpa:original-text "(LS-8.1) Control Desk stops providing the Flying Commands action too soon - Control Desk received feedback (or other input) that indicated the maneuver is not completed yet on time" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the maneuver is not completed yet" .
@@ -798,10 +798,10 @@ stpa:LS-8_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-8_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-8.2) Feedback received by Control Desk does not adequately indicate the maneuver is not completed yet (inappropriate duration) - it is true that the maneuver is not completed yet" ;
+    stpa:original-text "(LS-8.2) Feedback received by Control Desk indicates when the maneuver is not completed yet for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
-    stpa:context "the maneuver is not completed yet" .
+    stpa:context "when the maneuver is not completed yet" .
 
 
 stpa:LS-8_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
@@ -821,7 +821,7 @@ stpa:LS-8_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-8_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-8.3) Control Desk provides the Flying Commands action with appropriate duration when the maneuver is not completed yet - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
+    stpa:original-text "(LS-8.3) Control Desk provides the Flying Commands action with appropriate duration - Flying Commands is received by Flight Control & Monitoring System with inappropriate duration" ;
     stpa:has-control-action stpa:Flying_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the maneuver is not completed yet" .
@@ -867,7 +867,7 @@ stpa:LS-8_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-9_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-9.1) Control Desk does not provide the Mission Commands action when the mission is set to automatic inspection" ;
+    stpa:original-text "(LS-9.1) Control Desk does not provide the Mission Commands action when the mission is set to automatic inspection - Control Desk received feedback (or other input) that indicated the mission is set to automatic inspection" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission is set to automatic inspection" .
@@ -913,7 +913,7 @@ stpa:LS-9_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-9_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-9.3) Control Desk does provide the Mission Commands action when the mission is set to automatic inspection - Mission Commands is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-9.3) Control Desk does provide the Mission Commands action when the mission is set to automatic inspection - Mission Commands is not received by Flight Control & Monitoring System when the mission is set to automatic inspection" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission is set to automatic inspection" .
@@ -959,7 +959,7 @@ stpa:LS-9_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProce
 
 stpa:LS-10_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-10.1) Control Desk does not provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts" ;
+    stpa:original-text "(LS-10.1) Control Desk does not provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts - Control Desk received feedback (or other input) that indicated the commands from the last mission are still uploaded when the new mission starts" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
@@ -1005,7 +1005,7 @@ stpa:LS-10_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-10_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-10.3) Control Desk does provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts - Mission Commands is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-10.3) Control Desk does provide the Mission Commands action when the commands from the last mission are still uploaded when the new mission starts - Mission Commands is not received by Flight Control & Monitoring System when the commands from the last mission are still uploaded when the new mission starts" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the commands from the last mission are still uploaded when the new mission starts" .
@@ -1051,7 +1051,7 @@ stpa:LS-10_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-11_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-11.1) Control Desk provides the Mission Commands action when data is erroneous" ;
+    stpa:original-text "(LS-11.1) Control Desk provides the Mission Commands action when data is erroneous - Control Desk received feedback (or other input) that indicated data is erroneous" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "data is erroneous" .
@@ -1074,7 +1074,7 @@ stpa:LS-11_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-11_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-11.2) Feedback received by Control Desk does not adequately indicate data is erroneous - it is true that data is erroneous" ;
+    stpa:original-text "(LS-11.2) Feedback received by Control Desk incorrectly indicates that data is erroneous is false, even though it is true" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "data is erroneous" .
@@ -1143,7 +1143,7 @@ stpa:LS-11_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-12_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-12.1) Control Desk provides the Mission Commands action on time when the mission has already started" ;
+    stpa:original-text "(LS-12.1) Control Desk provides the Mission Commands action too late - Control Desk received feedback (or other input) that indicated the mission has already started on time/in order" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has already started" .
@@ -1189,7 +1189,7 @@ stpa:LS-12_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-12_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-12.3) Control Desk provides the Mission Commands action on time when the mission has already started - Mission Commands is received by Flight Control & Monitoring System too late" ;
+    stpa:original-text "(LS-12.3) Control Desk does not provide the Mission Commands action when the mission has already started - Mission Commands is received by Flight Control & Monitoring System too late" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has already started" .
@@ -1235,7 +1235,7 @@ stpa:LS-12_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-13_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-13.1) Control Desk provides the Mission Commands action on time when another mission is still being processed" ;
+    stpa:original-text "(LS-13.1) Control Desk provides the Mission Commands action too early - Control Desk received feedback (or other input) that indicated another mission is still being processed on time/in order" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "another mission is still being processed" .
@@ -1281,7 +1281,7 @@ stpa:LS-13_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-13_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-13.3) Control Desk provides the Mission Commands action on time when another mission is still being processed - Mission Commands is received by Flight Control & Monitoring System too early" ;
+    stpa:original-text "(LS-13.3) Control Desk does not provide the Mission Commands action when another mission is still being processed - Mission Commands is received by Flight Control & Monitoring System too early" ;
     stpa:has-control-action stpa:Mission_Commands ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "another mission is still being processed" .
@@ -1327,7 +1327,7 @@ stpa:LS-13_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-14_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-14.1) Control Desk does not provide the Querry Mission Data action when the mission has already started" ;
+    stpa:original-text "(LS-14.1) Control Desk does not provide the Querry Mission Data action when the mission has already started - Control Desk received feedback (or other input) that indicated the mission has already started" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the mission has already started" .
@@ -1373,7 +1373,7 @@ stpa:LS-14_2--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-14_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-14.3) Control Desk does provide the Querry Mission Data action when the mission has already started - Querry Mission Data is not received by Airline Maintenance Database" ;
+    stpa:original-text "(LS-14.3) Control Desk does provide the Querry Mission Data action when the mission has already started - Querry Mission Data is not received by Airline Maintenance Database when the mission has already started" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the mission has already started" .
@@ -1419,7 +1419,7 @@ stpa:LS-14_4--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-15_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-15.1) Control Desk provides the Querry Mission Data action when the data is erroneous" ;
+    stpa:original-text "(LS-15.1) Control Desk provides the Querry Mission Data action when the data is erroneous - Control Desk received feedback (or other input) that indicated the data is erroneous" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the data is erroneous" .
@@ -1442,7 +1442,7 @@ stpa:LS-15_1--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-15_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-15.2) Feedback received by Control Desk does not adequately indicate the data is erroneous - it is true that the data is erroneous" ;
+    stpa:original-text "(LS-15.2) Feedback received by Control Desk incorrectly indicates that the data is erroneous is false, even though it is true" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the data is erroneous" .
@@ -1511,7 +1511,7 @@ stpa:LS-15_4--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-16_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-16.1) Control Desk provides the Querry Mission Data action on time when the mission has already started" ;
+    stpa:original-text "(LS-16.1) Control Desk provides the Querry Mission Data action too late - Control Desk received feedback (or other input) that indicated the mission has already started on time/in order" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the mission has already started" .
@@ -1557,7 +1557,7 @@ stpa:LS-16_2--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-16_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-16.3) Control Desk provides the Querry Mission Data action on time when the mission has already started - Querry Mission Data is received by Airline Maintenance Database too late" ;
+    stpa:original-text "(LS-16.3) Control Desk does not provide the Querry Mission Data action when the mission has already started - Querry Mission Data is received by Airline Maintenance Database too late" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the mission has already started" .
@@ -1603,7 +1603,7 @@ stpa:LS-16_4--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-17_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-17.1) Control Desk provides the Querry Mission Data action on time when the previous mission is still in progress" ;
+    stpa:original-text "(LS-17.1) Control Desk provides the Querry Mission Data action too early - Control Desk received feedback (or other input) that indicated the previous mission is still in progress on time/in order" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the previous mission is still in progress" .
@@ -1649,7 +1649,7 @@ stpa:LS-17_2--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-17_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-17.3) Control Desk provides the Querry Mission Data action on time when the previous mission is still in progress - Querry Mission Data is received by Airline Maintenance Database too early" ;
+    stpa:original-text "(LS-17.3) Control Desk does not provide the Querry Mission Data action when the previous mission is still in progress - Querry Mission Data is received by Airline Maintenance Database too early" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "the previous mission is still in progress" .
@@ -1695,7 +1695,7 @@ stpa:LS-17_4--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-18_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-18.1) Control Desk stops providing the Querry Mission Data action too soon when all the data was not yet updated" ;
+    stpa:original-text "(LS-18.1) Control Desk stops providing the Querry Mission Data action too soon - Control Desk received feedback (or other input) that indicated all the data was not yet updated on time" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "all the data was not yet updated" .
@@ -1718,10 +1718,10 @@ stpa:LS-18_1--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-18_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-18.2) Feedback received by Control Desk does not adequately indicate all the data was not yet updated (inappropriate duration) - it is true that all the data was not yet updated" ;
+    stpa:original-text "(LS-18.2) Feedback received by Control Desk indicates when all the data was not yet updated for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
-    stpa:context "all the data was not yet updated" .
+    stpa:context "when all the data was not yet updated" .
 
 
 stpa:LS-18_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
@@ -1741,7 +1741,7 @@ stpa:LS-18_2--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-18_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-18.3) Control Desk provides the Querry Mission Data action with appropriate duration when all the data was not yet updated - Querry Mission Data is received by Airline Maintenance Database with inappropriate duration" ;
+    stpa:original-text "(LS-18.3) Control Desk provides the Querry Mission Data action with appropriate duration - Querry Mission Data is received by Airline Maintenance Database with inappropriate duration" ;
     stpa:has-control-action stpa:Querry_Mission_Data ;
     stpa:has-controlled-process stpa:Airline_Maintenance_Database ;
     stpa:context "all the data was not yet updated" .
@@ -1787,7 +1787,7 @@ stpa:LS-18_4--Airline_Maintenance_Database-association a stpa:ScenarioProcessAss
 
 stpa:LS-19_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-19.1) Control Desk does not provide the Set Mission action when the mission has not started yet" ;
+    stpa:original-text "(LS-19.1) Control Desk does not provide the Set Mission action when the mission has not started yet - Control Desk received feedback (or other input) that indicated the mission has not started yet" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has not started yet" .
@@ -1833,7 +1833,7 @@ stpa:LS-19_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-19_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-19.3) Control Desk does provide the Set Mission action when the mission has not started yet - Set Mission is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-19.3) Control Desk does provide the Set Mission action when the mission has not started yet - Set Mission is not received by Flight Control & Monitoring System when the mission has not started yet" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has not started yet" .
@@ -1879,7 +1879,7 @@ stpa:LS-19_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-20_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-20.1) Control Desk provides the Set Mission action when data is erroneous" ;
+    stpa:original-text "(LS-20.1) Control Desk provides the Set Mission action when data is erroneous - Control Desk received feedback (or other input) that indicated data is erroneous" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "data is erroneous" .
@@ -1902,7 +1902,7 @@ stpa:LS-20_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-20_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-20.2) Feedback received by Control Desk does not adequately indicate data is erroneous - it is true that data is erroneous" ;
+    stpa:original-text "(LS-20.2) Feedback received by Control Desk incorrectly indicates that data is erroneous is false, even though it is true" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "data is erroneous" .
@@ -1971,7 +1971,7 @@ stpa:LS-20_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-21_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-21.1) Control Desk provides the Set Mission action when the wrong configuration (Automatic or manual mode) is selected" ;
+    stpa:original-text "(LS-21.1) Control Desk provides the Set Mission action when the wrong configuration (Automatic or manual mode) is selected - Control Desk received feedback (or other input) that indicated the wrong configuration (Automatic or manual mode) is selected" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the wrong configuration (Automatic or manual mode) is selected" .
@@ -1994,7 +1994,7 @@ stpa:LS-21_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-21_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-21.2) Feedback received by Control Desk does not adequately indicate the wrong configuration (Automatic or manual mode) is selected - it is true that the wrong configuration (Automatic or manual mode) is selected" ;
+    stpa:original-text "(LS-21.2) Feedback received by Control Desk incorrectly indicates that the wrong configuration (Automatic or manual mode) is selected is false, even though it is true" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the wrong configuration (Automatic or manual mode) is selected" .
@@ -2063,7 +2063,7 @@ stpa:LS-21_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-22_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-22.1) Control Desk provides the Set Mission action on time when the previous mission is not yet finished" ;
+    stpa:original-text "(LS-22.1) Control Desk provides the Set Mission action too early - Control Desk received feedback (or other input) that indicated the previous mission is not yet finished on time/in order" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the previous mission is not yet finished" .
@@ -2109,7 +2109,7 @@ stpa:LS-22_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-22_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-22.3) Control Desk provides the Set Mission action on time when the previous mission is not yet finished - Set Mission is received by Flight Control & Monitoring System too early" ;
+    stpa:original-text "(LS-22.3) Control Desk does not provide the Set Mission action when the previous mission is not yet finished - Set Mission is received by Flight Control & Monitoring System too early" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the previous mission is not yet finished" .
@@ -2155,7 +2155,7 @@ stpa:LS-22_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-23_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-23.1) Control Desk provides the Set Mission action on time when the mission has already started" ;
+    stpa:original-text "(LS-23.1) Control Desk provides the Set Mission action too late - Control Desk received feedback (or other input) that indicated the mission has already started on time/in order" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has already started" .
@@ -2201,7 +2201,7 @@ stpa:LS-23_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-23_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-23.3) Control Desk provides the Set Mission action on time when the mission has already started - Set Mission is received by Flight Control & Monitoring System too late" ;
+    stpa:original-text "(LS-23.3) Control Desk does not provide the Set Mission action when the mission has already started - Set Mission is received by Flight Control & Monitoring System too late" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission has already started" .
@@ -2247,7 +2247,7 @@ stpa:LS-23_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-24_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-24.1) Control Desk stops providing the Set Mission action too soon when all data was not fully updated" ;
+    stpa:original-text "(LS-24.1) Control Desk stops providing the Set Mission action too soon - Control Desk received feedback (or other input) that indicated all data was not fully updated on time" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "all data was not fully updated" .
@@ -2270,10 +2270,10 @@ stpa:LS-24_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-24_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-24.2) Feedback received by Control Desk does not adequately indicate all data was not fully updated (inappropriate duration) - it is true that all data was not fully updated" ;
+    stpa:original-text "(LS-24.2) Feedback received by Control Desk indicates when all data was not fully updated for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
-    stpa:context "all data was not fully updated" .
+    stpa:context "when all data was not fully updated" .
 
 
 stpa:LS-24_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
@@ -2293,7 +2293,7 @@ stpa:LS-24_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-24_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-24.3) Control Desk provides the Set Mission action with appropriate duration when all data was not fully updated - Set Mission is received by Flight Control & Monitoring System with inappropriate duration" ;
+    stpa:original-text "(LS-24.3) Control Desk provides the Set Mission action with appropriate duration - Set Mission is received by Flight Control & Monitoring System with inappropriate duration" ;
     stpa:has-control-action stpa:Set_Mission ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "all data was not fully updated" .
@@ -2339,7 +2339,7 @@ stpa:LS-24_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-25_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-25.1) Control Desk does not provide the Upload Flying Zone action when the automatic inspection is set" ;
+    stpa:original-text "(LS-25.1) Control Desk does not provide the Upload Flying Zone action when the automatic inspection is set - Control Desk received feedback (or other input) that indicated the automatic inspection is set" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the automatic inspection is set" .
@@ -2385,7 +2385,7 @@ stpa:LS-25_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-25_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-25.3) Control Desk does provide the Upload Flying Zone action when the automatic inspection is set - Upload Flying Zone is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-25.3) Control Desk does provide the Upload Flying Zone action when the automatic inspection is set - Upload Flying Zone is not received by Flight Control & Monitoring System when the automatic inspection is set" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the automatic inspection is set" .
@@ -2431,7 +2431,7 @@ stpa:LS-25_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-26_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-26.1) Control Desk does not provide the Upload Flying Zone action when the flight zone from the last mission is still uploaded" ;
+    stpa:original-text "(LS-26.1) Control Desk does not provide the Upload Flying Zone action when the flight zone from the last mission is still uploaded - Control Desk received feedback (or other input) that indicated the flight zone from the last mission is still uploaded" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the flight zone from the last mission is still uploaded" .
@@ -2477,7 +2477,7 @@ stpa:LS-26_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-26_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-26.3) Control Desk does provide the Upload Flying Zone action when the flight zone from the last mission is still uploaded - Upload Flying Zone is not received by Flight Control & Monitoring System" ;
+    stpa:original-text "(LS-26.3) Control Desk does provide the Upload Flying Zone action when the flight zone from the last mission is still uploaded - Upload Flying Zone is not received by Flight Control & Monitoring System when the flight zone from the last mission is still uploaded" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the flight zone from the last mission is still uploaded" .
@@ -2523,7 +2523,7 @@ stpa:LS-26_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-27_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-27.1) Control Desk provides the Upload Flying Zone action when the  data is erroneous" ;
+    stpa:original-text "(LS-27.1) Control Desk provides the Upload Flying Zone action when the  data is erroneous - Control Desk received feedback (or other input) that indicated the  data is erroneous" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the  data is erroneous" .
@@ -2546,7 +2546,7 @@ stpa:LS-27_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-27_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-27.2) Feedback received by Control Desk does not adequately indicate the  data is erroneous - it is true that the  data is erroneous" ;
+    stpa:original-text "(LS-27.2) Feedback received by Control Desk incorrectly indicates that the  data is erroneous is false, even though it is true" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the  data is erroneous" .
@@ -2615,7 +2615,7 @@ stpa:LS-27_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-28_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-28.1) Control Desk provides the Upload Flying Zone action on time when the last mission has not ended yet" ;
+    stpa:original-text "(LS-28.1) Control Desk provides the Upload Flying Zone action too early - Control Desk received feedback (or other input) that indicated the last mission has not ended yet on time/in order" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the last mission has not ended yet" .
@@ -2661,7 +2661,7 @@ stpa:LS-28_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-28_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-28.3) Control Desk provides the Upload Flying Zone action on time when the last mission has not ended yet - Upload Flying Zone is received by Flight Control & Monitoring System too early" ;
+    stpa:original-text "(LS-28.3) Control Desk does not provide the Upload Flying Zone action when the last mission has not ended yet - Upload Flying Zone is received by Flight Control & Monitoring System too early" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the last mission has not ended yet" .
@@ -2707,7 +2707,7 @@ stpa:LS-28_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-29_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-29.1) Control Desk provides the Upload Flying Zone action on time when the mission had already started" ;
+    stpa:original-text "(LS-29.1) Control Desk provides the Upload Flying Zone action too late - Control Desk received feedback (or other input) that indicated the mission had already started on time/in order" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission had already started" .
@@ -2753,7 +2753,7 @@ stpa:LS-29_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-29_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-29.3) Control Desk provides the Upload Flying Zone action on time when the mission had already started - Upload Flying Zone is received by Flight Control & Monitoring System too late" ;
+    stpa:original-text "(LS-29.3) Control Desk does not provide the Upload Flying Zone action when the mission had already started - Upload Flying Zone is received by Flight Control & Monitoring System too late" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the mission had already started" .
@@ -2799,7 +2799,7 @@ stpa:LS-29_4--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-30_1 a stpa:LossScenario ;
     stpa:scenario-class "1" ;
-    stpa:original-text "(LS-30.1) Control Desk stops providing the Upload Flying Zone action too soon when the data was not fully updated yet" ;
+    stpa:original-text "(LS-30.1) Control Desk stops providing the Upload Flying Zone action too soon - Control Desk received feedback (or other input) that indicated the data was not fully updated yet on time" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the data was not fully updated yet" .
@@ -2822,10 +2822,10 @@ stpa:LS-30_1--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-30_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-30.2) Feedback received by Control Desk does not adequately indicate the data was not fully updated yet (inappropriate duration) - it is true that the data was not fully updated yet" ;
+    stpa:original-text "(LS-30.2) Feedback received by Control Desk indicates when the data was not fully updated yet for an inappropriate duration, failing to accurately reflect the true state" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
-    stpa:context "the data was not fully updated yet" .
+    stpa:context "when the data was not fully updated yet" .
 
 
 stpa:LS-30_2--Control_Desk-association a stpa:ScenarioControllerAssociation ;
@@ -2845,7 +2845,7 @@ stpa:LS-30_2--Flight_Control___Monitoring_System-association a stpa:ScenarioProc
 
 stpa:LS-30_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-30.3) Control Desk provides the Upload Flying Zone action with appropriate duration when the data was not fully updated yet - Upload Flying Zone is received by Flight Control & Monitoring System with inappropriate duration" ;
+    stpa:original-text "(LS-30.3) Control Desk provides the Upload Flying Zone action with appropriate duration - Upload Flying Zone is received by Flight Control & Monitoring System with inappropriate duration" ;
     stpa:has-control-action stpa:Upload_Flying_Zone ;
     stpa:has-controlled-process stpa:Flight_Control___Monitoring_System ;
     stpa:context "the data was not fully updated yet" .
