@@ -190,7 +190,7 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
 // UCA Type Two: Feedback is provided but incorrectly indicates the context.
 function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  const scenario = `Feedback received by ${csInfo.controller} incorrectly indicates that ${context.text} is false, even though it is true`;
+  const scenario = `Feedback received by ${csInfo.controller} incorrectly indicates that ${context.text} - it is true that ${context.text}`;
   setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
