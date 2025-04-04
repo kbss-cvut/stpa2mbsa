@@ -1,0 +1,53 @@
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?scenarioName (GROUP_CONCAT(DISTINCT ?condition; separator=" AND ") AS ?allConds)
+WHERE {
+  {
+    # Sub-query for controllers
+    SELECT ?scenario ?condition
+    WHERE {
+      ?assoc a stpa:ScenarioControllerAssociation ;
+             stpa:belongs-to-scenario ?scenario ;
+             stpa:has-controller ?ctrl ;
+             stpa:provided-status ?pStatus .
+      ?ctrl stpa:name ?ctrlName .
+      # Map provided-status to MBSA state for controller:
+      BIND(IF(LCASE(?pStatus) = "notprovided", "failed", "nominal") AS ?ctrlState)
+      # Unify via owl:sameAs to get the MBSA resource:
+      ?ctrl owl:sameAs ?mbsaCtrl .
+      # Get a short name from the MBSA resource:
+      BIND(STRAFTER(STR(?mbsaCtrl), "#") AS ?ctrlLocal)
+      # Build the condition string, e.g. "(FlightCrew.state = failed)"
+      BIND(CONCAT("(", ?ctrlLocal, ".state = ", ?ctrlState, ")") AS ?condition)
+    }
+  }
+  UNION
+  {
+    # Sub-query for controlled processes
+    SELECT ?scenario ?condition
+    WHERE {
+      ?assoc a stpa:ScenarioProcessAssociation ;
+             stpa:belongs-to-scenario ?scenario ;
+             stpa:has-process ?proc ;
+             stpa:process-reception-status ?rStatus .
+      ?proc rdfs:label ?procLabel .
+      # Map reception-status to MBSA state for process:
+      BIND(IF(LCASE(?rStatus) = "notreceived", "failed", "nominal") AS ?procState)
+      ?proc owl:sameAs ?mbsaProc .
+      BIND(STRAFTER(STR(?mbsaProc), "#") AS ?procLocal)
+      BIND(CONCAT("(", ?procLocal, ".state = ", ?procState, ")") AS ?condition)
+    }
+  }
+
+  # Ensure that the scenario appears in the annotated data
+  ?occ a termit:výskyt-termu ;
+       termit:scenarioID ?sid .
+  BIND(STRAFTER(STR(?scenario), "#") AS ?scenarioLocal)
+  BIND(REPLACE(?scenarioLocal, "_", ".") AS ?scenarioName)
+  FILTER(?sid = ?scenarioName)
+}
+GROUP BY ?scenarioName
+ORDER BY ?scenarioName
