@@ -1,0 +1,57 @@
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT
+  ?lossScenario
+#  ?class
+  ?stpaText
+  ?controller
+  ?controlAction
+  ?controlledProcess
+  ?context
+  ?providedStatus
+  ?feedbackStatus
+  ?processExecutionStatus
+  ?processReceptionStatus
+  ?MBSATerm
+  ?exactText
+  ?tsid
+#  ?lossID
+WHERE {
+    ?lossScenario a stpa:LossScenario ;
+                  stpa:original-text ?stpaText ;
+                  stpa:scenario-class ?class ;
+                  stpa:has-control-action ?controlAction ;
+                  stpa:has-controlled-process ?controlledProcess ;
+                  stpa:context ?context .
+
+    ?sca a stpa:ScenarioControllerAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:has-controller ?controller ;
+         stpa:provided-status ?providedStatus ;
+         stpa:feedback-status ?feedbackStatus .
+
+    ?spa a stpa:ScenarioProcessAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:process-execution-status ?processExecutionStatus ;
+         stpa:process-reception-status ?processReceptionStatus .
+
+    OPTIONAL {
+        ?termOccurrence a termit:výskyt-termu ;
+                        termit:je-přiřazením-termu ?MBSATerm ;
+                        termit:odkazuje-na-anotovaný-text ?exactText ;
+                        termit:scenarioID ?tsid .
+    }
+    # Extract the local name from the loss scenario.
+    BIND(
+      IF(CONTAINS(STR(?lossScenario), "#"),
+         STRAFTER(STR(?lossScenario), "#"),
+         STR(?lossScenario)
+      ) AS ?lossID
+    )
+    # Normalize the term occurrence's scenario ID: replace dot with underscore.
+    BIND(REPLACE(?tsid, "\\.", "_", "i") AS ?tsid_norm)
+    FILTER(?lossID = ?tsid_norm)
+}
+ORDER BY ?lossScenario ?MBSATerm ?exactText ?tsid
