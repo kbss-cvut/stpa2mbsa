@@ -1,71 +1,50 @@
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
 PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-#SELECT DISTINCT ?annotResource ?stpaResource ?scenario
+#SELECT DISTINCT ?scenarioName ?stpaTerm ?mbsaTerm
 INSERT {
-  ?annotResource owl:sameAs ?stpaResource .
+  ?stpaTerm owl:sameAs ?mbsaTerm .
 }
 WHERE {
-  #--------------------------------------------------------------------
-  # 1) The STPA side (using associations):
-  #    For a controller:
-  #       ?assoc a stpa:ScenarioControllerAssociation ;
-  #              stpa:belongs-to-scenario ?scenario ;
-  #              stpa:has-controller ?stpaResource .
-  #       ?stpaResource stpa:name ?txt .
-  #
-  #    For a process:
-  #       ?assoc a stpa:ScenarioProcessAssociation ;
-  #              stpa:belongs-to-scenario ?scenario ;
-  #              stpa:has-process ?stpaResource .
-  #       ?stpaResource rdfs:label ?txt .
-  # We'll use a UNION for each.
-  #--------------------------------------------------------------------
+  # -- A) STPA side: scenario -> stpaTerm -> textual name
   {
     # Controller block
     ?assoc a stpa:ScenarioControllerAssociation ;
            stpa:belongs-to-scenario ?scenario ;
-           stpa:has-controller ?stpaResource .
-    ?stpaResource stpa:name ?txt .
+           stpa:has-controller ?stpaTerm .
+    ?stpaTerm stpa:name ?txt .
   }
   UNION
   {
     # Process block
     ?assoc a stpa:ScenarioProcessAssociation ;
            stpa:belongs-to-scenario ?scenario ;
-           stpa:has-process ?stpaResource .
-    ?stpaResource rdfs:label ?txt .
-  }
-  UNION
-  {
-    # Control Action block
-    ?scenario stpa:has-control-action ?stpaResource .
-    ?stpaResource rdfs:label ?txt .
-    BIND("action" AS ?role)
+           stpa:has-process ?stpaTerm .
+    ?stpaTerm rdfs:label ?txt .
   }
 
+  # Extract the local scenario name "LS-2_1" => "LS-2.1"
+  BIND( STRAFTER(STR(?scenario), "#") AS ?localScn )
+  BIND( REPLACE(?localScn, "_", ".") AS ?scenarioName )
 
-  #--------------------------------------------------------------------
-  # 2) The annotated side: we have a term occurrence with text ?annotText
-  #    and scenarioID ?sid
-  #--------------------------------------------------------------------
-  ?annotResource a termit:výskyt-termu ;
-                 termit:scenarioID ?sid ;
-                 termit:je-přiřazením-termu ?someTerm .
-  ?annotResource termit:odkazuje-na-anotovaný-text ?annotText .
+  # -- B) Annotated side:
+  # "je-přiřazením-termu" is the MBSA resource, e.g. "electrical_systemFlight_Crew"
+  ?occ a termit:výskyt-termu ;
+       termit:scenarioID ?sid ;
+       termit:je-přiřazením-termu ?mbsaTerm ;
+       termit:odkazuje-na-anotovaný-text ?annotText .
 
-  #--------------------------------------------------------------------
-  # 3) Match scenario: stpa:LS-2_1 => localName "LS-2_1"
-  #                   annotation => "LS-2.1"
-  #--------------------------------------------------------------------
-  BIND( STRAFTER(STR(?scenario), "#") AS ?scenarioLocal )
-  FILTER( REPLACE(?scenarioLocal, "_", ".") = ?sid )
+  # unify scenario
+  FILTER( ?sid = ?scenarioName )
 
-  #--------------------------------------------------------------------
-  # 4) Finally unify text ignoring case
-  #    e.g. "Flight crew" vs. "flight crew"
-  #--------------------------------------------------------------------
+  # unify text ignoring case
   FILTER( LCASE(?txt) = LCASE(?annotText) )
+
+  # ensure we skip trivial pairs
+  FILTER( ?stpaTerm != ?mbsaTerm )
+
+  # ensure ?mbsaTerm is truly an MBSA resource
+  FILTER( CONTAINS( STR(?mbsaTerm), "electrical_system" ) )
 }
+ORDER BY ?scenarioName ?stpaTerm
