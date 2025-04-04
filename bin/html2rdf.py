@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
 import sys
+import re
 from bs4 import BeautifulSoup
 import html
 
@@ -15,11 +15,15 @@ term_type = "<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výsky
 assign_prop = "<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu>"
 anno_prop = "<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci>"
 text_prop = "<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text>"
+scenarioID_prop = "termit:scenarioID"
+
+scenario_regex = re.compile(r'\((LS-[^)]+)\)')
 
 with open(input_html, "r", encoding="utf-8") as f:
     soup = BeautifulSoup(f, "html.parser")
 
-spans = soup.find_all("span", attrs={"property": "ddo:je-výskytem-termu"})
+full_property_uri = "http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu"
+spans = soup.find_all("span", attrs={"property": full_property_uri})
 
 turtle_blocks = []
 
@@ -34,22 +38,35 @@ for span in spans:
     if resource:
         resource_iri = f"<{resource}>"
     else:
-        literal = span.get("content", "").strip()
+        literal = span.get("content")
+        if not literal:
+            literal = span.get_text().strip()
         resource_iri = f"\"{literal}\""
 
     original_annotation = html.escape(str(span))
     annotated_text = html.escape(span.get_text().strip())
 
+    parent_p = span.find_parent("p")
+    scenario_id = ""
+    if parent_p:
+        parent_text = parent_p.get_text()
+        match = scenario_regex.search(parent_text)
+        if match:
+            scenario_id = match.group(1)
+
+    if not scenario_id:
+        continue
+
     block = f"""{instance_iri}
     a {term_type} ;
     {assign_prop} {resource_iri} ;
     {anno_prop} "{original_annotation}" ;
-    {text_prop} "{annotated_text}" .
+    {text_prop} "{annotated_text}" ;
+    {scenarioID_prop} "{scenario_id}" .
 """
     turtle_blocks.append(block)
 
 with open(output_ttl, "w", encoding="utf-8") as f_out:
-    # Write prefix declarations (adjust these if needed)
     f_out.write("""@prefix termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
