@@ -1,0 +1,71 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+#SELECT DISTINCT ?annotResource ?stpaResource ?scenario
+INSERT {
+  ?annotResource owl:sameAs ?stpaResource .
+}
+WHERE {
+  #--------------------------------------------------------------------
+  # 1) The STPA side (using associations):
+  #    For a controller:
+  #       ?assoc a stpa:ScenarioControllerAssociation ;
+  #              stpa:belongs-to-scenario ?scenario ;
+  #              stpa:has-controller ?stpaResource .
+  #       ?stpaResource stpa:name ?txt .
+  #
+  #    For a process:
+  #       ?assoc a stpa:ScenarioProcessAssociation ;
+  #              stpa:belongs-to-scenario ?scenario ;
+  #              stpa:has-process ?stpaResource .
+  #       ?stpaResource rdfs:label ?txt .
+  # We'll use a UNION for each.
+  #--------------------------------------------------------------------
+  {
+    # Controller block
+    ?assoc a stpa:ScenarioControllerAssociation ;
+           stpa:belongs-to-scenario ?scenario ;
+           stpa:has-controller ?stpaResource .
+    ?stpaResource stpa:name ?txt .
+  }
+  UNION
+  {
+    # Process block
+    ?assoc a stpa:ScenarioProcessAssociation ;
+           stpa:belongs-to-scenario ?scenario ;
+           stpa:has-process ?stpaResource .
+    ?stpaResource rdfs:label ?txt .
+  }
+  UNION
+  {
+    # Control Action block
+    ?scenario stpa:has-control-action ?stpaResource .
+    ?stpaResource rdfs:label ?txt .
+    BIND("action" AS ?role)
+  }
+
+
+  #--------------------------------------------------------------------
+  # 2) The annotated side: we have a term occurrence with text ?annotText
+  #    and scenarioID ?sid
+  #--------------------------------------------------------------------
+  ?annotResource a termit:výskyt-termu ;
+                 termit:scenarioID ?sid ;
+                 termit:je-přiřazením-termu ?someTerm .
+  ?annotResource termit:odkazuje-na-anotovaný-text ?annotText .
+
+  #--------------------------------------------------------------------
+  # 3) Match scenario: stpa:LS-2_1 => localName "LS-2_1"
+  #                   annotation => "LS-2.1"
+  #--------------------------------------------------------------------
+  BIND( STRAFTER(STR(?scenario), "#") AS ?scenarioLocal )
+  FILTER( REPLACE(?scenarioLocal, "_", ".") = ?sid )
+
+  #--------------------------------------------------------------------
+  # 4) Finally unify text ignoring case
+  #    e.g. "Flight crew" vs. "flight crew"
+  #--------------------------------------------------------------------
+  FILTER( LCASE(?txt) = LCASE(?annotText) )
+}
