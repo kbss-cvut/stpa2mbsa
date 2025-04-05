@@ -289,24 +289,52 @@ function replaceControllerConstraint(constraintId, constraint, cell) {
 
 function getControlStructureInfo(ucaCell) {
   const row = ucaCell.getRow();
-  const controlAction = ucaCell
-    .getSheet()
-    .getRange(row, ACTION_COLUMN)
-    .getValue();
+  const sheet = ucaCell.getSheet();
+
+  const controlAction = sheet.getRange(row, ACTION_COLUMN).getValue();
+
   let controllerRow = row;
-  let controller;
-  do {
-    controller = ucaCell.getSheet().getRange(controllerRow, 1).getValue();
+  let controller = "";
+  while (controllerRow > 0) {
+    controller = sheet.getRange(controllerRow, 1).getValue();
+    if (controller !== "") break;
     controllerRow--;
-  } while (controller === "");
-  const controlledProcess = SpreadsheetApp.getActive()
-    .getSheetByName(CS_SHEET_NAME)
-    .getRange(row, 3)
-    .getValue();
+  }
+
+  const csSheet = SpreadsheetApp.getActive().getSheetByName(CS_SHEET_NAME);
+  const controlledProcess = csSheet.getRange(row, 3).getValue();
+  let feedback = csSheet.getRange(row, 4).getValue();
+
+  if (!feedback || feedback.toString().trim() === "") {
+    const csData = csSheet.getDataRange().getValues();
+    let lastControllerValue = "";
+    for (let i = 0; i < csData.length; i++) {
+      let csController = csData[i][0];
+      if (!csController || csController.toString().trim() === "") {
+        csController = lastControllerValue;
+      } else {
+        lastControllerValue = csController;
+      }
+      const csControlAction = csData[i][1];
+      const csControlledProcess = csData[i][2];
+      const csFeedback = csData[i][3];
+
+      if (
+        csController === controller &&
+        csControlledProcess === controlledProcess &&
+        csFeedback && csFeedback.toString().trim() !== ""
+      ) {
+        feedback = csFeedback;
+        break;
+      }
+    }
+  }
+
   return {
     controller,
     controlAction,
     controlledProcess,
+    feedback
   };
 }
 
