@@ -126,8 +126,8 @@ function generateLossScenarios(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
-  const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controller} received feedback "${chosenFeedback}" that indicated ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate", "n/a", "n/a");
+  const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controller} received feedback '${chosenFeedback}' that indicated ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 6, "notProvided", "accurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -138,8 +138,8 @@ function generateLossScenarioOfTypeOneForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeOneForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
-  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controller} received feedback "${chosenFeedback}" that indicated ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate", "n/a", "n/a");
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controller} received feedback '${chosenFeedback}' that indicated ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 6, "provided", "accurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -156,8 +156,8 @@ function generateLossScenarioOfTypeOneForUcaTypeThree(uca, csInfo, row) {
   } else if (context.measure === "too late") {
     providedStatus = "providedTooLate";
   }
-  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback "${chosenFeedback}" that indicated ${context.text} on time/in order`;
-  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "n/a", "n/a");
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received feedback '${chosenFeedback}' that indicated ${context.text} on time/in order`;
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -169,9 +169,9 @@ function generateLossScenarioOfTypeOneForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
   let actionPhrase = context.stops ? "stops providing" : "continues providing";
-  const scenario = `${csInfo.controller} ${actionPhrase} the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received "${chosenFeedback}" that indicated ${context.text} on time`;
+  const scenario = `${csInfo.controller} ${actionPhrase} the ${csInfo.controlAction} action ${context.measure} - ${csInfo.controller} received '${chosenFeedback}' that indicated ${context.text} on time`;
   let providedStatus = context.stops ? "notProvided" : "provided";
-  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", "n/a", "n/a");
+  setLossScenarioMetaData(csInfo, context, row, 6, providedStatus, "accurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_ONE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_ONE_COLUMN
@@ -184,8 +184,8 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
   let durationNote = inappropriateDuration ? " (inappropriate duration)" : "";
-  const scenario = `Feedback "${chosenFeedback}" received by ${csInfo.controller} does not adequately indicate ${context.text}${durationNote} - it is true that ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
+  const scenario = `Feedback '${chosenFeedback}' received by ${csInfo.controller} does not adequately indicate ${context.text}${durationNote} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -196,8 +196,8 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
 function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
-  const scenario = `Feedback "${chosenFeedback}" received by ${csInfo.controller} incorrectly indicates that ${context.text} - it is true that ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
+  const scenario = `Feedback '${chosenFeedback}' received by ${csInfo.controller} incorrectly indicates that ${context.text} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -208,8 +208,8 @@ function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
 function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
-  const scenario = `Feedback "${chosenFeedback}" received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
+  const scenario = `Feedback '${chosenFeedback}' received by ${csInfo.controller} does not indicate ${context.text} ${context.measureInverse} - it is true that ${context.text}`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -220,8 +220,8 @@ function generateLossScenarioOfTypeTwoForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeTwoForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromDurationUnsafeControlAction(uca.definition, csInfo.controller, csInfo.controlAction);
   const chosenFeedback = chooseFeedbackForLossScenario(csInfo);
-  const scenario = `Feedback "${chosenFeedback}" received by ${csInfo.controller} indicates ${context.text} for an inappropriate duration, failing to accurately reflect the true state`;
-  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
+  const scenario = `Feedback '${chosenFeedback}' received by ${csInfo.controller} indicates ${context.text} for an inappropriate duration, failing to accurately reflect the true state`;
+  setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", chosenFeedback, "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_TWO_COLUMN
@@ -233,7 +233,7 @@ function generateLossScenarioOfTypeTwoForUcaTypeFour(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} does provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is not received by ${csInfo.controlledProcess} when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "notReceived", "n/a");
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "", "notReceived", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
@@ -244,7 +244,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlledProcess} receives the ${csInfo.controlAction} action when ${context.text}`;
-  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", "received", "n/a");
+  setLossScenarioMetaData(csInfo, context, row, 8, "notProvided", "accurate", "", "received", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
@@ -264,7 +264,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
     processExecutionStatus = "executedTooLate";
   }
   const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
-  setLossScenarioMetaData(csInfo, context, row, 8, providedStatus, "accurate", "received", processExecutionStatus);
+  setLossScenarioMetaData(csInfo, context, row, 8, providedStatus, "accurate", "", "received", processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
@@ -275,7 +275,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action with appropriate duration - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} with inappropriate duration`;
-  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "received", "inappropriateDuration");
+  setLossScenarioMetaData(csInfo, context, row, 8, "provided", "accurate", "", "received", "inappropriateDuration");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_THREE_COLUMN
@@ -287,7 +287,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeFour(uca, csInfo, row) {
 function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `The ${csInfo.controlAction} action is received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} does not respond adequately`;
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", "executed");
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "", "notReceived", "executed");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
@@ -298,7 +298,7 @@ function generateLossScenarioOfTypeFourForUcaTypeOne(uca, csInfo, row) {
 function generateLossScenarioOfTypeFourForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds erroneously`;
-  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", "notReceived", "erroneousResponse");
+  setLossScenarioMetaData(csInfo, context, row, 9, "notProvided", "accurate", "", "notReceived", "erroneousResponse");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
@@ -315,7 +315,7 @@ function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
     processExecutionStatus = "executedTooLate";
   }
   const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} executes the action ${context.measure}`;
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", processExecutionStatus);
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "", "notReceived", processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
@@ -326,7 +326,7 @@ function generateLossScenarioOfTypeFourForUcaTypeThree(uca, csInfo, row) {
 function generateLossScenarioOfTypeFourForUcaTypeFour(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
   const scenario = `The ${csInfo.controlAction} action is not received by ${csInfo.controlledProcess} when ${context.text} - ${csInfo.controlledProcess} responds inadequately (inappropriate duration)`;
-  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "notReceived", "inappropriateDuration");
+  setLossScenarioMetaData(csInfo, context, row, 9, "provided", "accurate", "", "notReceived", "inappropriateDuration");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_FOUR_COLUMN)}) ${scenario}`,
     type: LOSS_SCENARIO_TYPE_FOUR_COLUMN
@@ -443,6 +443,7 @@ function getFeedbackOptions(controller, controlledProcess) {
     const csControlledProcess = data[i][2];
     const csFeedback = data[i][3];
 
+    // Check for a row with matching controller and controlled process that has feedback.
     if (
       csController === controller &&
       csControlledProcess === controlledProcess &&
@@ -458,16 +459,20 @@ function getFeedbackOptions(controller, controlledProcess) {
 
 
 function chooseFeedbackForLossScenario(csInfo) {
+  // csInfo.controller, csInfo.controlAction, csInfo.controlledProcess
   const feedbackOptions = getFeedbackOptions(csInfo.controller, csInfo.controlledProcess);
 
+  // If no feedback is found, just return an empty string or handle differently
   if (feedbackOptions.length === 0) {
     return "";
   }
 
+  // If exactly one feedback is found, just return it automatically
   if (feedbackOptions.length === 1) {
     return feedbackOptions[0];
   }
 
+  // Otherwise, prompt the user to pick one
   const ui = SpreadsheetApp.getUi();
   const feedbackListText = feedbackOptions
     .map((fb, index) => `${index + 1}. ${fb}`)
@@ -481,6 +486,7 @@ function chooseFeedbackForLossScenario(csInfo) {
   );
 
   if (response.getSelectedButton() !== ui.Button.OK) {
+    // user canceled
     return "";
   }
 
@@ -501,14 +507,15 @@ function generateLossScenarioId(uca, type) {
   return `LS-${ucaNo}.${type - 1}`;
 }
 
-function setLossScenarioMetaData(csInfo, context, row, column, providedStatus, feedbackStatus, processReceptionStatus, processExecutionStatus) {
+function setLossScenarioMetaData(csInfo, context, row, column, providedStatus, feedbackStatus, chosenFeedback, processReceptionStatus, processExecutionStatus) {
   const metadataObj = {
     controller: csInfo.controller,
     controlAction: csInfo.controlAction,
     controlledProcess: csInfo.controlledProcess,
     context: context?.text,
     providedStatus: providedStatus || "unknown",
-    feedbackStatus: feedbackStatus || "unknown",
+    feedbackStatus: feedbackStatus || "unknown",  // e.g., indicates accuracy
+    feedback: chosenFeedback || "",               // raw chosen feedback text
     processReceptionStatus: processReceptionStatus || "",
     processExecutionStatus: processExecutionStatus || ""
   };
@@ -585,6 +592,7 @@ function getAllMetadata() {
         context: metadataObj.context,
         providedStatus: metadataObj.providedStatus || "unknown",
         feedbackStatus: metadataObj.feedbackStatus || "unknown",
+        feedback: metadataObj.feedback || "",  // NEW: retrieve the raw feedback text
         processReceptionStatus: metadataObj.processReceptionStatus || "",
         processExecutionStatus: metadataObj.processExecutionStatus || ""
       };

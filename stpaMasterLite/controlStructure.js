@@ -49,6 +49,7 @@ function resolveControlStructureFromGraphML(document) {
         }
       }
   });
+  // Control structure: controller -> [{controlAction, controlledProcess}]
   return buildControlStructureFromEdgesAndNodes(edges, nodes);
 }
 
@@ -56,6 +57,7 @@ function buildControlStructureFromEdgesAndNodes(edges, nodes) {
   const controlStructure = {};
 
   edges.forEach(edge => {
+    // Grab the two nodes involved
     const sourceNode = nodes.get(edge.source);
     const targetNode = nodes.get(edge.target);
     if (!sourceNode || !targetNode) return;
@@ -63,13 +65,17 @@ function buildControlStructureFromEdgesAndNodes(edges, nodes) {
     let controller, controlledProcess;
 
     if (edge.type === "ControlAction") {
+      // Control action: arrow from controller -> controlled process
       controller = sourceNode;
       controlledProcess = targetNode;
     } else if (edge.type === "Feedback") {
+      // Feedback: arrow from controlled process -> controller
+      // so invert source/target
       controller = targetNode;
       controlledProcess = sourceNode;
     }
 
+    // Create an entry in the controlStructure
     if (!controlStructure[controller.label]) {
       controlStructure[controller.label] = [];
     }
@@ -225,16 +231,21 @@ function getDrawioEdgePoints(geometry) {
  *  - Sheet 2 ("Control structure"): For both control actions and feedback
  */
 function generateControlStructureCells(controlStructure) {
+  // Adjust these names if yours differ
   const UCA_SHEET_NAME = "3. Unsafe control actions";
   const CS_SHEET_NAME  = "2. Control structure";
   const NON_EDITABLE_BACKGROUND = "#efefef";
 
+  // Grab both sheets
   const ucaSheet = SpreadsheetApp.getActive().getSheetByName(UCA_SHEET_NAME);
   const csSheet  = SpreadsheetApp.getActive().getSheetByName(CS_SHEET_NAME);
 
+  // Start writing at row 4 (as you indicated)
   let lastRow = 4;
 
+  // Sort controllers alphabetically to get consistent ordering
   Object.keys(controlStructure).sort().forEach(controller => {
+    // Write the controller name in column A on both sheets
     ucaSheet.getRange(lastRow, 1)
       .setValue(controller)
       .setBackground(NON_EDITABLE_BACKGROUND);
@@ -243,47 +254,64 @@ function generateControlStructureCells(controlStructure) {
       .setValue(controller)
       .setBackground(NON_EDITABLE_BACKGROUND);
 
+    // Remember where this controller started so we can merge column A
     const controllerRow = lastRow;
 
+    // Get all items (control actions and/or feedback)
     const items = controlStructure[controller];
 
     items.forEach(item => {
       if (item.type === "ControlAction") {
+        // Possibly multiple lines in item.label
         const actions = item.label.split("\n");
         actions.forEach(actionText => {
-          ucaSheet.getRange(lastRow, 2)
+          // --- Sheet 3 (UCA) ---
+          ucaSheet.getRange(lastRow, 2) // Column B: Control Action
             .setValue(actionText)
             .setBackground(NON_EDITABLE_BACKGROUND);
-          ucaSheet.getRange(lastRow, 3)
+          ucaSheet.getRange(lastRow, 3) // Column C: Controlled Process
             .setValue(item.controlledProcess)
             .setBackground(NON_EDITABLE_BACKGROUND);
 
-          csSheet.getRange(lastRow, 2)
+          // If your original script filled columns D..G with "N/A" or something similar,
+          // you can replicate that here, for example:
+          // ucaSheet.getRange(lastRow, 4, 1, 4).setValue("N/A").setBackground(NON_EDITABLE_BACKGROUND);
+
+          // --- Sheet 2 (CS) ---
+          csSheet.getRange(lastRow, 2) // Column B: Control Action
             .setValue(actionText)
             .setBackground(NON_EDITABLE_BACKGROUND);
-          csSheet.getRange(lastRow, 3)
+          csSheet.getRange(lastRow, 3) // Column C: Controlled Process
             .setValue(item.controlledProcess)
             .setBackground(NON_EDITABLE_BACKGROUND);
 
+          // Move to the next row
           lastRow++;
         });
       }
       else if (item.type === "Feedback") {
-
+        // Feedback lines can also have multiple lines
         const feedbackLines = item.label.split("\n");
         feedbackLines.forEach(fb => {
-          csSheet.getRange(lastRow, 3)
+          // We only write feedback to the CS sheet
+          csSheet.getRange(lastRow, 3) // Column C: Controlled Process
             .setValue(item.controlledProcess)
             .setBackground(NON_EDITABLE_BACKGROUND);
-          csSheet.getRange(lastRow, 4)
+          csSheet.getRange(lastRow, 4) // Column D: Feedback
             .setValue(fb)
             .setBackground(NON_EDITABLE_BACKGROUND);
+
+          // In the UCA sheet, we do NOT write anything for feedback,
+          // so row "lastRow" will remain blank there.
 
           lastRow++;
         });
       }
     });
 
+    // After processing all items for this controller, merge column A from
+    // the first row we used (controllerRow) up to the row before lastRow.
+    // If only 1 row was used, skip merging to avoid errors.
     const rowCount = lastRow - controllerRow;
     if (rowCount > 1) {
       // Merge the controller cells in the UCA sheet
@@ -293,3 +321,5 @@ function generateControlStructureCells(controlStructure) {
     }
   });
 }
+
+

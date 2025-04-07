@@ -291,8 +291,10 @@ function getControlStructureInfo(ucaCell) {
   const row = ucaCell.getRow();
   const sheet = ucaCell.getSheet();
 
+  // Get control action from the UCA sheet (using your defined ACTION_COLUMN)
   const controlAction = sheet.getRange(row, ACTION_COLUMN).getValue();
 
+  // Find the controller by scanning upward in column A until a non-empty cell is found.
   let controllerRow = row;
   let controller = "";
   while (controllerRow > 0) {
@@ -301,14 +303,17 @@ function getControlStructureInfo(ucaCell) {
     controllerRow--;
   }
 
+  // Get the CS sheet values from the current row for controlled process and feedback.
   const csSheet = SpreadsheetApp.getActive().getSheetByName(CS_SHEET_NAME);
   const controlledProcess = csSheet.getRange(row, 3).getValue();
   let feedback = csSheet.getRange(row, 4).getValue();
 
+  // If feedback is empty, search the CS sheet for a matching feedback row.
   if (!feedback || feedback.toString().trim() === "") {
     const csData = csSheet.getDataRange().getValues();
     let lastControllerValue = "";
     for (let i = 0; i < csData.length; i++) {
+      // Get the controller from column A; if empty, use the last non-empty value.
       let csController = csData[i][0];
       if (!csController || csController.toString().trim() === "") {
         csController = lastControllerValue;
@@ -319,6 +324,7 @@ function getControlStructureInfo(ucaCell) {
       const csControlledProcess = csData[i][2];
       const csFeedback = csData[i][3];
 
+      // Check for a row with matching controller and controlled process that has feedback.
       if (
         csController === controller &&
         csControlledProcess === controlledProcess &&
@@ -337,6 +343,7 @@ function getControlStructureInfo(ucaCell) {
     feedback
   };
 }
+
 
 function selectNextCell(currentCell) {
   const nextCell = resolveNextCell(currentCell);
