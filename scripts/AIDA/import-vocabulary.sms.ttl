@@ -84,18 +84,17 @@ CONSTRUCT {
     dcterms:description "Max vocabulary for AIDA."@cs;
     dcterms:title "MBSA AIDA"@cs;
   .
-
-  # ?outputVocabularyIri termit-pojem:má-seznam-řízení-přístupu <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/seznam-řízení-přístupu/instance1529313839> .
-} WHERE {
-
-  BIND(iri(concat(str(?outputVocabularyIri), "/model")) as ?modelIri)
-  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) as ?glosarIri)
-  BIND(iri(concat(str(?outputVocabularyIri), "/document")) as ?documentIri)
+}
+WHERE {
+  BIND(iri(concat(str(?outputVocabularyIri), "/model")) AS ?modelIri)
+  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
+  BIND(iri(concat(str(?outputVocabularyIri), "/document")) AS ?documentIri)
 }""" ;
-    ] ;
+  ] ;
+
   sml:constructQuery [
       a sp:Construct ;
-      sp:text """# 1 - construct terms
+      sp:text """# 2 - construct terms
 CONSTRUCT {
   ?glosarIri skos:hasTopConcept ?term .
 
@@ -105,8 +104,8 @@ CONSTRUCT {
     skos:prefLabel ?termLabelEn ;
     skos:prefLabel ?termLabelCs ;
     a-popis-dat-pojem:má-stav-pojmu termit-pojem:navrhovaný-pojem ;
-    # If you want to keep the nature, you can do it here:
-    mbsa:nature ?nature .
+    mbsa:nature ?nature ;
+    rdfs:label ?labelWithPath .
 }
 WHERE {
   ?term a owl:Class ;
@@ -115,15 +114,18 @@ WHERE {
 
   OPTIONAL { ?term mbsa:nature ?nature }
 
+  # Local fragment of URI (e.g., mbsa:oMotorCommand → oMotorCommand)
+  BIND(REPLACE(STR(?term), "^.*[/#]", "") AS ?localName)
 
-  BIND( STRLANG(?label, "en") AS ?termLabelEn )
-  BIND( STRLANG(?label, "cs") AS ?termLabelCs )
+  # Full path label
+  BIND(CONCAT(?localName, ".", STR(?label)) AS ?labelWithPath)
 
-  BIND( iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri )
+  BIND(STRLANG(?label, "en") AS ?termLabelEn)
+  BIND(STRLANG(?label, "cs") AS ?termLabelCs)
+  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
 }""" ;
-    ] ;
+  ] ;
 .
-
 
 
 :transform-vocabulary_Return

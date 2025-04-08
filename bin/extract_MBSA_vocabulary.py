@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import re
+import sys
 from collections import defaultdict
 
 # Constants
@@ -33,15 +34,15 @@ def extract_deepest_paths(df):
         occurrences[name].append((depth, path))
     return {name: max(paths, key=lambda x: x[0])[1] for name, paths in occurrences.items()}
 
-def generate_ttl_with_only_label(input_file, output_file):
-    df = pd.read_excel(input_file, header=None, names=["Nature", "Parent", "Name"], usecols=[1, 2, 3])
+def generate_ttl_with_full_path(excel_path, ttl_path):
+    df = pd.read_excel(excel_path, header=None, names=["Nature", "Parent", "Name"], usecols=[1, 2, 3])
     full_paths = extract_deepest_paths(df)
 
-    output_dir = os.path.dirname(output_file)
+    output_dir = os.path.dirname(ttl_path)
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    with open(output_file, "w", encoding="utf-8") as f:
+    with open(ttl_path, "w", encoding="utf-8") as f:
         f.write(MY_PREFIX_DECL)
         f.write(RDF_PREFIX)
         f.write(OWL_PREFIX)
@@ -49,7 +50,7 @@ def generate_ttl_with_only_label(input_file, output_file):
         f.write(SKOS_PREFIX)
         f.write(ONTOLOGY_HEADER)
 
-        for _, row in df.iterrows():
+        for index, row in df.iterrows():
             nature = str(row["Nature"]).strip() if pd.notna(row["Nature"]) else ""
             parent = str(row["Parent"]).strip() if pd.notna(row["Parent"]) else ""
             name = str(row["Name"]).strip() if pd.notna(row["Name"]) else ""
@@ -73,8 +74,12 @@ def generate_ttl_with_only_label(input_file, output_file):
 
             f.write("    .\n\n")
 
-# Run the updated version
-generate_ttl_with_only_label(
-    "data/AIDA/AIDA_V4_5_physical_equipment.xlsx",
-    "scripts/AIDA/equipment.ttl"
-)
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python generate_equipment_ttl.py <input_excel_file> <output_ttl_file>")
+        sys.exit(1)
+
+    input_excel = sys.argv[1]
+    output_ttl = sys.argv[2]
+    generate_ttl_with_full_path(input_excel, output_ttl)
+    print(f"TTL file written to: {output_ttl}")
