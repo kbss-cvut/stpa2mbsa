@@ -1,0 +1,307 @@
+{
+  "head" : {
+    "vars" : [
+      "lossScenario",
+      "lossID",
+      "controller",
+      "controllerLabel",
+      "controlAction",
+      "controlActionLabel",
+      "controlledProcess",
+      "controlledProcessLabel",
+      "feedback",
+      "feedbackLabel",
+      "context",
+      "providedStatus",
+      "feedbackStatus",
+      "processExecutionStatus",
+      "processReceptionStatus",
+      "MBSATerm",
+      "exactText"
+    ]
+  },
+  "results" : {
+    "bindings" : [
+      {
+        "lossScenario" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#LS-1_1"
+        },
+        "lossID" : {
+          "type" : "literal",
+          "value" : "LS-1_1"
+        },
+        "controller" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Control_Desk"
+        },
+        "controllerLabel" : {
+          "type" : "literal",
+          "value" : "Control Desk"
+        },
+        "controlAction" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flying_Commands"
+        },
+        "controlActionLabel" : {
+          "type" : "literal",
+          "value" : "Flying Commands"
+        },
+        "controlledProcess" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flight_Control___Monitoring_System"
+        },
+        "controlledProcessLabel" : {
+          "type" : "literal",
+          "value" : "Flight Control & Monitoring System"
+        },
+        "feedback" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Aircraft_position"
+        },
+        "feedbackLabel" : {
+          "type" : "literal",
+          "value" : "Aircraft position"
+        },
+        "context" : {
+          "type" : "literal",
+          "value" : "the drone is not manually controlled by the operator and is flying near (TBD) obstacles"
+        },
+        "providedStatus" : {
+          "type" : "literal",
+          "value" : "notProvided"
+        },
+        "feedbackStatus" : {
+          "type" : "literal",
+          "value" : "accurate"
+        },
+        "processExecutionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "processReceptionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "MBSATerm" : {
+          "type" : "uri",
+          "value" : "http://fd.cvut.cz/chopamax/mbsa/aidaControl_desk_common_state"
+        },
+        "exactText" : {
+          "type" : "literal",
+          "value" : "Control Desk"
+        }
+      },
+      {
+        "lossScenario" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#LS-1_1"
+        },
+        "lossID" : {
+          "type" : "literal",
+          "value" : "LS-1_1"
+        },
+        "controller" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Control_Desk"
+        },
+        "controllerLabel" : {
+          "type" : "literal",
+          "value" : "Control Desk"
+        },
+        "controlAction" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flying_Commands"
+        },
+        "controlActionLabel" : {
+          "type" : "literal",
+          "value" : "Flying Commands"
+        },
+        "controlledProcess" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flight_Control___Monitoring_System"
+        },
+        "controlledProcessLabel" : {
+          "type" : "literal",
+          "value" : "Flight Control & Monitoring System"
+        },
+        "feedback" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Aircraft_position"
+        },
+        "feedbackLabel" : {
+          "type" : "literal",
+          "value" : "Aircraft position"
+        },
+        "context" : {
+          "type" : "literal",
+          "value" : "the drone is not manually controlled by the operator and is flying near (TBD) obstacles"
+        },
+        "providedStatus" : {
+          "type" : "literal",
+          "value" : "notProvided"
+        },
+        "feedbackStatus" : {
+          "type" : "literal",
+          "value" : "accurate"
+        },
+        "processExecutionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "processReceptionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "MBSATerm" : {
+          "type" : "uri",
+          "value" : "http://fd.cvut.cz/chopamax/mbsa/aidaoPilotPerception"
+        },
+        "exactText" : {
+          "type" : "literal",
+          "value" : "feedback"
+        }
+      },
+      {
+        "lossScenario" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#LS-1_1"
+        },
+        "lossID" : {
+          "type" : "literal",
+          "value" : "LS-1_1"
+        },
+        "controller" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Control_Desk"
+        },
+        "controllerLabel" : {
+          "type" : "literal",
+          "value" : "Control Desk"
+        },
+        "controlAction" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flying_Commands"
+        },
+        "controlActionLabel" : {
+          "type" : "literal",
+          "value" : "Flying Commands"
+        },
+        "controlledProcess" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flight_Control___Monitoring_System"
+        },
+        "controlledProcessLabel" : {
+          "type" : "literal",
+          "value" : "Flight Control & Monitoring System"
+        },
+        "feedback" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Aircraft_position"
+        },
+        "feedbackLabel" : {
+          "type" : "literal",
+          "value" : "Aircraft position"
+        },
+        "context" : {
+          "type" : "literal",
+          "value" : "the drone is not manually controlled by the operator and is flying near (TBD) obstacles"
+        },
+        "providedStatus" : {
+          "type" : "literal",
+          "value" : "notProvided"
+        },
+        "feedbackStatus" : {
+          "type" : "literal",
+          "value" : "accurate"
+        },
+        "processExecutionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "processReceptionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "MBSATerm" : {
+          "type" : "uri",
+          "value" : "http://fd.cvut.cz/chopamax/mbsa/aidaoPilotPerception"
+        },
+        "exactText" : {
+          "type" : "literal",
+          "value" : "the drone is not manually controlled by the operator and is flying near (TBD) obstacles"
+        }
+      },
+      {
+        "lossScenario" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#LS-1_1"
+        },
+        "lossID" : {
+          "type" : "literal",
+          "value" : "LS-1_1"
+        },
+        "controller" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Control_Desk"
+        },
+        "controllerLabel" : {
+          "type" : "literal",
+          "value" : "Control Desk"
+        },
+        "controlAction" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flying_Commands"
+        },
+        "controlActionLabel" : {
+          "type" : "literal",
+          "value" : "Flying Commands"
+        },
+        "controlledProcess" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Flight_Control___Monitoring_System"
+        },
+        "controlledProcessLabel" : {
+          "type" : "literal",
+          "value" : "Flight Control & Monitoring System"
+        },
+        "feedback" : {
+          "type" : "uri",
+          "value" : "http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#Aircraft_position"
+        },
+        "feedbackLabel" : {
+          "type" : "literal",
+          "value" : "Aircraft position"
+        },
+        "context" : {
+          "type" : "literal",
+          "value" : "the drone is not manually controlled by the operator and is flying near (TBD) obstacles"
+        },
+        "providedStatus" : {
+          "type" : "literal",
+          "value" : "notProvided"
+        },
+        "feedbackStatus" : {
+          "type" : "literal",
+          "value" : "accurate"
+        },
+        "processExecutionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "processReceptionStatus" : {
+          "type" : "literal",
+          "value" : "n/a"
+        },
+        "MBSATerm" : {
+          "type" : "uri",
+          "value" : "http://fd.cvut.cz/chopamax/mbsa/aidaoWifiTransmissionUplink"
+        },
+        "exactText" : {
+          "type" : "literal",
+          "value" : "Flying Commands"
+        }
+      }
+    ]
+  }
+}

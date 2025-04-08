@@ -1,0 +1,81 @@
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT
+  ?lossScenario
+  ?lossID
+  ?controller
+  ?controllerLabel
+  ?controlAction
+  ?controlActionLabel
+  ?controlledProcess
+  ?controlledProcessLabel
+  ?feedback
+  ?feedbackLabel
+  ?context
+  ?providedStatus
+  ?feedbackStatus
+  ?processExecutionStatus
+  ?processReceptionStatus
+  ?MBSATerm
+  ?exactText
+WHERE {
+  # Term annotations (ensures only annotated scenarios)
+  ?termOccurrence a termit:výskyt-termu ;
+                  termit:je-přiřazením-termu ?MBSATerm ;
+                  termit:odkazuje-na-anotovaný-text ?exactText ;
+                  termit:scenarioID ?tsid .
+  BIND(REPLACE(?tsid, "\\.", "_") AS ?tsid_norm)
+
+  # STPA Loss Scenario core
+  ?lossScenario a stpa:LossScenario ;
+                stpa:original-text ?stpaText ;
+                stpa:scenario-class ?class ;
+                stpa:has-control-action ?controlAction ;
+                stpa:has-controlled-process ?controlledProcess ;
+                stpa:has-feedback ?feedback ;
+                stpa:context ?context .
+
+  BIND(
+    IF(CONTAINS(STR(?lossScenario), "#"),
+       STRAFTER(STR(?lossScenario), "#"),
+       STR(?lossScenario)
+    ) AS ?lossID
+  )
+  FILTER(?tsid_norm = ?lossID)
+
+  # Controller association
+  ?sca a stpa:ScenarioControllerAssociation ;
+       stpa:belongs-to-scenario ?lossScenario ;
+       stpa:has-controller ?controller ;
+       stpa:provided-status ?providedStatus ;
+       stpa:feedback-status ?feedbackStatus .
+  ?controller rdfs:label ?controllerLabel .
+
+  # Control Action association
+  OPTIONAL {
+    ?caa a stpa:ScenarioControlActionAssociation ;
+         stpa:belongs-to-scenario ?lossScenario ;
+         stpa:has-control-action ?controlAction .
+    ?controlAction rdfs:label ?controlActionLabel .
+  }
+
+  # Feedback association
+  OPTIONAL {
+    ?fa a stpa:ScenarioFeedbackAssociation ;
+        stpa:belongs-to-scenario ?lossScenario ;
+        stpa:has-feedback ?feedback .
+    ?feedback rdfs:label ?feedbackLabel .
+  }
+
+  # Controlled Process association
+  ?spa a stpa:ScenarioProcessAssociation ;
+       stpa:belongs-to-scenario ?lossScenario ;
+       stpa:process-reception-status ?processReceptionStatus ;
+       stpa:process-execution-status ?processExecutionStatus ;
+       stpa:has-process ?controlledProcess .
+  ?controlledProcess rdfs:label ?controlledProcessLabel .
+}
+ORDER BY ?lossScenario ?MBSATerm ?exactText
