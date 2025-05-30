@@ -92,15 +92,15 @@ stpa:process-execution-status a owl:DatatypeProperty ;
 # === Controllers ===
 
 stpa:Flight_crew a stpa:Controller ;
-    stpa:name "Flight crew" .
+    rdfs:label "Flight crew" .
 
 
 stpa:Circuit_breaker a stpa:Controller ;
-    stpa:name "Circuit breaker" .
+    rdfs:label "Circuit breaker" .
 
 
 stpa:Generator_Control_Unit__GCU_ a stpa:Controller ;
-    stpa:name "Generator Control Unit (GCU)" .
+    rdfs:label "Generator Control Unit (GCU)" .
 
 
 # === Control Actions ===
