@@ -40,7 +40,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix termit-pojem: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
 @prefix rit:  <http://onto.fel.cvut.cz/ontology/ECCAIRS5_dataBridge.xsd#> .
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/electrical_system> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/electrical_system#> .
 
 <http://onto.fel.cvut.cz/ontologies/ava/import-vocabulary-0.1>
   a owl:Ontology ;
@@ -49,7 +49,7 @@
 
 :import-input-ontology
   a sml:ImportRDFFromWorkspace ;
-  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/electrical_system" ;
+  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/electrical_system#" ;
   sm:next :construct-vocabulary ;
   sml:ignoreImports true ;
 .
@@ -81,47 +81,57 @@ CONSTRUCT {
     a-popis-dat-pojem:má-glosář ?glosarIri ;
     a-popis-dat-pojem:popisuje-dokument ?documentIri ;
     a-popis-dat-pojem:má-model ?modelIri ;
-    dcterms:description "Max vocabulary for Electrical System."@cs;
-    dcterms:title "MBSA CESNA"@cs;
+    dcterms:description "Equipement list of the Cessna C510 Electrical System vocabulary."@cs;
+    dcterms:title "Cessna C510 Citation Mustang"@cs;
   .
-
-  # ?outputVocabularyIri termit-pojem:má-seznam-řízení-přístupu <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/seznam-řízení-přístupu/instance1529313839> .
-} WHERE {
-
-  BIND(iri(concat(str(?outputVocabularyIri), "/model")) as ?modelIri)
-  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) as ?glosarIri)
-  BIND(iri(concat(str(?outputVocabularyIri), "/document")) as ?documentIri)
-}""" ;
-    ] ;
-  sml:constructQuery [
-      a sp:Construct ;
-      sp:text """# 1 - construct terms
-CONSTRUCT {
-  ?glosarIri skos:hasTopConcept ?term .
-
-  ?term
-    a skos:Concept ;
-    skos:inScheme ?glosarIri ;
-    skos:prefLabel ?termLabelEn ;
-    skos:prefLabel ?termLabelCs ;
-    a-popis-dat-pojem:má-stav-pojmu termit-pojem:navrhovaný-pojem ;
-    # If you want to keep the nature, you can do it here:
-    mbsa:nature ?nature .
 }
 WHERE {
-  ?term a owl:Class ;
-        rdfs:label ?label ;
-        mbsa:nature ?nature .
-
-  OPTIONAL { ?term mbsa:nature ?nature }
-
-
-  BIND( STRLANG(?label, "en") AS ?termLabelEn )
-  BIND( STRLANG(?label, "cs") AS ?termLabelCs )
-
-  BIND( iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri )
+  BIND(iri(concat(str(?outputVocabularyIri), "/model")) AS ?modelIri)
+  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
+  BIND(iri(concat(str(?outputVocabularyIri), "/document")) AS ?documentIri)
 }""" ;
-    ] ;
+  ] ;
+
+sml:constructQuery [
+    a sp:Construct ;
+    sp:text """# 2 - construct terms
+CONSTRUCT {
+  ?glosarIri skos:hasTopConcept ?instanceUri .
+
+  ?instanceUri
+    a skos:Concept ;
+    skos:inScheme ?glosarIri ;
+    skos:prefLabel ?prefLabelEn ;
+    skos:prefLabel ?prefLabelCs ;
+    rdfs:label ?finalLabel ; # Keep rdfs:label on the concept
+    mbsa:nature ?natureString ;
+    mbsa:technicalId ?techIdFromSource ;
+    mbsa:fullPath ?fullPathFromSource ; # Carry over the full path for reference
+    a-popis-dat-pojem:má-stav-pojmu termit-pojem:navrhovaný-pojem .
+}
+WHERE {
+  ?instanceUri rdf:type ?instanceTypeUri .
+
+  # The desired label is now directly in rdfs:label and mbsa:simpleName
+  ?instanceUri rdfs:label ?finalLabel .
+
+  # Select other properties to copy over
+  ?instanceUri mbsa:technicalId ?techIdFromSource .
+  ?instanceUri mbsa:fullPath ?fullPathFromSource .
+
+  FILTER(!isBLANK(?instanceUri))
+  FILTER(?instanceUri != mbsa:)
+  FILTER NOT EXISTS { ?instanceUri rdf:type mbsa:Value . }
+
+  BIND(REPLACE(STR(?instanceTypeUri), STR(mbsa:), "") AS ?natureString)
+
+  BIND(STRLANG(?finalLabel, "en") AS ?prefLabelEn)
+  BIND(STRLANG(?finalLabel, "cs") AS ?prefLabelCs)
+
+  # Define the glossary IRI
+  BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
+}""" ;
+] ;
 .
 
 
@@ -182,7 +192,7 @@ CONSTRUCT {
       sp:varName "termitRepositoryName" ;
     ] ;
   km-rdf4j:p-rdf4j-secured-username-variable "termitRepositoryUsername" ;
-  km-rdf4j:p-rdf4j-secured-password-variable "termitRepositoryPassword" ; 
+  km-rdf4j:p-rdf4j-secured-password-variable "termitRepositoryPassword" ;
   km-rdf4j:p-rdf4j-infer-context-iris true ;
   km-rdf4j:p-is-replace true ;
 .
