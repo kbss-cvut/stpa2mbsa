@@ -40,7 +40,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix termit-pojem: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
 @prefix rit:  <http://onto.fel.cvut.cz/ontology/ECCAIRS5_dataBridge.xsd#> .
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/electrical_system#> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#> .
 
 <http://onto.fel.cvut.cz/ontologies/ava/import-vocabulary-0.1>
   a owl:Ontology ;
@@ -49,7 +49,7 @@
 
 :import-input-ontology
   a sml:ImportRDFFromWorkspace ;
-  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/electrical_system#" ;
+  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#" ;
   sm:next :construct-vocabulary ;
   sml:ignoreImports true ;
 .
@@ -58,7 +58,7 @@
   a sml:BindWithConstant ;
   sm:next :construct-vocabulary ;
   sm:outputVariable "outputVocabularyIri" ;
-  sml:value <http://fd.cvut.cz/chopamax/mbsa/electrical_system> ;
+  sml:value <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system> ;
 .
 
 :construct-vocabulary
@@ -81,8 +81,8 @@ CONSTRUCT {
     a-popis-dat-pojem:má-glosář ?glosarIri ;
     a-popis-dat-pojem:popisuje-dokument ?documentIri ;
     a-popis-dat-pojem:má-model ?modelIri ;
-    dcterms:description "Equipement list of the Cessna C510 Electrical System vocabulary."@cs;
-    dcterms:title "Cessna C510 Citation Mustang"@cs;
+    dcterms:description "Equipement list of the Cessna C510 Electrical System vocabulary as using flat MBSA name."@cs;
+    dcterms:title "FLAT Cessna C510 Citation Mustang"@cs;
   .
 }
 WHERE {
@@ -94,7 +94,7 @@ WHERE {
 
 sml:constructQuery [
     a sp:Construct ;
-    sp:text """# 2 - construct terms
+    sp:text """# 2 - construct terms (Updated for new flat equipment.ttl structure)
 CONSTRUCT {
   ?glosarIri skos:hasTopConcept ?instanceUri .
 
@@ -103,32 +103,30 @@ CONSTRUCT {
     skos:inScheme ?glosarIri ;
     skos:prefLabel ?prefLabelEn ;
     skos:prefLabel ?prefLabelCs ;
-    rdfs:label ?finalLabel ; # Keep rdfs:label on the concept
+    rdfs:label ?finalLabel ; # This is the <Parent>.<Name> or <Name> label from input
     mbsa:nature ?natureString ;
-    mbsa:technicalId ?techIdFromSource ;
-    mbsa:fullPath ?fullPathFromSource ; # Carry over the full path for reference
+    mbsa:originalTechnicalId ?originalTechId ; # Changed from mbsa:technicalId
     a-popis-dat-pojem:má-stav-pojmu termit-pojem:navrhovaný-pojem .
 }
 WHERE {
+  # Find all items from equipment.ttl
   ?instanceUri rdf:type ?instanceTypeUri .
+  ?instanceUri rdfs:label ?finalLabel . # This label is e.g., "Flight_Crew.o11" or "Flight_Crew.o11.nominal"
+  ?instanceUri mbsa:originalTechnicalId ?originalTechId . # Use the new property name
 
-  # The desired label is now directly in rdfs:label and mbsa:simpleName
-  ?instanceUri rdfs:label ?finalLabel .
-
-  # Select other properties to copy over
-  ?instanceUri mbsa:technicalId ?techIdFromSource .
-  ?instanceUri mbsa:fullPath ?fullPathFromSource .
-
+  # Standard filters
   FILTER(!isBLANK(?instanceUri))
   FILTER(?instanceUri != mbsa:)
-  FILTER NOT EXISTS { ?instanceUri rdf:type mbsa:Value . }
+  # The filter for mbsa:Value type is REMOVED to allow them to become SKOS concepts for annotation.
 
+  # Get the nature string from the type
   BIND(REPLACE(STR(?instanceTypeUri), STR(mbsa:), "") AS ?natureString)
 
+  # Create language-tagged prefLabels directly from the ?finalLabel
   BIND(STRLANG(?finalLabel, "en") AS ?prefLabelEn)
   BIND(STRLANG(?finalLabel, "cs") AS ?prefLabelCs)
 
-  # Define the glossary IRI
+  # Define the glossary IRI (assumes ?outputVocabularyIri is bound, e.g., by query #1 or globally)
   BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
 }""" ;
 ] ;
