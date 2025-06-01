@@ -1,0 +1,17 @@
+@prefix termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancezhmj>
+    a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#Flight_Crew_o11_nominal> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:zhmj&quot; class=&quot;assigned-term-occurrence selected-occurrence&quot; id=&quot;idzhmj&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#Flight_Crew_o11_nominal&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;Flight crew provides the set battery to use action&lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "Flight crew provides the set battery to use action" ;
+    termit:scenarioID "LS-2.1" .
+
+<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instance7kni8>
+    a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#BATTERY_state1_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:7kni8&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#BATTERY_state1_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;when the battery is disconnected and overheated&lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "when the battery is disconnected and overheated" ;
+    termit:scenarioID "LS-2.1" .
+

@@ -1,8 +1,0 @@
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/electrical_system#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
-
-stpa:Battery owl:sameAs mbsa:item__Pz5FoJgtEe6tBNtbDdnv-w .
-
-stpa:Flight_crew owl:sameAs mbsa:item__MKHNQK3_Ee6YKrBQt7OFsg .
-

@@ -1,0 +1,5256 @@
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mbsa: a owl:Ontology ;
+    owl:versionIRI mbsa:v0.1 .
+
+mbsa:AVN_EMER_SSR_LEFT a mbsa:AtomicBrickInstance ;
+    rdfs:label "AVN_EMER_SSR_LEFT" ;
+    mbsa:originalTechnicalId "_8cYNcJgjEe6tBNtbDdnv-w" .
+
+mbsa:AVN_EMER_SSR_LEFT_AVN_state a mbsa:StateVariable ;
+    rdfs:label "AVN_EMER_SSR_LEFT.AVN_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_KVGNUZswEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:AVN_EMER_SSR_LEFT_AVN_state_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.AVN_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_AVN_state_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.AVN_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_avn_failure a mbsa:Event ;
+    rdfs:label "AVN_EMER_SSR_LEFT.avn_failure" ;
+    mbsa:originalTechnicalId "_MafzkZswEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:AVN_EMER_SSR_LEFT_avn_repair a mbsa:Event ;
+    rdfs:label "AVN_EMER_SSR_LEFT.avn_repair" ;
+    mbsa:originalTechnicalId "_QQt3MZswEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:AVN_EMER_SSR_LEFT_failure a mbsa:Event ;
+    rdfs:label "AVN_EMER_SSR_LEFT.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_FjXIc5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:AVN_EMER_SSR_LEFT_i1 a mbsa:InConnector ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i1" ;
+    mbsa:originalTechnicalId "_KUf-YJglEe6tBNtbDdnv-w" .
+
+mbsa:AVN_EMER_SSR_LEFT_i1_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_i1_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_i2 a mbsa:InConnector ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i2" ;
+    mbsa:originalTechnicalId "_qZJBwa4tEe6YKrBQt7OFsg" .
+
+mbsa:AVN_EMER_SSR_LEFT_i2_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_i2_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_o1 a mbsa:OutConnector ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o1" ;
+    mbsa:originalTechnicalId "_Kv4S0JglEe6tBNtbDdnv-w" .
+
+mbsa:AVN_EMER_SSR_LEFT_o1_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_o1_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_o2 a mbsa:OutConnector ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o2" ;
+    mbsa:originalTechnicalId "_LJnogZglEe6tBNtbDdnv-w" .
+
+mbsa:AVN_EMER_SSR_LEFT_o2_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_o2_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_state1 a mbsa:StateVariable ;
+    rdfs:label "AVN_EMER_SSR_LEFT.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_FjXIcpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:AVN_EMER_SSR_LEFT_state1_failed a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:AVN_EMER_SSR_LEFT_state1_nominal a mbsa:Value ;
+    rdfs:label "AVN_EMER_SSR_LEFT.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATTERY" ;
+    mbsa:originalTechnicalId "_Pz5FoJgtEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATTERY_BUS" ;
+    mbsa:originalTechnicalId "_hA1eUJgjEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_failure a mbsa:Event ;
+    rdfs:label "BATTERY_BUS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_GvoHQZqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATTERY_BUS_i1 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i1" ;
+    mbsa:originalTechnicalId "_DcahsJgkEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i1_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i2 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i2" ;
+    mbsa:originalTechnicalId "_SOG0YJgkEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i2_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i2_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i3 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i3" ;
+    mbsa:originalTechnicalId "_Id5pIJglEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i3_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i3_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i4 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i4" ;
+    mbsa:originalTechnicalId "_Ux5xYZglEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i4_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i4_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i5 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i5" ;
+    mbsa:originalTechnicalId "_3rIjoJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i5_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i5_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i6 a mbsa:InConnector ;
+    rdfs:label "BATTERY_BUS.i6" ;
+    mbsa:originalTechnicalId "__RK5MJg3Ee6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_i6_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i6.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_i6_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.i6.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o1 a mbsa:OutConnector ;
+    rdfs:label "BATTERY_BUS.o1" ;
+    mbsa:originalTechnicalId "_TfFeoJglEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_BUS_o1_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o2 a mbsa:OutConnector ;
+    rdfs:label "BATTERY_BUS.o2" ;
+    mbsa:originalTechnicalId "_8p0OsK4rEe6YKrBQt7OFsg" .
+
+mbsa:BATTERY_BUS_o2_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o2_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o3 a mbsa:OutConnector ;
+    rdfs:label "BATTERY_BUS.o3" ;
+    mbsa:originalTechnicalId "_HRTKwK4sEe6YKrBQt7OFsg" .
+
+mbsa:BATTERY_BUS_o3_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o3_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o4 a mbsa:OutConnector ;
+    rdfs:label "BATTERY_BUS.o4" ;
+    mbsa:originalTechnicalId "_UqsNwK4sEe6YKrBQt7OFsg" .
+
+mbsa:BATTERY_BUS_o4_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o4_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o5 a mbsa:OutConnector ;
+    rdfs:label "BATTERY_BUS.o5" ;
+    mbsa:originalTechnicalId "_wIQEMK4uEe6YKrBQt7OFsg" .
+
+mbsa:BATTERY_BUS_o5_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_o5_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.o5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_state1 a mbsa:StateVariable ;
+    rdfs:label "BATTERY_BUS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_GvoHQJqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATTERY_BUS_state1_failed a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_BUS_state1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY_BUS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_failure a mbsa:Event ;
+    rdfs:label "BATTERY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_TgoUk5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATTERY_i1 a mbsa:InConnector ;
+    rdfs:label "BATTERY.i1" ;
+    mbsa:originalTechnicalId "_jtrWgK4FEe6YKrBQt7OFsg" .
+
+mbsa:BATTERY_i1_failed a mbsa:Value ;
+    rdfs:label "BATTERY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_i1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o1 a mbsa:OutConnector ;
+    rdfs:label "BATTERY.o1" ;
+    mbsa:originalTechnicalId "_3Q8iAJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_o1_failed a mbsa:Value ;
+    rdfs:label "BATTERY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o2 a mbsa:OutConnector ;
+    rdfs:label "BATTERY.o2" ;
+    mbsa:originalTechnicalId "_3rH8kJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_o2_failed a mbsa:Value ;
+    rdfs:label "BATTERY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o2_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o3 a mbsa:OutConnector ;
+    rdfs:label "BATTERY.o3" ;
+    mbsa:originalTechnicalId "_5R_zwJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATTERY_o3_failed a mbsa:Value ;
+    rdfs:label "BATTERY.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_o3_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_state1 a mbsa:StateVariable ;
+    rdfs:label "BATTERY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TgoUkpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATTERY_state1_failed a mbsa:Value ;
+    rdfs:label "BATTERY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_state1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATT_AMPS" ;
+    mbsa:originalTechnicalId "_TpCVwJguEe6tBNtbDdnv-w" .
+
+mbsa:BATT_AMPS_failure a mbsa:Event ;
+    rdfs:label "BATT_AMPS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_UTQEUZqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATT_AMPS_i1 a mbsa:InConnector ;
+    rdfs:label "BATT_AMPS.i1" ;
+    mbsa:originalTechnicalId "_kLhwIK4FEe6YKrBQt7OFsg" .
+
+mbsa:BATT_AMPS_i1_failed a mbsa:Value ;
+    rdfs:label "BATT_AMPS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS_i1_nominal a mbsa:Value ;
+    rdfs:label "BATT_AMPS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS_o1 a mbsa:OutConnector ;
+    rdfs:label "BATT_AMPS.o1" ;
+    mbsa:originalTechnicalId "_6BIKoJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATT_AMPS_o1_failed a mbsa:Value ;
+    rdfs:label "BATT_AMPS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS_o1_nominal a mbsa:Value ;
+    rdfs:label "BATT_AMPS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS_state1 a mbsa:StateVariable ;
+    rdfs:label "BATT_AMPS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_UTQEUJqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_AMPS_state1_failed a mbsa:Value ;
+    rdfs:label "BATT_AMPS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_AMPS_state1_nominal a mbsa:Value ;
+    rdfs:label "BATT_AMPS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATT_DISC_RELAY" ;
+    mbsa:originalTechnicalId "_UNe8EJgtEe6tBNtbDdnv-w" .
+
+mbsa:BATT_DISC_RELAY_failure a mbsa:Event ;
+    rdfs:label "BATT_DISC_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_T7-Mw5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATT_DISC_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "BATT_DISC_RELAY.i1" ;
+    mbsa:originalTechnicalId "_5R_zwZgxEe6tBNtbDdnv-w" .
+
+mbsa:BATT_DISC_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "BATT_DISC_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_CFXtsK4GEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_DISC_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "BATT_DISC_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_DDm3kK4GEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_DISC_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "BATT_DISC_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_-r-wAK4FEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_DISC_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "BATT_DISC_RELAY.i2" ;
+    mbsa:originalTechnicalId "_6BIxsJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATT_DISC_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "BATT_DISC_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_nRBE8K4GEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_DISC_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "BATT_DISC_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_oTUPcK4GEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_DISC_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "BATT_DISC_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_ly46EK4GEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_DISC_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "BATT_DISC_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_TWIgUK4FEe6YKrBQt7OFsg" .
+
+mbsa:BATT_DISC_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "BATT_DISC_RELAY.o1" ;
+    mbsa:originalTechnicalId "_jtqvcK4FEe6YKrBQt7OFsg" .
+
+mbsa:BATT_DISC_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "BATT_DISC_RELAY.o2" ;
+    mbsa:originalTechnicalId "_kLmooK4FEe6YKrBQt7OFsg" .
+
+mbsa:BATT_DISC_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "BATT_DISC_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_T7-MwpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_DISC_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_DISC_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "BATT_DISC_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATT_POWER_RELAY" ;
+    mbsa:originalTechnicalId "_RbAuEJglEe6tBNtbDdnv-w" .
+
+mbsa:BATT_POWER_RELAY_BATT_failure a mbsa:Event ;
+    rdfs:label "BATT_POWER_RELAY.BATT_failure" ;
+    mbsa:originalTechnicalId "_T1l2sZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_POWER_RELAY_BATT_repair a mbsa:Event ;
+    rdfs:label "BATT_POWER_RELAY.BATT_repair" ;
+    mbsa:originalTechnicalId "_U25isZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_POWER_RELAY_BATT_state a mbsa:StateVariable ;
+    rdfs:label "BATT_POWER_RELAY.BATT_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_RvwyoZsxEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_POWER_RELAY_BATT_state_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.BATT_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_BATT_state_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.BATT_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_CROSS_failure a mbsa:Event ;
+    rdfs:label "BATT_POWER_RELAY.CROSS_failure" ;
+    mbsa:originalTechnicalId "_gWmgMZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_POWER_RELAY_CROSS_repair a mbsa:Event ;
+    rdfs:label "BATT_POWER_RELAY.CROSS_repair" ;
+    mbsa:originalTechnicalId "_hNBx4ZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:BATT_POWER_RELAY_CROSS_state a mbsa:StateVariable ;
+    rdfs:label "BATT_POWER_RELAY.CROSS_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_fJEWEZsxEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_POWER_RELAY_CROSS_state_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.CROSS_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_CROSS_state_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.CROSS_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_failure a mbsa:Event ;
+    rdfs:label "BATT_POWER_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Snwy45qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATT_POWER_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "BATT_POWER_RELAY.i1" ;
+    mbsa:originalTechnicalId "_TfGFsJglEe6tBNtbDdnv-w" .
+
+mbsa:BATT_POWER_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "BATT_POWER_RELAY.i2" ;
+    mbsa:originalTechnicalId "_UcbQoJglEe6tBNtbDdnv-w" .
+
+mbsa:BATT_POWER_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_i3 a mbsa:InConnector ;
+    rdfs:label "BATT_POWER_RELAY.i3" ;
+    mbsa:originalTechnicalId "_X6VZYK4HEe6YKrBQt7OFsg" .
+
+mbsa:BATT_POWER_RELAY_i3_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_i3_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "BATT_POWER_RELAY.o1" ;
+    mbsa:originalTechnicalId "_T35nQJglEe6tBNtbDdnv-w" .
+
+mbsa:BATT_POWER_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "BATT_POWER_RELAY.o2" ;
+    mbsa:originalTechnicalId "_Ux5xYJglEe6tBNtbDdnv-w" .
+
+mbsa:BATT_POWER_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "BATT_POWER_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_Snwy4pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_POWER_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_POWER_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "BATT_POWER_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_TEMP_SENSOR a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATT_TEMP_SENSOR" ;
+    mbsa:originalTechnicalId "_RRNYMJgtEe6tBNtbDdnv-w" .
+
+mbsa:BATT_TEMP_SENSOR_failure a mbsa:Event ;
+    rdfs:label "BATT_TEMP_SENSOR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_TKiIwpqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATT_TEMP_SENSOR_i1 a mbsa:InConnector ;
+    rdfs:label "BATT_TEMP_SENSOR.i1" ;
+    mbsa:originalTechnicalId "_3Q9wIJgxEe6tBNtbDdnv-w" .
+
+mbsa:BATT_TEMP_SENSOR_i1_failed a mbsa:Value ;
+    rdfs:label "BATT_TEMP_SENSOR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_TEMP_SENSOR_i1_nominal a mbsa:Value ;
+    rdfs:label "BATT_TEMP_SENSOR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_TEMP_SENSOR_state1 a mbsa:StateVariable ;
+    rdfs:label "BATT_TEMP_SENSOR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TKiIwZqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_TEMP_SENSOR_state1_failed a mbsa:Value ;
+    rdfs:label "BATT_TEMP_SENSOR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_TEMP_SENSOR_state1_nominal a mbsa:Value ;
+    rdfs:label "BATT_TEMP_SENSOR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_VOLTS a mbsa:AtomicBrickInstance ;
+    rdfs:label "BATT_VOLTS" ;
+    mbsa:originalTechnicalId "_0iU1EJgwEe6tBNtbDdnv-w" .
+
+mbsa:BATT_VOLTS_failure a mbsa:Event ;
+    rdfs:label "BATT_VOLTS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Xvqg05qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATT_VOLTS_o1 a mbsa:OutConnector ;
+    rdfs:label "BATT_VOLTS.o1" ;
+    mbsa:originalTechnicalId "_2QVPAJgwEe6tBNtbDdnv-w" .
+
+mbsa:BATT_VOLTS_o1_failed a mbsa:Value ;
+    rdfs:label "BATT_VOLTS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_VOLTS_o1_nominal a mbsa:Value ;
+    rdfs:label "BATT_VOLTS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_VOLTS_state1 a mbsa:StateVariable ;
+    rdfs:label "BATT_VOLTS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_Xvqg0pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATT_VOLTS_state1_failed a mbsa:Value ;
+    rdfs:label "BATT_VOLTS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATT_VOLTS_state1_nominal a mbsa:Value ;
+    rdfs:label "BATT_VOLTS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS a mbsa:AtomicBrickInstance ;
+    rdfs:label "CROSSFEED_BUS" ;
+    mbsa:originalTechnicalId "_j7Oy4JgjEe6tBNtbDdnv-w" .
+
+mbsa:CROSSFEED_BUS_failure a mbsa:Event ;
+    rdfs:label "CROSSFEED_BUS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Qj3og5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:CROSSFEED_BUS_i1 a mbsa:InConnector ;
+    rdfs:label "CROSSFEED_BUS.i1" ;
+    mbsa:originalTechnicalId "_BzIaQZglEe6tBNtbDdnv-w" .
+
+mbsa:CROSSFEED_BUS_i1_failed a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_i1_nominal a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_i2 a mbsa:InConnector ;
+    rdfs:label "CROSSFEED_BUS.i2" ;
+    mbsa:originalTechnicalId "_T36OUJglEe6tBNtbDdnv-w" .
+
+mbsa:CROSSFEED_BUS_i2_failed a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_i2_nominal a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_i3 a mbsa:InConnector ;
+    rdfs:label "CROSSFEED_BUS.i3" ;
+    mbsa:originalTechnicalId "_hrHvcJg5Ee6tBNtbDdnv-w" .
+
+mbsa:CROSSFEED_BUS_i3_failed a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_i3_nominal a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_o1 a mbsa:OutConnector ;
+    rdfs:label "CROSSFEED_BUS.o1" ;
+    mbsa:originalTechnicalId "_UcaCgJglEe6tBNtbDdnv-w" .
+
+mbsa:CROSSFEED_BUS_o1_failed a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_o1_nominal a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_state1 a mbsa:StateVariable ;
+    rdfs:label "CROSSFEED_BUS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_Qj3ogpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:CROSSFEED_BUS_state1_failed a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:CROSSFEED_BUS_state1_nominal a mbsa:Value ;
+    rdfs:label "CROSSFEED_BUS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "EMERG_PWR_CB_BUSB1" ;
+    mbsa:originalTechnicalId "_AV_s4JgwEe6tBNtbDdnv-w" .
+
+mbsa:EMERG_PWR_CB_BUSB1_failure a mbsa:Event ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_WAj6s5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i1 a mbsa:InConnector ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i1" ;
+    mbsa:originalTechnicalId "_Nph_gZgwEe6tBNtbDdnv-w" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i1_failed a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i1_nominal a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i2 a mbsa:InConnector ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i2" ;
+    mbsa:originalTechnicalId "_yjAosJgwEe6tBNtbDdnv-w" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i2_failed a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i2_nominal a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i3 a mbsa:InConnector ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i3" ;
+    mbsa:originalTechnicalId "_2QTZ0JgwEe6tBNtbDdnv-w" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i3_failed a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_i3_nominal a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_state1 a mbsa:StateVariable ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_WAj6spqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMERG_PWR_CB_BUSB1_state1_failed a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMERG_PWR_CB_BUSB1_state1_nominal a mbsa:Value ;
+    rdfs:label "EMERG_PWR_CB_BUSB1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "EMER_BUS_RELAY" ;
+    mbsa:originalTechnicalId "_FfcT8JglEe6tBNtbDdnv-w" .
+
+mbsa:EMER_BUS_RELAY_failure a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_HRCLM5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:EMER_BUS_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "EMER_BUS_RELAY.i1" ;
+    mbsa:originalTechnicalId "_JasBgJglEe6tBNtbDdnv-w" .
+
+mbsa:EMER_BUS_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_GBxxsK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_G5n_sK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "EMER_BUS_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_CDJY8K4uEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMER_BUS_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "EMER_BUS_RELAY.i2" ;
+    mbsa:originalTechnicalId "_Kv454JglEe6tBNtbDdnv-w" .
+
+mbsa:EMER_BUS_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_J7mi8K4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_KzPVkK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "EMER_BUS_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_CM81MK4uEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMER_BUS_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i3 a mbsa:InConnector ;
+    rdfs:label "EMER_BUS_RELAY.i3" ;
+    mbsa:originalTechnicalId "_5ZbbAJg9Ee6tBNtbDdnv-w" .
+
+mbsa:EMER_BUS_RELAY_i3Failure a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i3Failure" ;
+    mbsa:originalTechnicalId "_X_EdsK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i3Repair a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i3Repair" ;
+    mbsa:originalTechnicalId "_ZAzAcK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i3State a mbsa:StateVariable ;
+    rdfs:label "EMER_BUS_RELAY.i3State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_CVGEkK4uEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMER_BUS_RELAY_i3State_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i3State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i3State_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i3State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i3_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i3_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i4 a mbsa:InConnector ;
+    rdfs:label "EMER_BUS_RELAY.i4" ;
+    mbsa:originalTechnicalId "_wINA4K4uEe6YKrBQt7OFsg" .
+
+mbsa:EMER_BUS_RELAY_i4Failure a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i4Failure" ;
+    mbsa:originalTechnicalId "_0ISyMK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i4Repair a mbsa:Event ;
+    rdfs:label "EMER_BUS_RELAY.i4Repair" ;
+    mbsa:originalTechnicalId "_1OiokK4uEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EMER_BUS_RELAY_i4State a mbsa:StateVariable ;
+    rdfs:label "EMER_BUS_RELAY.i4State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_zV3PsK4uEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMER_BUS_RELAY_i4State_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i4State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i4State_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i4State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i4_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i4_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i_FlightCrew a mbsa:InConnector ;
+    rdfs:label "EMER_BUS_RELAY.i_FlightCrew" ;
+    mbsa:originalTechnicalId "_-K1kEK4AEe6YKrBQt7OFsg" .
+
+mbsa:EMER_BUS_RELAY_i_FlightCrew_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i_FlightCrew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_i_FlightCrew_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.i_FlightCrew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "EMER_BUS_RELAY.o1" ;
+    mbsa:originalTechnicalId "_Id63QJglEe6tBNtbDdnv-w" .
+
+mbsa:EMER_BUS_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "EMER_BUS_RELAY.o2" ;
+    mbsa:originalTechnicalId "_qZJBwK4tEe6YKrBQt7OFsg" .
+
+mbsa:EMER_BUS_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o3 a mbsa:OutConnector ;
+    rdfs:label "EMER_BUS_RELAY.o3" ;
+    mbsa:originalTechnicalId "_sJF8cK4tEe6YKrBQt7OFsg" .
+
+mbsa:EMER_BUS_RELAY_o3_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o3_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o4 a mbsa:OutConnector ;
+    rdfs:label "EMER_BUS_RELAY.o4" ;
+    mbsa:originalTechnicalId "_wBxeMK4tEe6YKrBQt7OFsg" .
+
+mbsa:EMER_BUS_RELAY_o4_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_o4_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.o4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "EMER_BUS_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_HRCLMpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EMER_BUS_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EMER_BUS_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "EMER_BUS_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector a mbsa:AtomicBrickInstance ;
+    rdfs:label "EXT_PWR_Connector" ;
+    mbsa:originalTechnicalId "_zbXVYJgiEe6tBNtbDdnv-w" .
+
+mbsa:EXT_PWR_Connector_failure a mbsa:Event ;
+    rdfs:label "EXT_PWR_Connector.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_18jLoJqGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:EXT_PWR_Connector_i1 a mbsa:InConnector ;
+    rdfs:label "EXT_PWR_Connector.i1" ;
+    mbsa:originalTechnicalId "_6T45IK4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_Connector_i1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector_i1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector_o1 a mbsa:OutConnector ;
+    rdfs:label "EXT_PWR_Connector.o1" ;
+    mbsa:originalTechnicalId "_CupcwJgkEe6tBNtbDdnv-w" .
+
+mbsa:EXT_PWR_Connector_o1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector_o1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector_state1 a mbsa:StateVariable ;
+    rdfs:label "EXT_PWR_Connector.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_18ikkJqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EXT_PWR_Connector_state1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_Connector_state1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_Connector.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "EXT_PWR_RELAY" ;
+    mbsa:originalTechnicalId "_3TsekK4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_failure a mbsa:Event ;
+    rdfs:label "EXT_PWR_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_3Tselq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:EXT_PWR_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "EXT_PWR_RELAY.i1" ;
+    mbsa:originalTechnicalId "_3Tseka4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "EXT_PWR_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_3Tsel64rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EXT_PWR_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "EXT_PWR_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_3TsemK4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EXT_PWR_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "EXT_PWR_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_3TsenK4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EXT_PWR_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "EXT_PWR_RELAY.i2" ;
+    mbsa:originalTechnicalId "_3Tsekq4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "EXT_PWR_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_3Tsema4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EXT_PWR_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "EXT_PWR_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_3Tsemq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:EXT_PWR_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "EXT_PWR_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_3Tsena4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EXT_PWR_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "EXT_PWR_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_3Tsek64rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "EXT_PWR_RELAY.o1" ;
+    mbsa:originalTechnicalId "_3TselK4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "EXT_PWR_RELAY.o2" ;
+    mbsa:originalTechnicalId "_3Tsela4rEe6YKrBQt7OFsg" .
+
+mbsa:EXT_PWR_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "EXT_PWR_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_3Tsem64rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:EXT_PWR_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:EXT_PWR_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "EXT_PWR_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew a mbsa:AtomicBrickInstance ;
+    rdfs:label "Flight_Crew" ;
+    mbsa:originalTechnicalId "_MKHNQK3_Ee6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_failure a mbsa:Event ;
+    rdfs:label "Flight_Crew.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_MKH0UK3_Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:Flight_Crew_o10 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o10" ;
+    mbsa:originalTechnicalId "_-310AK4AEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o10_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o10.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o10_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o10.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o11 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o11" ;
+    mbsa:originalTechnicalId "_UEn-AK4FEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o11_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o11.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o11_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o11.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o12 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o12" ;
+    mbsa:originalTechnicalId "_ZQpsEK4HEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o12_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o12.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o12_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o12.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o13 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o13" ;
+    mbsa:originalTechnicalId "_ZzK1YK4qEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o13_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o13.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o13_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o13.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o3 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o3" ;
+    mbsa:originalTechnicalId "_iCNh8K3_Ee6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o3_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o3_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o4 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o4" ;
+    mbsa:originalTechnicalId "_jN__oK3_Ee6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o4_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o4_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o5 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o5" ;
+    mbsa:originalTechnicalId "_7AY2wK3_Ee6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o5_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o5_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o6 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o6" ;
+    mbsa:originalTechnicalId "_7x_S0K3_Ee6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o6_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o6.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o6_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o6.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o7 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o7" ;
+    mbsa:originalTechnicalId "_ONryEK4AEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o7_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o7.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o7_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o7.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o8 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o8" ;
+    mbsa:originalTechnicalId "_Oybd4K4AEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o8_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o8.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o8_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o8.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o9 a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o9" ;
+    mbsa:originalTechnicalId "_PoQSoK4AEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_o9_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o9.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_o9_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o9.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_repair a mbsa:Event ;
+    rdfs:label "Flight_Crew.repair" ;
+    mbsa:lambdaValue 1e+00 ;
+    mbsa:originalTechnicalId "_MKH0Ua3_Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:Flight_Crew_state1 a mbsa:StateVariable ;
+    rdfs:label "Flight_Crew.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_MKH0Uq3_Ee6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:Flight_Crew_state1_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_state1_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS a mbsa:AtomicBrickInstance ;
+    rdfs:label "INTERIOR_BUS" ;
+    mbsa:originalTechnicalId "_Uf4D4Jg-Ee6tBNtbDdnv-w" .
+
+mbsa:INTERIOR_BUS_failure a mbsa:Event ;
+    rdfs:label "INTERIOR_BUS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_itrGg5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:INTERIOR_BUS_i1 a mbsa:InConnector ;
+    rdfs:label "INTERIOR_BUS.i1" ;
+    mbsa:originalTechnicalId "_WZ9K8Jg-Ee6tBNtbDdnv-w" .
+
+mbsa:INTERIOR_BUS_i1_failed a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS_i1_nominal a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS_o1 a mbsa:OutConnector ;
+    rdfs:label "INTERIOR_BUS.o1" ;
+    mbsa:originalTechnicalId "_V3YCUJg-Ee6tBNtbDdnv-w" .
+
+mbsa:INTERIOR_BUS_o1_failed a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS_o1_nominal a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS_state1 a mbsa:StateVariable ;
+    rdfs:label "INTERIOR_BUS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_itrGgpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:INTERIOR_BUS_state1_failed a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:INTERIOR_BUS_state1_nominal a mbsa:Value ;
+    rdfs:label "INTERIOR_BUS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:I_100_AMP_DEICE a mbsa:AtomicBrickInstance ;
+    rdfs:label "I_100_AMP_DEICE" ;
+    mbsa:originalTechnicalId "_tDoVQJg4Ee6tBNtbDdnv-w" .
+
+mbsa:I_100_AMP_DEICE_failure a mbsa:Event ;
+    rdfs:label "I_100_AMP_DEICE.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_eiYKw5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:I_100_AMP_DEICE_o1 a mbsa:OutConnector ;
+    rdfs:label "I_100_AMP_DEICE.o1" ;
+    mbsa:originalTechnicalId "__lMZsJg9Ee6tBNtbDdnv-w" .
+
+mbsa:I_100_AMP_DEICE_o1_failed a mbsa:Value ;
+    rdfs:label "I_100_AMP_DEICE.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:I_100_AMP_DEICE_o1_nominal a mbsa:Value ;
+    rdfs:label "I_100_AMP_DEICE.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:I_100_AMP_DEICE_state1 a mbsa:StateVariable ;
+    rdfs:label "I_100_AMP_DEICE.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_eiYKwpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:I_100_AMP_DEICE_state1_failed a mbsa:Value ;
+    rdfs:label "I_100_AMP_DEICE.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:I_100_AMP_DEICE_state1_nominal a mbsa:Value ;
+    rdfs:label "I_100_AMP_DEICE.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_AVIONICS" ;
+    mbsa:originalTechnicalId "_onSSUJgjEe6tBNtbDdnv-w" .
+
+mbsa:L_AVIONICS_failure a mbsa:Event ;
+    rdfs:label "L_AVIONICS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_D38Ic5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_AVIONICS_i1 a mbsa:InConnector ;
+    rdfs:label "L_AVIONICS.i1" ;
+    mbsa:originalTechnicalId "_EKq5YZglEe6tBNtbDdnv-w" .
+
+mbsa:L_AVIONICS_i1_failed a mbsa:Value ;
+    rdfs:label "L_AVIONICS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS_i1_nominal a mbsa:Value ;
+    rdfs:label "L_AVIONICS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS_o1 a mbsa:OutConnector ;
+    rdfs:label "L_AVIONICS.o1" ;
+    mbsa:originalTechnicalId "_nl02gJg9Ee6tBNtbDdnv-w" .
+
+mbsa:L_AVIONICS_o1_failed a mbsa:Value ;
+    rdfs:label "L_AVIONICS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS_o1_nominal a mbsa:Value ;
+    rdfs:label "L_AVIONICS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS_state1 a mbsa:StateVariable ;
+    rdfs:label "L_AVIONICS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_D38IcpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_AVIONICS_state1_failed a mbsa:Value ;
+    rdfs:label "L_AVIONICS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVIONICS_state1_nominal a mbsa:Value ;
+    rdfs:label "L_AVIONICS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_AVN_EMERG" ;
+    mbsa:originalTechnicalId "_sJqM4JgjEe6tBNtbDdnv-w" .
+
+mbsa:L_AVN_EMERG_failure a mbsa:Event ;
+    rdfs:label "L_AVN_EMERG.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_FLmIs5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_AVN_EMERG_i1 a mbsa:InConnector ;
+    rdfs:label "L_AVN_EMERG.i1" ;
+    mbsa:originalTechnicalId "_LJnogJglEe6tBNtbDdnv-w" .
+
+mbsa:L_AVN_EMERG_i1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG_i1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG_o1 a mbsa:OutConnector ;
+    rdfs:label "L_AVN_EMERG.o1" ;
+    mbsa:originalTechnicalId "_KUf-YZglEe6tBNtbDdnv-w" .
+
+mbsa:L_AVN_EMERG_o1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG_o1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG_state1 a mbsa:StateVariable ;
+    rdfs:label "L_AVN_EMERG.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_FLmIspqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_AVN_EMERG_state1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_EMERG_state1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_EMERG.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_AVN_SSR" ;
+    mbsa:originalTechnicalId "_TesfQK4tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_failure a mbsa:Event ;
+    rdfs:label "L_AVN_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_TesfRq4tEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_AVN_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "L_AVN_SSR.i1" ;
+    mbsa:originalTechnicalId "_TesfQa4tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_i1Failure a mbsa:Event ;
+    rdfs:label "L_AVN_SSR.i1Failure" ;
+    mbsa:originalTechnicalId "_TesfR64tEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_AVN_SSR_i1Repair a mbsa:Event ;
+    rdfs:label "L_AVN_SSR.i1Repair" ;
+    mbsa:originalTechnicalId "_TesfSK4tEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_AVN_SSR_i1State a mbsa:StateVariable ;
+    rdfs:label "L_AVN_SSR.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TesfTK4tEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_AVN_SSR_i1State_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i1State_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i2 a mbsa:InConnector ;
+    rdfs:label "L_AVN_SSR.i2" ;
+    mbsa:originalTechnicalId "_TesfQq4tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_i2Failure a mbsa:Event ;
+    rdfs:label "L_AVN_SSR.i2Failure" ;
+    mbsa:originalTechnicalId "_TesfSa4tEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_AVN_SSR_i2Repair a mbsa:Event ;
+    rdfs:label "L_AVN_SSR.i2Repair" ;
+    mbsa:originalTechnicalId "_TesfSq4tEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_AVN_SSR_i2State a mbsa:StateVariable ;
+    rdfs:label "L_AVN_SSR.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TesfTa4tEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_AVN_SSR_i2State_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i2State_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i2_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i2_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "L_AVN_SSR.i_flight_crew" ;
+    mbsa:originalTechnicalId "_TesfQ64tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "L_AVN_SSR.o1" ;
+    mbsa:originalTechnicalId "_TesfRK4tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_o2 a mbsa:OutConnector ;
+    rdfs:label "L_AVN_SSR.o2" ;
+    mbsa:originalTechnicalId "_TesfRa4tEe6YKrBQt7OFsg" .
+
+mbsa:L_AVN_SSR_o2_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_o2_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "L_AVN_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TesfS64tEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_AVN_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_AVN_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "L_AVN_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_BOOST_SSR" ;
+    mbsa:originalTechnicalId "_dA8E0JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_BOOST_SSR_failure a mbsa:Event ;
+    rdfs:label "L_BOOST_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_-b8Z05qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_BOOST_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "L_BOOST_SSR.i1" ;
+    mbsa:originalTechnicalId "_5dlnQK3_Ee6YKrBQt7OFsg" .
+
+mbsa:L_BOOST_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "L_BOOST_SSR.o1" ;
+    mbsa:originalTechnicalId "_OTY10ZglEe6tBNtbDdnv-w" .
+
+mbsa:L_BOOST_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "L_BOOST_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_-b8Z0pqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_BOOST_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_BOOST_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "L_BOOST_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_DC_AMPS" ;
+    mbsa:originalTechnicalId "_7_lZNpgiEe6tBNtbDdnv-w" .
+
+mbsa:L_DC_AMPS_FEED_Repair a mbsa:Event ;
+    rdfs:label "L_DC_AMPS.FEED_Repair" ;
+    mbsa:originalTechnicalId "_AXnbEZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_DC_AMPS_FEED_State a mbsa:StateVariable ;
+    rdfs:label "L_DC_AMPS.FEED_State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_6J3fYZswEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_DC_AMPS_FEED_State_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.FEED_State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_FEED_State_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.FEED_State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_FEED_failure a mbsa:Event ;
+    rdfs:label "L_DC_AMPS.FEED_failure" ;
+    mbsa:originalTechnicalId "_AVNnUZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_DC_AMPS_SHUNT_failure a mbsa:Event ;
+    rdfs:label "L_DC_AMPS.SHUNT_failure" ;
+    mbsa:originalTechnicalId "_cp4MQZswEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_DC_AMPS_SHUNT_repair a mbsa:Event ;
+    rdfs:label "L_DC_AMPS.SHUNT_repair" ;
+    mbsa:originalTechnicalId "_qtBW4ZswEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_DC_AMPS_SHUNT_state a mbsa:StateVariable ;
+    rdfs:label "L_DC_AMPS.SHUNT_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_azrfoZswEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_DC_AMPS_SHUNT_state_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.SHUNT_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_SHUNT_state_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.SHUNT_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_failure a mbsa:Event ;
+    rdfs:label "L_DC_AMPS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_4tK5I5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_DC_AMPS_i1 a mbsa:InConnector ;
+    rdfs:label "L_DC_AMPS.i1" ;
+    mbsa:originalTechnicalId "_ZH_uQJgtEe6tBNtbDdnv-w" .
+
+mbsa:L_DC_AMPS_i1_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_i1_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_i2 a mbsa:InConnector ;
+    rdfs:label "L_DC_AMPS.i2" ;
+    mbsa:originalTechnicalId "_Z4EgUJgtEe6tBNtbDdnv-w" .
+
+mbsa:L_DC_AMPS_i2_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_i2_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_o1 a mbsa:OutConnector ;
+    rdfs:label "L_DC_AMPS.o1" ;
+    mbsa:originalTechnicalId "_yxvesJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_DC_AMPS_o1_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_o1_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_state1 a mbsa:StateVariable ;
+    rdfs:label "L_DC_AMPS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_4tK5IpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_DC_AMPS_state1_failed a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_DC_AMPS_state1_nominal a mbsa:Value ;
+    rdfs:label "L_DC_AMPS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_ELE_1" ;
+    mbsa:originalTechnicalId "_LHUNU5gjEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_1_failure a mbsa:Event ;
+    rdfs:label "L_ELE_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_ByamY5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_ELE_1_o1 a mbsa:OutConnector ;
+    rdfs:label "L_ELE_1.o1" ;
+    mbsa:originalTechnicalId "_-s3M4JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_1_o1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_1.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_1_o1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_1.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_1_state1 a mbsa:StateVariable ;
+    rdfs:label "L_ELE_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_ByamYpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_ELE_1_state1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_1_state1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_ELE_2" ;
+    mbsa:originalTechnicalId "_O0-K0JgjEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_2_failure a mbsa:Event ;
+    rdfs:label "L_ELE_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_RwEV45qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_ELE_2_o1 a mbsa:OutConnector ;
+    rdfs:label "L_ELE_2.o1" ;
+    mbsa:originalTechnicalId "_AZ2TIJglEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_2_o1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_2_o1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_2_state1 a mbsa:StateVariable ;
+    rdfs:label "L_ELE_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_RwEV4pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_ELE_2_state1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_2_state1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_ELE_EMERG" ;
+    mbsa:originalTechnicalId "_qRPSsJgjEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_EMERG_failure a mbsa:Event ;
+    rdfs:label "L_ELE_EMERG.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_EuiZQ5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_ELE_EMERG_i1 a mbsa:InConnector ;
+    rdfs:label "L_ELE_EMERG.i1" ;
+    mbsa:originalTechnicalId "_sJHKkK4tEe6YKrBQt7OFsg" .
+
+mbsa:L_ELE_EMERG_i1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG_i1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG_o1 a mbsa:OutConnector ;
+    rdfs:label "L_ELE_EMERG.o1" ;
+    mbsa:originalTechnicalId "_JatPoJglEe6tBNtbDdnv-w" .
+
+mbsa:L_ELE_EMERG_o1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG_o1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG_state1 a mbsa:StateVariable ;
+    rdfs:label "L_ELE_EMERG.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_EuiZQpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_ELE_EMERG_state1_failed a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_ELE_EMERG_state1_nominal a mbsa:Value ;
+    rdfs:label "L_ELE_EMERG.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_FEED_BUS_1" ;
+    mbsa:originalTechnicalId "_10vVoJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_failure a mbsa:Event ;
+    rdfs:label "L_FEED_BUS_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_BAmu85qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_FEED_BUS_1_i1 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i1" ;
+    mbsa:originalTechnicalId "_5rryAJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i10 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i10" ;
+    mbsa:originalTechnicalId "_j1Z44Zg9Ee6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i10_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i10.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i10_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i10.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i1_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i1_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i2 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i2" ;
+    mbsa:originalTechnicalId "_7d9n8JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i2_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i2_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i3 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i3" ;
+    mbsa:originalTechnicalId "_8aT7cJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i3_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i3_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i4 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i4" ;
+    mbsa:originalTechnicalId "_9uCNIJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i4_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i4_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i5 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i5" ;
+    mbsa:originalTechnicalId "_-s3z8JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i5_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i5_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i6 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i6" ;
+    mbsa:originalTechnicalId "__mhYwJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i6_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i6.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i6_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i6.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i7 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i7" ;
+    mbsa:originalTechnicalId "_AZ1FAJglEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i7_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i7.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i7_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i7.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i8 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i8" ;
+    mbsa:originalTechnicalId "_BPSGUJglEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i8_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i8.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i8_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i8.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i9 a mbsa:InConnector ;
+    rdfs:label "L_FEED_BUS_1.i9" ;
+    mbsa:originalTechnicalId "_OTY10JglEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_i9_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i9.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_i9_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.i9.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_o2 a mbsa:OutConnector ;
+    rdfs:label "L_FEED_BUS_1.o2" ;
+    mbsa:originalTechnicalId "_Z4D5QJgtEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_1_o2_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_o2_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_state1 a mbsa:StateVariable ;
+    rdfs:label "L_FEED_BUS_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_BAmu8pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_FEED_BUS_1_state1_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_1_state1_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_FEED_BUS_2" ;
+    mbsa:originalTechnicalId "_M4BV8JgjEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_2_failure a mbsa:Event ;
+    rdfs:label "L_FEED_BUS_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_DMhz85qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_FEED_BUS_2_o1 a mbsa:OutConnector ;
+    rdfs:label "L_FEED_BUS_2.o1" ;
+    mbsa:originalTechnicalId "__mhYwZgkEe6tBNtbDdnv-w" .
+
+mbsa:L_FEED_BUS_2_o1_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_2_o1_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_2_state1 a mbsa:StateVariable ;
+    rdfs:label "L_FEED_BUS_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_DMhz8pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_FEED_BUS_2_state1_failed a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_FEED_BUS_2_state1_nominal a mbsa:Value ;
+    rdfs:label "L_FEED_BUS_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_GCU" ;
+    mbsa:originalTechnicalId "_HbczgLa3Ee6YKrBQt7OFsg" .
+
+mbsa:L_GCU_failure a mbsa:Event ;
+    rdfs:label "L_GCU.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_evZbILa3Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_GCU_i_starter a mbsa:InConnector ;
+    rdfs:label "L_GCU.i_starter" ;
+    mbsa:originalTechnicalId "_DvHKAbbKEe6YKrBQt7OFsg" .
+
+mbsa:L_GCU_i_starter_failed a mbsa:Value ;
+    rdfs:label "L_GCU.i_starter.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU_i_starter_nominal a mbsa:Value ;
+    rdfs:label "L_GCU.i_starter.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU_o1 a mbsa:OutConnector ;
+    rdfs:label "L_GCU.o1" ;
+    mbsa:originalTechnicalId "_friTQLa3Ee6YKrBQt7OFsg" .
+
+mbsa:L_GCU_o1_failed a mbsa:Value ;
+    rdfs:label "L_GCU.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU_o1_nominal a mbsa:Value ;
+    rdfs:label "L_GCU.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU_repair a mbsa:Event ;
+    rdfs:label "L_GCU.repair" ;
+    mbsa:lambdaValue 1e+00 ;
+    mbsa:originalTechnicalId "_evZbIba3Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_GCU_state1 a mbsa:StateVariable ;
+    rdfs:label "L_GCU.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_evY0Lba3Ee6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_GCU_state1_failed a mbsa:Value ;
+    rdfs:label "L_GCU.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GCU_state1_nominal a mbsa:Value ;
+    rdfs:label "L_GCU.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_GEN_RELAY" ;
+    mbsa:originalTechnicalId "_JGAfEK4rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_failure a mbsa:Event ;
+    rdfs:label "L_GEN_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_JGAfFq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_GEN_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "L_GEN_RELAY.i1" ;
+    mbsa:originalTechnicalId "_JGAfEa4rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "L_GEN_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_JGAfF64rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_GEN_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "L_GEN_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_JGAfGK4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_GEN_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "L_GEN_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_JGAfHK4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_GEN_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "L_GEN_RELAY.i2" ;
+    mbsa:originalTechnicalId "_JGAfEq4rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "L_GEN_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_JGAfGa4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_GEN_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "L_GEN_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_JGAfGq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_GEN_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "L_GEN_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_JGAfHa4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_GEN_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "L_GEN_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_JGAfE64rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "L_GEN_RELAY.o1" ;
+    mbsa:originalTechnicalId "_JGAfFK4rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "L_GEN_RELAY.o2" ;
+    mbsa:originalTechnicalId "_JGAfFa4rEe6YKrBQt7OFsg" .
+
+mbsa:L_GEN_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "L_GEN_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_JGAfG64rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_GEN_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_VOLTS a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_GEN_VOLTS" ;
+    mbsa:originalTechnicalId "_5uoqQJgiEe6tBNtbDdnv-w" .
+
+mbsa:L_GEN_VOLTS_failure a mbsa:Event ;
+    rdfs:label "L_GEN_VOLTS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_4GabI5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_GEN_VOLTS_o1 a mbsa:OutConnector ;
+    rdfs:label "L_GEN_VOLTS.o1" ;
+    mbsa:originalTechnicalId "_ZJhuYJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_GEN_VOLTS_o1_failed a mbsa:Value ;
+    rdfs:label "L_GEN_VOLTS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_VOLTS_o1_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_VOLTS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_VOLTS_state1 a mbsa:StateVariable ;
+    rdfs:label "L_GEN_VOLTS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_4GabIpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_GEN_VOLTS_state1_failed a mbsa:Value ;
+    rdfs:label "L_GEN_VOLTS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_GEN_VOLTS_state1_nominal a mbsa:Value ;
+    rdfs:label "L_GEN_VOLTS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_LIMITER" ;
+    mbsa:originalTechnicalId "_aT1a0JgjEe6tBNtbDdnv-w" .
+
+mbsa:L_LIMITER_failure a mbsa:Event ;
+    rdfs:label "L_LIMITER.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_RFOpI5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_LIMITER_o1 a mbsa:OutConnector ;
+    rdfs:label "L_LIMITER.o1" ;
+    mbsa:originalTechnicalId "_BPStYJglEe6tBNtbDdnv-w" .
+
+mbsa:L_LIMITER_o1_failed a mbsa:Value ;
+    rdfs:label "L_LIMITER.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER_o1_nominal a mbsa:Value ;
+    rdfs:label "L_LIMITER.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER_o2 a mbsa:OutConnector ;
+    rdfs:label "L_LIMITER.o2" ;
+    mbsa:originalTechnicalId "_BzIaQJglEe6tBNtbDdnv-w" .
+
+mbsa:L_LIMITER_o2_failed a mbsa:Value ;
+    rdfs:label "L_LIMITER.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER_o2_nominal a mbsa:Value ;
+    rdfs:label "L_LIMITER.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER_state1 a mbsa:StateVariable ;
+    rdfs:label "L_LIMITER.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_RFOpIpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_LIMITER_state1_failed a mbsa:Value ;
+    rdfs:label "L_LIMITER.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_LIMITER_state1_nominal a mbsa:Value ;
+    rdfs:label "L_LIMITER.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_SHUNT_BUS" ;
+    mbsa:originalTechnicalId "_ahp-8JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_SHUNT_BUS_failure a mbsa:Event ;
+    rdfs:label "L_SHUNT_BUS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_9ssHI5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_SHUNT_BUS_i1 a mbsa:InConnector ;
+    rdfs:label "L_SHUNT_BUS.i1" ;
+    mbsa:originalTechnicalId "_zRgj4JgkEe6tBNtbDdnv-w" .
+
+mbsa:L_SHUNT_BUS_i1_failed a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_i1_nominal a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_i2 a mbsa:InConnector ;
+    rdfs:label "L_SHUNT_BUS.i2" ;
+    mbsa:originalTechnicalId "_QGX2YZglEe6tBNtbDdnv-w" .
+
+mbsa:L_SHUNT_BUS_i2_failed a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_i2_nominal a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_o1 a mbsa:OutConnector ;
+    rdfs:label "L_SHUNT_BUS.o1" ;
+    mbsa:originalTechnicalId "_ZH_uQZgtEe6tBNtbDdnv-w" .
+
+mbsa:L_SHUNT_BUS_o1_failed a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_o1_nominal a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_o2 a mbsa:OutConnector ;
+    rdfs:label "L_SHUNT_BUS.o2" ;
+    mbsa:originalTechnicalId "_WG7-wK4rEe6YKrBQt7OFsg" .
+
+mbsa:L_SHUNT_BUS_o2_failed a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_o2_nominal a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_state1 a mbsa:StateVariable ;
+    rdfs:label "L_SHUNT_BUS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_9ssHIpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_SHUNT_BUS_state1_failed a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SHUNT_BUS_state1_nominal a mbsa:Value ;
+    rdfs:label "L_SHUNT_BUS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_SSR_1_BUS_BAR" ;
+    mbsa:originalTechnicalId "_l1BmEJgjEe6tBNtbDdnv-w" .
+
+mbsa:L_SSR_1_BUS_BAR_failure a mbsa:Event ;
+    rdfs:label "L_SSR_1_BUS_BAR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_COcbE5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_SSR_1_BUS_BAR_i1 a mbsa:InConnector ;
+    rdfs:label "L_SSR_1_BUS_BAR.i1" ;
+    mbsa:originalTechnicalId "_nCop4Jg9Ee6tBNtbDdnv-w" .
+
+mbsa:L_SSR_1_BUS_BAR_i1_failed a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_i1_nominal a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_o1 a mbsa:OutConnector ;
+    rdfs:label "L_SSR_1_BUS_BAR.o1" ;
+    mbsa:originalTechnicalId "_DpBk4JglEe6tBNtbDdnv-w" .
+
+mbsa:L_SSR_1_BUS_BAR_o1_failed a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_o1_nominal a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_o2 a mbsa:OutConnector ;
+    rdfs:label "L_SSR_1_BUS_BAR.o2" ;
+    mbsa:originalTechnicalId "_lyyLkJg9Ee6tBNtbDdnv-w" .
+
+mbsa:L_SSR_1_BUS_BAR_o2_failed a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_o2_nominal a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_state1 a mbsa:StateVariable ;
+    rdfs:label "L_SSR_1_BUS_BAR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_COcbEpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_SSR_1_BUS_BAR_state1_failed a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_SSR_1_BUS_BAR_state1_nominal a mbsa:Value ;
+    rdfs:label "L_SSR_1_BUS_BAR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_STARTER_GENERATOR" ;
+    mbsa:originalTechnicalId "_1ShrVZgiEe6tBNtbDdnv-w" .
+
+mbsa:L_STARTER_GENERATOR_failure a mbsa:Event ;
+    rdfs:label "L_STARTER_GENERATOR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_24Fm05qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_STARTER_GENERATOR_feedbackState a mbsa:StateVariable ;
+    rdfs:label "L_STARTER_GENERATOR.feedbackState" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_JMU5QLbNEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_STARTER_GENERATOR_feedbackState_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.feedbackState.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_feedbackState_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.feedbackState.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_feedback_failure a mbsa:Event ;
+    rdfs:label "L_STARTER_GENERATOR.feedback_failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Ip0CELbNEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_STARTER_GENERATOR_i1 a mbsa:InConnector ;
+    rdfs:label "L_STARTER_GENERATOR.i1" ;
+    mbsa:originalTechnicalId "_oyWWsLbLEe6YKrBQt7OFsg" .
+
+mbsa:L_STARTER_GENERATOR_i1_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_i1_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o1 a mbsa:OutConnector ;
+    rdfs:label "L_STARTER_GENERATOR.o1" ;
+    mbsa:originalTechnicalId "_HrDFVJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_STARTER_GENERATOR_o1_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o1_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o_GCU a mbsa:OutConnector ;
+    rdfs:label "L_STARTER_GENERATOR.o_GCU" ;
+    mbsa:originalTechnicalId "__uQjsLbJEe6YKrBQt7OFsg" .
+
+mbsa:L_STARTER_GENERATOR_o_GCU_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_GCU.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o_GCU_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_GCU.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_state1 a mbsa:StateVariable ;
+    rdfs:label "L_STARTER_GENERATOR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_24Fm0pqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_STARTER_GENERATOR_state1_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_state1_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_START_1" ;
+    mbsa:originalTechnicalId "_fiEaQJgjEe6tBNtbDdnv-w" .
+
+mbsa:L_START_1_failure a mbsa:Event ;
+    rdfs:label "L_START_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_7oVCs5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_START_1_i1 a mbsa:InConnector ;
+    rdfs:label "L_START_1.i1" ;
+    mbsa:originalTechnicalId "_INLiAJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_1_i1_failed a mbsa:Value ;
+    rdfs:label "L_START_1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i1_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i2 a mbsa:InConnector ;
+    rdfs:label "L_START_1.i2" ;
+    mbsa:originalTechnicalId "_VwCqEJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_1_i2_failed a mbsa:Value ;
+    rdfs:label "L_START_1.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i2_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i3 a mbsa:InConnector ;
+    rdfs:label "L_START_1.i3" ;
+    mbsa:originalTechnicalId "_ZYcy0K4rEe6YKrBQt7OFsg" .
+
+mbsa:L_START_1_i3_failed a mbsa:Value ;
+    rdfs:label "L_START_1.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i3_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i4 a mbsa:InConnector ;
+    rdfs:label "L_START_1.i4" ;
+    mbsa:originalTechnicalId "_MCDkAK4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_1_i4_failed a mbsa:Value ;
+    rdfs:label "L_START_1.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_i4_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o1 a mbsa:OutConnector ;
+    rdfs:label "L_START_1.o1" ;
+    mbsa:originalTechnicalId "_P7AJXJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_1_o1_failed a mbsa:Value ;
+    rdfs:label "L_START_1.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o1_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o2 a mbsa:OutConnector ;
+    rdfs:label "L_START_1.o2" ;
+    mbsa:originalTechnicalId "_ZPoOAZgyEe6tBNtbDdnv-w" .
+
+mbsa:L_START_1_o2_failed a mbsa:Value ;
+    rdfs:label "L_START_1.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o2_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o3 a mbsa:OutConnector ;
+    rdfs:label "L_START_1.o3" ;
+    mbsa:originalTechnicalId "_kNrRoLbLEe6YKrBQt7OFsg" .
+
+mbsa:L_START_1_o3_failed a mbsa:Value ;
+    rdfs:label "L_START_1.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_o3_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_state1 a mbsa:StateVariable ;
+    rdfs:label "L_START_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_7oVCspqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_1_state1_failed a mbsa:Value ;
+    rdfs:label "L_START_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_1_state1_nominal a mbsa:Value ;
+    rdfs:label "L_START_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_START_2" ;
+    mbsa:originalTechnicalId "_c31BkJgjEe6tBNtbDdnv-w" .
+
+mbsa:L_START_2_failure a mbsa:Event ;
+    rdfs:label "L_START_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_8QnKs5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_START_2_i1 a mbsa:InConnector ;
+    rdfs:label "L_START_2.i1" ;
+    mbsa:originalTechnicalId "_YsMSPZgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_2_i1_failed a mbsa:Value ;
+    rdfs:label "L_START_2.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_i1_nominal a mbsa:Value ;
+    rdfs:label "L_START_2.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_i2 a mbsa:InConnector ;
+    rdfs:label "L_START_2.i2" ;
+    mbsa:originalTechnicalId "_ZmFHgJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_2_i2_failed a mbsa:Value ;
+    rdfs:label "L_START_2.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_i2_nominal a mbsa:Value ;
+    rdfs:label "L_START_2.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_o1 a mbsa:OutConnector ;
+    rdfs:label "L_START_2.o1" ;
+    mbsa:originalTechnicalId "_VNWMsJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_2_o1_failed a mbsa:Value ;
+    rdfs:label "L_START_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_o1_nominal a mbsa:Value ;
+    rdfs:label "L_START_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_state1 a mbsa:StateVariable ;
+    rdfs:label "L_START_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_8QnKspqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_2_state1_failed a mbsa:Value ;
+    rdfs:label "L_START_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_2_state1_nominal a mbsa:Value ;
+    rdfs:label "L_START_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_START_CNTRL_PCB" ;
+    mbsa:originalTechnicalId "_3l6DMJgiEe6tBNtbDdnv-w" .
+
+mbsa:L_START_CNTRL_PCB_failure a mbsa:Event ;
+    rdfs:label "L_START_CNTRL_PCB.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_3WRXo5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_START_CNTRL_PCB_o1 a mbsa:OutConnector ;
+    rdfs:label "L_START_CNTRL_PCB.o1" ;
+    mbsa:originalTechnicalId "_Xq7CYJgkEe6tBNtbDdnv-w" .
+
+mbsa:L_START_CNTRL_PCB_o1_failed a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB_o1_nominal a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB_o2 a mbsa:OutConnector ;
+    rdfs:label "L_START_CNTRL_PCB.o2" ;
+    mbsa:originalTechnicalId "_Nph_gJgwEe6tBNtbDdnv-w" .
+
+mbsa:L_START_CNTRL_PCB_o2_failed a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB_o2_nominal a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB_state1 a mbsa:StateVariable ;
+    rdfs:label "L_START_CNTRL_PCB.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_3WRXopqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_CNTRL_PCB_state1_failed a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_CNTRL_PCB_state1_nominal a mbsa:Value ;
+    rdfs:label "L_START_CNTRL_PCB.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "L_START_RELAY" ;
+    mbsa:originalTechnicalId "_SiIl0K4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_failure a mbsa:Event ;
+    rdfs:label "L_START_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_SiIl1q4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:L_START_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "L_START_RELAY.i1" ;
+    mbsa:originalTechnicalId "_SiIl0a4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "L_START_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_SiIl164sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_START_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "L_START_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_SiIl2K4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_START_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "L_START_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_SiIl3K4sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "L_START_RELAY.i2" ;
+    mbsa:originalTechnicalId "_SiIl0q4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "L_START_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_SiIl2a4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_START_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "L_START_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_SiIl2q4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:L_START_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "L_START_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_SiIl3a4sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "L_START_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_SiIl064sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "L_START_RELAY.o1" ;
+    mbsa:originalTechnicalId "_SiIl1K4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "L_START_RELAY.o2" ;
+    mbsa:originalTechnicalId "_SiIl1a4sEe6YKrBQt7OFsg" .
+
+mbsa:L_START_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "L_START_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_SiIl264sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:L_START_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "L_START_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_START_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "L_START_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "MASTER_INTERIOR_SSR" ;
+    mbsa:originalTechnicalId "_E7BO4Jg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_INTERIOR_failure a mbsa:Event ;
+    rdfs:label "MASTER_INTERIOR_SSR.INTERIOR_failure" ;
+    mbsa:originalTechnicalId "_IZFFMZszEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:MASTER_INTERIOR_SSR_INTERIOR_repair a mbsa:Event ;
+    rdfs:label "MASTER_INTERIOR_SSR.INTERIOR_repair" ;
+    mbsa:originalTechnicalId "_IZ49gZszEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:MASTER_INTERIOR_SSR_INTERIOR_state a mbsa:StateVariable ;
+    rdfs:label "MASTER_INTERIOR_SSR.INTERIOR_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_FkHqQZszEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:MASTER_INTERIOR_SSR_INTERIOR_state_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.INTERIOR_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_INTERIOR_state_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.INTERIOR_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_SSR_failure a mbsa:Event ;
+    rdfs:label "MASTER_INTERIOR_SSR.SSR_failure" ;
+    mbsa:originalTechnicalId "_HwZUkZszEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:MASTER_INTERIOR_SSR_SSR_repair a mbsa:Event ;
+    rdfs:label "MASTER_INTERIOR_SSR.SSR_repair" ;
+    mbsa:originalTechnicalId "_IOFWIJszEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:MASTER_INTERIOR_SSR_SSR_state a mbsa:StateVariable ;
+    rdfs:label "MASTER_INTERIOR_SSR.SSR_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_D9SPUZszEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:MASTER_INTERIOR_SSR_SSR_state_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.SSR_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_SSR_state_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.SSR_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_failure a mbsa:Event ;
+    rdfs:label "MASTER_INTERIOR_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_iVjhc5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:MASTER_INTERIOR_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.i1" ;
+    mbsa:originalTechnicalId "_GxscoJg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_i2 a mbsa:InConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.i2" ;
+    mbsa:originalTechnicalId "_V3VmEJg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_i2_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_i2_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_i3 a mbsa:InConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.i3" ;
+    mbsa:originalTechnicalId "_b2GDgJg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_i3_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_i3_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.o1" ;
+    mbsa:originalTechnicalId "_HO7LMJg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o2 a mbsa:OutConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.o2" ;
+    mbsa:originalTechnicalId "_WZ9K8Zg-Ee6tBNtbDdnv-w" .
+
+mbsa:MASTER_INTERIOR_SSR_o2_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o2_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "MASTER_INTERIOR_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_iVjhcpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:MASTER_INTERIOR_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:NORM_or_INT_DISC a mbsa:AtomicBrickInstance ;
+    rdfs:label "NORM_or_INT_DISC" ;
+    mbsa:originalTechnicalId "_YXWrwJg-Ee6tBNtbDdnv-w" .
+
+mbsa:NORM_or_INT_DISC_failure a mbsa:Event ;
+    rdfs:label "NORM_or_INT_DISC.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_h6n485qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:NORM_or_INT_DISC_o1 a mbsa:OutConnector ;
+    rdfs:label "NORM_or_INT_DISC.o1" ;
+    mbsa:originalTechnicalId "_b2GqkJg-Ee6tBNtbDdnv-w" .
+
+mbsa:NORM_or_INT_DISC_o1_failed a mbsa:Value ;
+    rdfs:label "NORM_or_INT_DISC.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:NORM_or_INT_DISC_o1_nominal a mbsa:Value ;
+    rdfs:label "NORM_or_INT_DISC.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:NORM_or_INT_DISC_state1 a mbsa:StateVariable ;
+    rdfs:label "NORM_or_INT_DISC.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_h6n48pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:NORM_or_INT_DISC_state1_failed a mbsa:Value ;
+    rdfs:label "NORM_or_INT_DISC.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:NORM_or_INT_DISC_state1_nominal a mbsa:Value ;
+    rdfs:label "NORM_or_INT_DISC.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_AVIONICS_1" ;
+    mbsa:originalTechnicalId "_cZRegJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_1_failure a mbsa:Event ;
+    rdfs:label "R_AVIONICS_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_g3lHk5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_AVIONICS_1_i1 a mbsa:InConnector ;
+    rdfs:label "R_AVIONICS_1.i1" ;
+    mbsa:originalTechnicalId "_q5sbAJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_1_i1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1_i1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1_o1 a mbsa:OutConnector ;
+    rdfs:label "R_AVIONICS_1.o1" ;
+    mbsa:originalTechnicalId "_pi_t0Jg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_1_o1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1_o1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1_state1 a mbsa:StateVariable ;
+    rdfs:label "R_AVIONICS_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_g3lHkpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVIONICS_1_state1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_1_state1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_AVIONICS_2" ;
+    mbsa:originalTechnicalId "_eCZYcJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_2_failure a mbsa:Event ;
+    rdfs:label "R_AVIONICS_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_hhZgoJqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_AVIONICS_2_i1 a mbsa:InConnector ;
+    rdfs:label "R_AVIONICS_2.i1" ;
+    mbsa:originalTechnicalId "_r2YswJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_2_i1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2_i1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2_o1 a mbsa:OutConnector ;
+    rdfs:label "R_AVIONICS_2.o1" ;
+    mbsa:originalTechnicalId "_rbUhYJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVIONICS_2_o1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2_o1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2_state1 a mbsa:StateVariable ;
+    rdfs:label "R_AVIONICS_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_hhY5kpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVIONICS_2_state1_failed a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVIONICS_2_state1_nominal a mbsa:Value ;
+    rdfs:label "R_AVIONICS_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_AVN_1_SSR" ;
+    mbsa:originalTechnicalId "_X49VAJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVN_1_SSR_BUS_failure a mbsa:Event ;
+    rdfs:label "R_AVN_1_SSR.BUS_failure" ;
+    mbsa:originalTechnicalId "_xQHbAZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_1_SSR_BUS_repair a mbsa:Event ;
+    rdfs:label "R_AVN_1_SSR.BUS_repair" ;
+    mbsa:originalTechnicalId "_xRf7EZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_1_SSR_BUS_state a mbsa:StateVariable ;
+    rdfs:label "R_AVN_1_SSR.BUS_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_v5EvkZsxEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_1_SSR_BUS_state_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.BUS_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_BUS_state_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.BUS_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_avionics_failure a mbsa:Event ;
+    rdfs:label "R_AVN_1_SSR.avionics_failure" ;
+    mbsa:originalTechnicalId "_xNMC0ZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_1_SSR_avionics_repair a mbsa:Event ;
+    rdfs:label "R_AVN_1_SSR.avionics_repair" ;
+    mbsa:originalTechnicalId "_xOsesZsxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_1_SSR_avionics_state a mbsa:StateVariable ;
+    rdfs:label "R_AVN_1_SSR.avionics_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_tmBH0ZsxEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_1_SSR_avionics_state_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.avionics_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_avionics_state_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.avionics_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_failure a mbsa:Event ;
+    rdfs:label "R_AVN_1_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_gi0Yg5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_AVN_1_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "R_AVN_1_SSR.i1" ;
+    mbsa:originalTechnicalId "_pCsdIZg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVN_1_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_i2 a mbsa:InConnector ;
+    rdfs:label "R_AVN_1_SSR.i2" ;
+    mbsa:originalTechnicalId "_pi94oJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVN_1_SSR_i2_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_i2_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_i3 a mbsa:InConnector ;
+    rdfs:label "R_AVN_1_SSR.i3" ;
+    mbsa:originalTechnicalId "_M_fgoK4AEe6YKrBQt7OFsg" .
+
+mbsa:R_AVN_1_SSR_i3_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_i3_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "R_AVN_1_SSR.o1" ;
+    mbsa:originalTechnicalId "_ok0OUJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVN_1_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_o2 a mbsa:OutConnector ;
+    rdfs:label "R_AVN_1_SSR.o2" ;
+    mbsa:originalTechnicalId "_q5ql0Jg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_AVN_1_SSR_o2_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_o2_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "R_AVN_1_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_gi0YgpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_1_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_1_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_1_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_AVN_2_SSR" ;
+    mbsa:originalTechnicalId "_a2yMEJsyEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_2_SSR_BUS_failure a mbsa:Event ;
+    rdfs:label "R_AVN_2_SSR.BUS_failure" ;
+    mbsa:originalTechnicalId "_a2yMGJsyEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_2_SSR_BUS_repair a mbsa:Event ;
+    rdfs:label "R_AVN_2_SSR.BUS_repair" ;
+    mbsa:originalTechnicalId "_a2yMGZsyEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_2_SSR_BUS_state a mbsa:StateVariable ;
+    rdfs:label "R_AVN_2_SSR.BUS_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_a2yMHJsyEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_2_SSR_BUS_state_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.BUS_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_BUS_state_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.BUS_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_avionics_failure a mbsa:Event ;
+    rdfs:label "R_AVN_2_SSR.avionics_failure" ;
+    mbsa:originalTechnicalId "_a2yMFpsyEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_2_SSR_avionics_repair a mbsa:Event ;
+    rdfs:label "R_AVN_2_SSR.avionics_repair" ;
+    mbsa:originalTechnicalId "_a2yMF5syEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_AVN_2_SSR_avionics_state a mbsa:StateVariable ;
+    rdfs:label "R_AVN_2_SSR.avionics_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_a2yMG5syEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_2_SSR_avionics_state_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.avionics_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_avionics_state_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.avionics_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_failure a mbsa:Event ;
+    rdfs:label "R_AVN_2_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_a2yMFZsyEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_AVN_2_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "R_AVN_2_SSR.i1" ;
+    mbsa:originalTechnicalId "_a2yMEpsyEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_2_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_i2 a mbsa:InConnector ;
+    rdfs:label "R_AVN_2_SSR.i2" ;
+    mbsa:originalTechnicalId "_a2yME5syEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_2_SSR_i2_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_i2_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_i3 a mbsa:InConnector ;
+    rdfs:label "R_AVN_2_SSR.i3" ;
+    mbsa:originalTechnicalId "_M_fgoa4AEe6YKrBQt7OFsg" .
+
+mbsa:R_AVN_2_SSR_i3_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_i3_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "R_AVN_2_SSR.o1" ;
+    mbsa:originalTechnicalId "_a2yMEZsyEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_2_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_o2 a mbsa:OutConnector ;
+    rdfs:label "R_AVN_2_SSR.o2" ;
+    mbsa:originalTechnicalId "_a2yMFJsyEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_2_SSR_o2_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_o2_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "R_AVN_2_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_a2yMGpsyEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_2_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_2_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_2_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_EMERG a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_AVN_EMERG" ;
+    mbsa:originalTechnicalId "_SRG_gJpdEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_EMERG_failure a mbsa:Event ;
+    rdfs:label "R_AVN_EMERG.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_cgB4g5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_AVN_EMERG_o1 a mbsa:OutConnector ;
+    rdfs:label "R_AVN_EMERG.o1" ;
+    mbsa:originalTechnicalId "_UH0CcJpdEe6tBNtbDdnv-w" .
+
+mbsa:R_AVN_EMERG_o1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_EMERG.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_EMERG_o1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_EMERG.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_EMERG_state1 a mbsa:StateVariable ;
+    rdfs:label "R_AVN_EMERG.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_cgB4gpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_AVN_EMERG_state1_failed a mbsa:Value ;
+    rdfs:label "R_AVN_EMERG.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_AVN_EMERG_state1_nominal a mbsa:Value ;
+    rdfs:label "R_AVN_EMERG.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_BOOST_SSR" ;
+    mbsa:originalTechnicalId "_k1ReQJpdEe6tBNtbDdnv-w" .
+
+mbsa:R_BOOST_SSR_failure a mbsa:Event ;
+    rdfs:label "R_BOOST_SSR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_-b8Z15qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_BOOST_SSR_i1 a mbsa:InConnector ;
+    rdfs:label "R_BOOST_SSR.i1" ;
+    mbsa:originalTechnicalId "_5dlnQa3_Ee6YKrBQt7OFsg" .
+
+mbsa:R_BOOST_SSR_i1_failed a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR_i1_nominal a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR_o1 a mbsa:OutConnector ;
+    rdfs:label "R_BOOST_SSR.o1" ;
+    mbsa:originalTechnicalId "_k1ReQZpdEe6tBNtbDdnv-w" .
+
+mbsa:R_BOOST_SSR_o1_failed a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR_o1_nominal a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR_state1 a mbsa:StateVariable ;
+    rdfs:label "R_BOOST_SSR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_-b8Z1pqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_BOOST_SSR_state1_failed a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_BOOST_SSR_state1_nominal a mbsa:Value ;
+    rdfs:label "R_BOOST_SSR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_DC_AMPS" ;
+    mbsa:originalTechnicalId "_j__xkJg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_DC_AMPS_FEED_Repair a mbsa:Event ;
+    rdfs:label "R_DC_AMPS.FEED_Repair" ;
+    mbsa:originalTechnicalId "_AXnbE5sxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_DC_AMPS_FEED_State a mbsa:StateVariable ;
+    rdfs:label "R_DC_AMPS.FEED_State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_6J3fY5swEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_DC_AMPS_FEED_State_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.FEED_State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_FEED_State_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.FEED_State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_FEED_failure a mbsa:Event ;
+    rdfs:label "R_DC_AMPS.FEED_failure" ;
+    mbsa:originalTechnicalId "_AVNnU5sxEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_DC_AMPS_SHUNT_failure a mbsa:Event ;
+    rdfs:label "R_DC_AMPS.SHUNT_failure" ;
+    mbsa:originalTechnicalId "_cp4MQ5swEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_DC_AMPS_SHUNT_repair a mbsa:Event ;
+    rdfs:label "R_DC_AMPS.SHUNT_repair" ;
+    mbsa:originalTechnicalId "_qtBW45swEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_DC_AMPS_SHUNT_state a mbsa:StateVariable ;
+    rdfs:label "R_DC_AMPS.SHUNT_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_azrfo5swEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_DC_AMPS_SHUNT_state_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.SHUNT_state.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_SHUNT_state_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.SHUNT_state.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_failure a mbsa:Event ;
+    rdfs:label "R_DC_AMPS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_4tK5J5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_DC_AMPS_i1 a mbsa:InConnector ;
+    rdfs:label "R_DC_AMPS.i1" ;
+    mbsa:originalTechnicalId "_j__xkpg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_DC_AMPS_i1_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_i1_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_i2 a mbsa:InConnector ;
+    rdfs:label "R_DC_AMPS.i2" ;
+    mbsa:originalTechnicalId "_j__xk5g4Ee6tBNtbDdnv-w" .
+
+mbsa:R_DC_AMPS_i2_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_i2_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_o1 a mbsa:OutConnector ;
+    rdfs:label "R_DC_AMPS.o1" ;
+    mbsa:originalTechnicalId "_j__xkZg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_DC_AMPS_o1_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_o1_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_state1 a mbsa:StateVariable ;
+    rdfs:label "R_DC_AMPS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_4tK5JpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_DC_AMPS_state1_failed a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_DC_AMPS_state1_nominal a mbsa:Value ;
+    rdfs:label "R_DC_AMPS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_ELE_1" ;
+    mbsa:originalTechnicalId "_MUDrQJg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_ELE_1_failure a mbsa:Event ;
+    rdfs:label "R_ELE_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_fFuvc5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_ELE_1_o1 a mbsa:OutConnector ;
+    rdfs:label "R_ELE_1.o1" ;
+    mbsa:originalTechnicalId "_LCHCMJpdEe6tBNtbDdnv-w" .
+
+mbsa:R_ELE_1_o1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_1.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1_o1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_1.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1_o2 a mbsa:OutConnector ;
+    rdfs:label "R_ELE_1.o2" ;
+    mbsa:originalTechnicalId "_MtsaQZpdEe6tBNtbDdnv-w" .
+
+mbsa:R_ELE_1_o2_failed a mbsa:Value ;
+    rdfs:label "R_ELE_1.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1_o2_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_1.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1_state1 a mbsa:StateVariable ;
+    rdfs:label "R_ELE_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_fFuvcpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_ELE_1_state1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_1_state1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_ELE_2" ;
+    mbsa:originalTechnicalId "_Sd4JMJg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_ELE_2_failure a mbsa:Event ;
+    rdfs:label "R_ELE_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_RwEV55qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_ELE_2_o1 a mbsa:OutConnector ;
+    rdfs:label "R_ELE_2.o1" ;
+    mbsa:originalTechnicalId "_Sd4JMZg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_ELE_2_o1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_2_o1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_2_state1 a mbsa:StateVariable ;
+    rdfs:label "R_ELE_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_RwEV5pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_ELE_2_state1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_2_state1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_ELE_EMERG" ;
+    mbsa:originalTechnicalId "_3Rs5gJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_ELE_EMERG_failure a mbsa:Event ;
+    rdfs:label "R_ELE_EMERG.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_EuiZR5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_ELE_EMERG_i1 a mbsa:InConnector ;
+    rdfs:label "R_ELE_EMERG.i1" ;
+    mbsa:originalTechnicalId "_sJIYsK4tEe6YKrBQt7OFsg" .
+
+mbsa:R_ELE_EMERG_i1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG_i1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG_o1 a mbsa:OutConnector ;
+    rdfs:label "R_ELE_EMERG.o1" ;
+    mbsa:originalTechnicalId "_3Rs5gZg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_ELE_EMERG_o1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG_o1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG_state1 a mbsa:StateVariable ;
+    rdfs:label "R_ELE_EMERG.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_EuiZRpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_ELE_EMERG_state1_failed a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_ELE_EMERG_state1_nominal a mbsa:Value ;
+    rdfs:label "R_ELE_EMERG.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_FEED_BUS_1" ;
+    mbsa:originalTechnicalId "_7xMV4Jg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_failure a mbsa:Event ;
+    rdfs:label "R_FEED_BUS_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_bWQ0E5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_FEED_BUS_1_i1 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i1" ;
+    mbsa:originalTechnicalId "_sh9ydJpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i10 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i10" ;
+    mbsa:originalTechnicalId "_sh9yfppfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i10_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i10.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i10_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i10.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i1_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i1_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i2 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i2" ;
+    mbsa:originalTechnicalId "_sh9ydZpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i2_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i2_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i4 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i4" ;
+    mbsa:originalTechnicalId "_sh9yd5pfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i4_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i4_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i5 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i5" ;
+    mbsa:originalTechnicalId "_sh9yeJpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i5_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i5_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i6 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i6" ;
+    mbsa:originalTechnicalId "_sh9yeZpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i6_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i6.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i6_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i6.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i7 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i7" ;
+    mbsa:originalTechnicalId "_sh9yeppfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i7_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i7.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i7_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i7.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i8 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i8" ;
+    mbsa:originalTechnicalId "_sh9ye5pfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i8_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i8.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i8_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i8.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i9 a mbsa:InConnector ;
+    rdfs:label "R_FEED_BUS_1.i9" ;
+    mbsa:originalTechnicalId "_sh9yfJpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_i9_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i9.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_i9_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.i9.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_o2 a mbsa:OutConnector ;
+    rdfs:label "R_FEED_BUS_1.o2" ;
+    mbsa:originalTechnicalId "_sh9yfZpfEe6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_1_o2_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_o2_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_state1 a mbsa:StateVariable ;
+    rdfs:label "R_FEED_BUS_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_bWQ0EpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_FEED_BUS_1_state1_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_1_state1_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_FEED_BUS_2" ;
+    mbsa:originalTechnicalId "_OQm3gJg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_2_failure a mbsa:Event ;
+    rdfs:label "R_FEED_BUS_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_DMhz95qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_FEED_BUS_2_o1 a mbsa:OutConnector ;
+    rdfs:label "R_FEED_BUS_2.o1" ;
+    mbsa:originalTechnicalId "_OQm3gZg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_FEED_BUS_2_o1_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_2_o1_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_2_state1 a mbsa:StateVariable ;
+    rdfs:label "R_FEED_BUS_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_DMhz9pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_FEED_BUS_2_state1_failed a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_FEED_BUS_2_state1_nominal a mbsa:Value ;
+    rdfs:label "R_FEED_BUS_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_GCU" ;
+    mbsa:originalTechnicalId "_zH3wILa3Ee6YKrBQt7OFsg" .
+
+mbsa:R_GCU_failure a mbsa:Event ;
+    rdfs:label "R_GCU.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_zH3wIra3Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_GCU_i_starter a mbsa:InConnector ;
+    rdfs:label "R_GCU.i_starter" ;
+    mbsa:originalTechnicalId "_DvHKA7bKEe6YKrBQt7OFsg" .
+
+mbsa:R_GCU_i_starter_failed a mbsa:Value ;
+    rdfs:label "R_GCU.i_starter.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU_i_starter_nominal a mbsa:Value ;
+    rdfs:label "R_GCU.i_starter.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU_o1 a mbsa:OutConnector ;
+    rdfs:label "R_GCU.o1" ;
+    mbsa:originalTechnicalId "_zH3wIba3Ee6YKrBQt7OFsg" .
+
+mbsa:R_GCU_o1_failed a mbsa:Value ;
+    rdfs:label "R_GCU.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU_o1_nominal a mbsa:Value ;
+    rdfs:label "R_GCU.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU_repair a mbsa:Event ;
+    rdfs:label "R_GCU.repair" ;
+    mbsa:lambdaValue 1e+00 ;
+    mbsa:originalTechnicalId "_zH3wI7a3Ee6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_GCU_state1 a mbsa:StateVariable ;
+    rdfs:label "R_GCU.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_zH3wJLa3Ee6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_GCU_state1_failed a mbsa:Value ;
+    rdfs:label "R_GCU.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GCU_state1_nominal a mbsa:Value ;
+    rdfs:label "R_GCU.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_GEN_RELAY" ;
+    mbsa:originalTechnicalId "_rYyLwK4rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_failure a mbsa:Event ;
+    rdfs:label "R_GEN_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_rYyLxq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_GEN_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "R_GEN_RELAY.i1" ;
+    mbsa:originalTechnicalId "_rYyLwa4rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "R_GEN_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_rYyLx64rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_GEN_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "R_GEN_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_rYyLyK4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_GEN_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "R_GEN_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_rYyLzK4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_GEN_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "R_GEN_RELAY.i2" ;
+    mbsa:originalTechnicalId "_rYyLwq4rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "R_GEN_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_rYyLya4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_GEN_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "R_GEN_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_rYyLyq4rEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_GEN_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "R_GEN_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_rYyLza4rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_GEN_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "R_GEN_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_rYyLw64rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "R_GEN_RELAY.o1" ;
+    mbsa:originalTechnicalId "_rYyLxK4rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "R_GEN_RELAY.o2" ;
+    mbsa:originalTechnicalId "_rYyLxa4rEe6YKrBQt7OFsg" .
+
+mbsa:R_GEN_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "R_GEN_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_rYyLy64rEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_GEN_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_VOLTS a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_GEN_VOLTS" ;
+    mbsa:originalTechnicalId "_Mv-PYJgyEe6tBNtbDdnv-w" .
+
+mbsa:R_GEN_VOLTS_failure a mbsa:Event ;
+    rdfs:label "R_GEN_VOLTS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_4GabJ5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_GEN_VOLTS_o1 a mbsa:OutConnector ;
+    rdfs:label "R_GEN_VOLTS.o1" ;
+    mbsa:originalTechnicalId "_Mv-PYZgyEe6tBNtbDdnv-w" .
+
+mbsa:R_GEN_VOLTS_o1_failed a mbsa:Value ;
+    rdfs:label "R_GEN_VOLTS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_VOLTS_o1_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_VOLTS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_VOLTS_state1 a mbsa:StateVariable ;
+    rdfs:label "R_GEN_VOLTS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_4GabJpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_GEN_VOLTS_state1_failed a mbsa:Value ;
+    rdfs:label "R_GEN_VOLTS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_GEN_VOLTS_state1_nominal a mbsa:Value ;
+    rdfs:label "R_GEN_VOLTS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_LIMITER" ;
+    mbsa:originalTechnicalId "_fBW34Jg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_LIMITER_failure a mbsa:Event ;
+    rdfs:label "R_LIMITER.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_RFOpJ5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_LIMITER_o1 a mbsa:OutConnector ;
+    rdfs:label "R_LIMITER.o1" ;
+    mbsa:originalTechnicalId "_fBW34Zg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_LIMITER_o1_failed a mbsa:Value ;
+    rdfs:label "R_LIMITER.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER_o1_nominal a mbsa:Value ;
+    rdfs:label "R_LIMITER.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER_o2 a mbsa:OutConnector ;
+    rdfs:label "R_LIMITER.o2" ;
+    mbsa:originalTechnicalId "_fBW34pg5Ee6tBNtbDdnv-w" .
+
+mbsa:R_LIMITER_o2_failed a mbsa:Value ;
+    rdfs:label "R_LIMITER.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER_o2_nominal a mbsa:Value ;
+    rdfs:label "R_LIMITER.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER_state1 a mbsa:StateVariable ;
+    rdfs:label "R_LIMITER.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_RFOpJpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_LIMITER_state1_failed a mbsa:Value ;
+    rdfs:label "R_LIMITER.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_LIMITER_state1_nominal a mbsa:Value ;
+    rdfs:label "R_LIMITER.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_SHUNT_BUS" ;
+    mbsa:originalTechnicalId "_JS-VUJg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_SHUNT_BUS_failure a mbsa:Event ;
+    rdfs:label "R_SHUNT_BUS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_9ssHJ5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_SHUNT_BUS_i1 a mbsa:InConnector ;
+    rdfs:label "R_SHUNT_BUS.i1" ;
+    mbsa:originalTechnicalId "_JS-VUZg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_SHUNT_BUS_i1_failed a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_i1_nominal a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_i2 a mbsa:InConnector ;
+    rdfs:label "R_SHUNT_BUS.i2" ;
+    mbsa:originalTechnicalId "_JS-VUpg4Ee6tBNtbDdnv-w" .
+
+mbsa:R_SHUNT_BUS_i2_failed a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_i2_nominal a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_o1 a mbsa:OutConnector ;
+    rdfs:label "R_SHUNT_BUS.o1" ;
+    mbsa:originalTechnicalId "_JS-VU5g4Ee6tBNtbDdnv-w" .
+
+mbsa:R_SHUNT_BUS_o1_failed a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_o1_nominal a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_o2 a mbsa:OutConnector ;
+    rdfs:label "R_SHUNT_BUS.o2" ;
+    mbsa:originalTechnicalId "_WG7-wa4rEe6YKrBQt7OFsg" .
+
+mbsa:R_SHUNT_BUS_o2_failed a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_o2_nominal a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_state1 a mbsa:StateVariable ;
+    rdfs:label "R_SHUNT_BUS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_9ssHJpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_SHUNT_BUS_state1_failed a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SHUNT_BUS_state1_nominal a mbsa:Value ;
+    rdfs:label "R_SHUNT_BUS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_SSR_1_BUS_BAR" ;
+    mbsa:originalTechnicalId "_Uev38Jg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_failure a mbsa:Event ;
+    rdfs:label "R_SSR_1_BUS_BAR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_gLmLUpqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_SSR_1_BUS_BAR_i1 a mbsa:InConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.i1" ;
+    mbsa:originalTechnicalId "_ok01YJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_i1_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_i1_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_i2 a mbsa:InConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.i2" ;
+    mbsa:originalTechnicalId "_ss-9kJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_i2_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_i2_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_i3 a mbsa:InConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.i3" ;
+    mbsa:originalTechnicalId "_HO7LMZg-Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_i3_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_i3_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o1 a mbsa:OutConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.o1" ;
+    mbsa:originalTechnicalId "_mOtSkJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_o1_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o1_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o2 a mbsa:OutConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.o2" ;
+    mbsa:originalTechnicalId "_pCsdIJg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_o2_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o2_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o3 a mbsa:OutConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.o3" ;
+    mbsa:originalTechnicalId "_tOvm0Jg9Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_o3_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o3_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o4 a mbsa:OutConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.o4" ;
+    mbsa:originalTechnicalId "_GxtqwJg-Ee6tBNtbDdnv-w" .
+
+mbsa:R_SSR_1_BUS_BAR_o4_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o4_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_state1 a mbsa:StateVariable ;
+    rdfs:label "R_SSR_1_BUS_BAR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_gLmLUZqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_SSR_1_BUS_BAR_state1_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_state1_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_STARTER_GENERATOR" ;
+    mbsa:originalTechnicalId "_Aq4s4JgyEe6tBNtbDdnv-w" .
+
+mbsa:R_STARTER_GENERATOR_failure a mbsa:Event ;
+    rdfs:label "R_STARTER_GENERATOR.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_24Fm15qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_STARTER_GENERATOR_feedbackState a mbsa:StateVariable ;
+    rdfs:label "R_STARTER_GENERATOR.feedbackState" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_JMU5QbbNEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_STARTER_GENERATOR_feedbackState_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.feedbackState.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_feedbackState_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.feedbackState.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_feedback_failure a mbsa:Event ;
+    rdfs:label "R_STARTER_GENERATOR.feedback_failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Ip0CEbbNEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_STARTER_GENERATOR_i1 a mbsa:InConnector ;
+    rdfs:label "R_STARTER_GENERATOR.i1" ;
+    mbsa:originalTechnicalId "_oyWWsbbLEe6YKrBQt7OFsg" .
+
+mbsa:R_STARTER_GENERATOR_i1_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_i1_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o1 a mbsa:OutConnector ;
+    rdfs:label "R_STARTER_GENERATOR.o1" ;
+    mbsa:originalTechnicalId "_Aq4s4ZgyEe6tBNtbDdnv-w" .
+
+mbsa:R_STARTER_GENERATOR_o1_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o1_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o_GCU a mbsa:OutConnector ;
+    rdfs:label "R_STARTER_GENERATOR.o_GCU" ;
+    mbsa:originalTechnicalId "__uQjsbbJEe6YKrBQt7OFsg" .
+
+mbsa:R_STARTER_GENERATOR_o_GCU_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_GCU.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o_GCU_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_GCU.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_state1 a mbsa:StateVariable ;
+    rdfs:label "R_STARTER_GENERATOR.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_24Fm1pqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_STARTER_GENERATOR_state1_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_state1_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_START_1" ;
+    mbsa:originalTechnicalId "_7ZMbsJgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_1_failure a mbsa:Event ;
+    rdfs:label "R_START_1.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_7oVCt5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_START_1_i1 a mbsa:InConnector ;
+    rdfs:label "R_START_1.i1" ;
+    mbsa:originalTechnicalId "_7ZMbsZgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_1_i1_failed a mbsa:Value ;
+    rdfs:label "R_START_1.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i1_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i2 a mbsa:InConnector ;
+    rdfs:label "R_START_1.i2" ;
+    mbsa:originalTechnicalId "_7ZMbs5gvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_1_i2_failed a mbsa:Value ;
+    rdfs:label "R_START_1.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i2_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i3 a mbsa:InConnector ;
+    rdfs:label "R_START_1.i3" ;
+    mbsa:originalTechnicalId "_ZYcy0a4rEe6YKrBQt7OFsg" .
+
+mbsa:R_START_1_i3_failed a mbsa:Value ;
+    rdfs:label "R_START_1.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i3_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i4 a mbsa:InConnector ;
+    rdfs:label "R_START_1.i4" ;
+    mbsa:originalTechnicalId "_MCDkAa4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_1_i4_failed a mbsa:Value ;
+    rdfs:label "R_START_1.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_i4_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o1 a mbsa:OutConnector ;
+    rdfs:label "R_START_1.o1" ;
+    mbsa:originalTechnicalId "_7ZMbspgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_1_o1_failed a mbsa:Value ;
+    rdfs:label "R_START_1.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o1_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o2 a mbsa:OutConnector ;
+    rdfs:label "R_START_1.o2" ;
+    mbsa:originalTechnicalId "_ZPoOA5gyEe6tBNtbDdnv-w" .
+
+mbsa:R_START_1_o2_failed a mbsa:Value ;
+    rdfs:label "R_START_1.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o2_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o3 a mbsa:OutConnector ;
+    rdfs:label "R_START_1.o3" ;
+    mbsa:originalTechnicalId "_kNr4sLbLEe6YKrBQt7OFsg" .
+
+mbsa:R_START_1_o3_failed a mbsa:Value ;
+    rdfs:label "R_START_1.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_o3_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.o3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_state1 a mbsa:StateVariable ;
+    rdfs:label "R_START_1.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_7oVCtpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_1_state1_failed a mbsa:Value ;
+    rdfs:label "R_START_1.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_1_state1_nominal a mbsa:Value ;
+    rdfs:label "R_START_1.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2 a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_START_2" ;
+    mbsa:originalTechnicalId "_8etSQJgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_2_failure a mbsa:Event ;
+    rdfs:label "R_START_2.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_8QnKt5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_START_2_i1 a mbsa:InConnector ;
+    rdfs:label "R_START_2.i1" ;
+    mbsa:originalTechnicalId "_8etSQpgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_2_i1_failed a mbsa:Value ;
+    rdfs:label "R_START_2.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_i1_nominal a mbsa:Value ;
+    rdfs:label "R_START_2.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_i2 a mbsa:InConnector ;
+    rdfs:label "R_START_2.i2" ;
+    mbsa:originalTechnicalId "_8etSQ5gvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_2_i2_failed a mbsa:Value ;
+    rdfs:label "R_START_2.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_i2_nominal a mbsa:Value ;
+    rdfs:label "R_START_2.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_o1 a mbsa:OutConnector ;
+    rdfs:label "R_START_2.o1" ;
+    mbsa:originalTechnicalId "_8etSQZgvEe6tBNtbDdnv-w" .
+
+mbsa:R_START_2_o1_failed a mbsa:Value ;
+    rdfs:label "R_START_2.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_o1_nominal a mbsa:Value ;
+    rdfs:label "R_START_2.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_state1 a mbsa:StateVariable ;
+    rdfs:label "R_START_2.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_8QnKtpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_2_state1_failed a mbsa:Value ;
+    rdfs:label "R_START_2.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_2_state1_nominal a mbsa:Value ;
+    rdfs:label "R_START_2.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_START_CNTRL_PCB" ;
+    mbsa:originalTechnicalId "_w49hsJgwEe6tBNtbDdnv-w" .
+
+mbsa:R_START_CNTRL_PCB_failure a mbsa:Event ;
+    rdfs:label "R_START_CNTRL_PCB.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_XXeqU5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_START_CNTRL_PCB_o1 a mbsa:OutConnector ;
+    rdfs:label "R_START_CNTRL_PCB.o1" ;
+    mbsa:originalTechnicalId "_yi-zgJgwEe6tBNtbDdnv-w" .
+
+mbsa:R_START_CNTRL_PCB_o1_failed a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB_o1_nominal a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB_o2 a mbsa:OutConnector ;
+    rdfs:label "R_START_CNTRL_PCB.o2" ;
+    mbsa:originalTechnicalId "_KI44YJgyEe6tBNtbDdnv-w" .
+
+mbsa:R_START_CNTRL_PCB_o2_failed a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB_o2_nominal a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB_state1 a mbsa:StateVariable ;
+    rdfs:label "R_START_CNTRL_PCB.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_XXeqUpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_CNTRL_PCB_state1_failed a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_CNTRL_PCB_state1_nominal a mbsa:Value ;
+    rdfs:label "R_START_CNTRL_PCB.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY a mbsa:AtomicBrickInstance ;
+    rdfs:label "R_START_RELAY" ;
+    mbsa:originalTechnicalId "_BIxGQK4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_failure a mbsa:Event ;
+    rdfs:label "R_START_RELAY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_BIxGRq4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:R_START_RELAY_i1 a mbsa:InConnector ;
+    rdfs:label "R_START_RELAY.i1" ;
+    mbsa:originalTechnicalId "_BIxGQa4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_i1Failure a mbsa:Event ;
+    rdfs:label "R_START_RELAY.i1Failure" ;
+    mbsa:originalTechnicalId "_BIxGR64sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_START_RELAY_i1Repair a mbsa:Event ;
+    rdfs:label "R_START_RELAY.i1Repair" ;
+    mbsa:originalTechnicalId "_BIxGSK4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_START_RELAY_i1State a mbsa:StateVariable ;
+    rdfs:label "R_START_RELAY.i1State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_BIxGTK4sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_RELAY_i1State_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i1State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i1State_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i1State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i1_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i1_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i2 a mbsa:InConnector ;
+    rdfs:label "R_START_RELAY.i2" ;
+    mbsa:originalTechnicalId "_BIxGQq4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_i2Failure a mbsa:Event ;
+    rdfs:label "R_START_RELAY.i2Failure" ;
+    mbsa:originalTechnicalId "_BIxGSa4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_START_RELAY_i2Repair a mbsa:Event ;
+    rdfs:label "R_START_RELAY.i2Repair" ;
+    mbsa:originalTechnicalId "_BIxGSq4sEe6YKrBQt7OFsg" ;
+    mbsa:probabilityLaw "Dirac" .
+
+mbsa:R_START_RELAY_i2State a mbsa:StateVariable ;
+    rdfs:label "R_START_RELAY.i2State" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_BIxGTa4sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_RELAY_i2State_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i2State.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i2State_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i2State.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i2_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i2_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i_flight_crew a mbsa:InConnector ;
+    rdfs:label "R_START_RELAY.i_flight_crew" ;
+    mbsa:originalTechnicalId "_BIxGQ64sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_i_flight_crew_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i_flight_crew.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_i_flight_crew_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.i_flight_crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_o1 a mbsa:OutConnector ;
+    rdfs:label "R_START_RELAY.o1" ;
+    mbsa:originalTechnicalId "_BIxGRK4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_o1_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_o1_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_o2 a mbsa:OutConnector ;
+    rdfs:label "R_START_RELAY.o2" ;
+    mbsa:originalTechnicalId "_BIxGRa4sEe6YKrBQt7OFsg" .
+
+mbsa:R_START_RELAY_o2_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_o2_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_state1 a mbsa:StateVariable ;
+    rdfs:label "R_START_RELAY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_BIxGS64sEe6YKrBQt7OFsg" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:R_START_RELAY_state1_failed a mbsa:Value ;
+    rdfs:label "R_START_RELAY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_START_RELAY_state1_nominal a mbsa:Value ;
+    rdfs:label "R_START_RELAY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK a mbsa:AtomicBrickInstance ;
+    rdfs:label "STANDBY_BATTERY_PACK" ;
+    mbsa:originalTechnicalId "_77ExoJpcEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_BATTERY_PACK_failure a mbsa:Event ;
+    rdfs:label "STANDBY_BATTERY_PACK.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_dn_mI5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:STANDBY_BATTERY_PACK_i1 a mbsa:InConnector ;
+    rdfs:label "STANDBY_BATTERY_PACK.i1" ;
+    mbsa:originalTechnicalId "_PSfSQZpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_BATTERY_PACK_i1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK_i1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK_o1 a mbsa:OutConnector ;
+    rdfs:label "STANDBY_BATTERY_PACK.o1" ;
+    mbsa:originalTechnicalId "_QUe6wJpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_BATTERY_PACK_o1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK_o1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK_state1 a mbsa:StateVariable ;
+    rdfs:label "STANDBY_BATTERY_PACK.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_dn_mIpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:STANDBY_BATTERY_PACK_state1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_BATTERY_PACK_state1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_BATTERY_PACK.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH a mbsa:AtomicBrickInstance ;
+    rdfs:label "STANDBY_INST_SWITCH" ;
+    mbsa:originalTechnicalId "__VMvIJpcEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INST_SWITCH_failure a mbsa:Event ;
+    rdfs:label "STANDBY_INST_SWITCH.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_eM4b4JqHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:STANDBY_INST_SWITCH_i1 a mbsa:InConnector ;
+    rdfs:label "STANDBY_INST_SWITCH.i1" ;
+    mbsa:originalTechnicalId "_MtsaQJpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INST_SWITCH_i1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_i1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_o1 a mbsa:OutConnector ;
+    rdfs:label "STANDBY_INST_SWITCH.o1" ;
+    mbsa:originalTechnicalId "_PSfSQJpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INST_SWITCH_o1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_o1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_o2 a mbsa:OutConnector ;
+    rdfs:label "STANDBY_INST_SWITCH.o2" ;
+    mbsa:originalTechnicalId "_Q1n48JpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INST_SWITCH_o2_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.o2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_o2_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_state1 a mbsa:StateVariable ;
+    rdfs:label "STANDBY_INST_SWITCH.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_eM300pqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:STANDBY_INST_SWITCH_state1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INST_SWITCH_state1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INST_SWITCH.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST a mbsa:AtomicBrickInstance ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST" ;
+    mbsa:originalTechnicalId "_FzqnYJpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_failure a mbsa:Event ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_cz9hI5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i1 a mbsa:InConnector ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i1" ;
+    mbsa:originalTechnicalId "_QUgI4JpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i2 a mbsa:InConnector ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i2" ;
+    mbsa:originalTechnicalId "_Q1nR4JpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i2_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i2.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i2_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i3 a mbsa:InConnector ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i3" ;
+    mbsa:originalTechnicalId "_UHy0UJpdEe6tBNtbDdnv-w" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i3_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_i3_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_state1 a mbsa:StateVariable ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_cz9hIpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_state1_failed a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:STANDBY_INS_T_OFF_BATT_TEST_state1_nominal a mbsa:Value ;
+    rdfs:label "STANDBY_INS_T_OFF_BATT_TEST.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_FLAPS a mbsa:AtomicBrickInstance ;
+    rdfs:label "i50_AMP_FLAPS" ;
+    mbsa:originalTechnicalId "_9J0-wJgiEe6tBNtbDdnv-w" .
+
+mbsa:i50_AMP_FLAPS_failure a mbsa:Event ;
+    rdfs:label "i50_AMP_FLAPS.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_5Upv45qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:i50_AMP_FLAPS_o1 a mbsa:OutConnector ;
+    rdfs:label "i50_AMP_FLAPS.o1" ;
+    mbsa:originalTechnicalId "_6uGRQJgkEe6tBNtbDdnv-w" .
+
+mbsa:i50_AMP_FLAPS_o1_failed a mbsa:Value ;
+    rdfs:label "i50_AMP_FLAPS.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_FLAPS_o1_nominal a mbsa:Value ;
+    rdfs:label "i50_AMP_FLAPS.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_FLAPS_state1 a mbsa:StateVariable ;
+    rdfs:label "i50_AMP_FLAPS.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_5Upv4pqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:i50_AMP_FLAPS_state1_failed a mbsa:Value ;
+    rdfs:label "i50_AMP_FLAPS.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_FLAPS_state1_nominal a mbsa:Value ;
+    rdfs:label "i50_AMP_FLAPS.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_HYD_PUMP a mbsa:AtomicBrickInstance ;
+    rdfs:label "i50_AMP_HYD_PUMP" ;
+    mbsa:originalTechnicalId "_AwGh4pgjEe6tBNtbDdnv-w" .
+
+mbsa:i50_AMP_HYD_PUMP_failure a mbsa:Event ;
+    rdfs:label "i50_AMP_HYD_PUMP.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_5sXsU5qGEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:i50_AMP_HYD_PUMP_o1 a mbsa:OutConnector ;
+    rdfs:label "i50_AMP_HYD_PUMP.o1" ;
+    mbsa:originalTechnicalId "_74TakJgkEe6tBNtbDdnv-w" .
+
+mbsa:i50_AMP_HYD_PUMP_o1_failed a mbsa:Value ;
+    rdfs:label "i50_AMP_HYD_PUMP.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_HYD_PUMP_o1_nominal a mbsa:Value ;
+    rdfs:label "i50_AMP_HYD_PUMP.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_HYD_PUMP_state1 a mbsa:StateVariable ;
+    rdfs:label "i50_AMP_HYD_PUMP.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_5sXsUpqGEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:i50_AMP_HYD_PUMP_state1_failed a mbsa:Value ;
+    rdfs:label "i50_AMP_HYD_PUMP.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i50_AMP_HYD_PUMP_state1_nominal a mbsa:Value ;
+    rdfs:label "i50_AMP_HYD_PUMP.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_AC_COMP a mbsa:AtomicBrickInstance ;
+    rdfs:label "i_100_AMP_AC_COMP" ;
+    mbsa:originalTechnicalId "_qNRzMJg4Ee6tBNtbDdnv-w" .
+
+mbsa:i_100_AMP_AC_COMP_failure a mbsa:Event ;
+    rdfs:label "i_100_AMP_AC_COMP.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_qNRzMZg4Ee6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:i_100_AMP_AC_COMP_o1 a mbsa:OutConnector ;
+    rdfs:label "i_100_AMP_AC_COMP.o1" ;
+    mbsa:originalTechnicalId "_zjCTMJpdEe6tBNtbDdnv-w" .
+
+mbsa:i_100_AMP_AC_COMP_o1_failed a mbsa:Value ;
+    rdfs:label "i_100_AMP_AC_COMP.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_AC_COMP_o1_nominal a mbsa:Value ;
+    rdfs:label "i_100_AMP_AC_COMP.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_AC_COMP_repair a mbsa:Event ;
+    rdfs:label "i_100_AMP_AC_COMP.repair" ;
+    mbsa:lambdaValue 1e+00 ;
+    mbsa:originalTechnicalId "_qNRzMpg4Ee6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:i_100_AMP_AC_COMP_state1 a mbsa:StateVariable ;
+    rdfs:label "i_100_AMP_AC_COMP.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_qNRzM5g4Ee6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:i_100_AMP_AC_COMP_state1_failed a mbsa:Value ;
+    rdfs:label "i_100_AMP_AC_COMP.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_AC_COMP_state1_nominal a mbsa:Value ;
+    rdfs:label "i_100_AMP_AC_COMP.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_W_S_DEICE a mbsa:AtomicBrickInstance ;
+    rdfs:label "i_100_AMP_W_S_DEICE" ;
+    mbsa:originalTechnicalId "_Gs3bQJgjEe6tBNtbDdnv-w" .
+
+mbsa:i_100_AMP_W_S_DEICE_failure a mbsa:Event ;
+    rdfs:label "i_100_AMP_W_S_DEICE.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_BT10A5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:i_100_AMP_W_S_DEICE_o1 a mbsa:OutConnector ;
+    rdfs:label "i_100_AMP_W_S_DEICE.o1" ;
+    mbsa:originalTechnicalId "_9uCNIZgkEe6tBNtbDdnv-w" .
+
+mbsa:i_100_AMP_W_S_DEICE_o1_failed a mbsa:Value ;
+    rdfs:label "i_100_AMP_W_S_DEICE.o1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_W_S_DEICE_o1_nominal a mbsa:Value ;
+    rdfs:label "i_100_AMP_W_S_DEICE.o1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_W_S_DEICE_state1 a mbsa:StateVariable ;
+    rdfs:label "i_100_AMP_W_S_DEICE.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_BT10ApqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:i_100_AMP_W_S_DEICE_state1_failed a mbsa:Value ;
+    rdfs:label "i_100_AMP_W_S_DEICE.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:i_100_AMP_W_S_DEICE_state1_nominal a mbsa:Value ;
+    rdfs:label "i_100_AMP_W_S_DEICE.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+

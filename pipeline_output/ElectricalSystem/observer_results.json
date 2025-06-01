@@ -1,0 +1,22 @@
+{
+  "head" : {
+    "vars" : [
+      "scenarioName",
+      "allConditions"
+    ]
+  },
+  "results" : {
+    "bindings" : [
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-2.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o11 = nominal) and (BATTERY.state1 = failed)"
+        }
+      }
+    ]
+  }
+}
