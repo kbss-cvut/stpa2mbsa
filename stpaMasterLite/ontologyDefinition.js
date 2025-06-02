@@ -4,6 +4,9 @@ const ontologyHeader = `
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
+stpa: a owl:Ontology ;
+    owl:versionIRI stpa:v0.1 .
+
 ################################################
 ##  Classes
 ################################################

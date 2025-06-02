@@ -35,7 +35,7 @@ function exportAllScenariosToTtl() {
       meta.context,
       meta.providedStatus,
       meta.feedbackStatus,
-      meta.feedback, // raw chosen feedback text
+      meta.feedback,
       meta.processReceptionStatus,
       meta.processExecutionStatus
     );
@@ -55,7 +55,6 @@ function exportAllScenariosToTtl() {
       processesBuffer += parts.processSnippet + "\n";
     }
 
-    // If there is feedback defined (and not "n/a"), add it to the feedback definitions.
     if (meta.feedback && meta.feedback.trim() !== "" && meta.feedback.trim().toLowerCase() !== "n/a") {
       const fbId = meta.feedback.replace(/[^\w-]/g, "_");
       if (!definedFeedbacks.has(fbId)) {
@@ -149,11 +148,10 @@ function generateLossScenarioTtlSnippet(
   context,
   providedStatus,
   feedbackStatus,
-  feedback, // raw chosen feedback text
+  feedback,
   processReceptionStatus,
   processExecutionStatus
 ) {
-  // Sanitize IDs for TTL usage.
   const sanitizedScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
   const sanitizedControllerId = controller?.replace(/[^\w-]/g, "_");
   const sanitizedActionId = controlAction?.replace(/[^\w-]/g, "_");
@@ -163,7 +161,6 @@ function generateLossScenarioTtlSnippet(
   const typeMatch = sanitizedScenarioId.match(/LS-\d+_(\d+)/);
   const scenarioClass = typeMatch ? typeMatch[1] : "UnknownType";
 
-  // Main loss scenario resource.
   const scenarioSnippet = `
 :${sanitizedScenarioId} a :LossScenario ;
     :scenario-class "${scenarioClass}" ;
@@ -178,7 +175,6 @@ function generateLossScenarioTtlSnippet(
     :process-execution-status "${processExecutionStatus || ""}" .
 `;
 
-  // Association linking scenario with its controller.
   const controllerAssociationId = `${sanitizedScenarioId}--${sanitizedControllerId}-Participation`;
   const scenarioControllerAssocSnippet = `
 :${controllerAssociationId} a :ScenarioControllerAssociation ;
@@ -188,7 +184,6 @@ function generateLossScenarioTtlSnippet(
     :feedback-status "${feedbackStatus || ""}" .
 `;
 
-  // NEW: Association linking scenario with its control action.
   const controlActionAssociationId = `${sanitizedScenarioId}--${sanitizedActionId}-Association`;
   const scenarioControlActionAssocSnippet = `
 :${controlActionAssociationId} a :ScenarioControlActionAssociation ;
@@ -196,8 +191,6 @@ function generateLossScenarioTtlSnippet(
     :has-control-action :${sanitizedActionId} .
 `;
 
-  // NEW: Association linking scenario with its feedback.
-  // Only generate if a valid feedback is provided.
   const feedbackAssociationId = `${sanitizedScenarioId}--Feedback-Association`;
   const scenarioFeedbackAssocSnippet = (feedback && feedback.trim() !== "" && feedback.trim().toLowerCase() !== "n/a") ? `
 :${feedbackAssociationId} a :ScenarioFeedbackAssociation ;
@@ -205,7 +198,6 @@ function generateLossScenarioTtlSnippet(
     :has-feedback :${sanitizedFeedbackId(feedback)} .
 ` : "";
 
-  // Optionally, include definitions for controller, control action, and controlled process.
   let controllerSnippet = "";
   if (!definedControllers.has(sanitizedControllerId)) {
     controllerSnippet = `
@@ -254,7 +246,7 @@ function buildLossScenarioParts(
   context,
   providedStatus,
   feedbackStatus,
-  feedback, // raw chosen feedback text
+  feedback,
   processReceptionStatus,
   processExecutionStatus
 ) {
