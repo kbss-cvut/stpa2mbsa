@@ -1,4 +1,4 @@
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -262,11 +262,19 @@ mbsa:BATTERY_BUS_state1_nominal a mbsa:Value ;
     rdfs:label "BATTERY_BUS.state1.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:BATTERY_failure a mbsa:Event ;
-    rdfs:label "BATTERY.failure" ;
-    mbsa:lambdaValue 1e-06 ;
-    mbsa:originalTechnicalId "_TgoUk5qHEe6tBNtbDdnv-w" ;
-    mbsa:probabilityLaw "Exponential" .
+mbsa:BATTERY_battery_state a mbsa:StateVariable ;
+    rdfs:label "BATTERY.battery_state" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TgoUkpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "Heat" .
+
+mbsa:BATTERY_battery_state_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.battery_state.nominal" ;
+    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
+
+mbsa:BATTERY_battery_state_overheat a mbsa:Value ;
+    rdfs:label "BATTERY.battery_state.overheat" ;
+    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
 
 mbsa:BATTERY_i1 a mbsa:InConnector ;
     rdfs:label "BATTERY.i1" ;
@@ -316,19 +324,23 @@ mbsa:BATTERY_o3_nominal a mbsa:Value ;
     rdfs:label "BATTERY.o3.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:BATTERY_state1 a mbsa:StateVariable ;
-    rdfs:label "BATTERY.state1" ;
-    mbsa:initialValueLiteral "nominal" ;
-    mbsa:originalTechnicalId "_TgoUkpqHEe6tBNtbDdnv-w" ;
-    mbsa:valueDomainDescription "nominal_failed" .
+mbsa:BATTERY_o_Battery_State a mbsa:OutConnector ;
+    rdfs:label "BATTERY.o_Battery_State" ;
+    mbsa:originalTechnicalId "_eRbO4D-KEfCzAopLvY22FA" .
 
-mbsa:BATTERY_state1_failed a mbsa:Value ;
-    rdfs:label "BATTERY.state1.failed" ;
-    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+mbsa:BATTERY_o_Battery_State_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o_Battery_State.nominal" ;
+    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
 
-mbsa:BATTERY_state1_nominal a mbsa:Value ;
-    rdfs:label "BATTERY.state1.nominal" ;
-    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+mbsa:BATTERY_o_Battery_State_overheat a mbsa:Value ;
+    rdfs:label "BATTERY.o_Battery_State.overheat" ;
+    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
+
+mbsa:BATTERY_overheat a mbsa:Event ;
+    rdfs:label "BATTERY.overheat" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_TgoUk5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
 
 mbsa:BATT_AMPS a mbsa:AtomicBrickInstance ;
     rdfs:label "BATT_AMPS" ;
@@ -1264,6 +1276,18 @@ mbsa:Flight_Crew_failure a mbsa:Event ;
     mbsa:originalTechnicalId "_MKH0UK3_Ee6YKrBQt7OFsg" ;
     mbsa:probabilityLaw "Exponential" .
 
+mbsa:Flight_Crew_i_Battery_State a mbsa:InConnector ;
+    rdfs:label "Flight_Crew.i_Battery_State" ;
+    mbsa:originalTechnicalId "_eRtiwD-KEfCzAopLvY22FA" .
+
+mbsa:Flight_Crew_i_Battery_State_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i_Battery_State.nominal" ;
+    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
+
+mbsa:Flight_Crew_i_Battery_State_overheat a mbsa:Value ;
+    rdfs:label "Flight_Crew.i_Battery_State.overheat" ;
+    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
+
 mbsa:Flight_Crew_o10 a mbsa:OutConnector ;
     rdfs:label "Flight_Crew.o10" ;
     mbsa:originalTechnicalId "_-310AK4AEe6YKrBQt7OFsg" .
@@ -1274,18 +1298,6 @@ mbsa:Flight_Crew_o10_failed a mbsa:Value ;
 
 mbsa:Flight_Crew_o10_nominal a mbsa:Value ;
     rdfs:label "Flight_Crew.o10.nominal" ;
-    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
-
-mbsa:Flight_Crew_o11 a mbsa:OutConnector ;
-    rdfs:label "Flight_Crew.o11" ;
-    mbsa:originalTechnicalId "_UEn-AK4FEe6YKrBQt7OFsg" .
-
-mbsa:Flight_Crew_o11_failed a mbsa:Value ;
-    rdfs:label "Flight_Crew.o11.failed" ;
-    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
-
-mbsa:Flight_Crew_o11_nominal a mbsa:Value ;
-    rdfs:label "Flight_Crew.o11.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:Flight_Crew_o12 a mbsa:OutConnector ;
@@ -1394,6 +1406,18 @@ mbsa:Flight_Crew_o9_failed a mbsa:Value ;
 
 mbsa:Flight_Crew_o9_nominal a mbsa:Value ;
     rdfs:label "Flight_Crew.o9.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_oSet_Battery_To_Use a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.oSet_Battery_To_Use" ;
+    mbsa:originalTechnicalId "_UEn-AK4FEe6YKrBQt7OFsg" .
+
+mbsa:Flight_Crew_oSet_Battery_To_Use_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.oSet_Battery_To_Use.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_oSet_Battery_To_Use_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.oSet_Battery_To_Use.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:Flight_Crew_repair a mbsa:Event ;
@@ -4287,12 +4311,12 @@ mbsa:R_LIMITER a mbsa:AtomicBrickInstance ;
 mbsa:R_LIMITER_failure a mbsa:Event ;
     rdfs:label "R_LIMITER.failure" ;
     mbsa:lambdaValue 1e-06 ;
-    mbsa:originalTechnicalId "_RFOpJ5qHEe6tBNtbDdnv-w" ;
+    mbsa:originalTechnicalId "_8ndkoRn4EfCHQ9PZjtv7-Q" ;
     mbsa:probabilityLaw "Exponential" .
 
 mbsa:R_LIMITER_o1 a mbsa:OutConnector ;
     rdfs:label "R_LIMITER.o1" ;
-    mbsa:originalTechnicalId "_fBW34Zg5Ee6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_8nc9kBn4EfCHQ9PZjtv7-Q" .
 
 mbsa:R_LIMITER_o1_failed a mbsa:Value ;
     rdfs:label "R_LIMITER.o1.failed" ;
@@ -4304,7 +4328,7 @@ mbsa:R_LIMITER_o1_nominal a mbsa:Value ;
 
 mbsa:R_LIMITER_o2 a mbsa:OutConnector ;
     rdfs:label "R_LIMITER.o2" ;
-    mbsa:originalTechnicalId "_fBW34pg5Ee6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_8nc9kRn4EfCHQ9PZjtv7-Q" .
 
 mbsa:R_LIMITER_o2_failed a mbsa:Value ;
     rdfs:label "R_LIMITER.o2.failed" ;
@@ -4317,7 +4341,7 @@ mbsa:R_LIMITER_o2_nominal a mbsa:Value ;
 mbsa:R_LIMITER_state1 a mbsa:StateVariable ;
     rdfs:label "R_LIMITER.state1" ;
     mbsa:initialValueLiteral "nominal" ;
-    mbsa:originalTechnicalId "_RFOpJpqHEe6tBNtbDdnv-w" ;
+    mbsa:originalTechnicalId "_8ndkoBn4EfCHQ9PZjtv7-Q" ;
     mbsa:valueDomainDescription "nominal_failed" .
 
 mbsa:R_LIMITER_state1_failed a mbsa:Value ;
@@ -4595,12 +4619,12 @@ mbsa:R_START_1 a mbsa:AtomicBrickInstance ;
 mbsa:R_START_1_failure a mbsa:Event ;
     rdfs:label "R_START_1.failure" ;
     mbsa:lambdaValue 1e-06 ;
-    mbsa:originalTechnicalId "_7oVCt5qGEe6tBNtbDdnv-w" ;
+    mbsa:originalTechnicalId "_ibUjuBn_EfCHQ9PZjtv7-Q" ;
     mbsa:probabilityLaw "Exponential" .
 
 mbsa:R_START_1_i1 a mbsa:InConnector ;
     rdfs:label "R_START_1.i1" ;
-    mbsa:originalTechnicalId "_7ZMbsZgvEe6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_ibUjsBn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_i1_failed a mbsa:Value ;
     rdfs:label "R_START_1.i1.failed" ;
@@ -4612,7 +4636,7 @@ mbsa:R_START_1_i1_nominal a mbsa:Value ;
 
 mbsa:R_START_1_i2 a mbsa:InConnector ;
     rdfs:label "R_START_1.i2" ;
-    mbsa:originalTechnicalId "_7ZMbs5gvEe6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_ibUjshn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_i2_failed a mbsa:Value ;
     rdfs:label "R_START_1.i2.failed" ;
@@ -4624,7 +4648,7 @@ mbsa:R_START_1_i2_nominal a mbsa:Value ;
 
 mbsa:R_START_1_i3 a mbsa:InConnector ;
     rdfs:label "R_START_1.i3" ;
-    mbsa:originalTechnicalId "_ZYcy0a4rEe6YKrBQt7OFsg" .
+    mbsa:originalTechnicalId "_ibUjtBn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_i3_failed a mbsa:Value ;
     rdfs:label "R_START_1.i3.failed" ;
@@ -4636,7 +4660,7 @@ mbsa:R_START_1_i3_nominal a mbsa:Value ;
 
 mbsa:R_START_1_i4 a mbsa:InConnector ;
     rdfs:label "R_START_1.i4" ;
-    mbsa:originalTechnicalId "_MCDkAa4sEe6YKrBQt7OFsg" .
+    mbsa:originalTechnicalId "_ibUjtRn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_i4_failed a mbsa:Value ;
     rdfs:label "R_START_1.i4.failed" ;
@@ -4648,7 +4672,7 @@ mbsa:R_START_1_i4_nominal a mbsa:Value ;
 
 mbsa:R_START_1_o1 a mbsa:OutConnector ;
     rdfs:label "R_START_1.o1" ;
-    mbsa:originalTechnicalId "_7ZMbspgvEe6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_ibUjsRn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_o1_failed a mbsa:Value ;
     rdfs:label "R_START_1.o1.failed" ;
@@ -4660,7 +4684,7 @@ mbsa:R_START_1_o1_nominal a mbsa:Value ;
 
 mbsa:R_START_1_o2 a mbsa:OutConnector ;
     rdfs:label "R_START_1.o2" ;
-    mbsa:originalTechnicalId "_ZPoOA5gyEe6tBNtbDdnv-w" .
+    mbsa:originalTechnicalId "_ibUjsxn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_o2_failed a mbsa:Value ;
     rdfs:label "R_START_1.o2.failed" ;
@@ -4672,7 +4696,7 @@ mbsa:R_START_1_o2_nominal a mbsa:Value ;
 
 mbsa:R_START_1_o3 a mbsa:OutConnector ;
     rdfs:label "R_START_1.o3" ;
-    mbsa:originalTechnicalId "_kNr4sLbLEe6YKrBQt7OFsg" .
+    mbsa:originalTechnicalId "_ibUjthn_EfCHQ9PZjtv7-Q" .
 
 mbsa:R_START_1_o3_failed a mbsa:Value ;
     rdfs:label "R_START_1.o3.failed" ;
@@ -4685,7 +4709,7 @@ mbsa:R_START_1_o3_nominal a mbsa:Value ;
 mbsa:R_START_1_state1 a mbsa:StateVariable ;
     rdfs:label "R_START_1.state1" ;
     mbsa:initialValueLiteral "nominal" ;
-    mbsa:originalTechnicalId "_7oVCtpqGEe6tBNtbDdnv-w" ;
+    mbsa:originalTechnicalId "_ibUjtxn_EfCHQ9PZjtv7-Q" ;
     mbsa:valueDomainDescription "nominal_failed" .
 
 mbsa:R_START_1_state1_failed a mbsa:Value ;

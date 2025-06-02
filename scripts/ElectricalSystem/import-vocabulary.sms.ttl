@@ -40,7 +40,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix termit-pojem: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/> .
 @prefix rit:  <http://onto.fel.cvut.cz/ontology/ECCAIRS5_dataBridge.xsd#> .
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#> .
 
 <http://onto.fel.cvut.cz/ontologies/ava/import-vocabulary-0.1>
   a owl:Ontology ;
@@ -49,7 +49,7 @@
 
 :import-input-ontology
   a sml:ImportRDFFromWorkspace ;
-  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#" ;
+  sml:baseURI "http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#" ;
   sm:next :construct-vocabulary ;
   sml:ignoreImports true ;
 .
@@ -58,7 +58,7 @@
   a sml:BindWithConstant ;
   sm:next :construct-vocabulary ;
   sm:outputVariable "outputVocabularyIri" ;
-  sml:value <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system> ;
+  sml:value <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system> ;
 .
 
 :construct-vocabulary
@@ -103,30 +103,24 @@ CONSTRUCT {
     skos:inScheme ?glosarIri ;
     skos:prefLabel ?prefLabelEn ;
     skos:prefLabel ?prefLabelCs ;
-    rdfs:label ?finalLabel ; # This is the <Parent>.<Name> or <Name> label from input
+    rdfs:label ?finalLabel ;
     mbsa:nature ?natureString ;
     mbsa:originalTechnicalId ?originalTechId ; # Changed from mbsa:technicalId
     a-popis-dat-pojem:má-stav-pojmu termit-pojem:navrhovaný-pojem .
 }
 WHERE {
-  # Find all items from equipment.ttl
   ?instanceUri rdf:type ?instanceTypeUri .
-  ?instanceUri rdfs:label ?finalLabel . # This label is e.g., "Flight_Crew.o11" or "Flight_Crew.o11.nominal"
-  ?instanceUri mbsa:originalTechnicalId ?originalTechId . # Use the new property name
+  ?instanceUri rdfs:label ?finalLabel .
+  ?instanceUri mbsa:originalTechnicalId ?originalTechId .
 
-  # Standard filters
   FILTER(!isBLANK(?instanceUri))
   FILTER(?instanceUri != mbsa:)
-  # The filter for mbsa:Value type is REMOVED to allow them to become SKOS concepts for annotation.
 
-  # Get the nature string from the type
   BIND(REPLACE(STR(?instanceTypeUri), STR(mbsa:), "") AS ?natureString)
 
-  # Create language-tagged prefLabels directly from the ?finalLabel
   BIND(STRLANG(?finalLabel, "en") AS ?prefLabelEn)
   BIND(STRLANG(?finalLabel, "cs") AS ?prefLabelCs)
 
-  # Define the glossary IRI (assumes ?outputVocabularyIri is bound, e.g., by query #1 or globally)
   BIND(iri(concat(str(?outputVocabularyIri), "/glosar")) AS ?glosarIri)
 }""" ;
 ] ;

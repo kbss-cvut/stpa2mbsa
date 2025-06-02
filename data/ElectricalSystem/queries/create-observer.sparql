@@ -1,33 +1,22 @@
 PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
-PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/flat_electrical_system#>
+PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#>
 PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?scenarioName (GROUP_CONCAT(DISTINCT ?condition; separator=" and ") AS ?allConditions)
 WHERE {
-    # Find Termit annotations
     ?occurrence a termit:výskyt-termu ;
-                # This ?mbsaValueConcept is the URI of a concept like mbsa_flat:Flight_Crew_o11_nominal
                 termit:je-přiřazením-termu ?mbsaValueConcept ;
                 termit:scenarioID ?scenarioID_from_annotation .
 
-    # Ensure the annotated concept is specifically of rdf:type mbsa_flat:Value
-    # These are the concepts whose labels directly represent a component in a state.
     ?mbsaValueConcept rdf:type mbsa_flat:Value ;
-                      rdfs:label ?valueConceptLabel . # e.g., "Flight_Crew.o11.nominal" or "Battery.state1.failed"
+                      rdfs:label ?valueConceptLabel .
 
-    # Parse the valueConceptLabel to extract the ComponentPath and the StateValue
-    # Example: "Flight_Crew.o11.nominal"
-    #   ?componentPath becomes "Flight_Crew.o11"
-    #   ?stateValue becomes "nominal"
-    BIND(REPLACE(?valueConceptLabel, "\\.([^.]+)$", "") AS ?componentPath)  # Captures everything before the last dot
-    BIND(REPLACE(?valueConceptLabel, "^.*\\.", "")    AS ?stateValue)      # Captures everything after the last dot
-
-    # Construct the condition string directly as (ComponentPath = StateValue)
+    BIND(REPLACE(?valueConceptLabel, "\\.([^.]+)$", "") AS ?componentPath)
+    BIND(REPLACE(?valueConceptLabel, "^.*\\.", "")    AS ?stateValue)
     BIND(CONCAT("(", ?componentPath, " = ", ?stateValue, ")") AS ?condition)
 
-    # Link to STPA Scenario to get its name for grouping
     ?stpaScenario a stpa:LossScenario .
     BIND(REPLACE(STRAFTER(STR(?stpaScenario), STR(stpa:)), "_", ".") AS ?scenarioName)
     FILTER(?scenarioName = ?scenarioID_from_annotation)

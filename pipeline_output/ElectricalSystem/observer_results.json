@@ -14,7 +14,17 @@
         },
         "allConditions" : {
           "type" : "literal",
-          "value" : "(Flight_Crew.o11 = nominal) and (BATTERY.state1 = failed)"
+          "value" : "(Flight_Crew.oSet_Battery_To_Use = nominal) and (BATTERY.battery_state = overheat) and (Flight_Crew.i_Battery_State = overheat)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-7.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.state1 = nominal) and (Flight_Crew.o3 = nominal) and (L_STARTER_GENERATOR.state1 = failed)"
         }
       }
     ]
