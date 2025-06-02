@@ -82,8 +82,8 @@ setup_and_validate() {
     validate_file_exists "$MBSA_SOURCE_EXCEL"
     validate_file_exists "$LOSS_SCENARIOS_TSV_FILE"
     validate_file_exists "$PYTHON_SCRIPT_GEN_EQUIPMENT"
+    validate_file_exists "$PYTHON_SCRIPT_PRE_ANNOTATE"
     validate_file_exists "$PYTHON_SCRIPT_HTML2RDF"
-    validate_file_exists "$TSV2HTML_SCRIPT"
     validate_file_exists "$S_PIPES_SCRIPT_DEPLOY_VOCAB"
     validate_file_exists "$OBSERVER_QUERY_FILE"
     log_info "Initial validation complete."
@@ -101,22 +101,14 @@ generate_equipment_ttl() {
     log_info "equipment.ttl copied for S-Pipes container."
 }
 
-convert_scenarios_tsv_to_html() {
-    log_info "=== Converting Loss Scenarios TSV to HTML (for Termit Annotation) ==="
-    TEMP_TSV_HTML_DIR="$OUTPUT_DIR/tsv2html_work"
-    mkdir -p "$TEMP_TSV_HTML_DIR"
-    cp "$LOSS_SCENARIOS_TSV_FILE" "$TEMP_TSV_HTML_DIR/loss-scenarios.tsv"
-
-    run_command "bash" "$TSV2HTML_SCRIPT" "$TEMP_TSV_HTML_DIR"
-
-    if [ -f "$TEMP_TSV_HTML_DIR/loss-scenario.html" ]; then
-        run_command mv "$TEMP_TSV_HTML_DIR/loss-scenario.html" "$SCENARIOS_HTML_FOR_TERMIT"
-        validate_file_exists "$SCENARIOS_HTML_FOR_TERMIT"
-        log_info "Scenarios HTML generated for Termit: $SCENARIOS_HTML_FOR_TERMIT"
-    else
-        log_error "tsv2html.sh did not produce the expected output file in $TEMP_TSV_HTML_DIR"
-    fi
-    rm -rf "$TEMP_TSV_HTML_DIR"
+pre_annotate_scenario_html() {
+    log_info "=== Pre-annotating STPA Scenarios into HTML (for Termit Annotation) ==="
+    run_command "$PYTHON_EXE" "$PYTHON_SCRIPT_PRE_ANNOTATE" \
+        "$STPA_SCENARIOS_TTL_FILE" \
+        "$SCENARIOS_HTML_FOR_TERMIT" \
+        --stpa_ns "$STPA_NAMESPACE_URI"
+    validate_file_exists "$SCENARIOS_HTML_FOR_TERMIT"
+    log_info "Pre-annotated scenarios HTML generated for Termit: $SCENARIOS_HTML_FOR_TERMIT"
 }
 
 start_spipes_docker() {
@@ -149,11 +141,11 @@ pause_for_annotation() {
     echo ""
     echo "------------------------------------------------------------------------------------"
     echo "ACTION REQUIRED: Perform scenario annotations in Termit."
-    echo "Use the HTML file: $SCENARIOS_HTML_FOR_TERMIT"
+    echo "Use the pre-annotated HTML file: $SCENARIOS_HTML_FOR_TERMIT"
     echo "The MBSA vocabulary should be available (S-Pipes at $SPIPES_CHECK_URL)."
     echo ""
     echo "Once done, export your annotations as an HTML file from Termit and save it as:"
-    echo "  => $ANNOTATIONS_HTML_FROM_TERMIT (in $PROJECT_ROOT/data/$DATA_INSTANCE_NAME/)"
+    echo "  => $ANNOTATIONS_HTML_FROM_TERMIT (in $DATA_INSTANCE_DIR)"
     echo ""
     echo "------------------------------------------------------------------------------------"
     read -p "Press [Enter] to continue AFTER saving the annotated HTML file..."
@@ -211,7 +203,7 @@ log_info "Starting STPA to MBSA Observer Generation Pipeline..."
 
 setup_and_validate
 generate_equipment_ttl
-convert_scenarios_tsv_to_html
+pre_annotate_scenario_html
 start_spipes_docker
 deploy_vocab_to_termit
 pause_for_annotation
