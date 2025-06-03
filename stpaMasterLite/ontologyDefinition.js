@@ -14,12 +14,9 @@ stpa: a owl:Ontology ;
 stpa:LossScenario a owl:Class .
 stpa:ScenarioControllerAssociation a owl:Class .
 stpa:ScenarioProcessAssociation a owl:Class .
-stpa:ScenarioControlActionAssociation a owl:Class .
-stpa:ScenarioFeedbackAssociation a owl:Class .
 stpa:Controller a owl:Class .
 stpa:ControlAction a owl:Class .
 stpa:ControlledProcess a owl:Class .
-stpa:Feedback a owl:Class .
 
 ################################################
 ##  Object Properties

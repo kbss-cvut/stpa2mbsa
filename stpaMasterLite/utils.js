@@ -1,7 +1,6 @@
 const definedControllers = new Set();
 const definedControlActions = new Set();
 const definedProcesses = new Set();
-const definedFeedbacks = new Set();
 let scenarioSnippets = [];
 
 const STEP_ONE_MAX_EXPECTED_ROWS = 50;
@@ -16,11 +15,9 @@ function exportAllScenariosToTtl() {
   definedControllers.clear();
   definedControlActions.clear();
   definedProcesses.clear();
-  definedFeedbacks.clear();
   let controllersBuffer = "";
   let actionsBuffer = "";
   let processesBuffer = "";
-  let feedbackBuffer = "";
   let scenarioSnippets = [];
   let ttlContent = ontologyHeader + "\n";
 
@@ -35,7 +32,6 @@ function exportAllScenariosToTtl() {
       meta.context,
       meta.providedStatus,
       meta.feedbackStatus,
-      meta.feedback,
       meta.processReceptionStatus,
       meta.processExecutionStatus
     );
@@ -55,19 +51,9 @@ function exportAllScenariosToTtl() {
       processesBuffer += parts.processSnippet + "\n";
     }
 
-    if (meta.feedback && meta.feedback.trim() !== "" && meta.feedback.trim().toLowerCase() !== "n/a") {
-      const fbId = meta.feedback.replace(/[^\w-]/g, "_");
-      if (!definedFeedbacks.has(fbId)) {
-        definedFeedbacks.add(fbId);
-        feedbackBuffer += `\nstpa:${fbId} a stpa:Feedback ;\n    rdfs:label "${meta.feedback}" .\n`;
-      }
-    }
-
     scenarioSnippets.push(
       parts.scenarioSnippet + "\n" +
       parts.scenarioControllerAssocSnippet + "\n" +
-      parts.scenarioControlActionAssocSnippet + "\n" +
-      parts.scenarioFeedbackAssocSnippet + "\n" +
       parts.scenarioProcessAssocSnippet + "\n"
     );
   }
@@ -75,7 +61,6 @@ function exportAllScenariosToTtl() {
   ttlContent += "\n# === Controllers ===\n" + controllersBuffer;
   ttlContent += "\n# === Control Actions ===\n" + actionsBuffer;
   ttlContent += "\n# === Controlled Processes ===\n" + processesBuffer;
-  ttlContent += "\n# === Feedbacks ===\n" + feedbackBuffer;
   ttlContent += "\n# === Loss Scenarios ===\n";
   for (const snippet of scenarioSnippets) {
     ttlContent += snippet + "\n";
@@ -83,8 +68,6 @@ function exportAllScenariosToTtl() {
 
   getOrCreateLossScenariosTtlFile().setContent(ttlContent);
 }
-
-
 
 
 function exportLossScenariosToTsv() {
@@ -117,11 +100,19 @@ function getOrCreateLossScenariosTtlFile() {
   if (files.hasNext()) {
     return files.next();
   }
-
-  return DriveApp.createFile(LOSS_SCENARIOS_TTL_FILE, "");
+  const prefixes = [
+    "@prefix : <http://www.fd.cvut.cz/ontologies/stpa-mbsa#> .",
+    "@prefix dct: <http://purl.org/dc/terms/> .",
+    "@prefix owl: <http://www.w3.org/2002/07/owl#> .",
+    "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .",
+    "@prefix xml: <http://www.w3.org/XML/1998/namespace> .",
+    "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+    "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+    "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .",
+    ""
+  ].join("\n");
+  return DriveApp.createFile(LOSS_SCENARIOS_TTL_FILE, prefixes);
 }
-
-
 
 function getOrCreateTtlFile() {
   const files = DriveApp.getFilesByName(ONTOLOGY_FILE_NAME);
@@ -147,56 +138,32 @@ function generateLossScenarioTtlSnippet(
   controlledProcess,
   context,
   providedStatus,
-  feedbackStatus,
-  feedback,
-  processReceptionStatus,
-  processExecutionStatus
+  feedbackStatus
 ) {
   const sanitizedScenarioId = scenarioId?.replace(/[^\w-]/g, "_");
   const sanitizedControllerId = controller?.replace(/[^\w-]/g, "_");
-  const sanitizedActionId = controlAction?.replace(/[^\w-]/g, "_");
-  const sanitizedProcessId = controlledProcess?.replace(/[^\w-]/g, "_");
-  const sanitizedFeedbackId = feedback?.replace(/[^\w-]/g, "_");
 
   const typeMatch = sanitizedScenarioId.match(/LS-\d+_(\d+)/);
   const scenarioClass = typeMatch ? typeMatch[1] : "UnknownType";
+
+  const participationId = `${sanitizedScenarioId}--${sanitizedControllerId}-Participation`;
 
   const scenarioSnippet = `
 :${sanitizedScenarioId} a :LossScenario ;
     :scenario-class "${scenarioClass}" ;
     :original-text "${scenarioText}" ;
-    :has-control-action :${sanitizedActionId} ;
-    :has-controlled-process :${sanitizedProcessId} ;
-    :context "${context || ""}" ;
-    :provided-status "${providedStatus || ""}" ;
-    :feedback-status "${feedbackStatus || ""}" ;
-    :has-feedback "${feedback || ""}" ;
-    :process-reception-status "${processReceptionStatus || ""}" ;
-    :process-execution-status "${processExecutionStatus || ""}" .
+    :has-control-action :${controlAction.replace(/[^\w-]/g, "_")} ;
+    :has-controlled-process :${controlledProcess.replace(/[^\w-]/g, "_")} ;
+    :context "${context || ""}" .
 `;
 
-  const controllerAssociationId = `${sanitizedScenarioId}--${sanitizedControllerId}-Participation`;
-  const scenarioControllerAssocSnippet = `
-:${controllerAssociationId} a :ScenarioControllerAssociation ;
-    :belongs-to-scenario :${sanitizedScenarioId} ;
+  const participationSnippet = `
+:${participationId} a :ScenarioControllerParticipation ;
+    :in-scenario :${sanitizedScenarioId} ;
     :has-controller :${sanitizedControllerId} ;
     :provided-status "${providedStatus || ""}" ;
     :feedback-status "${feedbackStatus || ""}" .
 `;
-
-  const controlActionAssociationId = `${sanitizedScenarioId}--${sanitizedActionId}-Association`;
-  const scenarioControlActionAssocSnippet = `
-:${controlActionAssociationId} a :ScenarioControlActionAssociation ;
-    :belongs-to-scenario :${sanitizedScenarioId} ;
-    :has-control-action :${sanitizedActionId} .
-`;
-
-  const feedbackAssociationId = `${sanitizedScenarioId}--Feedback-Association`;
-  const scenarioFeedbackAssocSnippet = (feedback && feedback.trim() !== "" && feedback.trim().toLowerCase() !== "n/a") ? `
-:${feedbackAssociationId} a :ScenarioFeedbackAssociation ;
-    :belongs-to-scenario :${sanitizedScenarioId} ;
-    :has-feedback :${sanitizedFeedbackId(feedback)} .
-` : "";
 
   let controllerSnippet = "";
   if (!definedControllers.has(sanitizedControllerId)) {
@@ -208,34 +175,33 @@ function generateLossScenarioTtlSnippet(
   }
 
   let controlActionSnippet = "";
-  if (!definedControlActions.has(sanitizedActionId)) {
+  const sanitizedCa = controlAction.replace(/[^\w-]/g, "_");
+  if (!definedControllers.has(sanitizedCa)) {
     controlActionSnippet = `
-:${sanitizedActionId} a :ControlAction ;
+:${sanitizedCa} a :ControlAction ;
     rdfs:label "${controlAction}" .
 `;
-    definedControlActions.add(sanitizedActionId);
+    definedControllers.add(sanitizedCa);
   }
 
   let controlledProcessSnippet = "";
-  if (!definedProcesses.has(sanitizedProcessId)) {
+  const sanitizedCp = controlledProcess.replace(/[^\w-]/g, "_");
+  if (!definedControllers.has(sanitizedCp)) {
     controlledProcessSnippet = `
-:${sanitizedProcessId} a :ControlledProcess ;
+:${sanitizedCp} a :ControlledProcess ;
     rdfs:label "${controlledProcess}" .
 `;
-    definedProcesses.add(sanitizedProcessId);
+    definedControllers.add(sanitizedCp);
   }
 
   return (
     scenarioSnippet +
-    scenarioControllerAssocSnippet +
-    scenarioControlActionAssocSnippet +
-    scenarioFeedbackAssocSnippet +
+    participationSnippet +
     controllerSnippet +
     controlActionSnippet +
     controlledProcessSnippet
   );
 }
-
 
 function buildLossScenarioParts(
   scenarioId,
@@ -246,7 +212,6 @@ function buildLossScenarioParts(
   context,
   providedStatus,
   feedbackStatus,
-  feedback,
   processReceptionStatus,
   processExecutionStatus
 ) {
@@ -254,13 +219,15 @@ function buildLossScenarioParts(
   const sanitizedControllerId = controller.replace(/[^\w-]/g, "_");
   const sanitizedActionId = controlAction.replace(/[^\w-]/g, "_");
   const sanitizedProcessId = controlledProcess.replace(/[^\w-]/g, "_");
-  const sanitizedFeedbackId = feedback?.replace(/[^\w-]/g, "_");
 
   const typeMatch = sanitizedScenarioId.match(/LS-\d+_(\d+)/);
   const scenarioClass = typeMatch ? typeMatch[1] : "UnknownType";
 
-  const controllerAssociationId = `${sanitizedScenarioId}--${sanitizedControllerId}-association`;
-  const processAssociationId = `${sanitizedScenarioId}--${sanitizedProcessId}-association`;
+  const controllerAssociationId =
+    `${sanitizedScenarioId}--${sanitizedControllerId}-association`;
+
+  const processAssociationId =
+    `${sanitizedScenarioId}--${sanitizedProcessId}-association`;
 
   const controllerSnippet = `
 stpa:${sanitizedControllerId} a stpa:Controller ;
@@ -283,12 +250,7 @@ stpa:${sanitizedScenarioId} a stpa:LossScenario ;
     stpa:original-text "${scenarioText}" ;
     stpa:has-control-action stpa:${sanitizedActionId} ;
     stpa:has-controlled-process stpa:${sanitizedProcessId} ;
-    stpa:context "${context || ""}" ;
-    stpa:provided-status "${providedStatus || ""}" ;
-    stpa:feedback-status "${feedbackStatus || ""}" ;
-    stpa:has-feedback stpa:${sanitizedFeedbackId} ;
-    stpa:process-reception-status "${processReceptionStatus || ""}" ;
-    stpa:process-execution-status "${processExecutionStatus || ""}" .
+    stpa:context "${context || ""}" .
 `;
 
   const scenarioControllerAssocSnippet = `
@@ -298,22 +260,6 @@ stpa:${controllerAssociationId} a stpa:ScenarioControllerAssociation ;
     stpa:provided-status "${providedStatus || ""}" ;
     stpa:feedback-status "${feedbackStatus || ""}" .
 `;
-
-  // NEW: Association for control action.
-  const controlActionAssociationId = `${sanitizedScenarioId}--${sanitizedActionId}-association`;
-  const scenarioControlActionAssocSnippet = `
-stpa:${controlActionAssociationId} a stpa:ScenarioControlActionAssociation ;
-    stpa:belongs-to-scenario stpa:${sanitizedScenarioId} ;
-    stpa:has-control-action stpa:${sanitizedActionId} .
-`;
-
-  // NEW: Association for feedback.
-  const feedbackAssociationId = `${sanitizedScenarioId}--Feedback-association`;
-  const scenarioFeedbackAssocSnippet = (feedback && feedback.trim() !== "" && feedback.trim().toLowerCase() !== "n/a") ? `
-stpa:${feedbackAssociationId} a stpa:ScenarioFeedbackAssociation ;
-    stpa:belongs-to-scenario stpa:${sanitizedScenarioId} ;
-    stpa:has-feedback stpa:${sanitizedFeedbackId} .
-` : "";
 
   const scenarioProcessAssocSnippet = `
 stpa:${processAssociationId} a stpa:ScenarioProcessAssociation ;
@@ -332,8 +278,7 @@ stpa:${processAssociationId} a stpa:ScenarioProcessAssociation ;
     processSnippet,
     scenarioSnippet,
     scenarioControllerAssocSnippet,
-    scenarioControlActionAssocSnippet,
-    scenarioFeedbackAssocSnippet,
     scenarioProcessAssocSnippet
   };
 }
+
