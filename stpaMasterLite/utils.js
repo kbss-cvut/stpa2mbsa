@@ -169,7 +169,7 @@ function generateLossScenarioTtlSnippet(
   if (!definedControllers.has(sanitizedControllerId)) {
     controllerSnippet = `
 :${sanitizedControllerId} a :Controller ;
-    rdfs:label "${controller}" .
+    :name "${controller}" .
 `;
     definedControllers.add(sanitizedControllerId);
   }
@@ -231,7 +231,7 @@ function buildLossScenarioParts(
 
   const controllerSnippet = `
 stpa:${sanitizedControllerId} a stpa:Controller ;
-    rdfs:label "${controller}" .
+    stpa:name "${controller}" .
 `;
 
   const actionSnippet = `
