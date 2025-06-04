@@ -187,10 +187,9 @@ function generateLossScenarioOfTypeTwoForUcaTypeOne(uca, csInfo, row, inappropri
   }, row);
 }
 
-// UCA Type Two: Feedback is provided but incorrectly indicates the context.
 function generateLossScenarioOfTypeTwoForUcaTypeTwo(uca, csInfo, row) {
   const context = extractContextFromUnsafeControlAction(uca.definition, uca.type, csInfo.controller, csInfo.controlAction);
-  const scenario = `Feedback received by ${csInfo.controller} incorrectly indicates that ${context.text} - it is true that ${context.text}`;
+  const scenario = `Feedback received by ${csInfo.controller} does not adequately indicates that ${context.text} - it is true that ${context.text}`;
   setLossScenarioMetaData(csInfo, context, row, 7, "n/a", "inaccurate", "n/a", "n/a");
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_TWO_COLUMN)}) ${scenario}`,
@@ -255,7 +254,7 @@ function generateLossScenarioOfTypeThreeForUcaTypeThree(uca, csInfo, row) {
     providedStatus = "providedTooLate";
     processExecutionStatus = "executedTooLate";
   }
-  const scenario = `${csInfo.controller} does not provide the ${csInfo.controlAction} action when ${context.text} - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
+  const scenario = `${csInfo.controller} provides the ${csInfo.controlAction} action on time/in order - ${csInfo.controlAction} is received by ${csInfo.controlledProcess} ${context.measure}`;
   setLossScenarioMetaData(csInfo, context, row, 8, providedStatus, "accurate", "received", processExecutionStatus);
   setLossScenario({
     scenario: `(${generateLossScenarioId(uca, LOSS_SCENARIO_TYPE_THREE_COLUMN)}) ${scenario}`,
