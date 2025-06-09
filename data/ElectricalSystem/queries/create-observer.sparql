@@ -1,5 +1,5 @@
 PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
-PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#>
+PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#>
 PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

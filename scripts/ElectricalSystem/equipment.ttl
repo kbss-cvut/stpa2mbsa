@@ -1,4 +1,4 @@
-@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#> .
+@prefix mbsa: <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -262,19 +262,47 @@ mbsa:BATTERY_BUS_state1_nominal a mbsa:Value ;
     rdfs:label "BATTERY_BUS.state1.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:BATTERY_battery_state a mbsa:StateVariable ;
-    rdfs:label "BATTERY.battery_state" ;
+mbsa:BATTERY_failure a mbsa:Event ;
+    rdfs:label "BATTERY.failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_TgoUk5qHEe6tBNtbDdnv-w" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATTERY_feedback_status a mbsa:StateVariable ;
+    rdfs:label "BATTERY.feedback_status" ;
     mbsa:initialValueLiteral "nominal" ;
-    mbsa:originalTechnicalId "_TgoUkpqHEe6tBNtbDdnv-w" ;
-    mbsa:valueDomainDescription "Heat" .
+    mbsa:originalTechnicalId "_VM8K8EEcEfC_84IY77SE1Q" ;
+    mbsa:valueDomainDescription "nominalfailederroneous" .
 
-mbsa:BATTERY_battery_state_nominal a mbsa:Value ;
-    rdfs:label "BATTERY.battery_state.nominal" ;
-    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
+mbsa:BATTERY_feedback_status_erroneous a mbsa:Event ;
+    rdfs:label "BATTERY.feedback_status_erroneous" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_ViDC0EEdEfC_84IY77SE1Q" ;
+    mbsa:probabilityLaw "Exponential" .
 
-mbsa:BATTERY_battery_state_overheat a mbsa:Value ;
-    rdfs:label "BATTERY.battery_state.overheat" ;
-    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
+mbsa:BATTERY_feedback_status_erroneous_Value a mbsa:Value ;
+    rdfs:label "BATTERY.feedback_status.erroneous" ;
+    mbsa:originalTechnicalId "_SEQtUEEdEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_feedback_status_failed a mbsa:Value ;
+    rdfs:label "BATTERY.feedback_status.failed" ;
+    mbsa:originalTechnicalId "_OWSmwkEdEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_feedback_status_failure a mbsa:Event ;
+    rdfs:label "BATTERY.feedback_status_failure" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_Xab9QEEcEfC_84IY77SE1Q" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:BATTERY_feedback_status_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.feedback_status.nominal" ;
+    mbsa:originalTechnicalId "_OWSmwUEdEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_feedback_status_repair a mbsa:Event ;
+    rdfs:label "BATTERY.feedback_status_repair" ;
+    mbsa:lambdaValue 1e-02 ;
+    mbsa:originalTechnicalId "_Ymv_YEEcEfC_84IY77SE1Q" ;
+    mbsa:probabilityLaw "Exponential" .
 
 mbsa:BATTERY_i1 a mbsa:InConnector ;
     rdfs:label "BATTERY.i1" ;
@@ -324,23 +352,43 @@ mbsa:BATTERY_o3_nominal a mbsa:Value ;
     rdfs:label "BATTERY.o3.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:BATTERY_o_Battery_State a mbsa:OutConnector ;
-    rdfs:label "BATTERY.o_Battery_State" ;
-    mbsa:originalTechnicalId "_eRbO4D-KEfCzAopLvY22FA" .
+mbsa:BATTERY_o_feedback a mbsa:OutConnector ;
+    rdfs:label "BATTERY.o_feedback" ;
+    mbsa:originalTechnicalId "_hJTPQEEcEfC_84IY77SE1Q" .
 
-mbsa:BATTERY_o_Battery_State_nominal a mbsa:Value ;
-    rdfs:label "BATTERY.o_Battery_State.nominal" ;
-    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
+mbsa:BATTERY_o_feedback_failed a mbsa:Value ;
+    rdfs:label "BATTERY.o_feedback.failed" ;
+    mbsa:originalTechnicalId "_lrckwEEcEfC_84IY77SE1Q" .
 
-mbsa:BATTERY_o_Battery_State_overheat a mbsa:Value ;
-    rdfs:label "BATTERY.o_Battery_State.overheat" ;
-    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
+mbsa:BATTERY_o_feedback_false_failed a mbsa:Value ;
+    rdfs:label "BATTERY.o_feedback.false_failed" ;
+    mbsa:originalTechnicalId "_py_o8EEcEfC_84IY77SE1Q" .
 
-mbsa:BATTERY_overheat a mbsa:Event ;
-    rdfs:label "BATTERY.overheat" ;
-    mbsa:lambdaValue 1e-06 ;
-    mbsa:originalTechnicalId "_TgoUk5qHEe6tBNtbDdnv-w" ;
-    mbsa:probabilityLaw "Exponential" .
+mbsa:BATTERY_o_feedback_false_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o_feedback.false_nominal" ;
+    mbsa:originalTechnicalId "_pwu_IEEcEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_o_feedback_no_feedback a mbsa:Value ;
+    rdfs:label "BATTERY.o_feedback.no_feedback" ;
+    mbsa:originalTechnicalId "_ucBCgEEcEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_o_feedback_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.o_feedback.nominal" ;
+    mbsa:originalTechnicalId "_lrb9sEEcEfC_84IY77SE1Q" .
+
+mbsa:BATTERY_state1 a mbsa:StateVariable ;
+    rdfs:label "BATTERY.state1" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_TgoUkpqHEe6tBNtbDdnv-w" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:BATTERY_state1_failed a mbsa:Value ;
+    rdfs:label "BATTERY.state1.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:BATTERY_state1_nominal a mbsa:Value ;
+    rdfs:label "BATTERY.state1.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:BATT_AMPS a mbsa:AtomicBrickInstance ;
     rdfs:label "BATT_AMPS" ;
@@ -1270,23 +1318,97 @@ mbsa:Flight_Crew a mbsa:AtomicBrickInstance ;
     rdfs:label "Flight_Crew" ;
     mbsa:originalTechnicalId "_MKHNQK3_Ee6YKrBQt7OFsg" .
 
+mbsa:Flight_Crew_BadReactFeedback a mbsa:Event ;
+    rdfs:label "Flight_Crew.BadReactFeedback" ;
+    mbsa:lambdaValue 1e-06 ;
+    mbsa:originalTechnicalId "_2xw6kEEeEfC_84IY77SE1Q" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:Flight_Crew_OkReactFeedback a mbsa:Event ;
+    rdfs:label "Flight_Crew.OkReactFeedback" ;
+    mbsa:lambdaValue 1e-01 ;
+    mbsa:originalTechnicalId "_2-1tQEEeEfC_84IY77SE1Q" ;
+    mbsa:probabilityLaw "Exponential" .
+
+mbsa:Flight_Crew_ReactToBattFeedback a mbsa:StateVariable ;
+    rdfs:label "Flight_Crew.ReactToBattFeedback" ;
+    mbsa:initialValueLiteral "nominal" ;
+    mbsa:originalTechnicalId "_09jyAEEeEfC_84IY77SE1Q" ;
+    mbsa:valueDomainDescription "nominal_failed" .
+
+mbsa:Flight_Crew_ReactToBattFeedback_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.ReactToBattFeedback.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_ReactToBattFeedback_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.ReactToBattFeedback.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
 mbsa:Flight_Crew_failure a mbsa:Event ;
     rdfs:label "Flight_Crew.failure" ;
     mbsa:lambdaValue 1e-06 ;
     mbsa:originalTechnicalId "_MKH0UK3_Ee6YKrBQt7OFsg" ;
     mbsa:probabilityLaw "Exponential" .
 
-mbsa:Flight_Crew_i_Battery_State a mbsa:InConnector ;
-    rdfs:label "Flight_Crew.i_Battery_State" ;
-    mbsa:originalTechnicalId "_eRtiwD-KEfCzAopLvY22FA" .
+mbsa:Flight_Crew_i1 a mbsa:InConnector ;
+    rdfs:label "Flight_Crew.i1" ;
+    mbsa:originalTechnicalId "_rNF9gEEeEfC_84IY77SE1Q" .
 
-mbsa:Flight_Crew_i_Battery_State_nominal a mbsa:Value ;
-    rdfs:label "Flight_Crew.i_Battery_State.nominal" ;
-    mbsa:originalTechnicalId "_Mu82oT-KEfCzAopLvY22FA" .
+mbsa:Flight_Crew_i1_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.i1.failed" ;
+    mbsa:originalTechnicalId "_lrckwEEcEfC_84IY77SE1Q" .
 
-mbsa:Flight_Crew_i_Battery_State_overheat a mbsa:Value ;
-    rdfs:label "Flight_Crew.i_Battery_State.overheat" ;
-    mbsa:originalTechnicalId "_Mu82oj-KEfCzAopLvY22FA" .
+mbsa:Flight_Crew_i1_false_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.i1.false_failed" ;
+    mbsa:originalTechnicalId "_py_o8EEcEfC_84IY77SE1Q" .
+
+mbsa:Flight_Crew_i1_false_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i1.false_nominal" ;
+    mbsa:originalTechnicalId "_pwu_IEEcEfC_84IY77SE1Q" .
+
+mbsa:Flight_Crew_i1_no_feedback a mbsa:Value ;
+    rdfs:label "Flight_Crew.i1.no_feedback" ;
+    mbsa:originalTechnicalId "_ucBCgEEcEfC_84IY77SE1Q" .
+
+mbsa:Flight_Crew_i1_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i1.nominal" ;
+    mbsa:originalTechnicalId "_lrb9sEEcEfC_84IY77SE1Q" .
+
+mbsa:Flight_Crew_i3 a mbsa:InConnector ;
+    rdfs:label "Flight_Crew.i3" ;
+    mbsa:originalTechnicalId "_DZVNQER7EfCdT80WmhYWCw" .
+
+mbsa:Flight_Crew_i3_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.i3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_i3_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i3.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_i4 a mbsa:InConnector ;
+    rdfs:label "Flight_Crew.i4" ;
+    mbsa:originalTechnicalId "_58JQYESWEfCdT80WmhYWCw" .
+
+mbsa:Flight_Crew_i4_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.i4.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_i4_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i4.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_i_Feedback_Generator a mbsa:InConnector ;
+    rdfs:label "Flight_Crew.i_Feedback_Generator" ;
+    mbsa:originalTechnicalId "_7o9WIEHmEfCCouOzEZA51g" .
+
+mbsa:Flight_Crew_i_Feedback_Generator_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.i_Feedback_Generator.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:Flight_Crew_i_Feedback_Generator_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.i_Feedback_Generator.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:Flight_Crew_o10 a mbsa:OutConnector ;
     rdfs:label "Flight_Crew.o10" ;
@@ -1408,16 +1530,16 @@ mbsa:Flight_Crew_o9_nominal a mbsa:Value ;
     rdfs:label "Flight_Crew.o9.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:Flight_Crew_oSet_Battery_To_Use a mbsa:OutConnector ;
-    rdfs:label "Flight_Crew.oSet_Battery_To_Use" ;
+mbsa:Flight_Crew_o_BattRelayOutput a mbsa:OutConnector ;
+    rdfs:label "Flight_Crew.o_BattRelayOutput" ;
     mbsa:originalTechnicalId "_UEn-AK4FEe6YKrBQt7OFsg" .
 
-mbsa:Flight_Crew_oSet_Battery_To_Use_failed a mbsa:Value ;
-    rdfs:label "Flight_Crew.oSet_Battery_To_Use.failed" ;
+mbsa:Flight_Crew_o_BattRelayOutput_failed a mbsa:Value ;
+    rdfs:label "Flight_Crew.o_BattRelayOutput.failed" ;
     mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
 
-mbsa:Flight_Crew_oSet_Battery_To_Use_nominal a mbsa:Value ;
-    rdfs:label "Flight_Crew.oSet_Battery_To_Use.nominal" ;
+mbsa:Flight_Crew_o_BattRelayOutput_nominal a mbsa:Value ;
+    rdfs:label "Flight_Crew.o_BattRelayOutput.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:Flight_Crew_repair a mbsa:Event ;
@@ -2676,16 +2798,28 @@ mbsa:L_STARTER_GENERATOR_o1_nominal a mbsa:Value ;
     rdfs:label "L_STARTER_GENERATOR.o1.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:L_STARTER_GENERATOR_o_GCU a mbsa:OutConnector ;
-    rdfs:label "L_STARTER_GENERATOR.o_GCU" ;
-    mbsa:originalTechnicalId "__uQjsLbJEe6YKrBQt7OFsg" .
+mbsa:L_STARTER_GENERATOR_o_Feedback_Flight_Crew a mbsa:OutConnector ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_Flight_Crew" ;
+    mbsa:originalTechnicalId "_2en_QEHmEfCCouOzEZA51g" .
 
-mbsa:L_STARTER_GENERATOR_o_GCU_failed a mbsa:Value ;
-    rdfs:label "L_STARTER_GENERATOR.o_GCU.failed" ;
+mbsa:L_STARTER_GENERATOR_o_Feedback_Flight_Crew_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_Flight_Crew.failed" ;
     mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
 
-mbsa:L_STARTER_GENERATOR_o_GCU_nominal a mbsa:Value ;
-    rdfs:label "L_STARTER_GENERATOR.o_GCU.nominal" ;
+mbsa:L_STARTER_GENERATOR_o_Feedback_Flight_Crew_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_Flight_Crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o_Feedback_GCU a mbsa:OutConnector ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_GCU" ;
+    mbsa:originalTechnicalId "__uQjsLbJEe6YKrBQt7OFsg" .
+
+mbsa:L_STARTER_GENERATOR_o_Feedback_GCU_failed a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_GCU.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:L_STARTER_GENERATOR_o_Feedback_GCU_nominal a mbsa:Value ;
+    rdfs:label "L_STARTER_GENERATOR.o_Feedback_GCU.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:L_STARTER_GENERATOR_state1 a mbsa:StateVariable ;
@@ -3166,6 +3300,18 @@ mbsa:MASTER_INTERIOR_SSR_o2_failed a mbsa:Value ;
 
 mbsa:MASTER_INTERIOR_SSR_o2_nominal a mbsa:Value ;
     rdfs:label "MASTER_INTERIOR_SSR.o2.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o3 a mbsa:OutConnector ;
+    rdfs:label "MASTER_INTERIOR_SSR.o3" ;
+    mbsa:originalTechnicalId "_DYanQER7EfCdT80WmhYWCw" .
+
+mbsa:MASTER_INTERIOR_SSR_o3_failed a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o3.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:MASTER_INTERIOR_SSR_o3_nominal a mbsa:Value ;
+    rdfs:label "MASTER_INTERIOR_SSR.o3.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:MASTER_INTERIOR_SSR_state1 a mbsa:StateVariable ;
@@ -4518,6 +4664,18 @@ mbsa:R_SSR_1_BUS_BAR_o4_nominal a mbsa:Value ;
     rdfs:label "R_SSR_1_BUS_BAR.o4.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
+mbsa:R_SSR_1_BUS_BAR_o5 a mbsa:OutConnector ;
+    rdfs:label "R_SSR_1_BUS_BAR.o5" ;
+    mbsa:originalTechnicalId "_57-RQESWEfCdT80WmhYWCw" .
+
+mbsa:R_SSR_1_BUS_BAR_o5_failed a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o5.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_SSR_1_BUS_BAR_o5_nominal a mbsa:Value ;
+    rdfs:label "R_SSR_1_BUS_BAR.o5.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
 mbsa:R_SSR_1_BUS_BAR_state1 a mbsa:StateVariable ;
     rdfs:label "R_SSR_1_BUS_BAR.state1" ;
     mbsa:initialValueLiteral "nominal" ;
@@ -4586,16 +4744,28 @@ mbsa:R_STARTER_GENERATOR_o1_nominal a mbsa:Value ;
     rdfs:label "R_STARTER_GENERATOR.o1.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
-mbsa:R_STARTER_GENERATOR_o_GCU a mbsa:OutConnector ;
-    rdfs:label "R_STARTER_GENERATOR.o_GCU" ;
-    mbsa:originalTechnicalId "__uQjsbbJEe6YKrBQt7OFsg" .
+mbsa:R_STARTER_GENERATOR_o_Feedback_Flight_Crew a mbsa:OutConnector ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_Flight_Crew" ;
+    mbsa:originalTechnicalId "_2ep0cEHmEfCCouOzEZA51g" .
 
-mbsa:R_STARTER_GENERATOR_o_GCU_failed a mbsa:Value ;
-    rdfs:label "R_STARTER_GENERATOR.o_GCU.failed" ;
+mbsa:R_STARTER_GENERATOR_o_Feedback_Flight_Crew_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_Flight_Crew.failed" ;
     mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
 
-mbsa:R_STARTER_GENERATOR_o_GCU_nominal a mbsa:Value ;
-    rdfs:label "R_STARTER_GENERATOR.o_GCU.nominal" ;
+mbsa:R_STARTER_GENERATOR_o_Feedback_Flight_Crew_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_Flight_Crew.nominal" ;
+    mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o_Feedback_GCU a mbsa:OutConnector ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_GCU" ;
+    mbsa:originalTechnicalId "__uQjsbbJEe6YKrBQt7OFsg" .
+
+mbsa:R_STARTER_GENERATOR_o_Feedback_GCU_failed a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_GCU.failed" ;
+    mbsa:originalTechnicalId "_WnZ4oOiaEeacdt7aPZQgYg" .
+
+mbsa:R_STARTER_GENERATOR_o_Feedback_GCU_nominal a mbsa:Value ;
+    rdfs:label "R_STARTER_GENERATOR.o_Feedback_GCU.nominal" ;
     mbsa:originalTechnicalId "_VoL3UOiaEeacdt7aPZQgYg" .
 
 mbsa:R_STARTER_GENERATOR_state1 a mbsa:StateVariable ;

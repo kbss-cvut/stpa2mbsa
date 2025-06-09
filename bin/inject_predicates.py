@@ -101,10 +101,10 @@ def generate_altarica_predicates(input_altarica_filepath, input_json_filepath, t
 
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)
-        output_altarica_filename = f"{base_name}_with_assertions{ext}" if insertion_successful else f"{base_name}_no_new_assertions_injected{ext}"
+        output_altarica_filename = f"{base_name}_with_predicates{ext}" if insertion_successful else f"{base_name}_no_new_predicates{ext}"
         output_altarica_filepath = os.path.join(output_dir, output_altarica_filename)
     else:
-        output_altarica_filename = f"{base_name}_with_assertions{ext}" if insertion_successful else f"{base_name}_no_new_assertions_injected{ext}"
+        output_altarica_filename = f"{base_name}_with_predicates{ext}" if insertion_successful else f"{base_name}_no_new_predicates{ext}"
         output_altarica_filepath = os.path.join(os.path.dirname(input_altarica_filepath), output_altarica_filename)
 
     try:

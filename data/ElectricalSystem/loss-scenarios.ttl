@@ -329,7 +329,7 @@ stpa:LS-2_1--Battery-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-2_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-2.2) Feedback received by Flight crew incorrectly indicates that the battery is disconnected and overheated - it is true that the battery is disconnected and overheated" ;
+    stpa:original-text "(LS-2.2) Feedback received by Flight crew does not adequately indicates that the battery is disconnected and overheated - it is true that the battery is disconnected and overheated" ;
     stpa:has-control-action stpa:set_battery_to_use ;
     stpa:has-controlled-process stpa:Battery ;
     stpa:context "the battery is disconnected and overheated" .
@@ -444,7 +444,7 @@ stpa:LS-3_2--Battery-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-3_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-3.3) Flight crew does not provide the set battery to use action when the battery is not connected but available while other power source are not, and the battery is not overheated - set battery to use is received by Battery too late" ;
+    stpa:original-text "(LS-3.3) Flight crew provides the set battery to use action on time/in order - set battery to use is received by Battery too late" ;
     stpa:has-control-action stpa:set_battery_to_use ;
     stpa:has-controlled-process stpa:Battery ;
     stpa:context "the battery is not connected but available while other power source are not, and the battery is not overheated" .
@@ -605,7 +605,7 @@ stpa:LS-5_1--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-5_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-5.2) Feedback received by Flight crew incorrectly indicates that the battery is connected, charged while other power source are not - it is true that the battery is connected, charged while other power source are not" ;
+    stpa:original-text "(LS-5.2) Feedback received by Flight crew does not adequately indicates that the battery is connected, charged while other power source are not - it is true that the battery is connected, charged while other power source are not" ;
     stpa:has-control-action stpa:set_battery_to_not_use ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "the battery is connected, charged while other power source are not" .
@@ -720,7 +720,7 @@ stpa:LS-6_2--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-6_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-6.3) Flight crew does not provide the set battery to not use action when the battery is connected and it overheats - set battery to not use is received by Circuit breaker too late" ;
+    stpa:original-text "(LS-6.3) Flight crew provides the set battery to not use action on time/in order - set battery to not use is received by Circuit breaker too late" ;
     stpa:has-control-action stpa:set_battery_to_not_use ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "the battery is connected and it overheats" .
@@ -881,7 +881,7 @@ stpa:LS-8_1--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAsso
 
 stpa:LS-8_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-8.2) Feedback received by Flight crew incorrectly indicates that the generator is in fault condition and not connected - it is true that the generator is in fault condition and not connected" ;
+    stpa:original-text "(LS-8.2) Feedback received by Flight crew does not adequately indicates that the generator is in fault condition and not connected - it is true that the generator is in fault condition and not connected" ;
     stpa:has-control-action stpa:set_generator_to_use ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "the generator is in fault condition and not connected" .
@@ -996,7 +996,7 @@ stpa:LS-9_2--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAsso
 
 stpa:LS-9_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-9.3) Flight crew does not provide the set generator to use action when the generator is online and not connected - set generator to use is received by Generator Control Unit (GCU) too late" ;
+    stpa:original-text "(LS-9.3) Flight crew provides the set generator to use action on time/in order - set generator to use is received by Generator Control Unit (GCU) too late" ;
     stpa:has-control-action stpa:set_generator_to_use ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "the generator is online and not connected" .
@@ -1157,7 +1157,7 @@ stpa:LS-11_1--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-11_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-11.2) Feedback received by Flight crew incorrectly indicates that the generator is connected, online and functional - it is true that the generator is connected, online and functional" ;
+    stpa:original-text "(LS-11.2) Feedback received by Flight crew does not adequately indicates that the generator is connected, online and functional - it is true that the generator is connected, online and functional" ;
     stpa:has-control-action stpa:set_generator_to_not_use ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "the generator is connected, online and functional" .
@@ -1272,7 +1272,7 @@ stpa:LS-12_2--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-12_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-12.3) Flight crew does not provide the set generator to not use action when connected, in fault condition and cannot be reset - set generator to not use is received by Generator Control Unit (GCU) too late" ;
+    stpa:original-text "(LS-12.3) Flight crew provides the set generator to not use action on time/in order - set generator to not use is received by Generator Control Unit (GCU) too late" ;
     stpa:has-control-action stpa:set_generator_to_not_use ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "connected, in fault condition and cannot be reset" .
@@ -1456,7 +1456,7 @@ stpa:LS-14_2--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-14_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-14.3) Flight crew does not provide the reset generator action when connected and in fault condition - reset generator is received by Generator Control Unit (GCU) too late" ;
+    stpa:original-text "(LS-14.3) Flight crew provides the reset generator action on time/in order - reset generator is received by Generator Control Unit (GCU) too late" ;
     stpa:has-control-action stpa:reset_generator ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "connected and in fault condition" .
@@ -1617,7 +1617,7 @@ stpa:LS-16_1--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-16_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-16.2) Feedback received by Flight crew incorrectly indicates that engine is not running, in fault condition and cannot be started - it is true that engine is not running, in fault condition and cannot be started" ;
+    stpa:original-text "(LS-16.2) Feedback received by Flight crew does not adequately indicates that engine is not running, in fault condition and cannot be started - it is true that engine is not running, in fault condition and cannot be started" ;
     stpa:has-control-action stpa:start_engine ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "engine is not running, in fault condition and cannot be started" .
@@ -1709,7 +1709,7 @@ stpa:LS-17_1--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-17_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-17.2) Feedback received by Flight crew incorrectly indicates that engine is not running, in fault condition and cannot be started - it is true that engine is not running, in fault condition and cannot be started" ;
+    stpa:original-text "(LS-17.2) Feedback received by Flight crew does not adequately indicates that engine is not running, in fault condition and cannot be started - it is true that engine is not running, in fault condition and cannot be started" ;
     stpa:has-control-action stpa:start_engine ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "engine is not running, in fault condition and cannot be started" .
@@ -1824,7 +1824,7 @@ stpa:LS-18_2--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-18_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-18.3) Flight crew does not provide the start engine action when engine is not running, it can be started and it is needed to power the aircraft - start engine is received by Generator Control Unit (GCU) too late" ;
+    stpa:original-text "(LS-18.3) Flight crew provides the start engine action on time/in order - start engine is received by Generator Control Unit (GCU) too late" ;
     stpa:has-control-action stpa:start_engine ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "engine is not running, it can be started and it is needed to power the aircraft" .
@@ -2008,7 +2008,7 @@ stpa:LS-20_2--Battery-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-20_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-20.3) Flight crew does not provide the disengage engine start action when before the engine has started when it can be started and its power is needed - disengage engine start is received by Battery too early/late/out of order" ;
+    stpa:original-text "(LS-20.3) Flight crew provides the disengage engine start action on time/in order - disengage engine start is received by Battery too early/late/out of order" ;
     stpa:has-control-action stpa:disengage_engine_start ;
     stpa:has-controlled-process stpa:Battery ;
     stpa:context "before the engine has started when it can be started and its power is needed" .
@@ -2169,7 +2169,7 @@ stpa:LS-22_1--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-22_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-22.2) Feedback received by Flight crew incorrectly indicates that the power distribution is faulty - it is true that the power distribution is faulty" ;
+    stpa:original-text "(LS-22.2) Feedback received by Flight crew does not adequately indicates that the power distribution is faulty - it is true that the power distribution is faulty" ;
     stpa:has-control-action stpa:connect_user_system ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "the power distribution is faulty" .
@@ -2284,7 +2284,7 @@ stpa:LS-23_2--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-23_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-23.3) Flight crew does not provide the connect user system action when it can be connected, the system is needed and functional - connect user system is received by Circuit breaker too late" ;
+    stpa:original-text "(LS-23.3) Flight crew provides the connect user system action on time/in order - connect user system is received by Circuit breaker too late" ;
     stpa:has-control-action stpa:connect_user_system ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "it can be connected, the system is needed and functional" .
@@ -2353,7 +2353,7 @@ stpa:LS-24_1--User_systems-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-24_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-24.2) Feedback received by Flight crew incorrectly indicates that it the system is needed and functional - it is true that it the system is needed and functional" ;
+    stpa:original-text "(LS-24.2) Feedback received by Flight crew does not adequately indicates that it the system is needed and functional - it is true that it the system is needed and functional" ;
     stpa:has-control-action stpa:disconnect_user_system ;
     stpa:has-controlled-process stpa:User_systems ;
     stpa:context "it the system is needed and functional" .
@@ -2560,7 +2560,7 @@ stpa:LS-26_2--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-26_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-26.3) Flight crew does not provide the connect internal component action when it can be connected and is needed for powering a necessary user system - connect internal component is received by Circuit breaker too late" ;
+    stpa:original-text "(LS-26.3) Flight crew provides the connect internal component action on time/in order - connect internal component is received by Circuit breaker too late" ;
     stpa:has-control-action stpa:connect_internal_component ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "it can be connected and is needed for powering a necessary user system" .
@@ -2629,7 +2629,7 @@ stpa:LS-27_1--Circuit_breaker-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-27_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-27.2) Feedback received by Flight crew incorrectly indicates that power is needed for a necessary user system - it is true that power is needed for a necessary user system" ;
+    stpa:original-text "(LS-27.2) Feedback received by Flight crew does not adequately indicates that power is needed for a necessary user system - it is true that power is needed for a necessary user system" ;
     stpa:has-control-action stpa:disconnect_internal_component ;
     stpa:has-controlled-process stpa:Circuit_breaker ;
     stpa:context "power is needed for a necessary user system" .
@@ -2836,7 +2836,7 @@ stpa:LS-29_2--User_systems-association a stpa:ScenarioProcessAssociation ;
 
 stpa:LS-29_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-29.3) Flight crew does not provide the turn on user system action when the system is OFF and necessary for safe conduct of flight - turn on user system is received by User systems too late" ;
+    stpa:original-text "(LS-29.3) Flight crew provides the turn on user system action on time/in order - turn on user system is received by User systems too late" ;
     stpa:has-control-action stpa:turn_on_user_system ;
     stpa:has-controlled-process stpa:User_systems ;
     stpa:context "the system is OFF and necessary for safe conduct of flight" .
@@ -2905,7 +2905,7 @@ stpa:LS-30_1--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-30_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-30.2) Feedback received by Flight crew incorrectly indicates that the system is ON and necessary for safe conduct of flight - it is true that the system is ON and necessary for safe conduct of flight" ;
+    stpa:original-text "(LS-30.2) Feedback received by Flight crew does not adequately indicates that the system is ON and necessary for safe conduct of flight - it is true that the system is ON and necessary for safe conduct of flight" ;
     stpa:has-control-action stpa:turn_off_user_system ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "the system is ON and necessary for safe conduct of flight" .
@@ -3089,7 +3089,7 @@ stpa:LS-32_1--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-32_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-32.2) Feedback received by Circuit breaker incorrectly indicates that it is not overloaded - it is true that it is not overloaded" ;
+    stpa:original-text "(LS-32.2) Feedback received by Circuit breaker does not adequately indicates that it is not overloaded - it is true that it is not overloaded" ;
     stpa:has-control-action stpa:break_a_circuit ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "it is not overloaded" .
@@ -3204,7 +3204,7 @@ stpa:LS-33_2--Generator_Control_Unit__GCU_-association a stpa:ScenarioProcessAss
 
 stpa:LS-33_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-33.3) Circuit breaker does not provide the break a circuit action when overloaded - break a circuit is received by Generator Control Unit (GCU) too late" ;
+    stpa:original-text "(LS-33.3) Circuit breaker provides the break a circuit action on time/in order - break a circuit is received by Generator Control Unit (GCU) too late" ;
     stpa:has-control-action stpa:break_a_circuit ;
     stpa:has-controlled-process stpa:Generator_Control_Unit__GCU_ ;
     stpa:context "overloaded" .
@@ -3365,7 +3365,7 @@ stpa:LS-35_1--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-35_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-35.2) Feedback received by Generator Control Unit (GCU) incorrectly indicates that respective generator parameters are exceeded - it is true that respective generator parameters are exceeded" ;
+    stpa:original-text "(LS-35.2) Feedback received by Generator Control Unit (GCU) does not adequately indicates that respective generator parameters are exceeded - it is true that respective generator parameters are exceeded" ;
     stpa:has-control-action stpa:connect ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "respective generator parameters are exceeded" .
@@ -3480,7 +3480,7 @@ stpa:LS-36_2--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-36_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-36.3) Generator Control Unit (GCU) does not provide the connect action when commanded by the crew and respective generator is online, its parameters are met - connect is received by Engine Starter-Generator too late" ;
+    stpa:original-text "(LS-36.3) Generator Control Unit (GCU) provides the connect action on time/in order - connect is received by Engine Starter-Generator too late" ;
     stpa:has-control-action stpa:connect ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "commanded by the crew and respective generator is online, its parameters are met" .
@@ -3733,7 +3733,7 @@ stpa:LS-39_1--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-39_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-39.2) Feedback received by Generator Control Unit (GCU) incorrectly indicates that the generator is online and functional, and it was not commanded to do so by the crew - it is true that the generator is online and functional, and it was not commanded to do so by the crew" ;
+    stpa:original-text "(LS-39.2) Feedback received by Generator Control Unit (GCU) does not adequately indicates that the generator is online and functional, and it was not commanded to do so by the crew - it is true that the generator is online and functional, and it was not commanded to do so by the crew" ;
     stpa:has-control-action stpa:disconnect ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "the generator is online and functional, and it was not commanded to do so by the crew" .
@@ -3848,7 +3848,7 @@ stpa:LS-40_2--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-40_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-40.3) Generator Control Unit (GCU) does not provide the disconnect action when commanded by the crew - disconnect is received by Engine Starter-Generator too late" ;
+    stpa:original-text "(LS-40.3) Generator Control Unit (GCU) provides the disconnect action on time/in order - disconnect is received by Engine Starter-Generator too late" ;
     stpa:has-control-action stpa:disconnect ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "commanded by the crew" .
@@ -3940,7 +3940,7 @@ stpa:LS-41_2--Engine_Starter-Generator-association a stpa:ScenarioProcessAssocia
 
 stpa:LS-41_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-41.3) Generator Control Unit (GCU) does not provide the disconnect action when respective generator parameters are exceeded - disconnect is received by Engine Starter-Generator too late" ;
+    stpa:original-text "(LS-41.3) Generator Control Unit (GCU) provides the disconnect action on time/in order - disconnect is received by Engine Starter-Generator too late" ;
     stpa:has-control-action stpa:disconnect ;
     stpa:has-controlled-process stpa:Engine_Starter-Generator ;
     stpa:context "respective generator parameters are exceeded" .
@@ -4101,7 +4101,7 @@ stpa:LS-43_1--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-43_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-43.2) Feedback received by Generator Control Unit (GCU) incorrectly indicates that respective operational parameters are met - it is true that respective operational parameters are met" ;
+    stpa:original-text "(LS-43.2) Feedback received by Generator Control Unit (GCU) does not adequately indicates that respective operational parameters are met - it is true that respective operational parameters are met" ;
     stpa:has-control-action stpa:control_operations ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context "respective operational parameters are met" .
@@ -4216,7 +4216,7 @@ stpa:LS-44_2--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-44_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-44.3) Generator Control Unit (GCU) does not provide the control operations action when respective operational parameters are exceeded - control operations is received by Distribution network out of order" ;
+    stpa:original-text "(LS-44.3) Generator Control Unit (GCU) provides the control operations action on time/in order - control operations is received by Distribution network out of order" ;
     stpa:has-control-action stpa:control_operations ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context "respective operational parameters are exceeded" .
@@ -4377,7 +4377,7 @@ stpa:LS-46_1--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-46_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-46.2) Feedback received by Generator Control Unit (GCU) incorrectly indicates that the starter-generator is active and respective operational parameters are met - it is true that the starter-generator is active and respective operational parameters are met" ;
+    stpa:original-text "(LS-46.2) Feedback received by Generator Control Unit (GCU) does not adequately indicates that the starter-generator is active and respective operational parameters are met - it is true that the starter-generator is active and respective operational parameters are met" ;
     stpa:has-control-action stpa:starter_cutoff ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context "the starter-generator is active and respective operational parameters are met" .
@@ -4492,7 +4492,7 @@ stpa:LS-47_2--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-47_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-47.3) Generator Control Unit (GCU) does not provide the starter cutoff action when .. - starter cutoff is received by Distribution network undefined" ;
+    stpa:original-text "(LS-47.3) Generator Control Unit (GCU) provides the starter cutoff action on time/in order - starter cutoff is received by Distribution network undefined" ;
     stpa:has-control-action stpa:starter_cutoff ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context ".." .
@@ -4653,7 +4653,7 @@ stpa:LS-49_1--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-49_2 a stpa:LossScenario ;
     stpa:scenario-class "2" ;
-    stpa:original-text "(LS-49.2) Feedback received by Circuit breaker incorrectly indicates that the circuit is overloaded - it is true that the circuit is overloaded" ;
+    stpa:original-text "(LS-49.2) Feedback received by Circuit breaker does not adequately indicates that the circuit is overloaded - it is true that the circuit is overloaded" ;
     stpa:has-control-action stpa:connect_a_circuit ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context "the circuit is overloaded" .
@@ -4768,7 +4768,7 @@ stpa:LS-50_2--Distribution_network-association a stpa:ScenarioProcessAssociation
 
 stpa:LS-50_3 a stpa:LossScenario ;
     stpa:scenario-class "3" ;
-    stpa:original-text "(LS-50.3) Circuit breaker does not provide the connect a circuit action when instructed and the circuit is not overloaded - connect a circuit is received by Distribution network too late" ;
+    stpa:original-text "(LS-50.3) Circuit breaker provides the connect a circuit action on time/in order - connect a circuit is received by Distribution network too late" ;
     stpa:has-control-action stpa:connect_a_circuit ;
     stpa:has-controlled-process stpa:Distribution_network ;
     stpa:context "instructed and the circuit is not overloaded" .

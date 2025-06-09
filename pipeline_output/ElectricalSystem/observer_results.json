@@ -10,21 +10,751 @@
       {
         "scenarioName" : {
           "type" : "literal",
-          "value" : "LS-2.1"
+          "value" : "LS-1.1"
         },
         "allConditions" : {
           "type" : "literal",
-          "value" : "(Flight_Crew.oSet_Battery_To_Use = nominal) and (BATTERY.battery_state = overheat) and (Flight_Crew.i_Battery_State = overheat)"
+          "value" : "(Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (Flight_Crew.i1 = nominal)"
         }
       },
       {
         "scenarioName" : {
           "type" : "literal",
-          "value" : "LS-7.1"
+          "value" : "LS-1.2"
         },
         "allConditions" : {
           "type" : "literal",
-          "value" : "(Flight_Crew.state1 = nominal) and (Flight_Crew.o3 = nominal) and (L_STARTER_GENERATOR.state1 = failed)"
+          "value" : "(Flight_Crew.i1 = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-1.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (BATTERY.i1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-1.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(BATTERY.i1 = nominal) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-10.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal) and (Flight_Crew.o3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-10.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-10.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.state1 = failed) and (L_GEN_RELAY.i_flight_crew = nominal) and (Flight_Crew.o3 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-10.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.i_flight_crew = failed) and (L_GCU.state1 = failed) and (L_GCU.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-11.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o3 = failed) and (L_GCU.state1 = nominal) and (Flight_Crew.i3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-11.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i3 = failed) and (L_GCU.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-11.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal) and (L_GCU.i_starter = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-11.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = nominal) and (L_GCU.state1 = nominal) and (L_GCU.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-2.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.state1 = failed) and (Flight_Crew.i1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-2.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i1 = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-2.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-2.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.i1 = failed) and (BATTERY.state1 = failed) and (BATTERY.o2 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-21.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-21.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-21.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.i3 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-21.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(MASTER_INTERIOR_SSR.i3 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-22.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = nominal) and (R_SSR_1_BUS_BAR.state1 = failed) and (Flight_Crew.i4 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-22.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i4 = failed) and (R_SSR_1_BUS_BAR.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-22.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = failed) and (R_SSR_1_BUS_BAR.state1 = failed) and (NORM_or_INT_DISC.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-22.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(MASTER_INTERIOR_SSR.i3 = failed) and (L_SSR_1_BUS_BAR.state1 = failed) and (MASTER_INTERIOR_SSR.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-24.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-24.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-24.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.i1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-24.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(MASTER_INTERIOR_SSR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-28.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (Flight_Crew.i3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-28.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-28.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (MASTER_INTERIOR_SSR.i1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-28.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(MASTER_INTERIOR_SSR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (MASTER_INTERIOR_SSR.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-30.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-30.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-30.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (L_STARTER_GENERATOR.i1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-30.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (L_STARTER_GENERATOR.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-31.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.o1 = failed) and (L_GEN_RELAY.i2 = failed) and (L_GEN_RELAY.i2State = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-31.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.i2State = failed) and (L_GEN_RELAY.i2 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-31.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.o1 = nominal) and (L_GEN_RELAY.i2 = failed) and (L_GCU.i_starter = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-31.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = failed) and (L_GCU.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-32.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.o1 = nominal) and (L_GEN_RELAY.i1 = nominal) and (L_GEN_RELAY.i1State = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-32.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.i1State = failed) and (L_GEN_RELAY.i1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-32.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GEN_RELAY.o1 = failed) and (L_GEN_RELAY.i1 = nominal) and (L_GCU.i_starter = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-32.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = nominal) and (L_GEN_RELAY.state1 = nominal) and (L_GCU.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-34.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = failed) and (L_GCU.i_starter = nominal) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-34.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-34.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = nominal) and (L_STARTER_GENERATOR.feedbackState = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-34.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.feedbackState = nominal) and (L_GCU.o1 = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-35.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = nominal) and (L_GCU.state1 = nominal) and (L_GCU.i_starter = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-35.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = nominal) and (L_GCU.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-35.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.i1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-35.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.i1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-37.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = nominal) and (Flight_Crew.o3 = failed) and (L_GCU.i_starter = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-37.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = failed) and (Flight_Crew.o3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-37.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = failed) and (Flight_Crew.o3 = failed) and (L_STARTER_GENERATOR.feedbackState = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-37.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.feedbackState = nominal) and (Flight_Crew.o3 = failed) and (L_STARTER_GENERATOR.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-38.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_START_CNTRL_PCB.o1 = nominal) and (L_GCU.state1 = failed) and (L_GCU.i_starter = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-38.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = nominal) and (L_GCU.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-38.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.o1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.feedbackState = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-38.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.i1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.o1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-39.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.o1 = failed) and (L_GCU.i_starter = failed) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-39.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.o1 = nominal) and (L_STARTER_GENERATOR.i1 = failed) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-39.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_STARTER_GENERATOR.i1 = nominal) and (L_STARTER_GENERATOR.o1 = nominal) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-4.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.state1 = nominal) and (Flight_Crew.i1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-4.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i1 = failed) and (BATTERY.state1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-4.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = failed) and (BATT_DISC_RELAY.i1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-4.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(BATT_DISC_RELAY.i1 = failed) and (BATTERY.state1 = failed) and (BATT_DISC_RELAY.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-5.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (Flight_Crew.i1 = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-5.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-5.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o_BattRelayOutput = nominal) and (BATT_DISC_RELAY.i1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-5.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(BATT_DISC_RELAY.i1 = nominal) and (BATT_DISC_RELAY.o1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-8.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o3 = nominal) and (L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-8.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-8.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o3 = failed) and (L_GCU.state1 = failed) and (L_GCU.i_starter = nominal)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-8.4"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.i_starter = failed) and (L_GCU.state1 = failed) and (L_GCU.o1 = failed)"
         }
       }
     ]
