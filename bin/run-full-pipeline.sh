@@ -86,6 +86,8 @@ setup_and_validate() {
     validate_file_exists "$PYTHON_SCRIPT_HTML2RDF"
     validate_file_exists "$S_PIPES_SCRIPT_DEPLOY_VOCAB"
     validate_file_exists "$OBSERVER_QUERY_FILE"
+    validate_file_exists "$PYTHON_SCRIPT_INJECT_ALTA_PREDICATES"
+    validate_file_exists "$ALTA_RICA_MODEL_FILE"
     log_info "Initial validation complete."
 }
 
@@ -199,6 +201,17 @@ generate_observers_graphdb() {
     log_info "--- End of Observer Results ---"
 }
 
+inject_altarica_predicates() {
+    log_info "=== Injecting Observer Predicates into ALtaRica Model ==="
+    run_command "$PYTHON_EXE" "$PYTHON_SCRIPT_INJECT_ALTA_PREDICATES" \
+        "$ALTA_RICA_MODEL_FILE" \
+        "$OBSERVER_RESULTS_FILE" \
+        "$TARGET_ALTA_RICA_NODE" \
+        "$OUTPUT_DIR"
+    log_info "ALtaRica predicates injected. Check output file for results."
+}
+
+
 log_info "Starting STPA to MBSA Observer Generation Pipeline..."
 
 setup_and_validate
@@ -209,5 +222,6 @@ deploy_vocab_to_termit
 pause_for_annotation
 convert_annotated_html_to_rdf
 generate_observers_graphdb
+inject_altarica_predicates
 
 log_info "=== Pipeline Completed Successfully! ==="
