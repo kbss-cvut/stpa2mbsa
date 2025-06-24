@@ -720,6 +720,36 @@
       {
         "scenarioName" : {
           "type" : "literal",
+          "value" : "LS-7.1"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal) and (Flight_Crew.o3 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-7.2"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
+          "value" : "LS-7.3"
+        },
+        "allConditions" : {
+          "type" : "literal",
+          "value" : "(Flight_Crew.o3 = nominal) and (L_GCU.state1 = failed) and (L_GCU.i_starter = failed)"
+        }
+      },
+      {
+        "scenarioName" : {
+          "type" : "literal",
           "value" : "LS-8.1"
         },
         "allConditions" : {

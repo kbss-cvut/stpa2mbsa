@@ -1,0 +1,25 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX mbsa: <http://fd.cvut.cz/chopamax/mbsa/cessna_electrical_system#>
+SELECT
+    ?stpaScenarioName
+    ?annotatedText
+    ?mbsaItemLabel
+WHERE {
+    ?occurrence a termit:výskyt-termu ;
+                termit:scenarioID ?scenarioID_from_annotation ;
+                termit:odkazuje-na-anotovaný-text ?annotatedText ;
+                termit:je-přiřazením-termu ?linkedMBSA_ItemURI .
+
+    ?linkedMBSA_ItemURI rdfs:label ?mbsaItemLabel .
+
+    ?stpaScenario a stpa:LossScenario ;
+                  stpa:context ?scenarioContextText_raw .
+    BIND(STR(?scenarioContextText_raw) AS ?scenarioContextText)
+    BIND(REPLACE(STRAFTER(STR(?stpaScenario), STR(stpa:)), "_", ".") AS ?stpaScenarioName)
+    FILTER(?stpaScenarioName = ?scenarioID_from_annotation)
+}
+ORDER BY ?stpaScenarioName ?annotatedText

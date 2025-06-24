@@ -1,0 +1,857 @@
+
+@prefix stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+stpa: a owl:Ontology ;
+    owl:versionIRI stpa:v0.1 .
+
+################################################
+##  Classes
+################################################
+
+stpa:LossScenario a owl:Class .
+stpa:ScenarioControllerAssociation a owl:Class .
+stpa:ScenarioProcessAssociation a owl:Class .
+stpa:Controller a owl:Class .
+stpa:ControlAction a owl:Class .
+stpa:ControlledProcess a owl:Class .
+
+################################################
+##  Object Properties
+################################################
+
+stpa:belongs-to-scenario a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation, stpa:ScenarioProcessAssociation ;
+    rdfs:range stpa:LossScenario ;
+    rdfs:label "belongs-to-scenario" .
+
+stpa:has-controller a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:range stpa:Controller ;
+    rdfs:label "has-controller" .
+
+stpa:has-control-action a owl:ObjectProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range stpa:ControlAction ;
+    rdfs:label "has-control-action" .
+
+stpa:has-controlled-process a owl:ObjectProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range stpa:ControlledProcess ;
+    rdfs:label "has-controlled-process" .
+
+stpa:has-process a owl:ObjectProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range stpa:ControlledProcess ;
+    rdfs:label "has-process" .
+
+################################################
+##  Data Properties
+################################################
+
+stpa:provided-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "provided-status" .
+
+stpa:feedback-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioControllerAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "feedback-status" .
+
+stpa:scenario-class a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range xsd:string ;
+    rdfs:label "scenario-class" .
+
+stpa:original-text a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range xsd:string ;
+    rdfs:label "original-text" .
+
+stpa:context a owl:DatatypeProperty ;
+    rdfs:domain stpa:LossScenario ;
+    rdfs:range xsd:string ;
+    rdfs:label "context" .
+
+stpa:name a owl:DatatypeProperty ;
+    rdfs:domain stpa:Controller ;
+    rdfs:range xsd:string ;
+    rdfs:label "name" .
+
+stpa:process-reception-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "process-reception-status" .
+
+stpa:process-execution-status a owl:DatatypeProperty ;
+    rdfs:domain stpa:ScenarioProcessAssociation ;
+    rdfs:range xsd:string ;
+    rdfs:label "process-execution-status" .
+
+
+# === Controllers ===
+
+stpa:Engine_1 a stpa:Controller ;
+    rdfs:label "Engine 1" .
+
+
+stpa:Engine_2 a stpa:Controller ;
+    rdfs:label "Engine 2" .
+
+
+# === Control Actions ===
+
+stpa:supply_power a stpa:ControlAction ;
+    rdfs:label "supply power" .
+
+
+# === Controlled Processes ===
+
+stpa:Power_supply_2 a stpa:ControlledProcess ;
+    rdfs:label "Power supply 2" .
+
+
+stpa:Power_supply_3 a stpa:ControlledProcess ;
+    rdfs:label "Power supply 3" .
+
+
+# === Loss Scenarios ===
+
+stpa:LS-1_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-1.1) Engine 1 does not provide the supply power action when power is required - Engine 1 received feedback (or other input) that indicated power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-1_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-1_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-1_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-1.2) Feedback received by Engine 1 does not adequately indicate power is required - it is true that power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-1_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-1_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-1_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-1.3) Engine 1 does provide the supply power action when power is required - supply power is not received by Power supply 2 when power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-1_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-1_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-1_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-1.4) The supply power action is received by Power supply 2 when power is required - Power supply 2 does not respond adequately" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-1_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-1_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-1_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "executed" .
+
+
+
+stpa:LS-2_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-2.1) Engine 1 provides the supply power action when power is not required - Engine 1 received feedback (or other input) that indicated power is not required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is not required" .
+
+
+stpa:LS-2_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-2_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-2_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-2.2) Feedback received by Engine 1 does not adequately indicates that power is not required - it is true that power is not required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is not required" .
+
+
+stpa:LS-2_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-2_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-2_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-2.3) Engine 1 does not provide the supply power action when power is not required - Power supply 2 receives the supply power action when power is not required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is not required" .
+
+
+stpa:LS-2_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-2_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-2_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-2.4) The supply power action is not received by Power supply 2 when power is not required - Power supply 2 responds erroneously" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "power is not required" .
+
+
+stpa:LS-2_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-2_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-2_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "erroneousResponse" .
+
+
+
+stpa:LS-3_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-3.1) Engine 1 provides the supply power action when with inadequate power - Engine 1 received feedback (or other input) that indicated with inadequate power" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "with inadequate power" .
+
+
+stpa:LS-3_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-3_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-3_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-3.2) Feedback received by Engine 1 does not adequately indicates that with inadequate power - it is true that with inadequate power" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "with inadequate power" .
+
+
+stpa:LS-3_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-3_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-3_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-3.3) Engine 1 does not provide the supply power action when with inadequate power - Power supply 2 receives the supply power action when with inadequate power" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "with inadequate power" .
+
+
+stpa:LS-3_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-3_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-3_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-3.4) The supply power action is not received by Power supply 2 when with inadequate power - Power supply 2 responds erroneously" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "with inadequate power" .
+
+
+stpa:LS-3_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-3_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-3_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "erroneousResponse" .
+
+
+
+stpa:LS-4_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-4.1) Engine 1 provides the supply power action too early - Engine 1 received feedback (or other input) that indicated before the power was required on time/in order" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the power was required" .
+
+
+stpa:LS-4_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "providedTooEarly" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-4_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-4_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-4.2) Feedback received by Engine 1 does not indicate before the power was required on time - it is true that before the power was required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the power was required" .
+
+
+stpa:LS-4_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-4_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-4_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-4.3) Engine 1 provides the supply power action on time/in order - supply power is received by Power supply 2 too early" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the power was required" .
+
+
+stpa:LS-4_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "providedTooEarly" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-4_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "executedTooEarly" .
+
+
+
+stpa:LS-4_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-4.4) The supply power action is not received by Power supply 2 when before the power was required - Power supply 2 executes the action too early" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the power was required" .
+
+
+stpa:LS-4_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-4_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-4_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "executedTooEarly" .
+
+
+
+stpa:LS-5_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-5.1) Engine 1 provides the supply power action too late - Engine 1 received feedback (or other input) that indicated after the power was required on time/in order" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the power was required" .
+
+
+stpa:LS-5_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "providedTooLate" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-5_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-5_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-5.2) Feedback received by Engine 1 does not indicate after the power was required on time - it is true that after the power was required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the power was required" .
+
+
+stpa:LS-5_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-5_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-5_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-5.3) Engine 1 provides the supply power action on time/in order - supply power is received by Power supply 2 too late" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the power was required" .
+
+
+stpa:LS-5_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "providedTooLate" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-5_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "executedTooLate" .
+
+
+
+stpa:LS-5_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-5.4) The supply power action is not received by Power supply 2 when after the power was required - Power supply 2 executes the action too late" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the power was required" .
+
+
+stpa:LS-5_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-5_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-5_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "executedTooLate" .
+
+
+
+stpa:LS-6_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-6.1) Engine 1 stops providing the supply power action too soon - Engine 1 received feedback (or other input) that indicated before the desired action was performed on time" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the desired action was performed" .
+
+
+stpa:LS-6_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-6_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-6_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-6.2) Feedback received by Engine 1 indicates before the desired action was performed for an inappropriate duration, failing to accurately reflect the true state" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the desired action was performed" .
+
+
+stpa:LS-6_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-6_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-6_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-6.3) Engine 1 provides the supply power action with appropriate duration - supply power is received by Power supply 2 with inappropriate duration" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the desired action was performed" .
+
+
+stpa:LS-6_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-6_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "inappropriateDuration" .
+
+
+
+stpa:LS-6_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-6.4) The supply power action is not received by Power supply 2 when before the desired action was performed - Power supply 2 responds inadequately (inappropriate duration)" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "before the desired action was performed" .
+
+
+stpa:LS-6_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-6_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-6_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "inappropriateDuration" .
+
+
+
+stpa:LS-7_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-7.1) Engine 1 continues providing the supply power action too long - Engine 1 received feedback (or other input) that indicated after the desired action has been performed on time" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the desired action has been performed" .
+
+
+stpa:LS-7_1--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_1 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-7_1--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_1 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-7_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-7.2) Feedback received by Engine 1 indicates after the desired action has been performed for an inappropriate duration, failing to accurately reflect the true state" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the desired action has been performed" .
+
+
+stpa:LS-7_2--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_2 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-7_2--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_2 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-7_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-7.3) Engine 1 provides the supply power action with appropriate duration - supply power is received by Power supply 2 with inappropriate duration" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the desired action has been performed" .
+
+
+stpa:LS-7_3--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_3 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-7_3--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_3 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "received" ;
+    stpa:process-execution-status "inappropriateDuration" .
+
+
+
+stpa:LS-7_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-7.4) The supply power action is not received by Power supply 2 when after the desired action has been performed - Power supply 2 responds inadequately (inappropriate duration)" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_2 ;
+    stpa:context "after the desired action has been performed" .
+
+
+stpa:LS-7_4--Engine_1-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_4 ;
+    stpa:has-controller stpa:Engine_1 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-7_4--Power_supply_2-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-7_4 ;
+    stpa:has-process stpa:Power_supply_2 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "inappropriateDuration" .
+
+
+
+stpa:LS-8_1 a stpa:LossScenario ;
+    stpa:scenario-class "1" ;
+    stpa:original-text "(LS-8.1) Engine 2 does not provide the supply power action when power is required - Engine 2 received feedback (or other input) that indicated power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_3 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-8_1--Engine_2-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_1 ;
+    stpa:has-controller stpa:Engine_2 ;
+    stpa:provided-status "notProvided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-8_1--Power_supply_3-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_1 ;
+    stpa:has-process stpa:Power_supply_3 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-8_2 a stpa:LossScenario ;
+    stpa:scenario-class "2" ;
+    stpa:original-text "(LS-8.2) Feedback received by Engine 2 does not adequately indicate power is required - it is true that power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_3 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-8_2--Engine_2-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_2 ;
+    stpa:has-controller stpa:Engine_2 ;
+    stpa:provided-status "n/a" ;
+    stpa:feedback-status "inaccurate" .
+
+
+stpa:LS-8_2--Power_supply_3-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_2 ;
+    stpa:has-process stpa:Power_supply_3 ;
+    stpa:process-reception-status "n/a" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-8_3 a stpa:LossScenario ;
+    stpa:scenario-class "3" ;
+    stpa:original-text "(LS-8.3) Engine 2 does provide the supply power action when power is required - supply power is not received by Power supply 3 when power is required" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_3 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-8_3--Engine_2-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_3 ;
+    stpa:has-controller stpa:Engine_2 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-8_3--Power_supply_3-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_3 ;
+    stpa:has-process stpa:Power_supply_3 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "n/a" .
+
+
+
+stpa:LS-8_4 a stpa:LossScenario ;
+    stpa:scenario-class "4" ;
+    stpa:original-text "(LS-8.4) The supply power action is received by Power supply 3 when power is required - Power supply 3 does not respond adequately" ;
+    stpa:has-control-action stpa:supply_power ;
+    stpa:has-controlled-process stpa:Power_supply_3 ;
+    stpa:context "power is required" .
+
+
+stpa:LS-8_4--Engine_2-association a stpa:ScenarioControllerAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_4 ;
+    stpa:has-controller stpa:Engine_2 ;
+    stpa:provided-status "provided" ;
+    stpa:feedback-status "accurate" .
+
+
+stpa:LS-8_4--Power_supply_3-association a stpa:ScenarioProcessAssociation ;
+    stpa:belongs-to-scenario stpa:LS-8_4 ;
+    stpa:has-process stpa:Power_supply_3 ;
+    stpa:process-reception-status "notReceived" ;
+    stpa:process-execution-status "executed" .
+
+

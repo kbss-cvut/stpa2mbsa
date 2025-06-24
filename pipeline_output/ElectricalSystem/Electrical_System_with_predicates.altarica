@@ -1,0 +1,1977 @@
+domain nominal_failed = {nominal, failed};
+domain feedback = {nominal, failed, false_nominal, false_failed, no_feedback};
+domain nominalfailederroneous = {nominal, failed, erroneous};
+
+
+node EXT_PWR_Connector
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_STARTER_GENERATOR
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o_Feedback_GCU : nominal_failed : out;
+	o_Feedback_Flight_Crew : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	feedbackState : nominal_failed ;
+  init
+	state1 := nominal;
+	feedbackState := nominal;
+  event
+	failure;
+	feedback_failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(feedbackState = nominal) |- feedback_failure -> feedbackState := failed;
+  assert
+	o1 = state1;
+	o_Feedback_GCU = feedbackState;
+	o_Feedback_Flight_Crew = feedbackState;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event feedback_failure> = exponential(0.000001) ;
+edon
+
+node L_START_CNTRL_PCB
+  flow
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+	o2 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_GEN_VOLTS
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_DC_AMPS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	SHUNT_state : nominal_failed ;
+	FEED_State : nominal_failed ;
+  init
+	state1 := nominal;
+	SHUNT_state := nominal;
+	FEED_State := nominal;
+  event
+	failure;
+	SHUNT_failure;
+	SHUNT_repair;
+	FEED_failure;
+	FEED_Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(SHUNT_state = nominal) and (i1 = failed) |- SHUNT_failure -> SHUNT_state := failed;
+	(SHUNT_state = failed) and (i1 = nominal) |- SHUNT_repair -> SHUNT_state := nominal;
+	(FEED_State = nominal) and (i2 = failed) |- FEED_failure -> FEED_State := failed;
+	(FEED_State = failed) and (i2 = nominal) |- FEED_Repair -> FEED_State := nominal;
+  assert
+	o1 = if ((FEED_State = failed) or (SHUNT_state = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event SHUNT_failure> = Dirac(0) ;
+	law <event SHUNT_repair> = Dirac(0) ;
+	law <event FEED_failure> = Dirac(0) ;
+	law <event FEED_Repair> = Dirac(0) ;
+edon
+
+node i50_AMP_FLAPS
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node i50_AMP_HYD_PUMP
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node i_100_AMP_W_S_DEICE
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_ELE_1
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_FEED_BUS_2
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_ELE_2
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_LIMITER
+  flow
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+	o2 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_START_2
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_START_1
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+	o3 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node BATTERY_BUS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	i5 : nominal_failed : in;
+	i6 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+	o4 : nominal_failed : out;
+	o5 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed)) or (state1 = failed)) then failed else nominal;
+	o3 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed)) or (state1 = failed)) then failed else nominal;
+	o4 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed)) or (state1 = failed)) then failed else nominal;
+	o5 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node CROSSFEED_BUS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (((i1 = failed) or (i2 = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_SSR_1_BUS_BAR
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_AVIONICS
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_ELE_EMERG
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((state1 = failed) or (i1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_AVN_EMERG
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node AVN_EMER_SSR_LEFT
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	AVN_state : nominal_failed ;
+  init
+	state1 := nominal;
+	AVN_state := nominal;
+  event
+	failure;
+	avn_failure;
+	avn_repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(AVN_state = nominal) and (i1 = failed) |- avn_failure -> AVN_state := failed;
+	(AVN_state = failed) and (AVN_state = nominal) |- avn_repair -> AVN_state := nominal;
+  assert
+	o1 = if ((AVN_state = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((AVN_state = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event avn_failure> = Dirac(0) ;
+	law <event avn_repair> = Dirac(0) ;
+edon
+
+node L_SHUNT_BUS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_BOOST_SSR
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((state1 = nominal) and (i1 = nominal)) then nominal else failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node L_FEED_BUS_1
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	i5 : nominal_failed : in;
+	i6 : nominal_failed : in;
+	i7 : nominal_failed : in;
+	i8 : nominal_failed : in;
+	i9 : nominal_failed : in;
+	i10 : nominal_failed : in;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o2 = if (((i1 = failed) or (i2 = failed) or (i3 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed) or (i7 = failed) or (i8 = failed) or (i9 = failed) or (i10 = failed)
+) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node EMER_BUS_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i_FlightCrew : nominal_failed : in;
+	i4 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+	o4 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+	i3State : nominal_failed ;
+	i4State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+	i3State := nominal;
+	i4State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+	i3Failure;
+	i3Repair;
+	i4Failure;
+	i4Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1State = nominal) and (i1 = failed) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2State = nominal) and (i2 = failed) |- i2Failure -> i2State := failed;
+	(i2State = failed) and (i2 = nominal) |- i2Repair -> i2State := nominal;
+	(i3 = failed) and (i3State = nominal) |- i3Failure -> i3State := failed;
+	(i3State = failed) and (i3 = nominal) |- i3Repair -> i3State := nominal;
+	(i4State = nominal) and (i4 = failed) |- i4Failure -> i4State := failed;
+	(i4State = failed) and (i4 = nominal) |- i4Repair -> i4State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i3State = failed)) or (i4State = failed) or (i_FlightCrew = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i3State = failed)) or (i4State = failed) or (i_FlightCrew = failed) or (state1 = failed)) then failed else nominal;
+	o3 = if (((i1State = failed) or (i2State = failed) or (i3State = failed)) or (i4State = failed) or (i_FlightCrew = failed) or (state1 = failed)) then failed else nominal;
+	o4 = if (((i1State = failed) or (i2State = failed) or (i3State = failed)) or (i4State = failed) or (i_FlightCrew = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+	law <event i3Failure> = Dirac(0) ;
+	law <event i3Repair> = Dirac(0) ;
+	law <event i4Failure> = Dirac(0) ;
+	law <event i4Repair> = Dirac(0) ;
+edon
+
+node BATT_POWER_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	BATT_state : nominal_failed ;
+	CROSS_state : nominal_failed ;
+  init
+	state1 := nominal;
+	BATT_state := nominal;
+	CROSS_state := nominal;
+  event
+	failure;
+	BATT_failure;
+	BATT_repair;
+	CROSS_failure;
+	CROSS_repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(BATT_state = nominal) and (i1 = failed) |- BATT_failure -> BATT_state := failed;
+	(BATT_state = failed) and (i1 = nominal) |- BATT_repair -> BATT_state := nominal;
+	(CROSS_state = nominal) and (i2 = failed) |- CROSS_failure -> CROSS_state := failed;
+	(CROSS_state = failed) and (i2 = nominal) |- CROSS_repair -> CROSS_state := nominal;
+  assert
+	o1 = if (((BATT_state = failed) or (CROSS_state = failed)) or (state1 = failed) or (i3 = failed)) then failed else nominal;
+	o2 = if (((BATT_state = failed) or (CROSS_state = failed)) or (state1 = failed) or (i3 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event BATT_failure> = Dirac(0) ;
+	law <event BATT_repair> = Dirac(0) ;
+	law <event CROSS_failure> = Dirac(0) ;
+	law <event CROSS_repair> = Dirac(0) ;
+edon
+
+node BATTERY
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+	o_feedback : feedback : out;
+  state
+	state1 : nominal_failed ;
+	feedback_status : nominalfailederroneous ;
+  init
+	state1 := nominal;
+	feedback_status := nominal;
+  event
+	failure;
+	feedback_status_failure;
+	feedback_status_repair;
+	feedback_status_erroneous;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(feedback_status = nominal) |- feedback_status_failure -> feedback_status := failed;
+	(feedback_status != nominal) |- feedback_status_repair -> feedback_status := nominal;
+	(feedback_status = nominal) |- feedback_status_erroneous -> feedback_status := erroneous;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+	o3 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+	o_feedback = case {
+	(state1 = nominal) and (feedback_status = nominal) : nominal,
+	(state1 = failed) and (feedback_status = nominal) : nominal,
+	(state1 = nominal) and (feedback_status = erroneous) : false_failed,
+	(state1 = failed) and (feedback_status = erroneous) : false_nominal,
+else 
+	no_feedback
+};
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event feedback_status_failure> = exponential(0.000001) ;
+	law <event feedback_status_repair> = exponential(0.010) ;
+	law <event feedback_status_erroneous> = exponential(0.000001) ;
+edon
+
+node BATT_TEMP_SENSOR
+  flow
+	i1 : nominal_failed : in;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node BATT_DISC_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node BATT_AMPS
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_START_1
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+	o3 = if ((i2 = failed) or (i3 = failed) or (i4 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_START_2
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node EMERG_PWR_CB_BUSB1
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_START_CNTRL_PCB
+  flow
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+	o2 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node BATT_VOLTS
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_STARTER_GENERATOR
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o_Feedback_GCU : nominal_failed : out;
+	o_Feedback_Flight_Crew : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	feedbackState : nominal_failed ;
+  init
+	state1 := nominal;
+	feedbackState := nominal;
+  event
+	failure;
+	feedback_failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(feedbackState = nominal) |- feedback_failure -> feedbackState := failed;
+  assert
+	o1 = state1;
+	o_Feedback_GCU = feedbackState;
+	o_Feedback_Flight_Crew = feedbackState;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event feedback_failure> = exponential(0.000001) ;
+edon
+
+node R_GEN_VOLTS
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_SHUNT_BUS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i1 = failed) or (i2 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_DC_AMPS
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	SHUNT_state : nominal_failed ;
+	FEED_State : nominal_failed ;
+  init
+	state1 := nominal;
+	SHUNT_state := nominal;
+	FEED_State := nominal;
+  event
+	failure;
+	SHUNT_failure;
+	SHUNT_repair;
+	FEED_failure;
+	FEED_Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(SHUNT_state = nominal) and (i1 = failed) |- SHUNT_failure -> SHUNT_state := failed;
+	(SHUNT_state = failed) and (i1 = nominal) |- SHUNT_repair -> SHUNT_state := nominal;
+	(FEED_State = nominal) and (i2 = failed) |- FEED_failure -> FEED_State := failed;
+	(FEED_State = failed) and (i2 = nominal) |- FEED_Repair -> FEED_State := nominal;
+  assert
+	o1 = if ((FEED_State = failed) or (SHUNT_state = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event SHUNT_failure> = Dirac(0) ;
+	law <event SHUNT_repair> = Dirac(0) ;
+	law <event FEED_failure> = Dirac(0) ;
+	law <event FEED_Repair> = Dirac(0) ;
+edon
+
+node i_100_AMP_AC_COMP
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+	repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	state1 = failed |- repair -> state1 := nominal;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event repair> = exponential(1) ;
+edon
+
+node I_100_AMP_DEICE
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_FEED_BUS_1
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	i5 : nominal_failed : in;
+	i6 : nominal_failed : in;
+	i7 : nominal_failed : in;
+	i8 : nominal_failed : in;
+	i9 : nominal_failed : in;
+	i10 : nominal_failed : in;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o2 = if (((i1 = failed) or (i2 = failed) or (i4 = failed) or (i5 = failed) or (i6 = failed) or (i7 = failed) or (i8 = failed) or (i9 = failed) or (i10 = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_ELE_1
+  flow
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+	o2 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_FEED_BUS_2
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_ELE_2
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_LIMITER
+  flow
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = state1;
+	o2 = state1;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_SSR_1_BUS_BAR
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+	o4 : nominal_failed : out;
+	o5 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (((i1 = failed) or (i2 = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1 = failed) or (i2 = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o3 = if (((i1 = failed) or (i2 = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o4 = if (((i1 = failed) or (i2 = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o5 = failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_AVN_1_SSR
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	avionics_state : nominal_failed ;
+	BUS_state : nominal_failed ;
+  init
+	state1 := nominal;
+	avionics_state := nominal;
+	BUS_state := nominal;
+  event
+	failure;
+	avionics_failure;
+	avionics_repair;
+	BUS_failure;
+	BUS_repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(avionics_state = nominal) and (i2 = failed) |- avionics_failure -> avionics_state := failed;
+	(avionics_state = failed) and (i2 = nominal) |- avionics_repair -> avionics_state := nominal;
+	(BUS_state = nominal) and (i1 = failed) |- BUS_failure -> BUS_state := failed;
+	(BUS_state = failed) and (i1 = nominal) |- BUS_repair -> BUS_state := nominal;
+  assert
+	o1 = if (((avionics_state = failed) or (BUS_state = failed)) or (state1 = failed) or (i3 = failed)) then failed else nominal;
+	o2 = if (((avionics_state = failed) or (BUS_state = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event avionics_failure> = Dirac(0) ;
+	law <event avionics_repair> = Dirac(0) ;
+	law <event BUS_failure> = Dirac(0) ;
+	law <event BUS_repair> = Dirac(0) ;
+edon
+
+node R_AVIONICS_1
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_AVIONICS_2
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_ELE_EMERG
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((state1 = failed) or (i1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node MASTER_INTERIOR_SSR
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+	o3 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	SSR_state : nominal_failed ;
+	INTERIOR_state : nominal_failed ;
+  init
+	state1 := nominal;
+	SSR_state := nominal;
+	INTERIOR_state := nominal;
+  event
+	failure;
+	SSR_failure;
+	SSR_repair;
+	INTERIOR_failure;
+	INTERIOR_repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(SSR_state = nominal) and (i1 = failed) |- SSR_failure -> SSR_state := failed;
+	(SSR_state = failed) and (i1 = nominal) |- SSR_repair -> SSR_state := nominal;
+	(INTERIOR_state = nominal) and (i2 = failed) |- INTERIOR_failure -> INTERIOR_state := failed;
+	(INTERIOR_state = failed) and (i2 = nominal) |- INTERIOR_repair -> INTERIOR_state := nominal;
+  assert
+	o1 = if (((SSR_state = failed) or (INTERIOR_state = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((SSR_state = failed) or (INTERIOR_state = failed) or (i3 = failed)) or (state1 = failed)) then failed else nominal;
+	o3 = failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event SSR_failure> = Dirac(10) ;
+	law <event SSR_repair> = Dirac(10) ;
+	law <event INTERIOR_failure> = Dirac(10) ;
+	law <event INTERIOR_repair> = Dirac(10) ;
+edon
+
+node INTERIOR_BUS
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node NORM_or_INT_DISC
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node STANDBY_BATTERY_PACK
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node STANDBY_INST_SWITCH
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+	o2 = if ((i1 = failed) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node STANDBY_INS_T_OFF_BATT_TEST
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_AVN_EMERG
+  flow
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_BOOST_SSR
+  flow
+	i1 : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	o1 = if ((state1 = nominal) and (i1 = nominal)) then nominal else failed;
+  extern
+	law <event failure> = exponential(0.000001) ;
+edon
+
+node R_AVN_2_SSR
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i3 : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	avionics_state : nominal_failed ;
+	BUS_state : nominal_failed ;
+  init
+	state1 := nominal;
+	avionics_state := nominal;
+	BUS_state := nominal;
+  event
+	failure;
+	avionics_failure;
+	avionics_repair;
+	BUS_failure;
+	BUS_repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(avionics_state = nominal) and (i2 = failed) |- avionics_failure -> avionics_state := failed;
+	(avionics_state = failed) and (i2 = nominal) |- avionics_repair -> avionics_state := nominal;
+	(BUS_state = nominal) and (i1 = failed) |- BUS_failure -> BUS_state := failed;
+	(BUS_state = failed) and (i1 = nominal) |- BUS_repair -> BUS_state := nominal;
+  assert
+	o1 = if (((avionics_state = failed) or (BUS_state = failed)) or (state1 = failed) or (i3 = failed)) then failed else nominal;
+	o2 = if (((avionics_state = failed) or (BUS_state = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event avionics_failure> = Dirac(0) ;
+	law <event avionics_repair> = Dirac(0) ;
+	law <event BUS_failure> = Dirac(0) ;
+	law <event BUS_repair> = Dirac(0) ;
+edon
+
+node Flight_Crew
+  flow
+	i1 : feedback : in;
+	i_Feedback_Generator : nominal_failed : in;
+	i3 : nominal_failed : in;
+	i4 : nominal_failed : in;
+	o3 : nominal_failed : out;
+	o4 : nominal_failed : out;
+	o5 : nominal_failed : out;
+	o6 : nominal_failed : out;
+	o7 : nominal_failed : out;
+	o8 : nominal_failed : out;
+	o9 : nominal_failed : out;
+	o10 : nominal_failed : out;
+	o_BattRelayOutput : nominal_failed : out;
+	o12 : nominal_failed : out;
+	o13 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	ReactToBattFeedback : nominal_failed ;
+  init
+	state1 := nominal;
+	ReactToBattFeedback := nominal;
+  event
+	failure;
+	repair;
+	BadReactFeedback;
+	OkReactFeedback;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	state1 = failed |- repair -> state1 := nominal;
+	(ReactToBattFeedback = nominal) |- BadReactFeedback -> ReactToBattFeedback := failed;
+	(ReactToBattFeedback = failed) |- OkReactFeedback -> ReactToBattFeedback := nominal;
+  assert
+	o3 = if ((state1 = failed) or (ReactToBattFeedback = failed) or (i_Feedback_Generator = failed)) then
+	failed
+else
+	nominal;
+	o4 = if (state1 = failed) then failed else nominal;
+	o5 = if (state1 = failed) then failed else nominal;
+	o6 = if (state1 = failed) then failed else nominal;
+	o7 = if (state1 = failed) then failed else nominal;
+	o8 = if (state1 = failed) then failed else nominal;
+	o9 = if (state1 = failed) then failed else nominal;
+	o10 = if (state1 = failed) then failed else nominal;
+	o_BattRelayOutput = if (state1 = failed) or (ReactToBattFeedback = failed) or (i1 = no_feedback) or (i1 = false_failed) then
+	failed
+else
+	nominal;
+	o12 = if (state1 = failed) then failed else nominal;
+	o13 = if (state1 = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event repair> = exponential(1) ;
+	law <event BadReactFeedback> = exponential(0.000001) ;
+	law <event OkReactFeedback> = exponential(0.10) ;
+edon
+
+node L_GEN_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node R_GEN_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node EXT_PWR_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node R_START_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node L_START_RELAY
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node L_AVN_SSR
+  flow
+	i1 : nominal_failed : in;
+	i2 : nominal_failed : in;
+	i_flight_crew : nominal_failed : in;
+	o1 : nominal_failed : out;
+	o2 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+	i1State : nominal_failed ;
+	i2State : nominal_failed ;
+  init
+	state1 := nominal;
+	i1State := nominal;
+	i2State := nominal;
+  event
+	failure;
+	i1Failure;
+	i1Repair;
+	i2Failure;
+	i2Repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	(i1 = failed) and (i1State = nominal) |- i1Failure -> i1State := failed;
+	(i1State = failed) and (i1 = nominal) |- i1Repair -> i1State := nominal;
+	(i2 = failed) and (i2State = nominal) |- i2Failure -> i2State := failed;
+	(i2 = nominal) and (i2State = failed) |- i2Repair -> i2State := nominal;
+  assert
+	o1 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+	o2 = if (((i1State = failed) or (i2State = failed) or (i_flight_crew = failed)) or (state1 = failed)) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event i1Failure> = Dirac(0) ;
+	law <event i1Repair> = Dirac(0) ;
+	law <event i2Failure> = Dirac(0) ;
+	law <event i2Repair> = Dirac(0) ;
+edon
+
+node L_GCU
+  flow
+	i_starter : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+	repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	state1 = failed |- repair -> state1 := nominal;
+  assert
+	o1 = if (state1 = failed) or (i_starter = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event repair> = exponential(1) ;
+edon
+
+node R_GCU
+  flow
+	i_starter : nominal_failed : in;
+	o1 : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+	repair;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+	state1 = failed |- repair -> state1 := nominal;
+  assert
+	o1 = if (state1 = failed) or (i_starter = failed) then failed else nominal;
+  extern
+	law <event failure> = exponential(0.000001) ;
+	law <event repair> = exponential(1) ;
+edon
+
+
+node Electrical_System
+  sub
+	EXT_PWR_Connector : EXT_PWR_Connector;
+	L_STARTER_GENERATOR : L_STARTER_GENERATOR;
+	L_START_CNTRL_PCB : L_START_CNTRL_PCB;
+	L_GEN_VOLTS : L_GEN_VOLTS;
+	L_DC_AMPS : L_DC_AMPS;
+	i50_AMP_FLAPS : i50_AMP_FLAPS;
+	i50_AMP_HYD_PUMP : i50_AMP_HYD_PUMP;
+	i_100_AMP_W_S_DEICE : i_100_AMP_W_S_DEICE;
+	L_ELE_1 : L_ELE_1;
+	L_FEED_BUS_2 : L_FEED_BUS_2;
+	L_ELE_2 : L_ELE_2;
+	L_LIMITER : L_LIMITER;
+	L_START_2 : L_START_2;
+	L_START_1 : L_START_1;
+	BATTERY_BUS : BATTERY_BUS;
+	CROSSFEED_BUS : CROSSFEED_BUS;
+	L_SSR_1_BUS_BAR : L_SSR_1_BUS_BAR;
+	L_AVIONICS : L_AVIONICS;
+	L_ELE_EMERG : L_ELE_EMERG;
+	L_AVN_EMERG : L_AVN_EMERG;
+	AVN_EMER_SSR_LEFT : AVN_EMER_SSR_LEFT;
+	L_SHUNT_BUS : L_SHUNT_BUS;
+	L_BOOST_SSR : L_BOOST_SSR;
+	L_FEED_BUS_1 : L_FEED_BUS_1;
+	EMER_BUS_RELAY : EMER_BUS_RELAY;
+	BATT_POWER_RELAY : BATT_POWER_RELAY;
+	BATTERY : BATTERY;
+	BATT_TEMP_SENSOR : BATT_TEMP_SENSOR;
+	BATT_DISC_RELAY : BATT_DISC_RELAY;
+	BATT_AMPS : BATT_AMPS;
+	R_START_1 : R_START_1;
+	R_START_2 : R_START_2;
+	EMERG_PWR_CB_BUSB1 : EMERG_PWR_CB_BUSB1;
+	R_START_CNTRL_PCB : R_START_CNTRL_PCB;
+	BATT_VOLTS : BATT_VOLTS;
+	R_STARTER_GENERATOR : R_STARTER_GENERATOR;
+	R_GEN_VOLTS : R_GEN_VOLTS;
+	R_SHUNT_BUS : R_SHUNT_BUS;
+	R_DC_AMPS : R_DC_AMPS;
+	i_100_AMP_AC_COMP : i_100_AMP_AC_COMP;
+	I_100_AMP_DEICE : I_100_AMP_DEICE;
+	R_FEED_BUS_1 : R_FEED_BUS_1;
+	R_ELE_1 : R_ELE_1;
+	R_FEED_BUS_2 : R_FEED_BUS_2;
+	R_ELE_2 : R_ELE_2;
+	R_LIMITER : R_LIMITER;
+	R_SSR_1_BUS_BAR : R_SSR_1_BUS_BAR;
+	R_AVN_1_SSR : R_AVN_1_SSR;
+	R_AVIONICS_1 : R_AVIONICS_1;
+	R_AVIONICS_2 : R_AVIONICS_2;
+	R_ELE_EMERG : R_ELE_EMERG;
+	MASTER_INTERIOR_SSR : MASTER_INTERIOR_SSR;
+	INTERIOR_BUS : INTERIOR_BUS;
+	NORM_or_INT_DISC : NORM_or_INT_DISC;
+	STANDBY_BATTERY_PACK : STANDBY_BATTERY_PACK;
+	STANDBY_INST_SWITCH : STANDBY_INST_SWITCH;
+	STANDBY_INS_T_OFF_BATT_TEST : STANDBY_INS_T_OFF_BATT_TEST;
+	R_AVN_EMERG : R_AVN_EMERG;
+	R_BOOST_SSR : R_BOOST_SSR;
+	R_AVN_2_SSR : R_AVN_2_SSR;
+	Flight_Crew : Flight_Crew;
+	L_GEN_RELAY : L_GEN_RELAY;
+	R_GEN_RELAY : R_GEN_RELAY;
+	EXT_PWR_RELAY : EXT_PWR_RELAY;
+	R_START_RELAY : R_START_RELAY;
+	L_START_RELAY : L_START_RELAY;
+	L_AVN_SSR : L_AVN_SSR;
+	L_GCU : L_GCU;
+	R_GCU : R_GCU;
+  assert
+	L_START_1.i2 = L_START_2.o1;
+	L_START_2.i1 = L_START_CNTRL_PCB.o1;
+	L_START_2.i2 = L_GEN_VOLTS.o1;
+	L_FEED_BUS_1.i2 = i50_AMP_FLAPS.o1;
+	L_FEED_BUS_1.i4 = i_100_AMP_W_S_DEICE.o1;
+	L_FEED_BUS_1.i5 = L_ELE_1.o1;
+	L_FEED_BUS_1.i6 = L_FEED_BUS_2.o1;
+	L_FEED_BUS_1.i7 = L_ELE_2.o1;
+	L_FEED_BUS_1.i8 = L_LIMITER.o1;
+	CROSSFEED_BUS.i1 = L_LIMITER.o2;
+	BATTERY_BUS.i3 = EMER_BUS_RELAY.o1;
+	EMER_BUS_RELAY.i1 = L_ELE_EMERG.o1;
+	AVN_EMER_SSR_LEFT.i1 = L_AVN_EMERG.o1;
+	L_FEED_BUS_1.i9 = L_BOOST_SSR.o1;
+	BATT_POWER_RELAY.i1 = BATTERY_BUS.o1;
+	CROSSFEED_BUS.i2 = BATT_POWER_RELAY.o1;
+	BATT_POWER_RELAY.i2 = CROSSFEED_BUS.o1;
+	BATTERY_BUS.i4 = BATT_POWER_RELAY.o2;
+	L_START_1.i1 = L_STARTER_GENERATOR.o1;
+	L_AVN_EMERG.i1 = AVN_EMER_SSR_LEFT.o2;
+	EMER_BUS_RELAY.i2 = AVN_EMER_SSR_LEFT.o1;
+	L_FEED_BUS_1.i1 = L_DC_AMPS.o1;
+	L_SHUNT_BUS.i1 = L_DC_AMPS.o1;
+	L_FEED_BUS_1.i3 = i50_AMP_HYD_PUMP.o1;
+	L_DC_AMPS.i1 = L_SHUNT_BUS.o1;
+	L_DC_AMPS.i2 = L_FEED_BUS_1.o2;
+	EMERG_PWR_CB_BUSB1.i1 = L_START_CNTRL_PCB.o2;
+	EMERG_PWR_CB_BUSB1.i2 = R_START_CNTRL_PCB.o1;
+	EMERG_PWR_CB_BUSB1.i3 = BATT_VOLTS.o1;
+	BATT_TEMP_SENSOR.i1 = BATTERY.o1;
+	BATTERY_BUS.i5 = BATTERY.o2;
+	BATT_DISC_RELAY.i1 = BATTERY.o3;
+	BATT_DISC_RELAY.i2 = BATT_AMPS.o1;
+	R_START_1.i1 = R_STARTER_GENERATOR.o1;
+	R_START_1.i2 = R_START_2.o1;
+	R_START_2.i1 = R_START_CNTRL_PCB.o2;
+	R_START_2.i2 = R_GEN_VOLTS.o1;
+	R_DC_AMPS.i1 = R_SHUNT_BUS.o1;
+	R_SHUNT_BUS.i1 = R_DC_AMPS.o1;
+	R_FEED_BUS_1.i1 = R_DC_AMPS.o1;
+	R_DC_AMPS.i2 = R_FEED_BUS_1.o2;
+	R_FEED_BUS_1.i5 = R_ELE_1.o1;
+	R_FEED_BUS_1.i6 = R_FEED_BUS_2.o1;
+	R_FEED_BUS_1.i7 = R_ELE_2.o1;
+	R_FEED_BUS_1.i8 = R_LIMITER.o1;
+	CROSSFEED_BUS.i3 = R_LIMITER.o2;
+	L_FEED_BUS_1.i10 = L_SSR_1_BUS_BAR.o2;
+	R_FEED_BUS_1.i10 = R_SSR_1_BUS_BAR.o1;
+	R_SSR_1_BUS_BAR.i1 = R_AVN_1_SSR.o1;
+	R_AVN_1_SSR.i1 = R_SSR_1_BUS_BAR.o2;
+	R_AVN_1_SSR.i2 = R_AVIONICS_1.o1;
+	R_AVIONICS_1.i1 = R_AVN_1_SSR.o2;
+	EMER_BUS_RELAY.i3 = R_ELE_EMERG.o1;
+	R_FEED_BUS_1.i4 = I_100_AMP_DEICE.o1;
+	MASTER_INTERIOR_SSR.i1 = R_SSR_1_BUS_BAR.o4;
+	R_SSR_1_BUS_BAR.i3 = MASTER_INTERIOR_SSR.o1;
+	MASTER_INTERIOR_SSR.i2 = INTERIOR_BUS.o1;
+	INTERIOR_BUS.i1 = MASTER_INTERIOR_SSR.o2;
+	MASTER_INTERIOR_SSR.i3 = NORM_or_INT_DISC.o1;
+	STANDBY_INST_SWITCH.i1 = R_ELE_1.o2;
+	STANDBY_BATTERY_PACK.i1 = STANDBY_INST_SWITCH.o1;
+	STANDBY_INS_T_OFF_BATT_TEST.i1 = STANDBY_BATTERY_PACK.o1;
+	STANDBY_INS_T_OFF_BATT_TEST.i2 = STANDBY_INST_SWITCH.o2;
+	STANDBY_INS_T_OFF_BATT_TEST.i3 = R_AVN_EMERG.o1;
+	R_FEED_BUS_1.i9 = R_BOOST_SSR.o1;
+	R_FEED_BUS_1.i2 = i_100_AMP_AC_COMP.o1;
+	R_AVN_2_SSR.i1 = R_SSR_1_BUS_BAR.o3;
+	R_SSR_1_BUS_BAR.i2 = R_AVN_2_SSR.o1;
+	R_AVN_2_SSR.i2 = R_AVIONICS_2.o1;
+	R_AVIONICS_2.i1 = R_AVN_2_SSR.o2;
+	L_BOOST_SSR.i1 = Flight_Crew.o5;
+	R_BOOST_SSR.i1 = Flight_Crew.o6;
+	R_AVN_1_SSR.i3 = Flight_Crew.o7;
+	R_AVN_2_SSR.i3 = Flight_Crew.o8;
+	EMER_BUS_RELAY.i_FlightCrew = Flight_Crew.o10;
+	BATT_DISC_RELAY.i_flight_crew = Flight_Crew.o_BattRelayOutput;
+	BATTERY.i1 = BATT_DISC_RELAY.o1;
+	BATT_AMPS.i1 = BATT_DISC_RELAY.o2;
+	BATT_POWER_RELAY.i3 = Flight_Crew.o12;
+	L_GEN_RELAY.i1 = L_START_1.o2;
+	L_SHUNT_BUS.i2 = L_GEN_RELAY.o2;
+	L_GEN_RELAY.i2 = L_SHUNT_BUS.o2;
+	L_START_1.i3 = L_GEN_RELAY.o1;
+	R_START_1.i3 = R_GEN_RELAY.o2;
+	R_GEN_RELAY.i2 = R_START_1.o2;
+	R_GEN_RELAY.i1 = R_SHUNT_BUS.o2;
+	R_SHUNT_BUS.i2 = R_GEN_RELAY.o1;
+	R_GEN_RELAY.i_flight_crew = Flight_Crew.o4;
+	EXT_PWR_RELAY.i1 = EXT_PWR_Connector.o1;
+	EXT_PWR_Connector.i1 = EXT_PWR_RELAY.o1;
+	BATTERY_BUS.i1 = EXT_PWR_RELAY.o2;
+	EXT_PWR_RELAY.i2 = BATTERY_BUS.o2;
+	EXT_PWR_RELAY.i_flight_crew = Flight_Crew.o13;
+	BATTERY_BUS.i6 = R_START_RELAY.o1;
+	R_START_RELAY.i1 = BATTERY_BUS.o3;
+	R_START_RELAY.i2 = R_START_1.o1;
+	R_START_1.i4 = R_START_RELAY.o2;
+	BATTERY_BUS.i2 = L_START_RELAY.o2;
+	L_START_RELAY.i2 = BATTERY_BUS.o4;
+	L_START_RELAY.i1 = L_START_1.o1;
+	L_START_1.i4 = L_START_RELAY.o1;
+	L_AVN_SSR.i2 = L_AVIONICS.o1;
+	L_AVIONICS.i1 = L_AVN_SSR.o2;
+	L_SSR_1_BUS_BAR.i1 = L_AVN_SSR.o1;
+	L_AVN_SSR.i1 = L_SSR_1_BUS_BAR.o1;
+	L_AVN_SSR.i_flight_crew = Flight_Crew.o9;
+	AVN_EMER_SSR_LEFT.i2 = EMER_BUS_RELAY.o2;
+	L_ELE_EMERG.i1 = EMER_BUS_RELAY.o3;
+	R_ELE_EMERG.i1 = EMER_BUS_RELAY.o4;
+	EMER_BUS_RELAY.i4 = BATTERY_BUS.o5;
+	R_START_RELAY.i_flight_crew = R_GCU.o1;
+	L_GCU.i_starter = L_STARTER_GENERATOR.o_Feedback_GCU;
+	R_GCU.i_starter = R_STARTER_GENERATOR.o_Feedback_GCU;
+	L_STARTER_GENERATOR.i1 = L_START_1.o3;
+	R_STARTER_GENERATOR.i1 = R_START_1.o3;
+	L_GEN_RELAY.i_flight_crew = Flight_Crew.o3;
+	L_START_RELAY.i_flight_crew = L_GCU.o1;
+	Flight_Crew.i1 = BATTERY.o_feedback;
+	Flight_Crew.i_Feedback_Generator = L_STARTER_GENERATOR.o_Feedback_Flight_Crew;
+	Flight_Crew.i3 = MASTER_INTERIOR_SSR.o3;
+	Flight_Crew.i4 = R_SSR_1_BUS_BAR.o5;
+  extern
+	predicate LS_1_1 = <term(((Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (Flight_Crew.i1 = nominal)))>;
+	predicate LS_1_2 = <term(((Flight_Crew.i1 = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)))>;
+	predicate LS_1_3 = <term(((Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (BATTERY.i1 = failed)))>;
+	predicate LS_1_4 = <term(((BATTERY.i1 = nominal) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)))>;
+	predicate LS_10_1 = <term(((L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal) and (Flight_Crew.o3 = nominal)))>;
+	predicate LS_10_2 = <term(((Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)))>;
+	predicate LS_10_3 = <term(((L_GCU.state1 = failed) and (L_GEN_RELAY.i_flight_crew = nominal) and (Flight_Crew.o3 = failed)))>;
+	predicate LS_10_4 = <term(((L_GEN_RELAY.i_flight_crew = failed) and (L_GCU.state1 = failed) and (L_GCU.o1 = nominal)))>;
+	predicate LS_11_1 = <term(((Flight_Crew.o3 = failed) and (L_GCU.state1 = nominal) and (Flight_Crew.i3 = nominal)))>;
+	predicate LS_11_2 = <term(((Flight_Crew.i3 = failed) and (L_GCU.state1 = nominal)))>;
+	predicate LS_11_3 = <term(((Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal) and (L_GCU.i_starter = nominal)))>;
+	predicate LS_11_4 = <term(((L_GCU.i_starter = nominal) and (L_GCU.state1 = nominal) and (L_GCU.o1 = nominal)))>;
+	predicate LS_2_1 = <term(((Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.state1 = failed) and (Flight_Crew.i1 = nominal)))>;
+	predicate LS_2_2 = <term(((Flight_Crew.i1 = failed) and (BATTERY.o2 = failed) and (BATTERY.state1 = nominal)))>;
+	predicate LS_2_3 = <term(((Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = failed)))>;
+	predicate LS_2_4 = <term(((Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.i1 = failed) and (BATTERY.state1 = failed) and (BATTERY.o2 = failed)))>;
+	predicate LS_21_1 = <term(((NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)))>;
+	predicate LS_21_2 = <term(((Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)))>;
+	predicate LS_21_3 = <term(((NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.i3 = failed)))>;
+	predicate LS_21_4 = <term(((MASTER_INTERIOR_SSR.i3 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.o1 = failed)))>;
+	predicate LS_22_1 = <term(((NORM_or_INT_DISC.o1 = nominal) and (R_SSR_1_BUS_BAR.state1 = failed) and (Flight_Crew.i4 = nominal)))>;
+	predicate LS_22_2 = <term(((Flight_Crew.i4 = failed) and (R_SSR_1_BUS_BAR.state1 = failed)))>;
+	predicate LS_22_3 = <term(((NORM_or_INT_DISC.o1 = failed) and (R_SSR_1_BUS_BAR.state1 = failed) and (NORM_or_INT_DISC.o1 = nominal)))>;
+	predicate LS_22_4 = <term(((MASTER_INTERIOR_SSR.i3 = failed) and (L_SSR_1_BUS_BAR.state1 = failed) and (MASTER_INTERIOR_SSR.o1 = nominal)))>;
+	predicate LS_24_1 = <term(((NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)))>;
+	predicate LS_24_2 = <term(((Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)))>;
+	predicate LS_24_3 = <term(((NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.i1 = failed)))>;
+	predicate LS_24_4 = <term(((MASTER_INTERIOR_SSR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (MASTER_INTERIOR_SSR.o1 = nominal)))>;
+	predicate LS_28_1 = <term(((NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (Flight_Crew.i3 = nominal)))>;
+	predicate LS_28_2 = <term(((Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed)))>;
+	predicate LS_28_3 = <term(((NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (MASTER_INTERIOR_SSR.i1 = failed)))>;
+	predicate LS_28_4 = <term(((MASTER_INTERIOR_SSR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = failed) and (MASTER_INTERIOR_SSR.o1 = failed)))>;
+	predicate LS_30_1 = <term(((NORM_or_INT_DISC.o1 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (Flight_Crew.i3 = nominal)))>;
+	predicate LS_30_2 = <term(((Flight_Crew.i3 = failed) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal)))>;
+	predicate LS_30_3 = <term(((NORM_or_INT_DISC.o1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (L_STARTER_GENERATOR.i1 = failed)))>;
+	predicate LS_30_4 = <term(((L_STARTER_GENERATOR.i1 = nominal) and (MASTER_INTERIOR_SSR.INTERIOR_state = nominal) and (L_STARTER_GENERATOR.o1 = nominal)))>;
+	predicate LS_31_1 = <term(((L_GEN_RELAY.o1 = failed) and (L_GEN_RELAY.i2 = failed) and (L_GEN_RELAY.i2State = nominal)))>;
+	predicate LS_31_2 = <term(((L_GEN_RELAY.i2State = failed) and (L_GEN_RELAY.i2 = failed)))>;
+	predicate LS_31_3 = <term(((L_GEN_RELAY.o1 = nominal) and (L_GEN_RELAY.i2 = failed) and (L_GCU.i_starter = nominal)))>;
+	predicate LS_31_4 = <term(((L_GCU.i_starter = failed) and (L_GCU.o1 = nominal)))>;
+	predicate LS_32_1 = <term(((L_GEN_RELAY.o1 = nominal) and (L_GEN_RELAY.i1 = nominal) and (L_GEN_RELAY.i1State = nominal)))>;
+	predicate LS_32_2 = <term(((L_GEN_RELAY.i1State = failed) and (L_GEN_RELAY.i1 = nominal)))>;
+	predicate LS_32_3 = <term(((L_GEN_RELAY.o1 = failed) and (L_GEN_RELAY.i1 = nominal) and (L_GCU.i_starter = failed)))>;
+	predicate LS_32_4 = <term(((L_GCU.i_starter = nominal) and (L_GEN_RELAY.state1 = nominal) and (L_GCU.o1 = nominal)))>;
+	predicate LS_34_1 = <term(((L_START_CNTRL_PCB.o1 = failed) and (L_GCU.i_starter = nominal) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)))>;
+	predicate LS_34_2 = <term(((L_GCU.i_starter = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)))>;
+	predicate LS_34_3 = <term(((L_START_CNTRL_PCB.o1 = nominal) and (L_STARTER_GENERATOR.feedbackState = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)))>;
+	predicate LS_34_4 = <term(((L_STARTER_GENERATOR.feedbackState = nominal) and (L_GCU.o1 = failed) and (Flight_Crew.o3 = nominal) and (L_GCU.state1 = nominal)))>;
+	predicate LS_35_1 = <term(((L_START_CNTRL_PCB.o1 = nominal) and (L_GCU.state1 = nominal) and (L_GCU.i_starter = failed)))>;
+	predicate LS_35_2 = <term(((L_GCU.i_starter = nominal) and (L_GCU.state1 = failed)))>;
+	predicate LS_35_3 = <term(((L_START_CNTRL_PCB.o1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.i1 = nominal)))>;
+	predicate LS_35_4 = <term(((L_STARTER_GENERATOR.i1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.o1 = failed)))>;
+	predicate LS_37_1 = <term(((L_START_CNTRL_PCB.o1 = nominal) and (Flight_Crew.o3 = failed) and (L_GCU.i_starter = nominal)))>;
+	predicate LS_37_2 = <term(((L_GCU.i_starter = failed) and (Flight_Crew.o3 = nominal)))>;
+	predicate LS_37_3 = <term(((L_START_CNTRL_PCB.o1 = failed) and (Flight_Crew.o3 = failed) and (L_STARTER_GENERATOR.feedbackState = failed)))>;
+	predicate LS_37_4 = <term(((L_STARTER_GENERATOR.feedbackState = nominal) and (Flight_Crew.o3 = failed) and (L_STARTER_GENERATOR.o1 = nominal)))>;
+	predicate LS_38_1 = <term(((L_START_CNTRL_PCB.o1 = nominal) and (L_GCU.state1 = failed) and (L_GCU.i_starter = failed)))>;
+	predicate LS_38_2 = <term(((L_GCU.i_starter = nominal) and (L_GCU.state1 = failed)))>;
+	predicate LS_38_3 = <term(((L_GCU.o1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.feedbackState = failed)))>;
+	predicate LS_38_4 = <term(((L_STARTER_GENERATOR.i1 = failed) and (L_GCU.state1 = failed) and (L_STARTER_GENERATOR.o1 = nominal)))>;
+	predicate LS_39_1 = <term(((L_GCU.o1 = failed) and (L_GCU.i_starter = failed) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = nominal)))>;
+	predicate LS_39_3 = <term(((L_GCU.o1 = nominal) and (L_STARTER_GENERATOR.i1 = failed) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = failed)))>;
+	predicate LS_39_4 = <term(((L_STARTER_GENERATOR.i1 = nominal) and (L_STARTER_GENERATOR.o1 = nominal) and (L_STARTER_GENERATOR.state1 = nominal) and (Flight_Crew.o3 = failed)))>;
+	predicate LS_4_1 = <term(((Flight_Crew.o_BattRelayOutput = nominal) and (BATTERY.state1 = nominal) and (Flight_Crew.i1 = nominal)))>;
+	predicate LS_4_2 = <term(((Flight_Crew.i1 = failed) and (BATTERY.state1 = nominal)))>;
+	predicate LS_4_3 = <term(((Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = failed) and (BATT_DISC_RELAY.i1 = failed)))>;
+	predicate LS_4_4 = <term(((BATT_DISC_RELAY.i1 = failed) and (BATTERY.state1 = failed) and (BATT_DISC_RELAY.o1 = failed)))>;
+	predicate LS_5_1 = <term(((Flight_Crew.o_BattRelayOutput = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed) and (Flight_Crew.i1 = nominal)))>;
+	predicate LS_5_2 = <term(((Flight_Crew.i1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)))>;
+	predicate LS_5_3 = <term(((Flight_Crew.o_BattRelayOutput = nominal) and (BATT_DISC_RELAY.i1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)))>;
+	predicate LS_5_4 = <term(((BATT_DISC_RELAY.i1 = nominal) and (BATT_DISC_RELAY.o1 = failed) and (BATTERY.state1 = nominal) and (EXT_PWR_Connector.o1 = failed)))>;
+	predicate LS_7_1 = <term(((L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal) and (Flight_Crew.o3 = failed)))>;
+	predicate LS_7_2 = <term(((Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)))>;
+	predicate LS_7_3 = <term(((Flight_Crew.o3 = nominal) and (L_GCU.state1 = failed) and (L_GCU.i_starter = failed)))>;
+	predicate LS_8_1 = <term(((Flight_Crew.o3 = nominal) and (L_GCU.state1 = failed) and (Flight_Crew.i_Feedback_Generator = nominal)))>;
+	predicate LS_8_2 = <term(((Flight_Crew.i_Feedback_Generator = failed) and (L_GCU.state1 = failed)))>;
+	predicate LS_8_3 = <term(((Flight_Crew.o3 = failed) and (L_GCU.state1 = failed) and (L_GCU.i_starter = nominal)))>;
+	predicate LS_8_4 = <term(((L_GCU.i_starter = failed) and (L_GCU.state1 = failed) and (L_GCU.o1 = failed)))>;
+	predicate Observer_1 = <term((AVN_EMER_SSR_LEFT.AVN_state = nominal))>;
+edon
+

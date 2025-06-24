@@ -178,8 +178,8 @@
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_42f9495>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "Flight crew" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_42f9495&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_42f9495&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    Flight crew\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_42f9495&quot; class=&quot;assigned-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_42f9495&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    Flight crew\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "Flight crew" ;
     termit:scenarioID "LS-2.1" .
 
@@ -199,16 +199,16 @@
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_5a30897>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "Flight crew" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_5a30897&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_5a30897&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    Flight crew\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_5a30897&quot; class=&quot;assigned-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_5a30897&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    Flight crew\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "Flight crew" ;
     termit:scenarioID "LS-2.1" .
 
-<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_44b71f8>
+<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancemyyl2>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i1_nominal> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_44b71f8&quot; class=&quot;assigned-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_44b71f8&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i1_nominal&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the battery is disconnected and overheated\n   &lt;/span&gt;" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the battery is disconnected and overheated" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:myyl2&quot; class=&quot;assigned-term-occurrence selected-occurrence&quot; id=&quot;idmyyl2&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i1_nominal&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;feedback (or other input) that indicated\n   \n    the battery is disconnected and overheated&lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "feedback (or other input) that indicated\n   \n    the battery is disconnected and overheated" ;
     termit:scenarioID "LS-2.1" .
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_ed24f5a>
@@ -757,10 +757,17 @@
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "Flight crew" ;
     termit:scenarioID "LS-7.1" .
 
+<http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instanceq4scm>
+    a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_o3_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:q4scm&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_o3_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;set generator to use&lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "set generator to use" ;
+    termit:scenarioID "LS-7.1" .
+
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_1249f20>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "the generator is online and not connected" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_1249f20&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_1249f20&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_1249f20&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_1249f20&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the generator is online and not connected" ;
     termit:scenarioID "LS-7.1" .
 
@@ -773,8 +780,8 @@
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_6c81795>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "the generator is online and not connected" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_6c81795&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_6c81795&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i_Feedback_Generator_nominal> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_6c81795&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_6c81795&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i_Feedback_Generator_nominal&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the generator is online and not connected" ;
     termit:scenarioID "LS-7.1" .
 
@@ -787,15 +794,15 @@
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_a1f9581>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "the generator is online and not connected" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_a1f9581&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_a1f9581&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i_Feedback_Generator_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_a1f9581&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_a1f9581&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_i_Feedback_Generator_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the generator is online and not connected" ;
     termit:scenarioID "LS-7.2" .
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_e30dc98>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "the generator is online and not connected" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_e30dc98&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_e30dc98&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_e30dc98&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_e30dc98&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the generator is online and not connected" ;
     termit:scenarioID "LS-7.2" .
 
@@ -808,22 +815,22 @@
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_a61e847>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "set generator to use" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_a61e847&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_a61e847&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    set generator to use\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_o3_nominal> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_a61e847&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_a61e847&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#Flight_Crew_o3_nominal&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    set generator to use\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "set generator to use" ;
     termit:scenarioID "LS-7.3" .
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_2cca9c6>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "the generator is online and not connected" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_2cca9c6&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_2cca9c6&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_2cca9c6&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_2cca9c6&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_state1_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    the generator is online and not connected\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "the generator is online and not connected" ;
     termit:scenarioID "LS-7.3" .
 
 <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu/instancepre_ann_e35ecc0>
     a <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu> ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> "set generator to use" ;
-    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_e35ecc0&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_e35ecc0&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    set generator to use\n   &lt;/span&gt;" ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-přiřazením-termu> <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_i_starter_failed> ;
+    <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotaci> "&lt;span about=&quot;_:pre_ann_e35ecc0&quot; class=&quot;suggested-term-occurrence selected-occurrence&quot; id=&quot;idpre_ann_e35ecc0&quot; property=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/je-výskytem-termu&quot; resource=&quot;http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#L_GCU_i_starter_failed&quot; typeof=&quot;http://onto.fel.cvut.cz/ontologies/application/termit/pojem/výskyt-termu&quot;&gt;\n    set generator to use\n   &lt;/span&gt;" ;
     <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/odkazuje-na-anotovaný-text> "set generator to use" ;
     termit:scenarioID "LS-7.3" .
 

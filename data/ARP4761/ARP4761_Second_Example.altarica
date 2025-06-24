@@ -1,0 +1,390 @@
+domain Data = {nominal_data, no_data, erroneous_data};
+domain nominal_failed = {nominal, failed};
+domain PowerValues = {power, noPower};
+domain Computer = {nominal, lost, erroneous};
+
+
+node Engine_1
+  flow
+	oMotion : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	fail_stop;
+  trans
+	state1 = nominal |- fail_stop -> state1 := failed;
+  assert
+	oMotion = if (state1 = failed) then failed else nominal;
+  extern
+	law <event fail_stop> = exponential(0.0000123) ;
+edon
+
+node Power_Supply_1
+  flow
+	iMotion : nominal_failed : in;
+	oPower : PowerValues : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	oPower = if ((iMotion = failed) or (state1 = failed)) then noPower else power;
+  extern
+	law <event failure> = exponential(0.0000646) ;
+edon
+
+node Main_Computer_1
+  flow
+	iPower : PowerValues : in;
+	oCommand : Data : out;
+  state
+	state1 : Computer ;
+  init
+	state1 := nominal;
+  event
+	fail_loss;
+	fail_erroneous;
+  trans
+	state1 = nominal |- fail_loss -> state1 := lost;
+	(state1 = nominal) |- fail_erroneous -> state1 := erroneous;
+  assert
+	oCommand = if (state1 = lost) 
+			
+			then no_data
+else if (state1 = erroneous) and (iPower = power) 
+			
+			then erroneous_data
+else if (state1 = nominal) and (iPower = power) 
+			
+			then nominal_data
+
+else no_data;
+  extern
+	law <event fail_loss> = exponential(0.0000363) ;
+	law <event fail_erroneous> = exponential(0.00000427) ;
+edon
+
+node Voter
+  flow
+	iCommand_1 : Data : in;
+	iCommand_2 : Data : in;
+	iCommand_3 : Data : in;
+	oChosen_command : Data : out;
+  assert
+	oChosen_command = if 		 ((iCommand_1 != nominal_data) and (iCommand_2 != nominal_data)) 
+	or ((iCommand_1 != nominal_data) and (iCommand_3 != nominal_data))
+	or ((iCommand_2 != nominal_data) and (iCommand_3 != nominal_data))
+
+then no_data
+
+else nominal_data;
+edon
+
+node Switch
+  flow
+	iMain_command : Data : in;
+	iBackUp_command : Data : in;
+	iChosen_command : Data : out;
+  assert
+	iChosen_command = if (iMain_command = nominal_data) then iMain_command else iBackUp_command;
+edon
+
+node Engine_2
+  flow
+	oMotion : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	fail_stop;
+  trans
+	state1 = nominal |- fail_stop -> state1 := failed;
+  assert
+	oMotion = if (state1 = failed) then failed else nominal;
+  extern
+	law <event fail_stop> = exponential(0.0000123) ;
+edon
+
+node Engine_3
+  flow
+	oMotion : nominal_failed : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	fail_stop;
+  trans
+	state1 = nominal |- fail_stop -> state1 := failed;
+  assert
+	oMotion = if (state1 = failed) then failed else nominal;
+  extern
+	law <event fail_stop> = exponential(0.0000123) ;
+edon
+
+node Power_Supply_2
+  flow
+	iMotion : nominal_failed : in;
+	oPower : PowerValues : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	oPower = if ((iMotion = failed) or (state1 = failed)) then noPower else power;
+  extern
+	law <event failure> = exponential(0.0000646) ;
+edon
+
+node Power_Supply_3
+  flow
+	iMotion : nominal_failed : in;
+	oPower : PowerValues : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	oPower = if ((iMotion = failed) or (state1 = failed)) then noPower else power;
+  extern
+	law <event failure> = exponential(0.0000646) ;
+edon
+
+node Power_Supply_4
+  flow
+	iMotion : nominal_failed : in;
+	oPower : PowerValues : out;
+  state
+	state1 : nominal_failed ;
+  init
+	state1 := nominal;
+  event
+	failure;
+  trans
+	state1 = nominal |- failure -> state1 := failed;
+  assert
+	oPower = if ((iMotion = failed) or (state1 = failed)) then noPower else power;
+  extern
+	law <event failure> = exponential(0.0000646) ;
+edon
+
+node Main_Computer_2
+  flow
+	iPower : PowerValues : in;
+	oCommand : Data : out;
+  state
+	state1 : Computer ;
+  init
+	state1 := nominal;
+  event
+	fail_loss;
+	fail_erroneous;
+  trans
+	state1 = nominal |- fail_loss -> state1 := lost;
+	(state1 = nominal) |- fail_erroneous -> state1 := erroneous;
+  assert
+	oCommand = if (state1 = lost) 
+			
+			then no_data
+else if (state1 = erroneous) and (iPower = power) 
+			
+			then erroneous_data
+else if (state1 = nominal) and (iPower = power) 
+			
+			then nominal_data
+
+else no_data;
+  extern
+	law <event fail_loss> = exponential(0.0000363) ;
+	law <event fail_erroneous> = exponential(0.00000427) ;
+edon
+
+node Main_Computer3
+  flow
+	iPower : PowerValues : in;
+	oCommand : Data : out;
+  state
+	state1 : Computer ;
+  init
+	state1 := nominal;
+  event
+	fail_loss;
+	fail_erroneous;
+  trans
+	state1 = nominal |- fail_loss -> state1 := lost;
+	(state1 = nominal) |- fail_erroneous -> state1 := erroneous;
+  assert
+	oCommand = if (state1 = lost) 
+			
+			then no_data
+else if (state1 = erroneous) and (iPower = power) 
+			
+			then erroneous_data
+else if (state1 = nominal) and (iPower = power) 
+			
+			then nominal_data
+
+else no_data;
+  extern
+	law <event fail_loss> = exponential(0.0000363) ;
+	law <event fail_erroneous> = exponential(0.00000427) ;
+edon
+
+node Backup_Computer
+  flow
+	iPower : PowerValues : in;
+	oCommand : Data : out;
+  state
+	state1 : Computer ;
+  init
+	state1 := nominal;
+  event
+	fail_loss;
+	fail_erroneous;
+  trans
+	state1 = nominal |- fail_loss -> state1 := lost;
+	(state1 = nominal) |- fail_erroneous -> state1 := erroneous;
+  assert
+	oCommand = if (state1 = lost) 
+			
+			then no_data
+else if (state1 = erroneous) and (iPower = power) 
+			
+			then erroneous_data
+else if (state1 = nominal) and (iPower = power) 
+			
+			then nominal_data
+
+else no_data;
+  extern
+	law <event fail_loss> = exponential(0.0000112) ;
+	law <event fail_erroneous> = exponential(5.27E-7) ;
+edon
+
+
+node Control_system
+  flow
+	System_output : Data : out;
+  sub
+	Engine_1 : Engine_1;
+	Power_Supply_1 : Power_Supply_1;
+	Main_Computer_1 : Main_Computer_1;
+	Voter : Voter;
+	Switch : Switch;
+	Engine_2 : Engine_2;
+	Engine_3 : Engine_3;
+	Power_Supply_2 : Power_Supply_2;
+	Power_Supply_3 : Power_Supply_3;
+	Power_Supply_4 : Power_Supply_4;
+	Main_Computer_2 : Main_Computer_2;
+	Main_Computer3 : Main_Computer3;
+	Backup_Computer : Backup_Computer;
+  assert
+	Main_Computer_1.iPower = Power_Supply_1.oPower;
+	Power_Supply_1.iMotion = Engine_1.oMotion;
+	Power_Supply_4.iMotion = Engine_3.oMotion;
+	Power_Supply_3.iMotion = Engine_2.oMotion;
+	Backup_Computer.iPower = Power_Supply_4.oPower;
+	Power_Supply_2.iMotion = Engine_2.oMotion;
+	Main_Computer_2.iPower = Power_Supply_2.oPower;
+	Main_Computer3.iPower = Power_Supply_3.oPower;
+	Switch.iBackUp_command = Backup_Computer.oCommand;
+	Voter.iCommand_3 = Main_Computer3.oCommand;
+	Voter.iCommand_2 = Main_Computer_2.oCommand;
+	Voter.iCommand_1 = Main_Computer_1.oCommand;
+	Switch.iMain_command = Voter.oChosen_command;
+	System_output = Switch.iChosen_command;
+  extern
+	predicate Loss_of_control = <term(System_output = no_data)>;
+	predicate Erroneous_control = <term(System_output = erroneous_data)>;
+edon
+
+r;
+	Switch : Switch;
+	Engine_2 : Engine_2;
+	Engine_3 : Engine_3;
+	Power_Supply_2 : Power_Supply_2;
+	Power_Supply_3 : Power_Supply_3;
+	Power_Supply_4 : Power_Supply_4;
+	Main_Computer_2 : Main_Computer_2;
+	Main_Computer3 : Main_Computer3;
+	Backup_Computer : Backup_Computer;
+  assert
+	Main_Computer_1.iPower = Power_Supply_1.oPower;
+	Power_Supply_1.iMotion = Engine_1.oMotion;
+	Power_Supply_4.iMotion = Engine_3.oMotion;
+	Power_Supply_3.iMotion = Engine_2.oMotion;
+	Backup_Computer.iPower = Power_Supply_4.oPower;
+	Power_Supply_2.iMotion = Engine_2.oMotion;
+	Main_Computer_2.iPower = Power_Supply_2.oPower;
+	Main_Computer3.iPower = Power_Supply_3.oPower;
+	Switch.iBackUp_command = Backup_Computer.oCommand;
+	Voter.iCommand_3 = Main_Computer3.oCommand;
+	Voter.iCommand_2 = Main_Computer_2.oCommand;
+	Voter.iCommand_1 = Main_Computer_1.oCommand;
+	Switch.iMain_command = Voter.oChosen_command;
+	System_output = Switch.iChosen_command;
+  extern
+	predicate Loss_of_control = <term(System_output = no_data)>;
+	predicate Erroneous_control = <term(System_output = erroneous_data)>;
+edon
+
+ata;
+  extern
+	law <event fail_loss> = exponential(0.0000112) ;
+	law <event fail_erroneous> = exponential(5.27E-7) ;
+edon
+
+
+node Control_system
+  flow
+	System_output : Data : out;
+  sub
+	Engine_1 : Engine_1;
+	Power_Supply_1 : Power_Supply_1;
+	Main_Computer_1 : Main_Computer_1;
+	Voter : Voter;
+	Switch : Switch;
+	Engine_2 : Engine_2;
+	Engine_3 : Engine_3;
+	Power_Supply_2 : Power_Supply_2;
+	Power_Supply_3 : Power_Supply_3;
+	Power_Supply_4 : Power_Supply_4;
+	Main_Computer_2 : Main_Computer_2;
+	Main_Computer3 : Main_Computer3;
+	Backup_Computer : Backup_Computer;
+  assert
+	Main_Computer_1.iPower = Power_Supply_1.oPower;
+	Power_Supply_1.iMotion = Engine_1.oMotion;
+	Power_Supply_4.iMotion = Engine_3.oMotion;
+	Power_Supply_3.iMotion = Engine_2.oMotion;
+	Backup_Computer.iPower = Power_Supply_4.oPower;
+	Power_Supply_2.iMotion = Engine_2.oMotion;
+	Main_Computer_2.iPower = Power_Supply_2.oPower;
+	Main_Computer3.iPower = Power_Supply_3.oPower;
+	Switch.iBackUp_command = Backup_Computer.oCommand;
+	Voter.iCommand_3 = Main_Computer3.oCommand;
+	Voter.iCommand_2 = Main_Computer_2.oCommand;
+	Voter.iCommand_1 = Main_Computer_1.oCommand;
+	Switch.iMain_command = Voter.oChosen_command;
+	System_output = Switch.iChosen_command;
+  extern
+	predicate Loss_of_control = <term(System_output = no_data)>;
+	predicate Erroneous_control = <term(System_output = erroneous_data)>;
+edon
+

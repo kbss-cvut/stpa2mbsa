@@ -1,0 +1,25 @@
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/test5_aida#>
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?scenarioName (GROUP_CONCAT(DISTINCT ?condition; separator=" and ") AS ?allConditions)
+WHERE {
+    ?occurrence a termit:výskyt-termu ;
+                termit:je-přiřazením-termu ?mbsaValueConcept ;
+                termit:scenarioID ?scenarioID_from_annotation .
+
+    ?mbsaValueConcept rdf:type mbsa_flat:Value ;
+                      rdfs:label ?valueConceptLabel .
+
+    BIND(REPLACE(?valueConceptLabel, "\\.([^.]+)$", "") AS ?componentPath)
+    BIND(REPLACE(?valueConceptLabel, "^.*\\.", "")    AS ?stateValue)
+    BIND(CONCAT("(", ?componentPath, " = ", ?stateValue, ")") AS ?condition)
+
+    ?stpaScenario a stpa:LossScenario .
+    BIND(REPLACE(STRAFTER(STR(?stpaScenario), STR(stpa:)), "_", ".") AS ?scenarioName)
+    FILTER(?scenarioName = ?scenarioID_from_annotation)
+}
+GROUP BY ?scenarioName
+ORDER BY ?scenarioName
