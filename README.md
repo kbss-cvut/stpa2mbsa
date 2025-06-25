@@ -106,7 +106,7 @@ If the user chooses to use TermIt, the following steps are performed:
 - The script will provide the path to a newly generated HTML file (i.e., loss-scenario_for_termit.html).
 - Import the document in the newly created vocabulary in TermIt.
 - Perform the annotation by linking textual phrases in the loss scenarios to the corresponding MBSA vocabulary terms.
-- Save the output of the annotation tool as annotated-loss-scenarios.html in the correct data/<dataset_name>/ directory.
+- Save the output of the annotation tool as annotated-loss-scenarios.html in the correct `data/<dataset_name>/` directory.
 
 ### Step 4: Observer Generation
 Once the `annotated-loss-scenarios.html` file is saved, the user can return to the terminal and press Enter to resume the pipeline. The script will then complete the final steps, including executing SPARQL queries to process the annotations and generating the final MBSA observers. All outputs will be placed in the `pipeline_output/` directory.
