@@ -1,4 +1,5 @@
 # STPA2MBSA
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15729580.svg)](https://doi.org/10.5281/zenodo.15729580)
 
 This repository contains the source code, scripts, and data for the methodology presented in the paper: **"MBSA Simulation of STPA Loss Scenarios: A Guideline based on Aircraft Safety Case"**.
   
