@@ -1,7 +1,7 @@
 # STPA2MBSA
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15729580.svg)](https://doi.org/10.5281/zenodo.15729580)
 
-This repository contains the source code, scripts, and data for the methodology presented in the paper: **"MBSA Simulation of STPA Loss Scenarios: A Guideline based on Aircraft Safety Case"**.
+This repository contains the source code, scripts, and data for the methodology presented in the paper: **"Achieving MBSA Simulation of STPA Loss Scenarios: An Integration Guideline for Aircraft Safety"**.
   
 The project provides an ontology-driven toolchain to formally bridge the gap between System-Theoretic Process Analysis (STPA) and Model-Based Safety Analysis (MBSA), enabling the automated generation of MBSA observers from STPA loss scenarios.  
 
