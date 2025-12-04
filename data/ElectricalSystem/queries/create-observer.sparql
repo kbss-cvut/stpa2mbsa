@@ -1,24 +1,32 @@
-PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
-PREFIX mbsa_flat: <http://fd.cvut.cz/chopamax/mbsa/test16_cessna_electrical_system#>
-PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX stpa: <http://www.fd.cvut.cz/chopamax/ontologies/stpa-mbsa#>
+PREFIX termit: <http://onto.fel.cvut.cz/ontologies/application/termit/pojem/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX mbsa: <http://fd.cvut.cz/chopamax/mbsa/test17_cessna_electrical_system#>
 
 SELECT ?scenarioName (GROUP_CONCAT(DISTINCT ?condition; separator=" and ") AS ?allConditions)
 WHERE {
+    # 1. Match the occurrence and link
     ?occurrence a termit:výskyt-termu ;
                 termit:je-přiřazením-termu ?mbsaValueConcept ;
                 termit:scenarioID ?scenarioID_from_annotation .
 
-    ?mbsaValueConcept rdf:type mbsa_flat:Value ;
-                      rdfs:label ?valueConceptLabel .
+    # 2. Get the label (Constraint relaxed: Removed rdf:type check)
+    ?mbsaValueConcept rdfs:label ?valueConceptLabel .
 
-    BIND(REPLACE(?valueConceptLabel, "\\.([^.]+)$", "") AS ?componentPath)
-    BIND(REPLACE(?valueConceptLabel, "^.*\\.", "")    AS ?stateValue)
+    # 3. String Manipulation
+    # We use STR() to safely handle literals with language tags (e.g., "Label"@en)
+    BIND(STR(?valueConceptLabel) AS ?labelStr)
+    BIND(REPLACE(?labelStr, "\\.([^.]+)$", "") AS ?componentPath)
+    BIND(REPLACE(?labelStr, "^.*\\.", "")     AS ?stateValue)
     BIND(CONCAT("(", ?componentPath, " = ", ?stateValue, ")") AS ?condition)
 
+    # 4. Match the Scenario and calculate the name
     ?stpaScenario a stpa:LossScenario .
     BIND(REPLACE(STRAFTER(STR(?stpaScenario), STR(stpa:)), "_", ".") AS ?scenarioName)
+
+    # 5. Filter to join the two parts
     FILTER(?scenarioName = ?scenarioID_from_annotation)
 }
 GROUP BY ?scenarioName
