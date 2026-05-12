@@ -23,8 +23,7 @@ The project provides an ontology-driven toolchain to formally bridge the gap bet
     │   ├── ElectricalSystem/  
     │   │   ├── loss-scenarios.ttl  
     │   │   └── Electrical_System_equipment.xlsx
-    │   └── ...  
-    ├── docs/                  # Supplementary documentation and data from the article  
+    │   └── ...
     ├── pipeline_output/       # Default directory for generated artifacts  
     │   ├── ElectricalSystem/  
     │   │   ├── equipment.ttl  
