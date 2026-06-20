@@ -1,5 +1,5 @@
 # STPA2MBSA
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15729580.svg)](https://doi.org/10.5281/zenodo.15729580)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.ress.2026.113022-blue.svg)](https://doi.org/10.1016/j.ress.2026.113022)
 
 This repository contains the source code, scripts, and data for the methodology presented in the article: **"Formalising System-Theoretic Loss Scenarios into Executable Behavioural Conditions for Model-Based Safety Analysis"**.
   
